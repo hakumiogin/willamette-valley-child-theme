@@ -1,0 +1,11 @@
+/**
+* Name your scss file to match the same as the slug
+* if your post_name is slug-name. your file would be
+* slug-name.scss
+*/
+
+body {
+  &.slug-name {
+    content: "";
+  }
+}

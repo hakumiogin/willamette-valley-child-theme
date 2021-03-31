@@ -1,0 +1,21 @@
+/*************************
+╔═╗┬ ┬┌┬┐┌─┐┌┐┌┌┐ ┌─┐┬─┐┌─┐┌─┐  ╦ ╦╔═╗  ╔╗ ┬  ┌─┐┌─┐┬┌─
+║ ╦│ │ │ ├┤ │││├┴┐├┤ ├┬┘│ ┬└─┐  ║║║╠═╝  ╠╩╗│  │ ││  ├┴┐
+╚═╝└─┘ ┴ └─┘┘└┘└─┘└─┘┴└─└─┘└─┘  ╚╩╝╩    ╚═╝┴─┘└─┘└─┘┴ ┴
+Add custom styles to wp-block* classes here
+to keep things tidy, we can follow the same convention as other modules
+*************************/
+// Utilities
+// removing for now
+//@import "partials/utilities";
+
+// Default Block Styles
+// @import "modules/wp-block/cover";
+// @import "modules/wp-block/button";
+// @import "modules/wp-block/columns";
+// @import "modules/wp-block/image";
+
+// Custom Blocks Styles
+// @import "components/icon-square";
+// @import "components/travel-tip-card";
+// @import "components/feature-category-card";

@@ -1,0 +1,69 @@
+/*********************
+AUTOMAGIC IMPORTS
+Webpack has been configured to automagically load our variables and mixins
+across all scss files while building the whole project. There is no longer the
+need to include these in your scss. Abracadabra Alakascssam!
+*********************/
+// @import "partials/variables";
+// @import "partials/mixins";
+
+/*********************
+IMPORTING PARTIALS
+These files are needed at the beginning so that we establish all
+that we'll be using across the whole project.
+*********************/
+
+// @import "partials/reset";
+// @import "partials/normalize";
+// @import "partials/colors";
+// @import "partials/typography";
+// @import "partials/utilities";
+
+/*********************
+IMPORTING MODULES
+Modules are reusable blocks or elements we use throughout the project.
+We can break them up as much as we want or just keep them all in one.
+I mean, you can do whatever you want. The world is your oyster. Unless
+you hate oysters, then the world is your peanut butter & jelly sandwich.
+*********************/
+
+// @import "modules/buttons";
+// @import "modules/icons";
+// @import "modules/forms";
+// @import "modules/footers";
+// @import "modules/headings";
+// @import "modules/navs";
+
+/*********************
+
+IMPORTING BREAKPOINTS
+Here's where we begin our responsive design magic! Notice how we utilize
+our screen mixins for responsive design. Start with base and use
+these mixins throughout your scss as needed
+*********************/
+
+// DESKTOPS
+@include screen-xl {
+  @import "breakpoints/xlarge";
+}
+
+// LAPTOPS
+@include screen-lg {
+  @import "breakpoints/large";
+}
+
+// TABLETS
+@include screen-md {
+  @import "breakpoints/medium";
+}
+
+// PHONES
+@include screen-sm {
+  @import "breakpoints/small";
+}
+
+// ALL YOUR BASE ARE BELONG TO US
+@import "breakpoints/base";
+
+// uncomment to help debug screen bleeding
+// @include debug-screen-bleeding;
