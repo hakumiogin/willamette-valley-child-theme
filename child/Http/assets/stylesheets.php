@@ -10,8 +10,6 @@ namespace Madden\Theme\Child\Http;
 */
 
 use function Madden\Theme\Child\config;
-use function Madden\Theme\App\asset_path;
-use function Madden\Theme\App\child_asset_path;
 
 /**
  * register_stylesheets
@@ -29,7 +27,7 @@ function register_stylesheets(){
   // STYLESHEETS 
   $stylesheets = [
     // BASE DIR IS CHILD_THEME/public
-    'willamette-valley' => 'css/app.css',                          // Main site/app
+    config('textdomain') => 'css/app.css',                          // Main site/app
     'gutenberg'          => 'css/gutenberg.css',                    // gutenberg blocks
   ];
   // END: STYLESHEETS 
@@ -41,8 +39,6 @@ function register_stylesheets(){
   // ADD SLUG SPECIFIC CSS 
   if( $slug )
     $stylesheets[$slug] = "css/{$slug}.css";
-	
-  //wp_enqueue_style('willamette', 'd/wp-content/themes/mm-willamettevalley-child-theme/public/css/app.css');
 
   // ENQUEUE ASSETS
   do_action( 'enqueue_assets', $stylesheets );
