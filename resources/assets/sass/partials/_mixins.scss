@@ -1,0 +1,225 @@
+// Small devices
+@mixin screen-sm {
+  @media only screen and (max-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+
+// Medium devices
+@mixin screen-md {
+  @media only screen
+    and (min-width: #{$screen-md-min})
+    and (max-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
+
+// Max Medium devices
+@mixin screen-max-lg {
+  @media only screen
+    and (max-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
+
+@mixin screen-min-lg {
+  @media only screen
+    and (min-width: calc(#{$screen-lg-min} + 1px)) {
+    @content;
+  }
+}
+
+// Large devices
+@mixin screen-lg {
+  @media only screen
+    and (min-width: #{$screen-lg-min})
+    and (max-width: #{$screen-xl-min}) {
+    @content;
+  }
+}
+
+// Extra large devices
+@mixin screen-xl {
+  @media only screen and (min-width: #{$screen-xl-min}) {
+    @content;
+  }
+}
+
+// Custom devices
+@mixin screen-px($screen) {
+  @media only screen and (max-width: $screen+"px") {
+    @content;
+  }
+}
+
+@mixin generate-bg-classes($color-map, $opacity) {
+  @each $name, $hex in $color-map {
+    .has-background-#{$name} {
+      background-color: rgba($hex, $opacity);
+    }
+  }
+}
+
+@mixin generate-cta-classes($color-map, $opacity) {
+  @each $name, $hex in $color-map {
+    .cta-#{$name} {
+      background-color: rgba($hex, $opacity);
+
+      .cta-button {
+        &:hover {
+          color: $hex;
+        }
+      }
+    }
+  }
+}
+
+@mixin sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+@mixin hero_background($fixed: true) {
+  background: {
+    size: cover;
+    repeat: no-repeat;
+
+    @if ($fixed) {
+      background-attachment: fixed;
+    }
+
+    position: center 12px;
+  }
+}
+
+// Customizable checkboxes:
+@mixin customCheckbox($border-color, $check-color) {
+  $input-size: 20px;
+  $guter: 2rem;
+  $border-size: 2px;
+  $border-size-check: 4px;
+
+  cursor: pointer;
+  position: relative;
+
+  & > input[type="checkbox"] {
+    clip-path: polygon(0 0);
+    opacity: 0;
+  }
+
+  span {
+    display: inline-block;
+    padding-left: $guter;
+    vertical-align: text-top;
+
+    &::before,
+    &::after {
+      transition: all 0.2s ease-in-out;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      width: $input-size;
+      height: $input-size;
+      border: $border-size solid $border-color;
+      position: absolute;
+      top: -3px;
+      left: 0;
+      transform: rotate(0deg) scale(1);
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 8px;
+      height: 18px;
+      border-width: 0 $border-size-check $border-size-check 0;
+      border-style: solid;
+      border-color: transparent $check-color $check-color transparent;
+      position: absolute;
+      top: -3px;
+      left: 0;
+      transform: rotate(180deg) scale(0);
+    }
+
+    &:hover::before {
+      border-color: darken($border-color, 20%);
+    }
+  }
+
+  & > input:checked + span {
+    &::before {
+      transform: rotate(40deg) scale(0);
+    }
+
+    &::after {
+      left: 8px;
+      transform: rotate(40deg) scale(1);
+    }
+  }
+}
+
+// adapted from https://jsfiddle.net/psullivan6/0eL3jezk/
+@mixin plusMinusAnimation($openSelector: ":hover", $size: 30px, $color: white) {
+  width: $size;
+  height: $size;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    background-color: $color;
+    transition: transform 0.25s ease-out;
+  }
+
+  /* Vertical line */
+  &::before {
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    margin-left: -2px;
+  }
+
+  /* horizontal line */
+  &::after {
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    margin-top: -2px;
+  }
+
+  &#{$openSelector} {
+    cursor: pointer;
+
+    &::before {
+      transform: rotate(90deg);
+    }
+
+    &::after {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+// HELPS TO DEBUG SCREEN BLEEDING
+@mixin debug-screen-bleeding {
+  * {
+    background: #000 !important;
+    color: #0f0 !important;
+    outline: solid #f00 1px !important;
+  }
+}
+
+// LEGACY
+@mixin horizontal-adventure-cards {
+  .adventure-list {
+    display: flex;
+  }
+}

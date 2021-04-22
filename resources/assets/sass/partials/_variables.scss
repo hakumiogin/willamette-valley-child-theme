@@ -1,0 +1,68 @@
+/******************************************************************
+Stylesheet: Variables
+
+Here is where we declare all our variables like colors, fonts,
+base values, and defaults. We want to make sure this file ONLY
+contains variables that way our files don't get all messy.
+No one likes a mess.
+FYI: THIS FILE HAS ITS DATA PREPENDED USING SASS-LOADER.
+******************************************************************/
+
+// Device Sizes
+// =================================================
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 576px;
+
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+
+// Tablets and small desktops
+$screen-lg-min: 1024px;
+
+// Large tablets and desktops
+$screen-xl-min: 1200px;
+
+// File locations
+// =================================================
+$theme-prefix: "mm-willametteValley-child-theme";
+$theme-assets-path: "wp-content/themes/#{$theme-prefix}/public/";
+$theme-img-path: $theme-assets-path + "images/";
+$IMAGES-PATH: "~/images/";
+
+
+$header-font: "GothamBold", sans-serif;
+
+$body-font: "GothamBook", sans-serif;
+
+$alt-header-font: "Buenard", serif;
+
+// All Site Colors
+// Helpful tool for naming colors
+// https://colornamer.robertcooper.me/
+// =================================================
+
+$peach: rgb(226, 157, 126);
+$orange: rgb(216, 125, 83);
+$lime: rgb(180, 188, 51);
+$green: rgb(104, 129, 59);
+$dark-green: rgb(100, 122, 57);
+$purple: rgb(106, 59, 93);
+$teal: rgb(0, 94, 98);
+$blue: rgb(162, 196, 209);
+$dark-blue: rgb(123, 172, 190);
+$tan: rgb(246, 243, 238);
+$dark-tan: rgb(233, 233, 222);
+$light-grey: rgb(218, 218, 218);
+$grey: rgb(97, 97, 97);
+$dark-gray: rgb(64, 64, 64);
+$white: rgb(255,255,255);
+$black: rgb(0,0,0);
+
+$transparent-orange: rgba(216, 125, 83, 0.75);
+$transparent-lime: rgba(180, 188, 51, 0.85);
+$transparent-green: rgba(104, 129, 59, .9);
+$transparent-purple: rgba(106, 59, 93, 0.9);
+$transparent-teal: rgba(0, 94, 98, 0.67);
+$less-transparent-teal: rgba(0, 94, 98, 0.8);
+$transparent-blue: rgba(123, 172, 190, 0.75);
+$transparent-white: rgba(255,255,255, 0.7);
