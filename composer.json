@@ -1,0 +1,13 @@
+{
+  "name": "maddenmedia/mm-willametteValley-child-theme",
+  "description": "Child theme boilerplate for Tonik Starter Theme based themes.",
+  "keywords": ["tonik", "child-theme", "gin", "wordpress", "wordpress-starter-theme", "wordpress-child-theme"],
+  "license": "MIT",
+  "type": "wordpress-theme",
+  "require": {
+    "php": ">=7.0"
+  },
+  "require-dev": {
+    "tonik/cli": "^2.0.0"
+  }
+}
