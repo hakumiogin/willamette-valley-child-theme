@@ -1,0 +1,87 @@
+/*********************
+  UTILITIES
+*********************/
+.xl-only {
+  display: none;
+}
+
+.lg-only {
+  display: none;
+}
+
+.md-only {
+  display: none;
+}
+
+body {
+  &.admin-bar {
+    .#{$theme-prefix}-header {
+      top: 0;
+    }
+  }
+}
+
+/*********************
+  TRAVEL TIPS BODY
+*********************/
+.travel_tip-template-default {
+  .wp-block-columns {
+    &.hero-columns {
+      overflow: hidden;
+      position: relative;
+    }
+  }
+
+  .wp-block-column {
+    &.hero-banner-column {
+      h1 {
+        font-size: 1.75em !important;
+      }
+    }
+
+    .wp-block-cover {
+      &.hero-cover {
+        width: 100vw;
+        box-sizing: border-box;
+        overflow: hidden;
+        background-size: cover;
+        background-position: center bottom;
+      }
+    }
+  }
+
+  .travel-tip-content {
+    width: 100%;
+    margin: 50px auto;
+
+    h4 {
+      font-size: 1em;
+    }
+
+    .wp-block-image {
+      width: 100%;
+      margin: 20px auto;
+    }
+  }
+}
+
+/*********************
+  STORYLINES BODY
+*********************/
+.storyline-template-default {
+  .content {
+    .wp-block-cover {
+      .wp-block-cover__inner-container {
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+/*********************
+  REVERSE A ROW FOR MOBILE
+*********************/
+.column-reverse {
+  display: flex;
+  flex-direction: column-reverse;
+}
