@@ -27,7 +27,7 @@ function register_stylesheets(){
   // STYLESHEETS 
   $stylesheets = [
     // BASE DIR IS CHILD_THEME/public
-    config('textdomain') => 'css/app.css',                          // Main site/app
+    'willamette-valley' => 'css/app.css',                          // Main site/app
     'gutenberg'          => 'css/gutenberg.css',                    // gutenberg blocks
   ];
   // END: STYLESHEETS 
