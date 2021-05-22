@@ -91,6 +91,12 @@ return [
         // ACTIONS
         'Setup/actions.php',
         'Setup/actions/enqueue_assets.php',
+		'Setup/registrations.php',
+
+		//BLOCK REGISTRATIONS
+		'Setup/blocks.php',
+		'Setup/styles.php',
+		'Setup/patterns.php',
 
         // FILTERS 
         // 'Setup/filters.php',
