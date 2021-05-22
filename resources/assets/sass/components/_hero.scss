@@ -1,0 +1,52 @@
+.hero {
+	background-position:top right;
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	height: 100vh;
+	z-index: -100;
+	position: relative;
+
+}
+.home .hero {
+	background-image: url(#{$IMAGES-PATH}home_wave.svg), url(#{$IMAGES-PATH}home_hero.jpg);
+	background-position: bottom left, top center;
+	background-repeat: no-repeat, no-repeat;
+	margin-top: -305px;
+	height: 115vh;
+	background-size: 100% 150px, cover;
+	@include screen-px(1000){
+		background-size: 100% 150px, auto 100%;
+		background-position: bottom left, top right 20%;
+	}
+	@include screen-md {
+		background-position: bottom center, top left 50%;
+		background-size: 150% 150px, cover;
+	}
+	@include screen-sm{
+		background-position: bottom center, top left 60%;
+		background-size: 150% 150px, cover;
+	}
+	img {
+		position: absolute;
+		top: 55%;
+		left: 10%;
+		transform: translateY(-50%);
+		height: 250px;
+		@include screen-px(1250){
+			height: 200px;
+			top: 50%;
+		}
+		filter: drop-shadow( 3px 2px 6px rgba($teal, .3));
+		@include screen-px(1000){
+			height: 175px;
+			top: 50%;
+		}
+		@include screen-px(800){
+			height: 150px;
+			top: 55%;
+		}
+		@include screen-sm {
+			display: none;
+		}
+	} 
+}

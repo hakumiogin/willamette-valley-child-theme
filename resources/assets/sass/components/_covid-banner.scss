@@ -1,0 +1,18 @@
+.covid-banner {
+	background-color: $peach !important;
+	color: $white;
+	text-align: center;
+	min-height: 50px;
+	padding: 10px;
+	font-size: 14px;
+	&__text {
+		display: inline-block;
+		margin-right: 20px;
+		text-transform: uppercase;
+	}
+}
+@include screen-sm {
+	.covid-banner {
+		display: none;
+	}
+}
