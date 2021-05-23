@@ -33,3 +33,14 @@ add_action('tonik/gin/autoloader/after_load', function () {
         (new Tonik\Gin\Foundation\Autoloader($theme->get('child.config')))->register();
     }
 });
+
+function custom_search_form( $form ) {
+	$form = '<form role="search" method="get" id="searchForm" class="searchform" action="' . home_url( '/' ) . '" >
+	  <label aria-label="search">
+	  <input type="text" name="s" id="searchInput" placeholder="search" /></label>
+	</form>';
+	return $form;
+  }
+  
+  add_filter( 'get_search_form', 'custom_search_form', 100 );
+  
