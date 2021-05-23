@@ -1,3 +1,5 @@
-/**
- * This file is enqueued on all front-facing pages
- */
+import { navigationInit } from "./navigation"
+import AOS from 'aos';
+
+navigationInit()
+AOS.init();

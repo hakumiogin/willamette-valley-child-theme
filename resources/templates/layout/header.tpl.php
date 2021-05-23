@@ -5,7 +5,7 @@
 		<div class="nav-bar__inner">
 			<div class="nav-bar__logo" data-aos="fade-down">
 				<a href="<?= home_url() ?>">
-					<img src="<?= $logo_src ?>" srcset="<?= $logo_src_2x ?> 2x" />
+					<img src="<?= $image_url ?>/logo@1.png" srcset="<?= $image_url ?>/logo@2.png 2x" />
 				</a>
 			</div>
 			<div class="nav-bar__right">
@@ -14,7 +14,7 @@
 					<a class="nav-bar__guide--news" href="news">News</a>
 					<div class="nav-bar__guide--search">
 						<?php get_search_form(); ?>
-						<a href="" id="searchToggle"><img class="" src="<?= $mag_icon ?>"></a>
+						<a href="" id="searchToggle"><img class="" src="<?= $image_url ?>/mag_glass.svg"></a>
 					</div>
 				</div>
 				<div class="nav-bar__search">
@@ -54,7 +54,7 @@
     -->
     <nav id="menu">
 		<a href="<?= home_url() ?>">
-			<img class="mobile-nav__logo" src="<?= $logo_src ?>" srcset="<?= $logo_src_2x ?>">
+			<img class="mobile-nav__logo" src="<?= $image_url ?>/logo@1.png" srcset="<?= $image_url ?>/logo@2.png">
 		</a>
 		<?php wp_nav_menu( array( 
 			'theme_location' => 'header-menu',
@@ -65,6 +65,10 @@
   </div>
 </nav>
 
-<div class="hero">
-	<img src="<?= $hero_img ?>">
+<div class="hero" style="background-image: <?= is_home() 
+	? "url($image_url/home_wave.svg) " : ""; ?>
+	url(<?= $hero ?>) ; ">
+	<div class="hero__container">
+		<?= $hero_overlay?>
+	</div>
 </div>

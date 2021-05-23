@@ -25,7 +25,7 @@ $screen-xl-min: 1200px;
 // File locations
 // =================================================
 $theme-prefix: "mm-willametteValley-child-theme";
-$theme-assets-path: "wp-content/themes/#{$theme-prefix}/public/";
+$theme-assets-path: "/wp-content/themes/#{$theme-prefix}/public/";
 $theme-img-path: $theme-assets-path + "images/";
 $IMAGES-PATH: "~/images/";
 
@@ -41,28 +41,38 @@ $alt-header-font: "Buenard", serif;
 // https://colornamer.robertcooper.me/
 // =================================================
 
-$peach: rgb(226, 157, 126);
-$orange: rgb(216, 125, 83);
-$lime: rgb(180, 188, 51);
-$green: rgb(104, 129, 59);
-$dark-green: rgb(100, 122, 57);
-$purple: rgb(106, 59, 93);
-$teal: rgb(0, 94, 98);
-$blue: rgb(162, 196, 209);
-$dark-blue: rgb(123, 172, 190);
-$tan: rgb(246, 243, 238);
-$dark-tan: rgb(233, 233, 222);
-$light-grey: rgb(218, 218, 218);
-$grey: rgb(97, 97, 97);
-$dark-gray: rgb(64, 64, 64);
-$white: rgb(255,255,255);
-$black: rgb(0,0,0);
+$peach: #e29d7e;
+$orange: #d87d53;
+$lime: #b4bc33;
+$dark-lime: #a7af2f;
+$green: #68813b;
+$dark-green: #647a39;
+$purple: #6a3b5d;
+$light-purple: #864c76;
+$light-teal: #046d70;
+$teal: #005e62;
+$dark-teal: #024d50;
+$blue: #a2c4d1;
+$dark-blue: #7bacbe;
+$tan: #f6f3ee;
+$dark-tan: #e9e9de;
+$light-grey: #dadada;
+$mid-grey: #b4b4b4;
+$grey: #616161;
+$dark-gray: #404040;
+$white: #ffffff;
+$black: #000000;
+$shadow: #000000;
 
 $transparent-orange: rgba(216, 125, 83, 0.75);
 $transparent-lime: rgba(180, 188, 51, 0.85);
 $transparent-green: rgba(104, 129, 59, .9);
+$very-transparent-green: rgba(104, 129, 59, .76);
 $transparent-purple: rgba(106, 59, 93, 0.9);
+$very-transparent-purple: rgba(106, 59, 93, .54);
 $transparent-teal: rgba(0, 94, 98, 0.67);
 $less-transparent-teal: rgba(0, 94, 98, 0.8);
 $transparent-blue: rgba(123, 172, 190, 0.75);
 $transparent-white: rgba(255,255,255, 0.7);
+
+$max-width: 1200px;

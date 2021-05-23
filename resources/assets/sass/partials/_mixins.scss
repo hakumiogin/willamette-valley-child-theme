@@ -7,13 +7,20 @@
 
 // Medium devices
 @mixin screen-md {
-  @media only screen
-    and (min-width: #{$screen-md-min})
-    and (max-width: #{$screen-lg-min}) {
-    @content;
-  }
+	@media only screen
+	  and (min-width: #{$screen-md-min})
+	  and (max-width: #{$screen-lg-min}) {
+	  @content;
+	}
 }
 
+@mixin screen-min-md {
+	@media only screen
+	  and (max-width: #{$screen-lg-min}) {
+	  @content;
+	}
+  }
+	
 // Max Medium devices
 @mixin screen-max-lg {
   @media only screen
