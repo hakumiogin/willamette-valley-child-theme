@@ -1,3 +1,16 @@
+/* Base Styles */
 body {
-	background-color: red;
+	overflow-x: hidden;
+	background: $white;
+}
+
+a:link, a:visited {
+	text-decoration: none;
+}
+.main-container {
+	width: $max-width;
+	max-width: 100%;
+	padding: 0px 20px;
+	margin: 0px auto;
+	background: red;
 }

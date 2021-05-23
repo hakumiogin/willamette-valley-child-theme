@@ -2,12 +2,44 @@
 	background-position:top right;
 	background-size: 100% auto;
 	background-repeat: no-repeat;
-	height: 100vh;
 	z-index: -100;
+	margin-bottom: 40px;
+}
+.page .hero {
+	margin-top: -88px;
+	height: 400px;
+	@include screen-px(800){
+		margin-top: -88px;
+		background-size: auto 100% ;
+	}
+	&__container {
+		height: 100%;
+		position: relative;
+		max-width: $max-width;
+		margin: 0px auto;
+	}
+	&__title {
+		position: absolute;
+		bottom: 20%;
+		right: 0;
+		transform: translate(-50%, -50%);
+		text-align: center;
+		margin-top: 100px;
+		font-family: $alt-header-font;
+		color: $white;
+		font-weight: 800;
+		font-size: 3.7em;
+		padding: 5px 25px;
+	}
+}
+.hero {
 	position: relative;
-
+	@include screen-px(1300){
+		background-size: auto 100%;
+	}
 }
 .home .hero {
+	height: 100vh;
 	background-image: url(#{$IMAGES-PATH}home_wave.svg), url(#{$IMAGES-PATH}home_hero.jpg);
 	background-position: bottom left, top center;
 	background-repeat: no-repeat, no-repeat;
