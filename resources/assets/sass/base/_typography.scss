@@ -1,6 +1,14 @@
 body {
 	font-family: $body-font;
+	font-size: 1em;
+	line-height: 1.2em;
+}
+p {
+	font-size: 1em;
+	line-height: 1.2em;
 }
 h1 {
 	font-family: $header-font;
+	font-size: 2em;
+	line-height: 1.2em;
 }

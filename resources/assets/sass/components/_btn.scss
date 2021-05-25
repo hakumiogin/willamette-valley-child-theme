@@ -38,3 +38,12 @@
 	border: none;
 	padding: 25px 20px 15px 20px;
 }
+
+.is-style-Two-Tone {
+	.has-purple-background-color {
+		background-color: $purple;
+	}
+	.has-lime-background-color {
+		background-color: $lime;
+	}
+}

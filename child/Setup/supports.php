@@ -36,6 +36,7 @@ function setup_supports() {
     add_theme_support( 'post-thumbnails' );
     add_theme_support( 'align-wide' );
     add_theme_support( 'core-block-patterns' );
+    add_theme_support( 'responsive-embeds' );
     add_theme_support( 'editor-color-palette', array(
         array(
             'name' => esc_attr__( 'peach', config('textdomain') ),
