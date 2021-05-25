@@ -14,8 +14,29 @@ function willamette_blocks_category($categories, $post) {
         )
     );
 }
+
 add_filter('block_categories', 'Madden\Theme\Setup\willamette_blocks_category', 10, 2);
 
+function willamette_block_register() {
+    // wp_register_script(
+    //     'willamette-image-box-editor-script', 
+    //     get_template_directory(). "/public/js/gutenberg.js",
+    //     array(
+    //         'wp-blocks',
+    //         'wp-i18n'
+    //     )
+    // );
 
+    register_block_type(
+        'willamette/image-box',
+        array(
+            'editor_script' => 'willamette-image-box-editor-script',
+            // 'script' => '',
+            // 'style' => '',
+            // 'editor_style' => '',
+        )
+    );
+}
+add_action('init', 'Madden\Theme\Setup\willamette_block_register');
 
 ?>

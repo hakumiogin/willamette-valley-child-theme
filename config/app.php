@@ -97,6 +97,7 @@ return [
 		'Setup/blocks.php',
 		'Setup/styles.php',
 		'Setup/patterns.php',
+        'Setup/variations.php',
 
         // FILTERS 
         // 'Setup/filters.php',

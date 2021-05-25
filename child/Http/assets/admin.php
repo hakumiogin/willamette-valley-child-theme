@@ -39,3 +39,11 @@ function register_editor_stylesheets(){
   add_editor_style( asset_uri( 'css/app.css' ) );
 }
 add_action('admin_init', __NAMESPACE__.'\register_editor_stylesheets');
+
+
+function blocks_enqueue_assets()
+{
+ 
+}
+
+add_action('enqueue_block_editor_assets', 'Madden\Theme\Child\Http\blocks_enqueue_assets');

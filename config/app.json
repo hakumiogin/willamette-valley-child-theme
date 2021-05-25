@@ -1,16 +1,16 @@
 {
   "entry": {
     "app": [
-			"~/js/app.js",
-			"~/scss/app.scss"
-		],
+		"~/js/app.js",
+		"~/scss/app.scss"
+	],
     "wp-admin" : [
-			"~/js/wp-admin.js",
-			"~/scss/wp-admin.scss"
-		],
+		"~/js/wp-admin.js",
+		"~/scss/wp-admin.scss"
+	],
     "gutenberg": [
-			"~/js/gutenberg/gutenberg.js",
-			"~/scss/gutenberg.scss"
-		]
+		"~/js/gutenberg/gutenberg.js",
+		"~/scss/gutenberg.scss"
+	]
   }
 }
