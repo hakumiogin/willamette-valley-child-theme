@@ -25,6 +25,8 @@ if ($featured_image){
 	$hero = $featured_image;
 } else if (is_home()){
 	$hero = "/wp-content/themes/mm-willametteValley-child-theme/public/images/home_hero.jpg";
+} else {
+	$hero = "/wp-content/themes/mm-willametteValley-child-theme/public/images/home_hero.jpg";
 }
 $home_hero_img = "";
 if (is_home()){
