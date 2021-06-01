@@ -5,7 +5,7 @@ export let navigationInit = () => {
 		//set the main navigation links width so bolding on hover doesn't cause elements to adjust
 		els = document.querySelectorAll(".nav-bar ul.menu > li").forEach((el) => {
 			let width = el.clientWidth
-			el.style.width = (width + 9).toString() + "px"
+			el.style.width = (width + 12).toString() + "px"
 		});
 		// next, we recalculate widths on window resize so the text doesn't overflow
 		//Is this overkill? Yes.

@@ -43,6 +43,7 @@
 	background-repeat: no-repeat, no-repeat;
 	margin-top: -305px;
 	height: 115vh;
+	min-height: 1000px;
 	background-size: 100% 150px, cover;
 	@include screen-px(1000){
 		background-size: 100% 150px, auto 100%;

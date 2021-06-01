@@ -1,0 +1,45 @@
+$colors: (
+	peach: #e29d7e,
+	orange: #d87d53,
+	lime: #b4bc33,
+	dark-lime: #a7af2f,
+	green: #68813b,
+	dark-green: #647a39,
+	purple: #6a3b5d,
+	light-purple: #864c76,
+	light-teal: #046d70,
+	teal: #005e62,
+	dark-teal: #024d50,
+	blue: #a2c4d1,
+	dark-blue: #7bacbe,
+	tan: #f6f3ee,
+	dark-tan: #e9e9de,
+	light-grey: #dadada,
+	mid-grey: #b4b4b4,
+	grey: #616161,
+	dark-gray: #404040,
+	white: #ffffff,
+	black: #000000,
+	shadow: #000000,
+	transparent-orange: rgba(216, 125, 83, 0.75),
+	transparent-lime: rgba(180, 188, 51, 0.85),
+	transparent-green: rgba(104, 129, 59, .9),
+	very-transparent-green: rgba(104, 129, 59, .76),
+	transparent-purple: rgba(106, 59, 93, 0.9),
+	very-transparent-purple: rgba(106, 59, 93, .54),
+	transparent-teal: rgba(0, 94, 98, 0.67),
+	less-transparent-teal: rgba(0, 94, 98, 0.8),
+	transparent-blue: rgba(123, 172, 190, 0.75),
+	transparent-white: rgba(255,255,255, 0.7),
+);
+
+@each $name, $color in $colors {
+
+  .has-#{$name}-color {
+    color: $color;
+  }
+
+  .has-#{$name}-background-color {
+    background-color: $color;
+  }
+}

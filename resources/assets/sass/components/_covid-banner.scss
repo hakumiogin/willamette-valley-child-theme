@@ -9,10 +9,26 @@
 		display: inline-block;
 		margin-right: 20px;
 		text-transform: uppercase;
+		color: $white;
 	}
 }
 @include screen-sm {
 	.covid-banner {
 		display: none;
 	}
+}
+
+.is-style-leaf {
+	display: inline-block;
+	position: relative;
+	&::after {  
+		content: '';
+		position: absolute;
+		bottom: 0; right: 0;
+		bottom: 0; left: 0;	  
+		background: url(#{$IMAGES-PATH}/leaf.svg) no-repeat bottom left;
+	}
+}
+.is-style-acorn {
+
 }

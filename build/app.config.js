@@ -76,7 +76,7 @@ module.exports = merge(
 		 * @type {Object}
 		 */
     externals: {
-      //jquery: 'jQuery',
+      "jquery": 'jQuery',
       "react": "React",
       "react-dom": "ReactDOM"
     },
