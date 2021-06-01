@@ -47,7 +47,4 @@ register_block_pattern(
         'content'     => '<!-- wp:group {"align":"full","className":"pattern-bg"} --><div class="wp-block-group alignfull pattern-bg"><div class="wp-block-group__inner-container"><!-- wp:group {"className":"notfullwidth"} --><div class="wp-block-group notfullwidth"><div class="wp-block-group__inner-container"><!-- wp:heading {"textAlign":"center","level":3} --><h3 class="has-text-align-center">Recommended Reads</h3><!-- /wp:heading --></div></div><!-- /wp:group --></div></div><!-- /wp:group -->',
 		'category'    => 'madden',
 		)
-); 
-
-?>
-
+);
