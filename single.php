@@ -9,7 +9,7 @@ use function Madden\Theme\Child\template;
  *
  * @see resources/templates/layout/head.tpl.php
  */
-template('layout/single');
+template('single');
 
 template('layout/footer');
 ?>
