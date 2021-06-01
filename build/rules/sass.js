@@ -25,7 +25,7 @@ module.exports = {
       // },
     },
     {
-      loader: "css-loader",
+      loader: "css-loader?url=false",
       options: {
         sourceMap: isdev,
         importLoaders: 1 
@@ -45,7 +45,7 @@ module.exports = {
       }
     },
     {
-      loader: "sass-loader",
+      loader: "sass-loader?url=false",
       options: {
         sourceMap: isdev,
         data: prependData()

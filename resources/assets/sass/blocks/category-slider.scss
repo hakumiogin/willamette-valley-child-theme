@@ -1,0 +1,56 @@
+.category-slider {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	@include screen-px(875){
+	}
+	&__item {
+		width: 23%;
+		margin: 15px 0px;
+		@include screen-px(875){
+			width: 46%;
+		}	
+		@include screen-px(600){
+			width: 95%;
+		}	
+		display: flex;
+		flex-direction: column;
+		&__image {
+			img {
+				width: 94%;
+				height: auto;
+			}
+			z-index: 10;
+			text-align: center;
+			display: block;
+			font-weight: 800;
+		}
+		&__title {
+			height: 100%;
+			position: relative;
+			padding: 10px 20px 10px;
+			margin-top: -20px;
+			z-index: 100000;
+			text-align: center;
+			a:link, a:visited{
+				font-family: $alt-header-font;
+				font-weight:1000;
+				font-size: 1.19em;
+				line-height: 1.1;
+				color: $white;
+			}
+		}
+		&:nth-child(1) > &__title{
+			background-color: $purple;
+		}
+		&:nth-child(2) > &__title{
+			background-color: $teal;
+		}
+		&:nth-child(3) > &__title{
+			background-color: $lime;
+		}
+		&:nth-child(4) > &__title{
+			background-color: $green;
+		}
+	}
+}

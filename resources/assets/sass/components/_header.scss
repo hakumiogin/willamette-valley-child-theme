@@ -1,3 +1,4 @@
+
 .nav-bar {
 	z-index: 1000;
 	display: block;
@@ -122,13 +123,13 @@
 		}
 		a:hover, a:focus{
 			font-family: $header-font;
-			text-shadow: 0 0 0.04px black;
 		}
 		li {
 			position: relative;
 			backface-visibility: hidden;
 			&:hover {
 				font-family: $header-font;
+				color: $teal;
 			}
 			&:hover > ul {
 				max-height: 500px;
@@ -153,7 +154,6 @@
 			overflow: hidden;
 			transition: opacity .9s;
 			opacity: 0;
-			color: transparent;
 			position: absolute;
 			top: 1em;
 			z-index: 99999;
@@ -164,6 +164,7 @@
 				padding: 0px;
 				background: $transparent-lime;
 				a:link, a:visited {
+					z-index: 10000;
 					padding: 20px 20px 10px 20px;
 				}
 				a:hover, a:active {
@@ -240,7 +241,7 @@
    }
    a {
 	text-decoration: none;
-	color: $teal;
+	color: $teal !important;
 	transition: color 0.3s ease;
 	&:hover {
 		color: $lime;

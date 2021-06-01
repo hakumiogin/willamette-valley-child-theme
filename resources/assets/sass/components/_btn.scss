@@ -40,10 +40,26 @@
 }
 
 .is-style-Two-Tone {
+	a {
+		border-radius: 0px;
+		padding: 17px 25px 8px;
+		text-transform: uppercase;
+		font-family: $body-font;
+		letter-spacing: 5px;
+		font-size: 1em;
+	}
+	a:link, a:visited{
+		color: $white;
+	}
+	position: relative;
 	.has-purple-background-color {
-		background-color: $purple;
+		box-shadow: 8px 8px $lime;
+		a:hover {
+			box-shadow: 8px 8px $purple;
+		}
 	}
 	.has-lime-background-color {
-		background-color: $lime;
+		box-shadow: 8px 8px $purple;
 	}
+	box-shadow: 8px 8px $purple;
 }

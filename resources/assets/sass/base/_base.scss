@@ -11,6 +11,18 @@ a:link, a:visited {
 	width: $max-width;
 	max-width: 100%;
 	padding: 0px 20px;
-	margin: 0px auto;
-	background: red;
+	margin: 20px auto;
+	position: relative;
+}
+
+h3 {
+	font-size: 2em;
+	font-family: $alt-header-font;
+	font-weight: 800;
+	color: $teal;
+	margin-bottom: 25px;
+}
+
+p {
+	color: $grey;
 }
