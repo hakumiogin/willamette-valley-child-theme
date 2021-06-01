@@ -1,5 +1,6 @@
+/* global wp */
 import { Component } from "@wordpress/element"
-import { BlockEditor } from "@wordpress/editor"
+//import { BlockEditor } from "@wordpress/editor"
 const el = wp.element.createElement
 
 class ImageBoxEdit extends Component {
@@ -11,6 +12,5 @@ class ImageBoxEdit extends Component {
 		)
 	}
 }
-
 
 export default ImageBoxEdit
