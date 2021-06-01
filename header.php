@@ -46,12 +46,12 @@ template('layout/covid-banner', [
 	'text' => 'Covid-19 updates and travel alerts',
 	'btn_text' => 'More Info'
 ]);
+$page_title = get_post_type() === "post" ? "News" : get_the_title();
 template('layout/header', [
-	'page_title' => is_single() ? "News" : get_the_title(),
 	'image_url' => get_stylesheet_directory_uri()."/public/images/",
 	'hero' => $hero,
 	'title_color' => $title_color,
 	'home_hero_img' => $home_hero_img,
 	'hero_overlay' => is_home() ? "<img src=".get_stylesheet_directory_uri()."/public/images/adventure_ahead.svg alt='Adventure lies ahead' />"
-		: "<h1 class='hero__title' style='background-color: ".$title_color."'>".get_the_title()."</h1>",
+		: "<h1 class='hero__title' style='background-color: ".$title_color."'>".$page_title."</h1>",
 ]);
