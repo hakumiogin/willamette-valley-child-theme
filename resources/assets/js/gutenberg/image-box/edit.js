@@ -1,4 +1,4 @@
-/* global wp */
+/* eslint-disable */
 import { Component } from "@wordpress/element"
 //import { BlockEditor } from "@wordpress/editor"
 const el = wp.element.createElement
