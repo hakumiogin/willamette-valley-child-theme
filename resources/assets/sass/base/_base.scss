@@ -6,7 +6,9 @@ body {
 
 a:link, a:visited {
 	text-decoration: none;
+	color: $orange;
 }
+
 .main-container {
 	width: $max-width;
 	max-width: 100%;
