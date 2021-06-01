@@ -109,7 +109,8 @@ a img.aligncenter {
 	color: $teal;
 	font-weight: 800;
 	font-size: 2.2em;
-	margin-bottom: 30px;
+	margin-bottom: 40px;
+	margin-top: 60px;
 }
 .site-main > p {
 	width: 800px;
@@ -119,10 +120,14 @@ a img.aligncenter {
 }
 .narrow-columns {
 	justify-content: center;
+	text-align: center;
 	.wp-block-column{
 		flex-basis: 15%;
 		flex-grow: 0;
 		@include screen-px(700){
+			img {
+				max-width: 40%;
+			}
 		}
 	}
 }
