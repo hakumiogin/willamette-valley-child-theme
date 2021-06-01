@@ -11,7 +11,6 @@
 		"wp-scripts-build": "wp-scripts build --config ./build/webpack.config.js"
 	},
 	"dependencies": {
-		"4": "^0.0.0",
 		"@wordpress/blocks": "^7.0.6",
 		"@wordpress/components": "^12.0.8",
 		"@wordpress/scripts": "^13.0.3",
@@ -44,6 +43,7 @@
 		"eslint-plugin-node": "^11.1.0",
 		"eslint-plugin-promise": "^4.2.1",
 		"eslint-plugin-standard": "^4.0.1",
+		"mini-css-extract-plugin": "^1.6.0",
 		"postcss-loader": "^3.0.0",
 		"puppeteer": "2",
 		"react": "16.14.0",
