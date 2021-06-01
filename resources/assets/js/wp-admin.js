@@ -1,4 +1,2 @@
-/**
- * This file will be enqueued on all admin pages.
- */
+/* eslint-disable */
 import "./gutenberg/gutenberg"
