@@ -1,0 +1,146 @@
+.wp-block-columns {
+	margin: 15px 0px;
+	img {
+		height: auto;
+	}
+	align-items: center;
+
+}
+.wp-block-column {
+	padding: 0px 10px;
+}
+
+.alignfull {
+	margin: 32px calc(50% - 50vw);
+	max-width: 100vw;
+	width: 100vw;
+	height: auto;
+}
+
+.alignwide {
+	margin: 32px calc(25% - 25vw);
+	max-width: 100vw;
+	width: 100vw;
+}
+@media (max-width: 920px) {
+	.alignwide {
+		margin: 32px calc( ( 767px - 920px ) / 2 );
+		max-width: 920px;
+		width: 920px;
+	}
+}
+
+.alignnone {
+	text-align: left;
+}
+.aligncenter,
+div.aligncenter {
+    display: block;
+    margin: 5px auto 5px auto;
+}
+
+.alignright {
+    float:right;
+    margin: 5px 0 20px 20px;
+}
+
+.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+
+a img.alignright {
+    float: right;
+    margin: 5px 0 20px 20px;
+}
+
+a img.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+a img.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+
+a img.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wp-caption {
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    max-width: 96%; /* Image does not overflow the content area */
+    padding: 5px 3px 10px;
+    text-align: center;
+}
+
+.wp-caption.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignleft {
+    margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignright {
+    margin: 5px 0 20px 20px;
+}
+
+.wp-caption img {
+    border: 0 none;
+    height: auto;
+    margin: 0;
+    max-width: 98.5%;
+    padding: 0;
+    width: auto;
+}
+
+.wp-caption p.wp-caption-text {
+    font-size: 11px;
+    line-height: 17px;
+    margin: 0;
+    padding: 0 4px 5px;
+}
+.site-main > h1, .site-main > h2, .site-main > h3, .site-main > h4 {
+	font-family: $alt-header-font;
+	color: $teal;
+	font-weight: 800;
+	font-size: 2.2em;
+	margin-bottom: 30px;
+}
+.site-main > p {
+	width: 800px;
+	margin: 10px auto;
+	max-width: 90%;
+
+}
+.narrow-columns {
+	justify-content: center;
+	.wp-block-column{
+		flex-basis: 15%;
+		flex-grow: 0;
+		@include screen-px(700){
+		}
+	}
+}
+.pattern-bg {
+	background: url(#{$IMAGES-PATH}/light-pattern.png);
+	background-size: 50%;
+	padding-top: 20px;
+}
+.notfullwidth {
+	width: 1200px;
+	margin: 0px auto;
+	max-width: 95%;
+}
+.plain-links {
+	a:link, a:visited {
+		color: $grey;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		
+	}
+}

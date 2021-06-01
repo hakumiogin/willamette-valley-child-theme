@@ -39,4 +39,18 @@ function willamette_block_register() {
 }
 add_action('init', 'Madden\Theme\Setup\willamette_block_register');
 
+add_action('acf/init', 'Madden\Theme\Setup\willamette_acf_block_register');
+function willamette_acf_block_register() {
+	if( function_exists('acf_register_block') ) {
+		acf_register_block(array(
+			'name'				=> 'category-slider',
+			'title'				=> __('Madden Category Slider'),
+			'description'		=> __('Madden Category Slider.'),
+			'render_callback'	=> 'willamette_acf_block_render_callback',
+			'category'			=> 'madden',
+			'icon'				=> 'admin-comments',
+			'keywords'			=> array( 'category', 'slider' ),
+		));
+	}
+}
 ?>
