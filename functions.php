@@ -15,6 +15,8 @@
 
 // Require Composer's autoloading file
 // if it's present in theme directory.
+use function Madden\Theme\Child\template;
+
 if (file_exists($composer = __DIR__ . '/vendor/autoload.php')) {
     require $composer;
 }
@@ -44,3 +46,10 @@ function custom_search_form( $form ) {
   
   add_filter( 'get_search_form', 'custom_search_form', 100 );
   
+  function willamette_acf_block_render_callback($block){
+    $slug = str_replace('acf/', '', $block['name']);
+    template("/blocks/".$slug, array(
+        "category" => $block,
+      )
+    );
+}
