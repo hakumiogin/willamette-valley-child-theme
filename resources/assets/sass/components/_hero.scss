@@ -10,7 +10,7 @@
 	}
 
 }
-.page .hero {
+.page .hero, .single-post .hero {
 	margin-top: -88px;
 	height: 400px;
 	@include screen-px(800){
