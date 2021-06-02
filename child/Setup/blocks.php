@@ -2,6 +2,9 @@
 namespace Madden\Theme\Setup;
 use function Madden\Theme\App\config;
 
+define( 'THEME_PREFIX', config('textdomain') );
+
+
 function willamette_blocks_category($categories, $post) {
     return array_merge(
         $categories,
