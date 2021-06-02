@@ -20,4 +20,5 @@ module.exports = {
     "rules": {
         indent: [ "warn", "tab"]
     },
+    "parser": "babel-eslint",
 };
