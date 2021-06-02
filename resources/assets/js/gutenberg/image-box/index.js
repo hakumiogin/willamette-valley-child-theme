@@ -1,29 +1,74 @@
-/* eslint-disable */
-import { registerBlockType } from "@wordpress/blocks"
-import { __ } from "@wordpress/i18n"
-import "./style.editor.scss"
-import { Icon } from '@wordpress/components';
-import edit from './edit'
+import "./style.editor.scss";
+import { registerBlockType } from "@wordpress/blocks";
+import { __ } from "@wordpress/i18n";
+import edit from "./edit";
+import { InnerBlocks } from "@wordpress/block-editor";
+import { Dashicon } from "@wordpress/components";
 
 const attributes = {
 	color: {
-		type: "string"
-	}
-}
-
-registerBlockType('willamette/image-box', {
-	title: __('Madden Image Box', 'mm-willametteValley-child-theme'),
-	description: __('Madden block for showing images and content beneath them', 'mm-willametteValley-child-theme'),
-	icon: <Icon icon="screenoptions" />,
-	category: "madden",
-	keywords: __("madden", 'mm-willametteValley-child-theme'),
-
-	attributes,
-
-	save: () => {
-		return null
+		type: "string",
+		default: "purple"
 	},
+    id: {
+        type: "number"
+    },
+    alt: {
+        type: "string",
+        source: "attribute",
+        selector: "img",
+        attribute: "alt",
+        default: ""
+    },
+    url: {
+        type: "string",
+        source: "attribute",
+        selector: "img",
+        attribute: "src"
+    },
+};
 
-	edit: edit
+registerBlockType("willamette-blocks/image-box", {
+    title: __("Image Box", "willamette-blocks"),
 
-})
+    description: __(" Block showing a Image and a colored banner beneath. ", "willamette-blocks"),
+
+    icon: "admin-users",
+
+    supports: {
+        reusable: false,
+        html: false
+    },
+
+    category: "madden",
+
+    keywords: [
+        __("madden", "willamette-blocks"),
+        __("image", "willamette-blocks")
+   ],
+
+   supports: {
+	   align: true
+   },
+    attributes,
+
+    save: ({ attributes }) => {
+        const { info, url, alt, id } = attributes;
+        return (
+            <div>
+                {url && (
+                    <img
+                        src={url}
+                        alt={alt}
+                        className={id ? `wp-image-${id}` : null}
+                    />
+                )}
+				<div className="wp-block-willamette-blocks-image-box__content">
+					<InnerBlocks.Content />
+				</div>
+            </div>
+        );
+    },
+
+    edit
+});

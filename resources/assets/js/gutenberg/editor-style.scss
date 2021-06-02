@@ -7,9 +7,6 @@
 	margin-bottom: 0px;
 }
 .wp-admin {
-	h1, h2, h3, h4, h5, h6 {
-		color: $teal !important;
-	}
 	.is-style-Highlighted {
 		background: $purple !important;
 		color: $white !important;
@@ -51,4 +48,78 @@ h1.is-style-Highlighted, h2.is-style-Highlighted, h3.is-style-Highlighted, h4.is
 	color: $white;
 	display: inline-block;
 	padding-left: 100px;
+}
+
+.wp-block-willamette-blocks-image-box{
+	position: relative;
+	img {
+		max-width: 100%;
+		height: auto;
+		width: auto;
+	}
+	h1, h2, h3, h4, h5, h6 {
+		font-family: $alt-header-font;
+		font-size: 2.2em;
+		font-weight: 800;
+	}
+	&__content {	
+		position: absolute;
+	}
+	.wp-block-group {
+		padding: 20px;
+	}
+	.has-purple-background-color {
+		background-color: $transparent-purple;
+	}
+	.has-teal-background-color {
+		background-color: $transparent-teal;
+	}
+	.has-lime-background-color {
+		background-color: $transparent-lime;
+	}
+	.has-green-background-color {
+		background-color: $transparent-green;
+	}
+	.has-orange-background-color {
+		background-color: $transparent-orange;
+	}
+	.is-style-overhang-middle &__content{
+		width: 85%;
+		bottom: -2px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+	.is-style-overhang-left  &__content{
+		width: calc(100% + 20px);
+		bottom: 10px;
+		left: -20px;
+	}
+	.is-style-overhang-right  &__content{
+		width: calc(100% + 20px);
+		bottom: 10px;
+		right: -20px;
+	}
+	.is-style-no-overhang  &__content{
+		width: 100%;
+		bottom: 10px;
+	}
+	.is-style-full-width-center  &__content{
+		top: 50%;
+		transform: translateY(-50%);
+		width: 100%;
+	}
+	.is-style-align-full  &__content{
+
+	}
+	.is-style-align-wide  &__content{
+
+	}
+
+}
+.wp-admin {
+	.wp-block-willamette-blocks-image-box{
+		&__content {
+			position: relative;
+		}
+	}
 }
