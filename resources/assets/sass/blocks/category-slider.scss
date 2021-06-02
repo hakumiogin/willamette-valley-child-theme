@@ -2,8 +2,6 @@
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
-	@include screen-px(875){
-	}
 	&__item {
 		width: 23%;
 		margin: 15px 0px;
