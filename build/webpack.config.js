@@ -124,7 +124,6 @@ module.exports = {
 
   watch: isDev && !isPlatform,
   watchOptions: {
-      poll: true,
       ignored: /node_modules/
       },
 
