@@ -37,7 +37,8 @@ registerBlockType("willamette-blocks/image-box", {
 
     supports: {
         reusable: false,
-        html: false
+        html: false,
+		align: true
     },
 
     category: "madden",
@@ -47,10 +48,7 @@ registerBlockType("willamette-blocks/image-box", {
         __("image", "willamette-blocks")
    ],
 
-   supports: {
-	   align: true
-   },
-    attributes,
+   attributes,
 
     save: ({ attributes }) => {
         const { info, url, alt, id } = attributes;
