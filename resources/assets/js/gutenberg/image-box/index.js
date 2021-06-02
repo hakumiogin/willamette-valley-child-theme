@@ -1,9 +1,10 @@
+/* eslint-disable */
 import "./style.editor.scss";
 import { registerBlockType } from "@wordpress/blocks";
 import { __ } from "@wordpress/i18n";
 import edit from "./edit";
 import { InnerBlocks } from "@wordpress/block-editor";
-import { Dashicon } from "@wordpress/components";
+//import { Dashicon } from "@wordpress/components";
 
 const attributes = {
 	color: {
@@ -51,7 +52,7 @@ registerBlockType("willamette-blocks/image-box", {
    attributes,
 
     save: ({ attributes }) => {
-        const { info, url, alt, id } = attributes;
+        const { url, alt, id } = attributes;
         return (
             <div>
                 {url && (

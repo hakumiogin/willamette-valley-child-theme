@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { Component } from "@wordpress/element";
 import {
 	useBlockProps,
@@ -48,12 +49,6 @@ class ImageBoxEdit extends Component {
             });
         }
     }
-    onChangeTitle = title => {
-        this.props.setAttributes({ title });
-    };
-    onChangeInfo = info => {
-        this.props.setAttributes({ info });
-    };
     onSelectImage = ({ id, url, alt }) => {
         this.props.setAttributes({
             id,
@@ -149,7 +144,7 @@ class ImageBoxEdit extends Component {
     render() {
         //console.log(this.props);
         const { className, attributes, noticeUI, isSelected } = this.props;
-        const { title, info, url, alt, id, social } = attributes;
+        const { url, alt, id, social } = attributes;
 
         return (
             <>
