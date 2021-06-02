@@ -46,37 +46,37 @@ class ImageBoxEdit extends Component {
             });
         }
     }
-    onSelectImage({ id, url, alt }) {
+    onSelectImage = ({ id, url, alt }) => {
         this.props.setAttributes({
             id,
             url,
             alt
         });
     };
-    onSelectURL(url) {
+    onSelectURL = url => {
         this.props.setAttributes({
             url,
             id: null,
             alt: ""
         });
     };
-    onUploadError(message){
+    onUploadError = message => {
         const { noticeOperations } = this.props;
         noticeOperations.createErrorNotice(message);
     };
-    removeImage() {
+    removeImage = () => {
         this.props.setAttributes({
             id: null,
             url: "",
             alt: ""
         });
     };
-    updateAlt(alt) {
+    updateAlt = alt => {
         this.props.setAttributes({
             alt
         });
     };
-    onImageSizeChange(url){
+    onImageSizeChange = url => {
         this.props.setAttributes({
             url
         });
@@ -98,7 +98,7 @@ class ImageBoxEdit extends Component {
         }
         return options;
     }
-    addNewLink(){
+    addNewLink = () => {
         const { setAttributes, attributes } = this.props;
         const { social } = attributes;
         setAttributes({
@@ -108,19 +108,19 @@ class ImageBoxEdit extends Component {
             selectedLink: social.length
         });
     };
-    updateSocialItem(type, value){
+    updateSocialItem = (type, value) => {
         const { setAttributes, attributes } = this.props;
         const { social } = attributes;
-        const { selectedLink } = this.thestate;
+        const { selectedLink } = this.state;
         let new_social = [...social];
         new_social[selectedLink][type] = value;
         setAttributes({ social: new_social });
     };
-    removeLink(e){
+    removeLink = e => {
         e.preventDefault();
         const { setAttributes, attributes } = this.props;
         const { social } = attributes;
-        const { selectedLink } = this.thestate;
+        const { selectedLink } = this.state;
         setAttributes({
             social: [
                 ...social.slice(0, selectedLink),
@@ -131,15 +131,14 @@ class ImageBoxEdit extends Component {
             selectedLink: null
         });
     };
-    onSortEnd(oldIndex, newIndex) {
+    onSortEnd = (oldIndex, newIndex) => {
         const { setAttributes, attributes } = this.props;
         const { social } = attributes;
         let new_social = arrayMove(social, oldIndex, newIndex);
         setAttributes({ social: new_social });
         this.setState({ selectedLink: null });
     };
-	
-	thestate = {
+	state = {
         selectedLink: null
     }
     render() {
@@ -225,7 +224,7 @@ class ImageBoxEdit extends Component {
                             notices={noticeUI}
                         />
                     )}
-                    {this.thestate.selectedLink !== null && (
+                    {this.state.selectedLink !== null && (
                         <div
                             className={
                                 "wp-block-willamette-blocks-image-box__linkForm"
@@ -233,7 +232,7 @@ class ImageBoxEdit extends Component {
                         >
                             <TextControl
                                 label={__("Icon", "willamette-blocks")}
-                                value={social[this.thestate.selectedLink].icon}
+                                value={social[this.state.selectedLink].icon}
                                 onChange={icon =>
                                     this.updateSocialItem("icon", icon)
                                 }
