@@ -39,26 +39,26 @@ wp.domReady( () => {
 			label: 'acorn overlay',
 		},
 	]);
-	wp.blocks.registerBlockStyle( 'willamette/image-box', [ 
+	wp.blocks.registerBlockStyle( 'willamette-blocks/image-box', [ 
 		{
-			name: 'overhang middle',
-			label: 'overang-middle',
+			name: 'overhang-middle',
+			label: 'overhang-middle',
 			isDefault: true,
 		},
 		{
-			name: 'overhang left',
+			name: 'overhang-left',
 			label: 'overhang-left',
 		},
 		{
-			name: 'overhang right',
+			name: 'overhang-right',
 			label: 'overhang-right',
 		},
 		{
-			name: 'no overhang',
+			name: 'no-overhang',
 			label: 'no-overhang',
 		},
 		{
-			name: 'full width center',
+			name: 'full-width-center',
 			label: 'full-width-center',
 		},
 	]);
