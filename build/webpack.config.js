@@ -124,8 +124,9 @@ module.exports = {
 
   watch: isDev && !isPlatform,
   watchOptions: {
-    ignored: '/node_modules/',
-  },
+      poll: true,
+      ignored: /node_modules/
+      },
 
   /**
    * Common plugins which should run on every build./
