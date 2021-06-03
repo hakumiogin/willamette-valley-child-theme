@@ -1,4 +1,4 @@
-import { docReady } from "./utilities"
+import { docReady, getWidth } from "./utilities"
 
 export let navigationInit = () => {
 	docReady(() => {
@@ -53,5 +53,13 @@ export let navigationInit = () => {
 			}
 		})
 
+	})
+	window.addEventListener('scroll', function(){
+		if (getWidth() > 900){
+			var scrolled = window.pageYOffset;
+			var hero = document.querySelector('.hero');
+
+			hero.style.backgroundPositionY = (- scrolled*.15).toString()	 + "px";
+		}
 	})
 }
