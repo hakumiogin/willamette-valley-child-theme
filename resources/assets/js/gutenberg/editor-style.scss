@@ -82,6 +82,7 @@ h1.is-style-Highlighted, h2.is-style-Highlighted, h3.is-style-Highlighted, h4.is
 	p {
 		max-width: 650px;
 		line-height: 1.4;
+		color: $white;
 	}
 	h1, h2, h3, h4, h5, h6 {
 		font-family: $alt-header-font;
@@ -89,7 +90,7 @@ h1.is-style-Highlighted, h2.is-style-Highlighted, h3.is-style-Highlighted, h4.is
 		font-weight: 800;
 		padding: 27px 22px;
 		line-height: 1.1;
-		color: #fff;
+		color: $white;
 	}
 	&__content {	
 		position: absolute;
