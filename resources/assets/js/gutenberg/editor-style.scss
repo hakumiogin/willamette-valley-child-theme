@@ -31,6 +31,8 @@ p {
 		content: "";
 		position: absolute;
 		top: 0;
+		width: 200px;
+		height: 200px;
 		bottom: 0;
 		left: 14%;
 		background-size: 200px 200px;
@@ -131,7 +133,7 @@ h1.is-style-Highlighted, h2.is-style-Highlighted, h3.is-style-Highlighted, h4.is
 		right: -20px;
 		@include screen-px(782){
 			width: 100%;
-			left: 0px;
+			right: 0px;
 		}
 	}
 	.is-style-no-overhang  &__content{
