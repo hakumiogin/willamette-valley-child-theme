@@ -100,7 +100,7 @@ h1.is-style-Highlighted, h2.is-style-Highlighted, h3.is-style-Highlighted, h4.is
 		line-height: 1.4;
 		color: $white;
 	}
-	h1, h2, h3, h4, h5, h6 {
+	&__content > h1, &__content >  h2, &__content > h3, &__content > h4, &__content > h5, &__content > h6 {
 		font-family: $alt-header-font;
 		font-size: 2.2em;
 		font-weight: 800;
@@ -109,6 +109,7 @@ h1.is-style-Highlighted, h2.is-style-Highlighted, h3.is-style-Highlighted, h4.is
 		color: $white;
 		min-height: 80px;
 		display: flex;
+		justify-content: center;
 		align-items: center;
 	}
 	&__content {	
