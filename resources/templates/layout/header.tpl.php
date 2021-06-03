@@ -64,7 +64,6 @@
     </nav>
   </div>
 </nav>
-
 <div class="hero" <?= is_front_page() ? "" : "style=\"background-image: url($hero);" ?> >
 	<div class="hero__container">
 		<?= $hero_overlay?>
