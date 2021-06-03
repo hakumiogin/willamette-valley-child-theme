@@ -73,6 +73,7 @@ h1.is-style-Highlighted, h2.is-style-Highlighted, h3.is-style-Highlighted, h4.is
 }
 .wp-block-willamette-blocks-image-box{
 	position: relative;
+
 	img {
 		max-width: 100%;
 		height: auto;
@@ -88,6 +89,7 @@ h1.is-style-Highlighted, h2.is-style-Highlighted, h3.is-style-Highlighted, h4.is
 		font-weight: 800;
 		padding: 27px 22px;
 		line-height: 1.1;
+		color: #fff;
 	}
 	&__content {	
 		position: absolute;
@@ -117,7 +119,6 @@ h1.is-style-Highlighted, h2.is-style-Highlighted, h3.is-style-Highlighted, h4.is
 	.has-dark-blue-background-color {
 		background-color: $transparent-dark-blue;
 	}
-
 
 	.is-style-overhang-middle &__content{
 		width: 85%;
