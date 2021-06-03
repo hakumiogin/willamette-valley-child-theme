@@ -65,8 +65,9 @@ h1.is-style-Highlighted, h2.is-style-Highlighted, h3.is-style-Highlighted, h4.is
 	}	
 }
 .wp-block-columns {
-	.four-image-bottom, .four-image-top {
+	&.four-image-bottom, &.four-image-top {
 		margin: 0px;
+		padding: 0px;
 	}
 	&.five-column-three {
 		flex-direction: row;
@@ -74,7 +75,7 @@ h1.is-style-Highlighted, h2.is-style-Highlighted, h3.is-style-Highlighted, h4.is
 		flex-grow: 0;
 		justify-content: center;
 		.wp-block-column {
-			min-width: 30%;
+			min-width: 33.333%;
 			flex-grow: 0;
 		}
 	}
