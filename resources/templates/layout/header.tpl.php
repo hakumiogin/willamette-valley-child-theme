@@ -65,11 +65,11 @@
   </div>
 </nav>
 
-<div class="hero" <?= is_home() ? "" : "style=\"background-image: url($hero);" ?> >
+<div class="hero" <?= is_front_page() ? "" : "style=\"background-image: url($hero);" ?> >
 	<div class="hero__container">
 		<?= $hero_overlay?>
 	</div>
 </div>
-<div class="hero__sibbling" style="background-image: <?= is_home() 
+<div class="hero__sibbling" style="background-image: <?= is_front_page() 
 	? "url($image_url/home_wave.svg) " : ""; ?>;">
 </div>

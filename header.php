@@ -54,6 +54,7 @@ template('layout/header', [
 	'hero' => $hero,
 	'title_color' => $title_color,
 	'home_hero_img' => $home_hero_img,
-	'hero_overlay' => is_home() ? "<img src=".get_stylesheet_directory_uri()."/public/images/adventure_ahead.svg alt='Adventure lies ahead' />"
+	'hero_overlay' => is_front_page() ?
+		"<img src=".get_stylesheet_directory_uri()."/public/images/adventure_ahead.svg alt='Adventure lies ahead' />"
 		: "<h1 class='hero__title' style='background-color: ".$title_color."'>".$page_title."</h1>",
 ]);
