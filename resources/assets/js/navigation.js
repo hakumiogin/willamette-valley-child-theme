@@ -63,7 +63,9 @@ export let navigationInit = () => {
 			hero.style.backgroundPositionY = (- scrolled*.15).toString() + "px";
 			alignedfull.forEach((el) => {
 				if (elementInViewport(el)){
-					el.style.backgroundPositionY = (- scrolled*.15).toString() + "px";
+					el.style.objectPositionY = (- scrolled*.15).toString() + "px";
+					//alert("yes")
+					//console.log(el);
 				}
 			
 			})
