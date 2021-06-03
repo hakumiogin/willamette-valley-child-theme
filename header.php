@@ -21,7 +21,6 @@ use function Madden\Theme\Child\template;
  */
 $featured_image = get_the_post_thumbnail_url();
 $hero = "";
-echo "<h1>baloogey $featured_image</h1>";
 if ($featured_image !== false){
 	$hero = $featured_image;
 } else if (is_front_page()){
