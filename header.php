@@ -19,18 +19,16 @@ use function Madden\Theme\Child\template;
  *
  * @see resources/templates/layout/head.tpl.php
  */
-$featured_image = get_the_post_thumbnail_url("hero");
+$featured_image = get_the_post_thumbnail_url();
 $hero = "";
-if ($featured_image){
+echo "<h1>baloogey $featured_image</h1>";
+if ($featured_image !== false){
 	$hero = $featured_image;
 } else if (is_front_page()){
 	$hero = "/wp-content/themes/mm-willametteValley-child-theme/public/images/home_hero.jpg";
 } else {
+	//default hero
 	$hero = "/wp-content/themes/mm-willametteValley-child-theme/public/images/home_hero.jpg";
-}
-$home_hero_img = "";
-if (is_front_page()){
-	$home_hero_img = get_stylesheet_directory_uri()."/public/images/adventure_ahead.svg";
 }
 $color = get_field("color");
 $title_color = "rgba(106, 59, 93, .54)";
@@ -53,7 +51,6 @@ template('layout/header', [
 	'image_url' => get_stylesheet_directory_uri()."/public/images/",
 	'hero' => $hero,
 	'title_color' => $title_color,
-	'home_hero_img' => $home_hero_img,
 	'hero_overlay' => is_front_page() ?
 		"<img src=".get_stylesheet_directory_uri()."/public/images/adventure_ahead.svg alt='Adventure lies ahead' />"
 		: "<h1 class='hero__title' style='background-color: ".$title_color."'>".$page_title."</h1>",
