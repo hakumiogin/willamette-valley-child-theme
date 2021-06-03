@@ -20,3 +20,18 @@ export const debounce = function(func, wait, immediate){
 		if (callNow) func.apply(context, args);
 	};
 };
+
+export const getWidth = () => {
+	if (self.innerWidth) {
+	  return self.innerWidth;
+	}
+  
+	if (document.documentElement && document.documentElement.clientWidth) {
+	  return document.documentElement.clientWidth;
+	}
+  
+	if (document.body) {
+	  return document.body.clientWidth;
+	}
+}
+  

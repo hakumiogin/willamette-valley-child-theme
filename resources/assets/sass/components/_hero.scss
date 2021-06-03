@@ -8,7 +8,6 @@
 	@include screen-px(1300){
 		background-size: auto 100%;
 	}
-
 }
 .page .hero, .single-post .hero {
 	margin-top: -88px;
@@ -38,24 +37,25 @@
 	}
 }
 .home .hero {
-	background-image: url(#{$IMAGES-PATH}home_wave.svg), url(#{$IMAGES-PATH}home_hero.jpg);
-	background-position: bottom left, top center;
-	background-repeat: no-repeat, no-repeat;
-	margin-top: -305px;
-	height: 115vh;
-	min-height: 1000px;
-	background-size: 100% 150px, cover;
+	background-image: url(#{$IMAGES-PATH}home_hero.jpg);
+	background-position:top center;
+	background-repeat: no-repeat;
+	margin-top: -145px;
+	height: 80vh;
+	min-height: 850px;
+	position: relative;
+	background-size: cover;
 	@include screen-px(1000){
-		background-size: 100% 150px, auto 100%;
-		background-position: bottom left, top right 20%;
+		background-size: auto 100%;
+		background-position: top right 20%;
 	}
 	@include screen-md {
-		background-position: bottom center, top left 50%;
-		background-size: 150% 150px, cover;
+		background-position: top left 50%;
+		background-size: cover;
 	}
 	@include screen-sm{
-		background-position: bottom center, top left 60%;
-		background-size: 150% 150px, cover;
+		background-position: top left 60%;
+		background-size: cover;
 	}
 	img {
 		position: absolute;
@@ -80,4 +80,21 @@
 			display: none;
 		}
 	} 
+}
+.home .hero__sibbling {
+	background-image: url(#{$IMAGES-PATH}home_wave.svg);
+	background-position: bottom left;
+	background-repeat: no-repeat;
+	background-size: 100% 150px;
+	margin-top: -180px;
+	height: 150px;
+	width: 100%;
+	@include screen-md {
+		background-position: bottom center;
+		background-size: 150% 150px;
+	}
+	@include screen-sm {
+		background-position: bottom center;
+		background-size: 150% 150px;
+	}
 }
