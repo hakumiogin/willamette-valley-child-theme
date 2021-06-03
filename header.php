@@ -19,17 +19,17 @@ use function Madden\Theme\Child\template;
  *
  * @see resources/templates/layout/head.tpl.php
  */
-$featured_image = get_the_post_thumbnail_url();
+$featured_image = get_the_post_thumbnail_url("hero");
 $hero = "";
 if ($featured_image){
 	$hero = $featured_image;
-} else if (is_home()){
+} else if (is_front_page()){
 	$hero = "/wp-content/themes/mm-willametteValley-child-theme/public/images/home_hero.jpg";
 } else {
 	$hero = "/wp-content/themes/mm-willametteValley-child-theme/public/images/home_hero.jpg";
 }
 $home_hero_img = "";
-if (is_home()){
+if (is_front_page()){
 	$home_hero_img = get_stylesheet_directory_uri()."/public/images/adventure_ahead.svg";
 }
 $color = get_field("color");

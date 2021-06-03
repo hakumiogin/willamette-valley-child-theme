@@ -33,6 +33,7 @@ function setup_supports() {
     add_image_size( 'small-thumb', 150, 150 );
     add_image_size( 'two-thirds', 720, 9999 );
     add_image_size( 'full-width', 1200, 9999 );
+    add_image_size( 'hero', 1600, 9999);
     add_theme_support( 'post-thumbnails' );
     add_theme_support( 'align-wide' );
     add_theme_support( 'core-block-patterns' );
