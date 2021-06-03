@@ -1,5 +1,3 @@
-import { getWidth } from "./utilities"
-
 export const slideShow = () => {
 	let leftButton = document.getElementById("slideshowleft")
 	let rightButton = document.getElementById("slideshowright")
