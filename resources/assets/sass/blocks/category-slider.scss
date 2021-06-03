@@ -1,16 +1,50 @@
+
+.category-slider-parent {
+	position: relative;
+	margin: 0px calc(50% - 50vw);
+	max-width: 100vw;
+	width: 100vw;
+}
+.slider-left-button {
+	left: 0px;
+	padding-right: 40px;
+	text-align: right
+}
+.slider-right-button {
+	right: 0px;
+	padding-left: 40px
+}
+.slider-left-button, .slider-right-button {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 1000000;
+	background-color: #fff;
+	height: 100%;
+	width: calc(50vw - 500px);
+	padding-top: 166px;
+	@include screen-px(1200){
+		width: 100px;
+	}
+	@include screen-px(800){
+		width: 50px;
+		padding: 160px 10px 0px;
+	}
+}
+
 .category-slider {
 	display: flex;
 	justify-content: space-between;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
+	overflow: hidden;
+	max-width: calc(min(80%, 1000px));
+	margin: 0px auto;
+	transition: .8s transform;
 	&__item {
+		min-width: 250px;
+		padding: 10px;
 		width: 23%;
 		margin: 15px 0px;
-		@include screen-px(875){
-			width: 46%;
-		}	
-		@include screen-px(600){
-			width: 95%;
-		}	
 		display: flex;
 		flex-direction: column;
 		&__image {
@@ -50,5 +84,18 @@
 		&:nth-child(4) > &__title{
 			background-color: $green;
 		}
+		&:nth-child(5) > &__title{
+			background-color: $purple;
+		}
+		&:nth-child(6) > &__title{
+			background-color: $teal;
+		}
+		&:nth-child(7) > &__title{
+			background-color: $lime;
+		}
+		&:nth-child(8) > &__title{
+			background-color: $green;
+		}
+
 	}
 }
