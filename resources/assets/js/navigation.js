@@ -22,7 +22,7 @@ export let navigationInit = () => {
 
 		let menuLinks = document.querySelectorAll(".nav-bar .menu a")
 		menuLinks.forEach ((el) => {
-			object.addEventListener("click", (e) => {
+			el.addEventListener("click", (e) => {
 				window.location.href = e.target.href
 			})
 		})
