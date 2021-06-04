@@ -8,7 +8,7 @@
 	?>
 </div>
     </div><!-- .content-area end of single.tpl -->
-</main>
+</div>
 <footer class="footer">
 	<div class="footer__container">
 		<div class="first-footer-column">
