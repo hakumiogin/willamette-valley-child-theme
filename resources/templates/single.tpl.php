@@ -21,9 +21,7 @@ get_header();
         endwhile;
         ?>
   
-        </main><!-- .site-main -->
-    </div><!-- .content-area end of single.tpl -->
-  
+        </main><!-- .site-main -->  
 <?php get_footer(); ?>
 
 
