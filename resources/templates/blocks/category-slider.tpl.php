@@ -30,27 +30,26 @@
                     </svg>
                 </a>
             </div>
-        <div class="category-slider">
-        <?php
-        while ( $the_query->have_posts() ) {
-            $the_query->the_post();
-            echo '<div class="category-slider__item">';
-            echo '<div class="category-slider__item__image">';
-            if (get_the_post_thumbnail()){
-                the_post_thumbnail();
-            } else {
-                echo "<img src='http://localhost/wp-content/uploads/2021/06/Rectangle-92-229x205.png'>";
+            <div class="category-slider">
+            <?php
+            while ( $the_query->have_posts() ) {
+                $the_query->the_post();
+                echo '<div class="category-slider__item">';
+                echo '<div class="category-slider__item__image">';
+                if (get_the_post_thumbnail()){
+                    the_post_thumbnail();
+                } else {
+                    echo "<img src='http://localhost/wp-content/uploads/2021/06/Rectangle-92-229x205.png'>";
+                }
+                echo '</div>';
+                echo '<div class="category-slider__item__title">';
+                echo '<a href="'.get_the_permalink().'">'.get_the_title().'</a>';
+                echo '</div></div>';
             }
-            echo '</div>';
-            echo '<div class="category-slider__item__title">';
-            echo '<a href="'.get_the_permalink().'">'.get_the_title().'</a>';
             echo '</div></div>';
+        } else {
+            echo "<!-- no posts -->";
         }
-        echo '</div>';
-    } else {
-        echo "<!-- no posts -->";
-    }
-    echo '</div>';
     wp_reset_postdata();
 
     ?>
