@@ -32,12 +32,13 @@ $colors: (
 	transparent-blue: rgba(123, 172, 190, 0.75),
 	transparent-dark-blue: rgba(95, 155, 177, 0.58),
 	transparent-white: rgba(255,255,255, 0.7),
+	transparent-grey: rgba(28, 28, 29, .49),
 );
 
 @each $name, $color in $colors {
 
   .has-#{$name}-color {
-    color: $color;
+    color: $color !important;
   }
 
   .has-#{$name}-background-color {
