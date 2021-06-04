@@ -1,5 +1,6 @@
 .btn {
 	font-family: $header-font;
+	font-weight: 300;
 	text-transform: uppercase;
 	text-decoration: none;
 	cursor: pointer;
@@ -32,20 +33,21 @@
 	display: inline-block;
 	color: $white;
 	padding: 5px 28px;
+	font-weight: 700;
 }
 .nav-bar__btn:link, .nav-bar__btn:visited{
 	display: inline-block;
 	border: none;
-	padding: 25px 20px 15px 20px;
+	padding: 20px 20px 20px 20px;
 	color: $blue;
+	font-weight: 700;
 }
 
 .is-style-Two-Tone {
 	a {
 		border-radius: 0px;
-		padding: 17px 25px 8px;
+		padding: 15px 25px 15px;
 		text-transform: uppercase;
-		font-family: $body-font;
 		letter-spacing: 5px;
 		font-size: 1em;
 	}
