@@ -24,16 +24,12 @@
 			<h4>Willamette Valley Regions</h4>
 			<?php wp_nav_menu( array( 
 				'theme_location' => 'regions-footer-menu',
-				'container_class' => 'second-footer-columm',
-				'link_after' => '<div class="toggle-icon toggle-icon__plus"></div>'
 			) ); ?>
 		</div>
 		<div class="fourth-footer-column">
 			<h4>Explore</h4>
 			<?php wp_nav_menu( array( 
 				'theme_location' => 'explore-footer-menu',
-				'container_class' => 'third-footer-column',
-				'link_after' => '<div class="toggle-icon toggle-icon__plus"></div>'
 			) ); ?>
 		</div>
 		<div class="fifth-footer-column">
