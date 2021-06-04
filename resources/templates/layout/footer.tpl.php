@@ -39,11 +39,11 @@
 			</ul>
 			<input type="text" name="email" placeholder="Email Sign Up">
 			<div class="social-icons">
-				<a href="#" aria-label="facebook"><img src="<?= get_stylesheet_directory_uri();?>/resources/assets/images/facebook.png"></a>
-				<a href="#" aria-label="instagram"><img src="<?= get_stylesheet_directory_uri();?>/resources/assets/images/instagram.png"></a>
-				<a href="#" aria-label="youtube"><img src="<?= get_stylesheet_directory_uri();?>/resources/assets/images/youtube.png"></a>
-				<a href="#" aria-label="twitter"><img src="<?= get_stylesheet_directory_uri();?>/resources/assets/images/twitter.png"></a>
-				<a href="#" aria-label="pinterest"><img src="<?= get_stylesheet_directory_uri();?>/resources/assets/images/pinterest.png"></a>
+				<a href="https://www.facebook.com/OregonWineCountry" rel="nofollow" aria-label="facebook"><img src="<?= get_stylesheet_directory_uri();?>/resources/assets/images/facebook.png"></a>
+				<a href="http://instagram.com/oregonwinetrav" rel="nofollow" aria-label="instagram"><img src="<?= get_stylesheet_directory_uri();?>/resources/assets/images/instagram.png"></a>
+				<a href="https://www.youtube.com/user/OregonWineCountry/" rel="nofollow" aria-label="youtube"><img src="<?= get_stylesheet_directory_uri();?>/resources/assets/images/youtube.png"></a>
+				<a href="https://twitter.com/oregonwinetrav" rel="nofollow" aria-label="twitter"><img src="<?= get_stylesheet_directory_uri();?>/resources/assets/images/twitter.png"></a>
+				<a href="https://www.pinterest.com/orwinecountry/" rel="nofollow" aria-label="pinterest"><img src="<?= get_stylesheet_directory_uri();?>/resources/assets/images/pinterest.png"></a>
 			</div>
 		</div>
 	</div>
