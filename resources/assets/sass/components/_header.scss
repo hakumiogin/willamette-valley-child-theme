@@ -45,12 +45,12 @@
 		&--news {
 			text-transform: uppercase;
 			margin: 0px 15px;
-			padding-top: 10px;
+			padding-top: 0px;
 			display: inline-block;
 			align-self: center;
 			&:link, &:visited {
 				color: $purple;
-				font-family: $header-font;
+				font-weight: 700;
 			}
 			&:hover, &:active {
 				color: $teal;
@@ -104,13 +104,13 @@
 		}
 	}
 	ul.menu {
-		padding: 20px 10px 0px 20px;
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: baseline;
 		flex-wrap: nowrap;
 		height: auto;
+		margin-top: 20px;
 		@include screen-px(1100){
 			padding-left: 0px;
 		}
@@ -128,7 +128,7 @@
 			position: relative;
 			backface-visibility: hidden;
 			&:hover {
-				font-family: $header-font;
+				font-weight: 700;
 				color: $teal;
 			}
 			&:hover > ul {
@@ -165,12 +165,14 @@
 				background: $transparent-lime;
 				a:link, a:visited {
 					z-index: 10000;
-					padding: 20px 20px 10px 20px;
+					padding: 20px 20px 20px 20px;
+					font-weight: 300;
 				}
 				a:hover, a:active {
 					background: $teal;
 					transition: background-color .6s ease;
 					color: $white;
+					font-weight: 300;
 				}
 				&::after {
 					content: "";
@@ -245,7 +247,7 @@
 	transition: color 0.3s ease;
 	&:hover {
 		color: $lime;
-		font-family: $header-font;	 
+		font-weight: 700;	 
 	}
   }
 	input {
