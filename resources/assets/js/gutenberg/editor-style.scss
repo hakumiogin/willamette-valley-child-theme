@@ -140,12 +140,21 @@ h1.is-style-Highlighted, h2.is-style-Highlighted, h3.is-style-Highlighted, h4.is
 	.has-dark-blue-background-color {
 		background-color: $transparent-dark-blue;
 	}
+	.has-grey-background-color {
+		background-color: $transparent-grey;
+	}
+	
 
 	.is-style-overhang-middle &__content{
 		width: 85%;
-		bottom: -5px;
+		top: 100px;
 		left: 50%;
 		transform: translateX(-50%);
+		.wp-block-group {
+			min-height: 320px;
+			overflow: hidden;
+			max-height: 320px;
+		}
 	}
 	.is-style-overhang-left  &__content{
 		width: calc(100% + 20px);

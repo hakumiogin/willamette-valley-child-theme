@@ -117,6 +117,11 @@ a img.aligncenter {
 	margin-bottom: 40px;
 	margin-top: 60px;
 }
+.wp-block-willamette-blocks-image-box__content {
+	.wp-block-column > h1, .wp-block-column > h2, .wp-block-column > h3, .wp-block-column > h4 {
+		color: $white;
+	}
+}
 .wp-block-column > h1, .wp-block-column > h2, .wp-block-column > h3, .wp-block-column > h4 {
 	font-family: $alt-header-font;
 	color: $teal;
@@ -137,7 +142,6 @@ a img.aligncenter {
 	width: 800px;
 	margin: 10px auto;
 	max-width: 90%;
-
 }
 .narrow-columns {
 	justify-content: center;
