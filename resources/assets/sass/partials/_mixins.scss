@@ -59,27 +59,6 @@
   }
 }
 
-@mixin generate-bg-classes($color-map, $opacity) {
-  @each $name, $hex in $color-map {
-    .has-background-#{$name} {
-      background-color: rgba($hex, $opacity);
-    }
-  }
-}
-
-@mixin generate-cta-classes($color-map, $opacity) {
-  @each $name, $hex in $color-map {
-    .cta-#{$name} {
-      background-color: rgba($hex, $opacity);
-
-      .cta-button {
-        &:hover {
-          color: $hex;
-        }
-      }
-    }
-  }
-}
 
 @mixin sr-only {
   position: absolute;
