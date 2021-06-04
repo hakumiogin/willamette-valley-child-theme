@@ -61,6 +61,11 @@ wp.domReady( () => {
 			name: 'full-width-center',
 			label: 'full-width-center',
 		},
+		{
+			name: 'full-width-center-narrow-acorn',
+			label: 'full-width-center-narrow-acorn',
+		},
+		
 	]);
 
 } );

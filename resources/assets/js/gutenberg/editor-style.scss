@@ -192,4 +192,36 @@ h1.is-style-Highlighted, h2.is-style-Highlighted, h3.is-style-Highlighted, h4.is
 			}		
 		}
 	}
+	&.is-style-full-width-center-narrow-acorn {
+		.wp-block-willamette-blocks-image-box__content {
+			max-width: 840px;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			position: absolute;
+			img {
+				@include screen-px(782){
+					height: auto;
+					min-height: 400px;
+					width: auto;
+					object-fit: cover;
+				}
+			}
+			.wp-block-group {
+				max-height: 390px;
+				overflow: hidden;
+			}
+		}
+	}
+}
+.wp-block-column {
+	.wp-block-willamette-blocks-image-box.is-style-overhang-middle  {
+		.wp-block-willamette-blocks-image-box__content {
+			bottom: -6px;
+			top: unset;
+			& > * {
+				min-height: auto;
+			}
+		}
+	}
 }
