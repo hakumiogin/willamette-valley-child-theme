@@ -35,7 +35,7 @@
 		<div class="fifth-footer-column">
 			<ul>
 				<li><a href="#">Site Map</a></li>
-				<li><a href="#">Privacy Policy</a></li>
+				<li><a href="/privacy-policy">Privacy Policy</a></li>
 			</ul>
 			<input type="text" name="email" placeholder="Email Sign Up">
 			<div class="social-icons">
