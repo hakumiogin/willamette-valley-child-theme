@@ -17,7 +17,7 @@
 		<div class="second-footer-column">
 			<h4>About Us</h4>
 			<?php wp_nav_menu( array( 
-				'theme_location' => 'abbout-us-footer-menu',
+				'theme_location' => 'about-us-footer-menu',
 			) ); ?>
 		</div>
 		<div class="third-footer-column">
