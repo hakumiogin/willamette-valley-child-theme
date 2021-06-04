@@ -3,7 +3,7 @@ import { docReady, getWidth, elementInViewport } from "./utilities"
 export let navigationInit = () => {
 	docReady(() => {
 		//set the main navigation links width so bolding on hover doesn't cause elements to adjust
-		let navBarItems = document.querySelectorAll(".nav-bar ul.menu > li").forEach((el) => {
+		document.querySelectorAll(".nav-bar ul.menu > li").forEach((el) => {
 			let width = el.clientWidth
 			el.style.width = (width + 12).toString() + "px"
 		});
@@ -20,11 +20,11 @@ export let navigationInit = () => {
 		// 	});
 		// }, 200, false), false)
 
-		let menuLinks = document.querySelectorAll(".nav-bar ul.menu a")
+		let menuLinks = document.querySelectorAll(".nav-bar .menu a")
 		menuLinks.forEach ((el) => {
-			el.onclick = (e) => {
-				window.location.href = target.href
-			}
+			object.addEventListener("click", (e) => {
+				window.location.href = e.target.href
+			})
 		})
 		
 
