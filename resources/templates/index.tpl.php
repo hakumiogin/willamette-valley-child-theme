@@ -25,8 +25,8 @@ get_header();
         endwhile;
         ?>
   
-        </main><!-- .site-main -->
-    </div><!-- .content-area -->
+        </main><!-- .site-main  -->
+    </div><!-- .content-area end of index.tpl -->
   
 <?php get_footer(); ?>
 
