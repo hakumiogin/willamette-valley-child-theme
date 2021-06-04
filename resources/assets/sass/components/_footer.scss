@@ -5,7 +5,7 @@
 		margin: 0px auto;
 		display: flex;
 		justify-content: space-between;
-	};
+	}
 	background-image: url(#{$IMAGES-PATH}footer.png);
 	background-size: auto 100%;
 	width: 100%;
@@ -59,7 +59,7 @@
 		}
 	}
 	.second-footer-column, .third-footer-column, .fourth-footer-column, .fifth-footer-column {
-		width: calc(min(250px, 20%));
+		max-width: 250px;
 		padding: 0px 10px;
 	}
 	.first-footer-column {
