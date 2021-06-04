@@ -20,7 +20,7 @@ use function Madden\Theme\Child\template;
  * @see resources/templates/layout/head.tpl.php
  */
 
-$featured_image = get_the_post_thumbnail_url(get_the_id(),"hero");
+$featured_image = get_the_post_thumbnail_url(get_the_id(),"full");
 $hero = "";
 if ($featured_image !== false){
 	$hero = $featured_image;
