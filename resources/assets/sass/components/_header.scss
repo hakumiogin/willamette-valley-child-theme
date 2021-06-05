@@ -8,6 +8,7 @@
 	background-position: top left;
 	background-size: cover;
 	height: 210px;
+
 	&__inner {
 		max-width: 1200px;
 		margin: 0px auto;
@@ -100,8 +101,9 @@
 				transition: all .6s cubic-bezier(0.11, 1.07, 1, 1);
 				margin-right: 10px;
 			}
-
-		}
+		}	
+		
+		a { text-decoration: none !important; }
 	}
 	ul.menu {
 		display: flex;
@@ -119,6 +121,7 @@
 .nav-menu {
 	ul.menu {
 		a:link, a:visited{
+			text-decoration: none;
 			color: $teal;
 		}
 		a:hover, a:focus{

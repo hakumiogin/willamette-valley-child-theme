@@ -5,8 +5,11 @@ body {
 }
 
 a:link, a:visited {
-	text-decoration: underline;
 	color: $orange;
+
+	&:not(.btn) {
+		text-decoration: underline;
+	}
 
 	&:hover {
 		text-decoration: none;
