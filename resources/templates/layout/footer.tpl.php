@@ -1,4 +1,4 @@
-<div class="vistor-guide-reuseable-block">
+<div id="vistor-guide-reuseable-block-footer" class="vistor-guide-reuseable-block">
 	<?php 
 	if (!is_front_page( )){
 		$visitor_guide_reuseable_block = get_post( 135448 );
