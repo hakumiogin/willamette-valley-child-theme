@@ -53,3 +53,47 @@ function custom_search_form( $form ) {
       )
     );
 }
+
+
+/**
+ * Sets the extension and mime type for .webp files.
+ *
+ * @todo Confirm with group and move these to the parent tonik theme ASAP (it's a weekend right now and I need this.)
+ *
+ * @param array  $wp_check_filetype_and_ext File data array containing 'ext', 'type', and
+ *                                          'proper_filename' keys.
+ * @param string $file                      Full path to the file.
+ * @param string $filename                  The name of the file (may differ from $file due to
+ *                                          $file being in a tmp directory).
+ * @param array  $mimes                     Key is the file extension with value as the mime type.
+ */
+function add_file_and_ext_webp( $types, $file, $filename, $mimes ) {
+  if ( false !== strpos( $filename, '.webp' ) ) {
+    $types['ext'] = 'webp';
+    $types['type'] = 'image/webp';
+  }
+
+  return $types;
+}
+add_filter('wp_check_filetype_and_ext', '\add_file_and_ext_webp', 10, 4);
+
+/**
+ * Adds webp filetype to allowed mimes
+ *
+ * @todo Confirm with group and move these to the parent tonik theme ASAP (it's a weekend right now and I need this.)
+ * 
+ * @see https://codex.wordpress.org/Plugin_API/Filter_Reference/upload_mimes
+ * 
+ * @param array $mimes Mime types keyed by the file extension regex corresponding to
+ *                     those types. 'swf' and 'exe' removed from full list. 'htm|html' also
+ *                     removed depending on '$user' capabilities.
+ *
+ * @return array
+ */
+function allow_webp_uploads( $mimes ) {
+  $mimes['webp'] = 'image/webp';
+
+  return $mimes;
+}
+add_filter( 'upload_mimes', '\allow_webp_uploads' );
+
