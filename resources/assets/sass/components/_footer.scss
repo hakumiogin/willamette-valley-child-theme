@@ -49,6 +49,8 @@
 		justify-content: flex-end;
 		flex-direction: column;
 		padding-bottom: 50px;
+
+		a { text-decoration: none; }
 	}
 	input {
 		background-color: $transparent-white;
@@ -116,6 +118,7 @@
 		padding: 3px 0px;
  		a {
 			text-transform: none;
+			text-decoration: none;
 		}
 	}
 }
