@@ -12,7 +12,9 @@
 <footer class="footer">
 	<div class="footer__container">
 		<div class="first-footer-column">
-			<img src="<?= get_stylesheet_directory_uri();?>/resources/assets/images/whitelogo@1x.png">
+        <a href="<?= home_url() ?>">
+                <img src="<?= get_stylesheet_directory_uri();?>/resources/assets/images/whitelogo@1x.png" alt="Willamette Valley">
+            </a>
 		</div>
 		<div class="second-footer-column">
 			<h4>About Us</h4>
