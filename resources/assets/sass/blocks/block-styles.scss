@@ -1,5 +1,5 @@
 .wp-block-columns {
-	margin: 15px 0px;
+	margin: 4.0rem 0px;
 	img {
 		height: auto;
 	}
@@ -116,10 +116,19 @@ a img.aligncenter {
 	font-size: 2.2em;
 	margin-bottom: 40px;
 	margin-top: 60px;
+		
+	a { color: $white !important; }
 }
 .wp-block-willamette-blocks-image-box__content {
 	.wp-block-column > h1, .wp-block-column > h2, .wp-block-column > h3, .wp-block-column > h4 {
 		color: $white;
+	}
+
+	h1, h2, h3, h4 {
+		a {
+			color: $white !important;
+			text-decoration: none;
+		}
 	}
 }
 .wp-block-column > h1, .wp-block-column > h2, .wp-block-column > h3, .wp-block-column > h4 {
