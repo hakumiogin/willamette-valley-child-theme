@@ -76,3 +76,22 @@
 	}
 	box-shadow: 6px 6px $purple;
 }
+
+// PENDING dupe css from above - could be a mix-in
+.gform_button.button {
+	border-radius: 0px;
+	padding: 15px 25px 15px;
+	text-transform: uppercase;
+	letter-spacing: 5px;
+	font-size: 1em;
+	box-shadow: 6px 6px $lime;
+    background-color: rgba(106, 59, 93, 0.9);
+	color: $white;
+	border: 0;
+	
+	&:hover {
+		background-color: $lime;
+		transition: .4s all;
+		box-shadow: 6px 6px $purple;
+	}
+}
