@@ -41,6 +41,10 @@
 	padding: 20px 20px 20px 20px;
 	color: $blue;
 	font-weight: 700;
+
+	&:hover {
+		background-color: darken($purple, 5%);
+	}
 }
 
 .is-style-Two-Tone {
