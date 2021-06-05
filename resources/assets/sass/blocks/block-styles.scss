@@ -1,5 +1,8 @@
 .wp-block-columns {
-	margin: 4.0rem 0px;
+	margin: 15px 0px;
+
+	&.tall-margins { margin: 4.0rem 0; }
+
 	img {
 		height: auto;
 	}

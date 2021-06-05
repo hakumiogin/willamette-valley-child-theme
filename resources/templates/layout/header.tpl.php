@@ -5,7 +5,7 @@
 		<div class="nav-bar__inner">
 			<div class="nav-bar__logo" data-aos="fade-down">
 				<a href="<?= home_url() ?>">
-					<img src="<?= $image_url ?>/logo@1.png" srcset="<?= $image_url ?>/logo@2.png 2x" />
+					<img src="<?= $image_url ?>/logo@1.png" srcset="<?= $image_url ?>/logo@2.png 2x" alt="Willamette Valley" />
 				</a>
 			</div>
 			<div class="nav-bar__right">
