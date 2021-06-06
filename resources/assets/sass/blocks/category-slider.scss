@@ -58,8 +58,9 @@
 		flex-direction: column;
 		&__image {
 			img {
-				width: 94%;
-				height: auto;
+				width: 94% !important;
+				height: auto !important;
+				min-height: unset !important;
 			}
 			z-index: 10;
 			text-align: center;
