@@ -30,6 +30,15 @@
 		width: 50px;
 		padding: 160px 10px 0px;
 	}
+	
+	svg {
+		opacity: 1.0;
+		cursor: pointer;
+		
+		&:hover {
+			opacity: 0.8;
+		}	
+	}
 }
 
 .category-slider {
@@ -70,6 +79,7 @@
 				font-size: 1.19em;
 				line-height: 1.1;
 				color: $white;
+				text-decoration: none;
 			}
 		}
 		&:nth-child(1) > &__title{
