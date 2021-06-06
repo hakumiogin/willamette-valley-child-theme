@@ -17,18 +17,18 @@
     if ( $the_query->have_posts() && $the_query->post_count >= 4) { ?>
         <div class="category-slider-parent">
             <div class="slider-left-button-parent">
-                <a href="#" class="slider-left-button" id="slideshowleft">
+                <div class="slider-left-button" id="slideshowleft">
                     <svg width="18" height="44" viewBox="0 0 18 44" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M-1.09278e-06 22L18 43.6506L18 0.349366L-1.09278e-06 22Z" fill="#B4BC33"/>
                     </svg>
-                </a>
+                </div>
             </div>
             <div class="slider-right-button-parent">
-                <a href="#" class="slider-right-button" id="slideshowright">
+                <div class="slider-right-button" id="slideshowright">
                     <svg width="18" height="47" viewBox="0 0 18 47" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M18 23.5L-2.54165e-07 46.4497L1.75216e-06 0.550327L18 23.5Z" fill="#B4BC33"/>
                     </svg>
-                </a>
+                </div>
             </div>
             <div class="category-slider">
             <?php
@@ -39,7 +39,7 @@
                 if (get_the_post_thumbnail()){
                     the_post_thumbnail();
                 } else {
-                    echo "<img src='http://localhost/wp-content/uploads/2021/06/Rectangle-92-229x205.png'>";
+                    echo "<img src='/wp-content/uploads/2021/05/requestAVisitorGuide-150x150.jpg' alt='The Willamette Valley'>";
                 }
                 echo '</div>';
                 echo '<div class="category-slider__item__title">';
