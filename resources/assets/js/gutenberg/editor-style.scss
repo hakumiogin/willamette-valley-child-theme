@@ -97,18 +97,18 @@ h1.is-style-Highlighted, h2.is-style-Highlighted, h3.is-style-Highlighted, h4.is
 			margin-bottom: 25px;
 		}
 	}
+	.wp-block-column {
+		margin-left: 0px !important;
+		padding: 5px;
+		align-self: flex-start;
+	}
 }
 .wp-block-button {
 	margin: 20px 0px 10px 0px;
-	
-	a { text-decoration: none; }
+	a {
+		text-decoration: none; 
+	}
 }
-.wp-block-column {
-	margin-left: 0px !important;
-	padding: 5px;
-	align-self: flex-start;
-}
-
 .wp-block-willamette-blocks-image-box.alignfull, .wp-block-image.alignfull {
 	height: 400px;
 	object-fit: cover;
@@ -189,7 +189,7 @@ h1.is-style-Highlighted, h2.is-style-Highlighted, h3.is-style-Highlighted, h4.is
 	}
 	.is-style-overhang-left  &__content{
 		width: calc(100% + 20px);
-		bottom: 3px;
+		bottom: 0px;
 		left: -20px;
 		@include screen-px(782){
 			width: 100%;
@@ -198,7 +198,7 @@ h1.is-style-Highlighted, h2.is-style-Highlighted, h3.is-style-Highlighted, h4.is
 	}
 	.is-style-overhang-right  &__content{
 		width: calc(100% + 20px);
-		bottom: 3px;
+		bottom: 0px;
 		right: -20px;
 		@include screen-px(782){
 			width: 100%;
@@ -207,7 +207,7 @@ h1.is-style-Highlighted, h2.is-style-Highlighted, h3.is-style-Highlighted, h4.is
 	}
 	.is-style-no-overhang  &__content{
 		width: 100%;
-		bottom: 2px;
+		bottom: 0px;
 	}
 	.is-style-full-width-center  &__content{
 		top: 50%;
