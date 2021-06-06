@@ -1,3 +1,13 @@
+.vistor-guide-reuseable-block {
+	margin-top: 5.0rem;
+	// PENDING I cannot see why this block has a slight little gap at the bottom, but
+	//	this specific block needs to snuggle up to the top of the footer underneath it
+	transform: translateY(4px);
+	img {
+		min-height: 350px;
+		object-fit: cover;
+	}
+}
 .footer {
 	&__container {
 		max-width: 1400px;
