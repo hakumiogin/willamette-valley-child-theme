@@ -37,16 +37,23 @@
 	background-image: url(#{$IMAGES-PATH}home_hero.jpg);
 	background-position:top center;
 	background-repeat: no-repeat;
-	margin-top: -145px;
-	height: 80vh;
+	margin-top: -185px;
+	height: 120vh;
 	min-height: 850px;
 	position: relative;
 	background-size: cover;
+	@include screen-px(1474){
+		background-size: auto 120%;
+		margin-top: -270px;
+	}
 	@include screen-px(1000){
-		background-size: auto 100%;
+		margin-top: -200px;
+		height: 100vh;
+		background-size: auto 120%;
 		background-position: top right 20%;
 	}
 	@include screen-md {
+		background-size: auto 150%;
 		background-position: top left 50%;
 		background-size: cover;
 	}
@@ -80,6 +87,9 @@
 }
 .home .hero__sibbling {
 	background-image: url(#{$IMAGES-PATH}home_wave.svg);
+	@include screen-px (600){
+		background-size: 275% 150px !important;
+	}
 	background-position: bottom left;
 	background-repeat: no-repeat;
 	background-size: 100% 150px;

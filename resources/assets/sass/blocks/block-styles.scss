@@ -20,7 +20,7 @@
 	height: auto;
 	img {
 		object-fit: cover;
-		object-position: top left;
+		object-position: center left;
 		min-height: 400px;
 		width: auto;
 	}
@@ -189,12 +189,6 @@ a img.aligncenter {
 	}
 }
 
-#vistor-guide-reuseable-block-footer {
-	margin-top: 5.0rem;
-	// PENDING I cannot see why this block has a slight little gap at the bottom, but
-	//	this specific block needs to snuggle up to the top of the footer underneath it
-	transform: translateY(4px);
-}
 .transparent {
 	opacity: 50%;
 	transition: .4s all;
