@@ -34,7 +34,7 @@ export const getWidth = () => {
 		return document.body.clientWidth;
 	}
 }
-export const elementInViewport = (el) => {
+export const isElementInViewport = (el) => {
 	var top = el.offsetTop;
 	var left = el.offsetLeft;
 	var width = el.offsetWidth;

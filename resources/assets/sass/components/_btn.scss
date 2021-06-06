@@ -46,7 +46,10 @@
 		background-color: darken($purple, 5%);
 	}
 }
-
+.main-site .wp-block-button {
+	text-align: center;
+	margin: 0px auto;
+}
 .is-style-Two-Tone {
 	a {
 		border-radius: 0px;

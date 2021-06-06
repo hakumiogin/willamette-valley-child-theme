@@ -5,9 +5,6 @@
 	z-index: -100;
 	margin-bottom: 40px;
 	position: relative;
-	@include screen-px(1300){
-		background-size: auto 100%;
-	}
 }
 .page .hero, .single-post .hero {
 	margin-top: -88px;
@@ -96,5 +93,8 @@
 	@include screen-sm {
 		background-position: bottom center;
 		background-size: 150% 150px;
+	}
+	@include screen-px(1300){
+		background-size: auto 100%;
 	}
 }
