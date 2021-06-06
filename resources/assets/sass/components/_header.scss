@@ -247,7 +247,7 @@
 	   display: block;
    }
    @include screen-sm {
-	   top: 120px;
+	   top: 90px;
    }
    a {
 	text-decoration: none;
@@ -377,8 +377,6 @@
    line-height: 1.2;
    text-align: left;
 	position: relative;
-   &:hover > .toggle-icon{
-   }
  }
  #menu li{
    border-bottom: 1px solid $lime;
