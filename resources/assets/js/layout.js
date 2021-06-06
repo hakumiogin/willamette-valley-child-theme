@@ -6,21 +6,41 @@ export let layout = () => {
 		patternedBackgrounds.forEach((el) => {
 			el.nextSibling.nextElementSibling.style.marginTop = "-15px"
 		})
-
+		let alignedfull = document.querySelectorAll('.alignfull > img')
+		let alignedfullobject = {}
+		let i = 0
+		alignedfull.forEach ((el) => {
+			alignedfullobject[i] = { scroll: 0, startingPosition: -1}
+			el.parentElement.style.overflow = "hidden"
+			i++
+		})
+		let timer
 		window.addEventListener('scroll', function(){
-			if (getWidth() > 900){
-				let scrolled = window.pageYOffset;
-				let hero = document.querySelector('.hero');
-				let alignedfull = document.querySelectorAll('.alignfull > img');
-				hero.style.backgroundPositionY = (- scrolled*.15).toString() + "px";
-				alignedfull.forEach((el) => {
-					if (isElementInViewport(el)){
-						el.style.objectPosition = "0px " + (- scrolled*.15).toString() + "px";
-						//alert("yes")
-						console.log(el);
-					}
-				})
+			if (timer){
+				window.clearTimeout (timer)
 			}
+			timer = window.setTimeout(() => {
+				if (getWidth() > 900){
+					let scrolled = window.pageYOffset;
+					let hero = document.querySelector('.hero')
+					if (isElementInViewport(hero)){
+						hero.style.backgroundPositionY = (- scrolled*.15).toString() + "px"
+					}
+					
+					let alignedfull = document.querySelectorAll('.alignfull > img')
+					let i = 0
+					alignedfull.forEach((el) => {
+						if (isElementInViewport(el)){
+							if (alignedfullobject[i].startingPosition === -1){
+								alignedfullobject[i].startingPosition = window.pageYOffset
+							}
+							let scrolled = window.pageYOffset - alignedfullobject[i].startingPosition
+							el.style.objectPosition = "0px " + (- scrolled*.06).toString() + "px";
+							//alert("yes")
+						}
+					})
+				}	
+			}, 5)
 		})
 	
 	})
