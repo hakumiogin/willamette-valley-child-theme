@@ -32,6 +32,12 @@
 			display: block;
 			padding: 1px 0px;
 		}
+		a {
+			&:not([href*='localhost']):not([href*='willamettevalley.org']):not([href*='platform.sh']):not([href^='#']):not([href^='/']):after {
+				content: url(#{$IMAGES-PATH}/external-link-symbol.png);
+				opacity: 0.5;
+			}		
+		}
 	}
 	.social-icons {
 		img {
