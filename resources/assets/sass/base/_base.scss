@@ -6,9 +6,10 @@ body {
 
 a:link, a:visited {
 	color: $orange;
+	text-decoration: underline;
 
-	&:not(.btn) {
-		text-decoration: underline;
+	&.btn, &.wp-block-button__link {
+		text-decoration: none;
 	}
 
 	&:hover {
