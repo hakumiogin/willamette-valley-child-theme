@@ -255,7 +255,7 @@ h1.is-style-Highlighted, h2.is-style-Highlighted, h3.is-style-Highlighted, h4.is
 @include screen-px (750){
 	.wp-block-columns.narrow-gutter .is-style-overhang-middle {
 		.wp-block-willamette-blocks-image-box__content {
-			width: 140%;
+			width: 110%;
 			bottom: 45%;
 			transform: translateX(-50%);
 		}
