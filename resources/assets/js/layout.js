@@ -24,7 +24,7 @@ export let layout = () => {
 					let scrolled = window.pageYOffset;
 					let hero = document.querySelector('.hero')
 					if (isElementInViewport(hero)){
-						hero.style.backgroundPositionY = (- scrolled*.15).toString() + "px"
+						hero.style.backgroundPositionY = (- scrolled*.08).toString() + "px"
 					}
 					
 					let alignedfull = document.querySelectorAll('.alignfull > img')
@@ -41,6 +41,22 @@ export let layout = () => {
 					})
 				}	
 			}, 5)
+		})
+
+		let hoverLinks = document.querySelectorAll(".wp-block-willamette-blocks-image-box__content > h2 > a")
+		hoverLinks.forEach((el) => {
+			let color = window.getComputedStyle(el.parentElement).getPropertyValue("background-color")
+			let imageTarget = el.parentElement.parentElement.previousElementSibling
+			let backgroundTarget = el.parentElement.parentElement.parentElement
+			backgroundTarget.style.backgroundColor = color
+
+			el.addEventListener("mouseover", () => {
+				imageTarget.classList.add("transparent")
+
+			})
+			el.addEventListener("mouseout", () => {
+				imageTarget.classList.remove("transparent")
+			})
 		})
 	
 	})
