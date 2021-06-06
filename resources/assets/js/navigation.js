@@ -48,7 +48,7 @@ export let navigationInit = () => {
 			document.getElementById("willamette-body").classList.toggle("no-scroll")
 		}
 		//mobile hamburger menu +/- toggle dropdowns
-		let els = document.querySelectorAll(".mobile-menu > .menu > li > a")
+		let els = document.querySelectorAll(".mobile-menu > .menu > li > a ")
 		els.forEach((el) => {
 			el.onclick = (e) => {
 				e.preventDefault()
