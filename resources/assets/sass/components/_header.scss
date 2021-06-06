@@ -8,7 +8,6 @@
 	background-position: top left;
 	background-size: cover;
 	height: 210px;
-
 	&__inner {
 		max-width: 1200px;
 		margin: 0px auto;
@@ -26,6 +25,12 @@
 		flex: 1 0 auto;
 		@include screen-px(1330){
 			flex: 0 0 auto;
+		}
+		@include screen-px (600) {
+			margin-top: 50px;
+			img {
+				width: 200px;
+			}
 		}
 		& img {
 			display: block;
@@ -270,9 +275,6 @@
 	}
 }
   
- /*
-  * Just a quick hamburger
-  */
  #menuToggle span
  {
    display: block;
@@ -347,7 +349,7 @@
    height: auto;
    right: -50px;
    margin: -150px 0px 0 0px;
-   padding: 50px;
+   padding: 100px 50px 100px;
    padding-top:100px;
    background: $white;
    list-style-type: none;
@@ -371,11 +373,11 @@
  {
 	display: block;
    padding: 40px 0 20px;
-   font-size: 32px;
+   font-size: 22px;
+   line-height: 1.2;
    text-align: left;
 	position: relative;
    &:hover > .toggle-icon{
-   	background-color: $lime;
    }
  }
  #menu li{
@@ -394,26 +396,24 @@
    transform: none;
  }
  .toggle-icon {
-	 float: right;
 	 position: absolute;
 	 right: 0px;
-	 top: 50%;
+	 top: 60%;
 	 transform: translateY(-50%);
-	 background-color: $purple;
-	 mask-image: url('data:image/svg+xml;utf8,<svg width="20" height="20" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg"><path d="M3.482 3.422H0.224V5.906H3.482V9.146H6.038V5.906H9.296V3.422H6.038V0.182H3.482V3.422Z"/></svg>');
+	 background: url(#{$IMAGES-PATH}plus.svg);
+	 background-size: cover;
 	 height: 20px;
 	 width: 20px;
 	 background-repeat: no-repeat;
  }
  .toggle-icon:not(.toggle-icon__plus) {
-	 background-repeat: no-repeat;
+	 background: url(#{$IMAGES-PATH}minus.svg) no-repeat;
 	float: right;
 	position: absolute;
+	background-size: 100% auto;
 	right: 0px;
-	top: 50%;
+	top: 60%;
 	transform: translateY(-50%);
-	background-color: $teal;
-	mask-image: url('data:image/svg+xml;utf8,<svg width="20" height="20" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg"><path d="M6.444 2.734V0.106H0.9V2.734H6.444Z"/></svg>');
 	height: 20px;
 	width: 20px;
 	margin-top: 7px;
