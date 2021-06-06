@@ -1,4 +1,4 @@
-import { docReady, getWidth, elementInViewport } from "./utilities"
+import { docReady } from "./utilities"
 
 export let navigationInit = () => {
 	docReady(() => {
@@ -62,23 +62,5 @@ export let navigationInit = () => {
 		})
 
 	})
-	window.addEventListener('scroll', function(){
-		if (getWidth() > 900){
-			let scrolled = window.pageYOffset;
-			let hero = document.querySelector('.hero');
-			let alignedfull = document.querySelectorAll('.alignfull > img');
-
-			hero.style.backgroundPositionY = (- scrolled*.15).toString() + "px";
-			alignedfull.forEach((el) => {
-				if (elementInViewport(el)){
-					el.style.objectPositionY = (- scrolled*.15).toString() + "px";
-					//alert("yes")
-					//console.log(el);
-				}
-			
-			})
-		}
-	})
-
 
 }
