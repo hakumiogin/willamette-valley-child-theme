@@ -30,7 +30,7 @@
                     </svg>
                 </div>
             </div>
-            <div class="category-slider">
+            <div class="category-slider" id="category-slider">
             <?php
             while ( $the_query->have_posts() ) {
                 $the_query->the_post();
