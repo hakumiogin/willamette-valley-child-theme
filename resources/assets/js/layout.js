@@ -70,6 +70,19 @@ export let layout = () => {
 			})
 		}
 
+		let slider = document.querySelectorAll(".category-slider-parent")
+		if (slider) {
+			slider.forEach((el) => {
+				let sliderTitle = el.previousElementSibling
+				if (sliderTitle.nodeName == "H1" || sliderTitle.nodeName == "H2" || sliderTitle.nodeName == "H3" || sliderTitle.nodeName == "H4" || sliderTitle.nodeName == "H5"){
+					if (el.innerHTML.trim() == ""){
+						sliderTitle.style.display = "none"
+						console.log("displaying none")
+					}
+				}
+			})
+		}
+
 		// weird height hack fix
 		// for some reason, every image-box block is 4px taller than it should be based on its content
 		// so I'm just manually setting every height 4px shorter than its calculated height
