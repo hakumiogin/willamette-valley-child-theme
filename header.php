@@ -46,7 +46,15 @@ template('layout/covid-banner', [
 	'text' => 'Covid-19 updates and travel alerts',
 	'btn_text' => 'More Info'
 ]);
-$page_title = get_post_type() === "post" ? "News" : get_the_title();
+if (get_post_type() === "post"){
+	$page_title = "Articles";
+} else if (is_search()) {
+	$page_title = "Search";
+} else if (is_404()){
+	$page_title = "404";
+} else {
+	$page_title = get_the_title();
+}
 template('layout/header', [
 	'image_url' => get_stylesheet_directory_uri()."/public/images/",
 	'hero' => $hero,
