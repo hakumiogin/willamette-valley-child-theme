@@ -1,5 +1,14 @@
-.main-site {
-	input[type="text"] {
-		background-color: $light-grey;
+.site-main {
+	.gform_wrapper{
+		width: 800px !important;
+		margin: 0px auto;
+
+		input[type="text"], input[type="email"] {
+			background-color: $light-grey;
+			border: none;
+		}
+		textarea {
+			font-family: $body-font;
+		}
 	}
 }
