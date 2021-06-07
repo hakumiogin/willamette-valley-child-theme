@@ -50,6 +50,7 @@ export let layout = () => {
 		}
 
 		//hover effects
+		//js is the only way, because every block is a different color.
 		let hoverLinks = document.querySelectorAll(".wp-block-willamette-blocks-image-box__content > h2 > a")
 		if (hoverLinks){
 			hoverLinks.forEach((el) => {
@@ -72,11 +73,12 @@ export let layout = () => {
 		// for some reason, every image-box block is 4px taller than it should be based on its content
 		// so I'm just manually setting every height 4px shorter than its calculated height
 		// because I feel like I don't have time right now to figure out why they're too tall
-		let heightAdjustElements = document.querySelectorAll(".wp-block-column .wp-block-willamette-blocks-image-box")
-		heightAdjustElements.forEach((el) => {
-			el.style.height = (el.clientHeight - 4).toString() + "px"
-		})
-
-	
+		let heightAdjustElements = document.querySelectorAll(".wp-block-column .wp-block-willamette-blocks-image-box h2 > a")
+		if (heightAdjustElements){
+			heightAdjustElements.forEach((el) => {
+				let targetElement = el.parentElement.parentElement.parentElement
+				targetElement.style.height = (targetElement.clientHeight - 4).toString() + "px"
+			})
+		}
 	})
 }
