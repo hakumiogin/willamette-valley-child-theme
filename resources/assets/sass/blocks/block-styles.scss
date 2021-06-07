@@ -122,7 +122,10 @@ a img.aligncenter {
 	margin-bottom: 40px;
 	margin-top: 60px;
 	text-align: center;
-		
+	max-width: 650px;
+	margin-left: auto;
+	margin-right: auto;
+	line-height: 1.1;
 	a { color: $white !important; }
 }
 .wp-block-willamette-blocks-image-box__content {
