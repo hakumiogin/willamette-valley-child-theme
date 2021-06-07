@@ -6,7 +6,7 @@ export let layout = () => {
 		let patternedBackgrounds = document.querySelectorAll(".pattern-bg")
 		if (patternedBackgrounds) {
 			patternedBackgrounds.forEach((el) => {
-				el.nextSibling.nextElementSibling.style.marginTop = "-50px"
+				el.nextSibling.nextElementSibling.style.marginTop = "-25px"
 			})
 		}
 		

@@ -11,5 +11,5 @@ use function Madden\Theme\Child\template;
  */
 template('single');
 
-template('layout/footer');
+
 ?>
