@@ -11,42 +11,43 @@ export let layout = () => {
 		}
 		
 		//parallaxing
-		let alignedfull = document.querySelectorAll('.alignfull > img')
-		if (alignedfull) {
-			let alignedfullobject = {}
-			let i = 0
-			alignedfull.forEach ((el) => {
-				alignedfullobject[i] = { scroll: 0, startingPosition: -1}
-				el.parentElement.style.overflow = "hidden"
-				i++
-			})
-			let timer
-			window.addEventListener('scroll', function(){
-				if (timer){
-					window.clearTimeout (timer)
-				}
-				timer = window.setTimeout(() => {
-					if (getWidth() > 900){
-						let scrolled = window.pageYOffset;
-						let hero = document.querySelector('.hero')
-						if (isElementInViewport(hero)){
-							hero.style.backgroundPositionY = (- scrolled*.08).toString() + "px"
-						}
-						
-						let alignedfull = document.querySelectorAll('.alignfull > img')
-						let i = 0
-						alignedfull.forEach((el) => {
-							if (isElementInViewport(el)){
-								if (alignedfullobject[i].startingPosition === -1){
-									alignedfullobject[i].startingPosition = window.pageYOffset
-								}
-								let scrolled = window.pageYOffset - alignedfullobject[i].startingPosition
-								el.style.objectPosition = "0px " + (- scrolled*.06).toString() + "px";
+		if (window.pageYOffset < 100){
+			let alignedfull = document.querySelectorAll('.alignfull > img')
+			if (alignedfull) {
+				let alignedfullobject = {}
+				let i = 0
+				alignedfull.forEach ((el) => {
+					alignedfullobject[i] = { scroll: 0, startingPosition: -1}
+					i++
+				})
+				let timer
+				window.addEventListener('scroll', function(){
+					if (timer){
+						window.clearTimeout (timer)
+					}
+					timer = window.setTimeout(() => {
+						if (getWidth() > 900){
+							let scrolled = window.pageYOffset;
+							let hero = document.querySelector('.hero')
+							if (isElementInViewport(hero)){
+								hero.style.backgroundPositionY = (- scrolled*.08).toString() + "px"
 							}
-						})
-					}	
-				}, 5)
-			})
+							
+							let alignedfull = document.querySelectorAll('.alignfull > img')
+							let i = 0
+							alignedfull.forEach((el) => {
+								if (isElementInViewport(el)){
+									if (alignedfullobject[i].startingPosition === -1){
+										alignedfullobject[i].startingPosition = window.pageYOffset
+									}
+									let scrolled = window.pageYOffset - alignedfullobject[i].startingPosition
+									el.style.objectPosition = "0px " + (- scrolled*.06).toString() + "px";
+								}
+							})
+						}	
+					}, 5)
+				})
+			}
 		}
 
 		//hover effects
