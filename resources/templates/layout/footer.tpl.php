@@ -36,7 +36,6 @@
 		</div>
 		<div class="fifth-footer-column">
 			<ul>
-				<li><a href="#">Site Map</a></li>
 				<li><a href="/privacy-policy">Privacy Policy</a></li>
 			</ul>
 			<?php gravity_form(3, 0, 0); ?>
