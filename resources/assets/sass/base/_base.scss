@@ -1,9 +1,12 @@
 /* Base Styles */
-body {
+body, html {
 	overflow-x: hidden !important;
 	background: $white;
+	width: 100%;
 }
-
+body {
+	position: relative
+}
 a:link, a:visited {
 	color: $orange;
 	text-decoration: underline;
