@@ -68,6 +68,13 @@
 
 		a { text-decoration: none; }
 	}
+	.gform_wrapper {
+		margin-top: 1em;
+	}
+	label {
+		position: absolute !important;
+    	left: -999em;
+	}
 	input {
 		background-color: $transparent-white;
 		border: none;
@@ -79,6 +86,16 @@
 			color: $dark-gray;
 
 		}
+	}
+	input[type=submit].gform_button.button {
+		background: transparent;
+		box-shadow: none;
+		border: 1px solid #fff;
+		padding: 5px 30px;
+	}
+	.gform_wrapper.gravity-theme .gform_footer {
+		margin: .5em 0 1em;
+		padding: 0;
 	}
 	.second-footer-column, .third-footer-column, .fourth-footer-column, .fifth-footer-column {
 		max-width: 250px;
