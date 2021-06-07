@@ -96,9 +96,9 @@ export let layout = () => {
 			heightAdjustElements.forEach((el) => {
 				let targetElement = el.parentElement.parentElement
 				let height = targetElement.clientHeight - 4
-				//if (height > 200){
+				if (height > 200){
 					targetElement.style.height = (height).toString() + "px"
-				//}
+				}
 			})
 		}
 	})
