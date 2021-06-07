@@ -68,6 +68,10 @@
 
 		a { text-decoration: none; }
 	}
+	label {
+		position: absolute !important;
+    	left: -999em;
+	}
 	input {
 		background-color: $transparent-white;
 		border: none;
