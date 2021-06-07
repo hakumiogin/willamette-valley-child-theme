@@ -87,9 +87,13 @@
 	.first-footer-column {
 		display: flex;
 		align-items: center;
+		padding: 0px 30px;
 		img {
 			width: 270px;
 		}
+	}
+	.second-footer-column, .third-footer-column, .fourth-footer-column {
+		width: 33%;
 	}
 	@include screen-px(1000){
 		.footer__container {
