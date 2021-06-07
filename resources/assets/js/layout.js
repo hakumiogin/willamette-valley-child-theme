@@ -37,12 +37,15 @@ export let layout = () => {
 							let i = 0
 							alignedfull.forEach((el) => {
 								if (isElementInViewport(el)){
+
 									if (alignedfullobject[i].startingPosition === -1){
 										alignedfullobject[i].startingPosition = window.pageYOffset
 									}
 									let scrolled = window.pageYOffset - alignedfullobject[i].startingPosition
 									el.style.objectPosition = "0px " + (- scrolled*.06).toString() + "px";
+									console.log("moved" + i.toString())
 								}
+								i++
 							})
 						}	
 					}, 5)
@@ -87,12 +90,12 @@ export let layout = () => {
 		// for some reason, every image-box block is 4px taller than it should be based on its content
 		// so I'm just manually setting every height 4px shorter than its calculated height
 		// because I feel like I don't have time right now to figure out why they're too tall
-		let heightAdjustElements = document.querySelectorAll(".wp-block-column .wp-block-willamette-blocks-image-box h2 > a")
+		let heightAdjustElements = document.querySelectorAll(".wp-block-column .wp-block-willamette-blocks-image-box h2")
 		if (heightAdjustElements){
 			heightAdjustElements.forEach((el) => {
-				let targetElement = el.parentElement.parentElement.parentElement
+				let targetElement = el.parentElement.parentElement
 				let height = targetElement.clientHeight - 4
-				if (height > 0){
+				if (height > 200){
 					targetElement.style.height = (height).toString() + "px"
 				}
 			})
