@@ -41,7 +41,7 @@
 	height: 120vh;
 	min-height: 850px;
 	position: relative;
-	background-size: cover;
+	background-size: auto 120%;
 	@include screen-px(1474){
 		background-size: auto 120%;
 		margin-top: -270px;
@@ -96,6 +96,9 @@
 	margin-top: -180px;
 	height: 150px;
 	width: 100%;
+	@include screen-px(1300){
+		background-size: auto 100%;
+	}
 	@include screen-md {
 		background-position: bottom center;
 		background-size: 150% 150px;
@@ -103,8 +106,5 @@
 	@include screen-sm {
 		background-position: bottom center;
 		background-size: 150% 150px;
-	}
-	@include screen-px(1300){
-		background-size: auto 100%;
 	}
 }
