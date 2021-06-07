@@ -64,8 +64,19 @@ export let layout = () => {
 				el.addEventListener("mouseout", () => {
 					imageTarget.classList.remove("transparent")
 				})
+
 			})
 		}
+
+		// weird height hack fix
+		// for some reason, every image-box block is 4px taller than it should be based on its content
+		// so I'm just manually setting every height 4px shorter than its calculated height
+		// because I feel like I don't have time right now to figure out why they're too tall
+		let heightAdjustElements = document.querySelectorAll(".wp-block-column.wp-block-willamette-blocks-image-box")
+		heightAdjustElements.forEach((el) => {
+			el.style.height = (el.clientHeight - 4).toString() + "px"
+		})
+
 	
 	})
 }
