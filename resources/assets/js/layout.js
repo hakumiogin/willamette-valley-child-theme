@@ -16,7 +16,7 @@ export let layout = () => {
 			if (alignedfull) {
 				let alignedfullobject = {}
 				let i = 0
-				alignedfull.forEach ((el) => {
+				alignedfull.forEach (() => {
 					alignedfullobject[i] = { scroll: 0, startingPosition: -1}
 					i++
 				})
