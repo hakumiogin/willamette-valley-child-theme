@@ -39,7 +39,7 @@
 				<li><a href="#">Site Map</a></li>
 				<li><a href="/privacy-policy">Privacy Policy</a></li>
 			</ul>
-			<input type="text" name="email" placeholder="Email Sign Up">
+			<?php gravity_form(3, 0, 0); ?>
 			<div class="social-icons">
 				<a href="https://www.facebook.com/OregonWineCountry" rel="nofollow" aria-label="facebook"><img src="<?= get_stylesheet_directory_uri();?>/resources/assets/images/facebook.png"></a>
 				<a href="http://instagram.com/oregonwinetrav" rel="nofollow" aria-label="instagram"><img src="<?= get_stylesheet_directory_uri();?>/resources/assets/images/instagram.png"></a>
