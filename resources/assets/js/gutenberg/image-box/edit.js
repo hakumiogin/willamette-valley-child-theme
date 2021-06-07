@@ -81,23 +81,6 @@ class ImageBoxEdit extends Component {
             url
         });
     };
-    getImageSizes() {
-        const { image, imageSizes } = this.props;
-        if (!image) return [];
-        let options = [];
-        const sizes = image.media_details.sizes;
-        for (const key in sizes) {
-            const size = sizes[key];
-            const imageSize = imageSizes.find(size => size.slug === key);
-            if (imageSize) {
-                options.push({
-                    label: imageSize.name,
-                    value: size.source_url
-                });
-            }
-        }
-        return options;
-    }
     addNewLink = () => {
         const { setAttributes, attributes } = this.props;
         const { social } = attributes;
@@ -161,14 +144,6 @@ class ImageBoxEdit extends Component {
                                 help={__(
                                     "Alternative text describes your image to people can't see it. Add a short description with its key details."
                                 )}
-                            />
-                        )}
-                        {id && (
-                            <SelectControl
-                                label={__("Image Size", "willamette-blocks")}
-                                options={this.getImageSizes()}
-                                onChange={this.onImageSizeChange}
-                                value={url}
                             />
                         )}
                     </PanelBody>

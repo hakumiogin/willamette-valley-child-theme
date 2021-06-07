@@ -27,6 +27,9 @@ const attributes = {
         selector: "img",
         attribute: "src"
     },
+    isSelected: {
+        type: "string",
+    }
 };
 
 registerBlockType("willamette-blocks/image-box", {
