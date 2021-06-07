@@ -8,7 +8,7 @@ p {
 	line-height: 1.2em;
 }
 h1 {
-	font-family: $header-font;
+	font-family: $alt-header-font;
 	font-size: 2em;
 	line-height: 1.2em;
 }
@@ -46,5 +46,11 @@ strong {
 	}
 	h1 {
 		text-align: center;
+		color: $teal;
+		font-weight: 700;
+		text-align: left;
+		max-width: 800px;
+		margin: 0px auto 40px;
+		display: block;
 	}
 }
