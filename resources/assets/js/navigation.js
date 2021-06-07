@@ -1,12 +1,14 @@
-import { docReady } from "./utilities"
+import { docReady, getWidth } from "./utilities"
 
 export let navigationInit = () => {
 	docReady(() => {
+		if (getWidth() > 1024){
+			document.querySelectorAll(".nav-bar ul.menu > li").forEach((el) => {
+				let width = el.clientWidth
+				el.style.width = (width + 12).toString() + "px"
+			});
+		}
 		//set the main navigation links width so bolding on hover doesn't cause elements to adjust
-		document.querySelectorAll(".nav-bar ul.menu > li").forEach((el) => {
-			let width = el.clientWidth
-			el.style.width = (width + 12).toString() + "px"
-		});
 		// next, we recalculate widths on window resize so the text doesn't overflow
 		//Is this overkill? Yes.
 		//debouncing the event so its not called more than once every 200ms
