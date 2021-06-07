@@ -42,7 +42,7 @@ export let layout = () => {
 										alignedfullobject[i].startingPosition = window.pageYOffset
 									}
 									let scrolled = window.pageYOffset - alignedfullobject[i].startingPosition
-									el.style.objectPosition = "0px " + (- scrolled*.06).toString() + "px";
+									el.style.objectPosition = "0px " + (- scrolled*.08).toString() + "px";
 									console.log("moved" + i.toString())
 								}
 								i++
@@ -73,6 +73,7 @@ export let layout = () => {
 			})
 		}
 
+		// remove titles for the category slider if there is no category slider displaying
 		let slider = document.querySelectorAll(".category-slider-parent")
 		if (slider) {
 			slider.forEach((el) => {
@@ -95,9 +96,9 @@ export let layout = () => {
 			heightAdjustElements.forEach((el) => {
 				let targetElement = el.parentElement.parentElement
 				let height = targetElement.clientHeight - 4
-				if (height > 200){
+				//if (height > 200){
 					targetElement.style.height = (height).toString() + "px"
-				}
+				//}
 			})
 		}
 	})
