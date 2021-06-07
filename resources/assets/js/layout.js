@@ -2,12 +2,15 @@ import { docReady, getWidth, isElementInViewport } from "./utilities"
 
 export let layout = () => {
 	docReady(() => {
+		//fix background position for patterned backgrounds
 		let patternedBackgrounds = document.querySelectorAll(".pattern-bg")
 		if (patternedBackgrounds) {
 			patternedBackgrounds.forEach((el) => {
 				el.nextSibling.nextElementSibling.style.marginTop = "-15px"
 			})
 		}
+		
+		//parallaxing
 		let alignedfull = document.querySelectorAll('.alignfull > img')
 		if (alignedfull) {
 			let alignedfullobject = {}
@@ -39,7 +42,6 @@ export let layout = () => {
 								}
 								let scrolled = window.pageYOffset - alignedfullobject[i].startingPosition
 								el.style.objectPosition = "0px " + (- scrolled*.06).toString() + "px";
-								//alert("yes")
 							}
 						})
 					}	
@@ -47,6 +49,7 @@ export let layout = () => {
 			})
 		}
 
+		//hover effects
 		let hoverLinks = document.querySelectorAll(".wp-block-willamette-blocks-image-box__content > h2 > a")
 		if (hoverLinks){
 			hoverLinks.forEach((el) => {
@@ -57,7 +60,6 @@ export let layout = () => {
 
 				el.addEventListener("mouseover", () => {
 					imageTarget.classList.add("transparent")
-
 				})
 				el.addEventListener("mouseout", () => {
 					imageTarget.classList.remove("transparent")
