@@ -260,7 +260,7 @@ h1.is-style-Highlighted, h2.is-style-Highlighted, h3.is-style-Highlighted, h4.is
 		}
 		&.is-style-acorn::after {
 			bottom: 70px;
-			right: calc((100% - 1080px) /2);
+			right: calc((100% - 1080px) / 2);
 			@include screen-px(1090){
 				display: none;
 			}
