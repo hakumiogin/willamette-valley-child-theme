@@ -18,10 +18,14 @@ get_header();
              * (where ___ is the post format) and that will be used instead.
              */
             the_content();
-  
         // End the loop.
         endwhile;
+        
         ?>
-        </main><!-- .site-main -->  
+        </main><!-- .site-main single.tpl.php -->  
 
 </div>
+
+<?php 
+    get_footer();
+?>
