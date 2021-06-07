@@ -6,7 +6,7 @@ export let layout = () => {
 		let patternedBackgrounds = document.querySelectorAll(".pattern-bg")
 		if (patternedBackgrounds) {
 			patternedBackgrounds.forEach((el) => {
-				el.nextSibling.nextElementSibling.style.marginTop = "-15px"
+				el.nextSibling.nextElementSibling.style.marginTop = "-50px"
 			})
 		}
 		
@@ -78,7 +78,7 @@ export let layout = () => {
 		if (heightAdjustElements){
 			heightAdjustElements.forEach((el) => {
 				let targetElement = el.parentElement.parentElement.parentElement
-				let height = targetElement.clientHeight - 5
+				let height = targetElement.clientHeight - 4
 				if (height > 0){
 					targetElement.style.height = (height).toString() + "px"
 				}
