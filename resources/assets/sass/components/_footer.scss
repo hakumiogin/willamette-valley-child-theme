@@ -106,6 +106,9 @@
 			align-items: center;
 			margin-bottom: 20px;
 		}
+		.second-footer-column, .third-footer-column, .fourth-footer-column {
+			width: auto;
+		}
 	}
 	@include screen-px(875){
 		background-size: 250% auto;
