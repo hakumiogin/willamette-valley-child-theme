@@ -36,7 +36,7 @@
             $the_query->the_post();
             echo '<div class="category-slider__item">';
             echo '<div class="category-slider__item__image">';
-            if (get_the_post_thumbnail()){
+            if (get_the_post_thumbnail("thumbnail")){
                 the_post_thumbnail();
             } else {
                 echo "<img src='/wp-content/uploads/2021/05/requestAVisitorGuide-150x150.jpg' alt='The Willamette Valley'>";
