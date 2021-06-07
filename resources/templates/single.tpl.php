@@ -23,7 +23,5 @@ get_header();
         endwhile;
         ?>
         </main><!-- .site-main -->  
-<?php get_footer(); ?>
-
 
 </div>
