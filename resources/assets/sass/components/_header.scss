@@ -57,7 +57,7 @@
 				color: $purple;
 				font-weight: 700;
 			}
-			&:hover, &:active {
+			&:hover, &:active, &:focus {
 				color: $teal;
 			}
 		}
@@ -72,7 +72,7 @@
 				top: 50%;
 				transform: translateY(-50%);
 				transition: transform .25s ease-in-out;	
-				&:hover {
+				&:hover, &:focus {
 					transform: scale(1.13) translateY(-10px);
 					transition: transform .15s ease-in-out;	
 				}
@@ -134,11 +134,11 @@
 		li {
 			position: relative;
 			backface-visibility: hidden;
-			&:hover {
+			&:hover, &:focus {
 				font-weight: 700;
 				color: $teal;
 			}
-			&:hover > ul {
+			&:hover > ul, , &:focus > ul {
 				max-height: 500px;
 				z-index: 10000;
 				opacity: 1;
@@ -175,7 +175,7 @@
 					padding: 20px 20px 20px 20px;
 					font-weight: 300;
 				}
-				a:hover, a:active {
+				a:hover, a:active, a:focus {
 					background: $teal;
 					transition: background-color .6s ease;
 					color: $white;
@@ -237,7 +237,7 @@
    display: none;
    position: absolute;
    top: 140px;
-   right: 50px;
+   right: 40px;
    
    z-index: 1;
    
@@ -253,7 +253,7 @@
 	text-decoration: none;
 	color: $teal !important;
 	transition: color 0.3s ease;
-	&:hover {
+	&:hover, &:focus {
 		color: $lime;
 		font-weight: 700;	 
 	}
@@ -347,10 +347,9 @@
    max-height: 110vh;
    -webkit-overflow-scrolling: touch;
    height: auto;
-   right: -50px;
+   right: -65px;
    margin: -150px 0px 0 0px;
-   padding: 100px 50px 100px;
-   padding-top:100px;
+   padding: 100px 20px 100px;
    background: $white;
    list-style-type: none;
    -webkit-font-smoothing: antialiased;
