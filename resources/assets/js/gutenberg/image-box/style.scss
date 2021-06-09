@@ -112,6 +112,7 @@
 	}
 }
 .wp-block-column {
+	margin: 8px !important;
 	@include screen-px(782){
 		& > .wp-image-block {
 			margin: 32px calc(25% - 25vw);
