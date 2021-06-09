@@ -4,13 +4,15 @@ import { registerBlockType } from "@wordpress/blocks";
 import { __ } from "@wordpress/i18n";
 import edit from "./edit";
 import { InnerBlocks } from "@wordpress/block-editor";
+import omit from 'lodash/omit';
+
 //import { Dashicon } from "@wordpress/components";
 
 const attributes = {
-	color: {
-		type: "string",
-		default: "purple"
-	},
+    color: {
+        type: "string",
+        default: "purple"
+    },
     id: {
         type: "number"
     },
@@ -23,13 +25,10 @@ const attributes = {
     },
     url: {
         type: "string",
-        source: "attribute",
-        selector: "img",
-        attribute: "src"
     },
     isSelected: {
         type: "string",
-    }
+    },
 };
 
 registerBlockType("willamette-blocks/image-box", {
@@ -55,22 +54,75 @@ registerBlockType("willamette-blocks/image-box", {
    attributes,
 
     save: ({ attributes }) => {
-        const { url, alt, id } = attributes;
+        // const style = {
+        //     background: "url("+ url + ")",
+        // }
         return (
             <div>
-                {url && (
-                    <img
-                        src={url}
-                        alt={alt}
-                        className={id ? `wp-image-${id}` : null}
-                    />
+                {attributes.url && (
+                    <div
+                        style={{background: 'url('+ attributes.url + ');'}}
+                        className="wp-block-willamette-blocks-image-box__image"
+                    >
+                        <div className="wp-block-willamette-blocks-image-box__content">
+                            <InnerBlocks.Content />
+                        </div>
+                    </div>
                 )}
-				<div className="wp-block-willamette-blocks-image-box__content">
-					<InnerBlocks.Content />
-				</div>
             </div>
         );
     },
 
-    edit
+    edit,
+
+    deprecated: [
+        {
+            attributes: {
+                color: {
+                    type: "string",
+                    default: "purple"
+                },
+                id: {
+                    type: "number"
+                },
+                alt: {
+                    type: "string",
+                    source: "attribute",
+                    selector: "img",
+                    attribute: "alt",
+                    default: ""
+                },
+                url: {
+                    type: "string",
+                    source: "attribute",
+                    selector: "img",
+                    attribute: "src"
+                },
+                isSelected: {
+                    type: "string",
+                }
+            },
+            supports: {
+                reusable: false,
+                html: false,
+                align: true
+            },        
+            save: (props) => {
+                return (
+                    <div>
+                        {props.attributes.url && (
+                            <img
+                                src={props.attributes.url}
+                                alt={props.attributes.alt}
+                                className={props.attributes.id ? `wp-image-${props.attributes.id}` : null}
+                            />
+                        )}
+                        <div className="wp-block-willamette-blocks-image-box__content">
+                            <InnerBlocks.Content />
+                        </div>
+                    </div>
+                )
+            },
+        }
+    ]
 });

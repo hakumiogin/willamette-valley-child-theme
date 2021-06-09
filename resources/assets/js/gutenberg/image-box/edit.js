@@ -20,9 +20,6 @@ import {
     IconButton,
     PanelBody,
     TextareaControl,
-    SelectControl,
-    Dashicon,
-    Tooltip,
     TextControl
 } from "@wordpress/components";
 import { withSelect } from "@wordpress/data";
@@ -240,6 +237,5 @@ export default withSelect((select, props) => {
     const id = props.attributes.id;
     return {
         image: id ? select("core").getMedia(id) : null,
-        imageSizes: select("core/editor").getEditorSettings().imageSizes
     };
 })(withNotices(withColors({color: 'color'})((ImageBoxEdit))))
