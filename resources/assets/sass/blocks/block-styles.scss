@@ -19,7 +19,6 @@
 	max-width: 100vw;
 	width: 100vw;
 	height: auto;
-	overflow: hidden;
 	img {
 		object-fit: cover;
 		object-position: center left;
@@ -35,12 +34,16 @@
 }
 @media (max-width: 920px) {
 	.alignwide {
-		margin: 32px calc( ( 767px - 920px ) / 2 );
 		max-width: 920px;
 		width: 920px;
 	}
 }
-
+.wp-block-button {
+	margin: 20px 0px 10px 0px;
+	a {
+		text-decoration: none; 
+	}
+}
 .alignnone {
 	text-align: left;
 }
@@ -177,11 +180,6 @@ a img.aligncenter {
 		}
 	}
 }
-.pattern-bg {
-	background: url(#{$IMAGES-PATH}/light-pattern.png);
-	background-size: 50%;
-	padding-top: 20px;
-}
 .notfullwidth {
 	width: 1200px;
 	margin: 0px auto;
@@ -197,6 +195,27 @@ a img.aligncenter {
 }
 
 .transparent {
-	opacity: 50%;
 	transition: .4s all;
 }
+
+
+.pattern-bg {
+	background: url(#{$IMAGES-PATH}/light-pattern.png);
+	background-size: 50%;
+	padding-top: 50px;
+	padding-bottom: 60px;
+	margin-top: -50px;
+	margin-bottom: 0px;
+}
+p {
+	font-family: $body-font;
+	color: $grey;
+}
+h1.is-style-Highlighted, h2.is-style-Highlighted, h3.is-style-Highlighted, h4.is-style-Highlighted, h5.is-style-Highlighted {
+	background: $purple;
+	padding: 20px;
+	color: $white;
+	display: inline-block;
+	padding-left: 100px;
+}
+
