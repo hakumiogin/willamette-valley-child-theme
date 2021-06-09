@@ -109,6 +109,9 @@
 		margin-bottom: 0px;
 		justify-content: center;
 		min-height: 400px;
+		.wp-block-willamette-blocks-image-box__content {
+			width: 100%;
+		}
 	}
 }
 .wp-block-column {
