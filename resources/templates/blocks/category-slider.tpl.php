@@ -1,17 +1,16 @@
 <div class="category-slider-parent">
     <?php 
+    $category = get_field("category");
+    print_r( $category);
     $args = array(
-        'cat' => get_field("category")[0],
+        'cat' => $category[0],
         'posts_per_page' => 8,
-        $args = array(
-            'post_type'  => 'post',
-            'posts_per_page' => 6,
-            'meta_query' => array(
-                array(
-                'key' => '_thumbnail_id',
-                'compare' => 'EXISTS'
-                ),
-            )
+        'post_type'  => 'post',
+        'meta_query' => array(
+            array(
+            'key' => '_thumbnail_id',
+            'compare' => 'EXISTS'
+            ),
         )
     );
     $the_query = new WP_Query( $args );
