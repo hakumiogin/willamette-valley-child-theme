@@ -1,18 +1,3 @@
-.wp-block-columns {
-	margin: 15px 0px;
-	align-items: center;
-
-	&.tall-margins { margin: 4.0rem 0; }
-	&.narrow-gutter { margin:0; }
-
-	img {
-		height: auto;
-	}
-	.wp-block-column {
-		padding: 0;
-	}
-
-}
 
 .alignfull {
 	margin: 50px calc(50% - 50vw);
@@ -208,3 +193,18 @@ h1.is-style-Highlighted, h2.is-style-Highlighted, h3.is-style-Highlighted, h4.is
 	padding-left: 100px;
 }
 
+.wp-block-columns {
+	margin: 15px 0px;
+	align-items: center;
+
+	&.tall-margins { margin: 4.0rem 0; }
+	&.narrow-gutter { margin:0; }
+
+	img {
+		height: auto;
+	}
+	.wp-block-column {
+		padding: 0;
+	}
+
+}
