@@ -10,6 +10,9 @@
 		.wp-block-column {
 			margin: 0;
 		}
+		@include screen-px(600) {
+			.wp-block-column { margin: .5em 1em; }
+		}
 		.wp-block-willamette-blocks-image-box {
 			margin: 0 0 10px;
 		}
