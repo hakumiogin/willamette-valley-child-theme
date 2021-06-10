@@ -1,7 +1,6 @@
 <div class="category-slider-parent">
     <?php 
     $category = get_field("category");
-    print_r( $category);
     $args = array(
         'cat' => $category[0],
         'posts_per_page' => 8,
