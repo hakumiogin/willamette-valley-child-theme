@@ -54,6 +54,15 @@ function willamette_acf_block_register() {
 			'icon'				=> 'admin-comments',
 			'keywords'			=> array( 'category', 'slider' ),
 		));
+		acf_register_block(array(
+			'name'				=> 'otis-slider',
+			'title'				=> __('otis Category Slider'),
+			'description'		=> __('otis Category Slider.'),
+			'render_callback'	=> 'willamette_acf_block_render_callback',
+			'category'			=> 'madden',
+			'icon'				=> 'admin-comments',
+			'keywords'			=> array( 'category', 'slider' ),
+		));
 	}
 }
 ?>

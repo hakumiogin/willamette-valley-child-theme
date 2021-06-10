@@ -91,6 +91,7 @@ return [
         // ACTIONS
         'Setup/actions.php',
         'Setup/actions/enqueue_assets.php',
+        'Setup/actions/otis_setup.php',
 		'Setup/registrations.php',
 
 		//BLOCK REGISTRATIONS
