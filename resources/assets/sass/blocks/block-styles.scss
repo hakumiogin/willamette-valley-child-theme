@@ -1,5 +1,6 @@
 .wp-block-columns {
 	margin: 15px 0px;
+	align-items: center;
 
 	&.tall-margins { margin: 4.0rem 0; }
 	&.narrow-gutter { margin:0; }
@@ -7,11 +8,10 @@
 	img {
 		height: auto;
 	}
-	align-items: center;
+	.wp-block-column {
+		padding: 0;
+	}
 
-}
-.wp-block-column {
-	padding: 0;
 }
 
 .alignfull {
