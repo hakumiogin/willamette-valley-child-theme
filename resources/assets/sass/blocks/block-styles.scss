@@ -22,8 +22,11 @@
 	img {
 		object-fit: cover;
 		object-position: center left;
-		min-height: 400px;
 		width: auto;
+		min-height: 100vw;
+		@include screen-px(400) {
+			min-height: 400px;
+		}
 	}
 }
 
