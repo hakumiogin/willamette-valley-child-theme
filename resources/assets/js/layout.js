@@ -6,7 +6,9 @@ export let layout = () => {
 		let patternedBackgrounds = document.querySelectorAll(".pattern-bg")
 		if (patternedBackgrounds) {
 			patternedBackgrounds.forEach((el) => {
-				el.nextSibling.nextElementSibling.style.marginTop = "-25px"
+				if (el.nextSibling.nextElementSibling){
+					el.nextSibling.nextElementSibling.style.marginTop = "-25px"
+				}
 			})
 		}
 		
@@ -78,6 +80,7 @@ export let layout = () => {
 			hoverLinks.forEach((el) => {
 				let color = window.getComputedStyle(el.parentElement).getPropertyValue("background-color")
 				color = color.replace(/[^,]+(?=\))/, '0.5') //replace color opacity with 50%
+				console.log(color)
 				let imageTarget = el.parentElement.parentElement.parentElement
 				el.addEventListener("mouseover", () => {
 					imageTarget.style.boxShadow = color + " 0 0 0 10000px inset"
