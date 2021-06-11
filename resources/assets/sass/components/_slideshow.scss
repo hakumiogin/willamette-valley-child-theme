@@ -87,6 +87,10 @@ $slick-loader-path: "~slick-carousel/slick/";
 				width: auto;
 				object-fit: cover;
 				object-position: center center;
+				@include screen-px(650){
+					min-width: 100%;
+					height: auto;
+				}
 			}
 		}
 		.category-slider__item__title {

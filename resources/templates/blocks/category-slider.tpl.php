@@ -1,16 +1,22 @@
 <div class="category-slider-parent">
     <?php 
-    $category = get_field("category");
+    $categories = get_field("category");
     $args = array(
-        'cat' => $category[0],
-        'posts_per_page' => 8,
+        'posts_per_page' => 16,
         'post_type'  => 'post',
         'meta_query' => array(
             array(
             'key' => '_thumbnail_id',
             'compare' => 'EXISTS'
             ),
-        )
+        ),
+        'tax_query' => array(
+            array(
+            'taxonomy' => 'category',
+            'field' => 'term_id',
+            'terms' => $categories,
+             )
+          )
     );
     $the_query = new WP_Query( $args );
     if ( $the_query->have_posts() && $the_query->post_count >= 4) { ?>
