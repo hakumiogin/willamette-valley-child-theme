@@ -19,20 +19,21 @@
 	// );
     $taxonomy_name = 'type';
     $terms = [];
+    $termchildren = [];
+    $i = 0;
     foreach ($categories as $category){
-        $termchildren = get_term_children( $category, $taxonomy_name );
-        if (!in_array($category, $terms)){
-            $terms[] = $category;
-        }
-        foreach ($termchildren as $child){
-            if (!in_array($child, $terms)){
-                $terms[] = $child;
-            }
-        }
+        $termchildren[$i] = get_term_children( $category, $taxonomy_name );
+        array_push($termchildren[$i], $category);
+    }
+    $sqlterm = "";
+    foreach ($termchildren as $child){
+        $termstring = implode(", ", $child);
+        $sqlterm = $sqlterm ."( wp_term_relationships.term_taxonomy_id IN ($termstring) ) AND ";
     }
     $termstring = implode(", ", $terms);
+    echo "<h1>$termstring</h1>";
     global $wpdb;
-    $sql = "SELECT wp_posts.ID FROM wp_posts LEFT JOIN wp_term_relationships ON (wp_posts.ID = wp_term_relationships.object_id) WHERE ( wp_term_relationships.term_taxonomy_id IN ($termstring) ) AND wp_posts.post_type = 'poi' AND wp_posts.ID IN (SELECT max(wp_posts.ID) FROM wp_posts GROUP BY wp_posts.post_title)  AND (wp_posts.post_status = 'publish' OR wp_posts.post_status = 'acf-disabled' OR wp_posts.post_status = 'dp-rewrite-republish' OR wp_posts.post_status = 'private') GROUP BY wp_posts.ID ORDER BY wp_posts.post_date DESC LIMIT 0, 16";
+    $sql = "SELECT wp_posts.ID FROM wp_posts LEFT JOIN wp_term_relationships ON (wp_posts.ID = wp_term_relationships.object_id) WHERE $sqlterm wp_posts.post_type = 'poi' AND wp_posts.ID IN (SELECT max(wp_posts.ID) FROM wp_posts GROUP BY wp_posts.post_title)  AND (wp_posts.post_status = 'publish' OR wp_posts.post_status = 'acf-disabled' OR wp_posts.post_status = 'dp-rewrite-republish' OR wp_posts.post_status = 'private') GROUP BY wp_posts.ID ORDER BY wp_posts.post_date DESC LIMIT 0, 16";
     $pageposts = $wpdb->get_results($sql);
     if ($pageposts):
         global $post;
