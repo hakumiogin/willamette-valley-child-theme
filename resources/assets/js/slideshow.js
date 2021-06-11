@@ -1,41 +1,44 @@
-export const slideShow = () => {
-	let leftButton = document.getElementById("slideshowleft")
-	let rightButton = document.getElementById("slideshowright")
-	if (rightButton && leftButton){ //if there is a slideshow on this page
-		let leftSVG = leftButton.querySelector("svg")
-		let rightSVG = rightButton.querySelector("svg")
-		let slides = document.querySelector('.category-slider')
-		let vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
-		let scrollDistance = Math.min(vw, 1000)
-		let distanceScrolled = 0
-		let scrollOffset = 250
+import $ from "jquery"
+import 'slick-carousel/slick/slick'
 
-		// turn off the left control for starters
-		leftSVG.style.visibility = "hidden"
-
-		rightSVG.onclick = (e) => {
-			e.preventDefault()
-			slides.style.overflow = "visible"
-			if (distanceScrolled < slides.offsetWidth ){
-				distanceScrolled += Math.max(Math.floor(scrollDistance/scrollOffset) * scrollOffset, scrollOffset);
-				leftSVG.style.visibility = "visible"
-			} else {
-				distanceScrolled = 0;
-				leftSVG.style.visibility = "hidden"
-			}
-			slides.style.transform = "translateX(-" + (distanceScrolled).toString() + "px)"
-		}
-		leftSVG.onclick = (e) => {
-			e.preventDefault()
-			if (distanceScrolled > 0){
-				distanceScrolled = Math.max(distanceScrolled - scrollDistance, 0)
-				if (distanceScrolled == 0){
-					slides.style.transform = "translateX( 0px)"
-					leftSVG.style.visibility = "visible"
-				} else {
-					slides.style.transform = "translateX( -" + (distanceScrolled).toString() + "px)"
+export function slideshow(){
+	$(document).ready( () => {
+		$('.slider').slick({
+			accessibility: false,
+			arrows: true,
+			dots: false,
+			infinite: true,
+			speed: 300,
+			slidesToShow: 4,
+			slidesToScroll: 4,
+			responsive: [
+				{
+					breakpoint: 1150,
+					settings: {
+						slidesToShow: 3,
+						slidesToScroll: 3,
+						infinite: true,
+						dots: true
+					}
+				},
+				{
+					breakpoint: 890,
+					settings: {
+						slidesToShow: 2,
+						slidesToScroll: 2
+					}
+				},
+				{
+					breakpoint: 646,
+					settings: {
+						slidesToShow: 1,
+						slidesToScroll: 1
+					}
 				}
-			}
-		}
-	}
+			// You can unslick at a given breakpoint now by adding:
+			// settings: "unslick"
+			// instead of a settings object
+			]
+		})
+	})
 }
