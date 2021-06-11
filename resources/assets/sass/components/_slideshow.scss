@@ -58,6 +58,7 @@ $slick-loader-path: "~slick-carousel/slick/";
 	&__item {
 		a:hover, a:link, a:visited, a:focus {
 			text-decoration: none;
+			width:100%;
 		}
 		a:hover, a:focus {
 			.category-slider__item__title{
