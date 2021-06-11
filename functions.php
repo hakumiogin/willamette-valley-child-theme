@@ -49,7 +49,7 @@ function custom_search_form( $form ) {
   function willamette_acf_block_render_callback($block){
     $slug = str_replace('acf/', '', $block['name']);
     template("/blocks/".$slug, array(
-        "category" => $block,
+        "block" => $block,
       )
     );
 }
