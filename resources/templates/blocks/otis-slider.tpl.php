@@ -1,61 +1,70 @@
 <div class="category-slider-parent">
+    
     <?php 
+
+    $colors = ["has-purple-background-color", "has-teal-background-color", "has-lime-background-color", "has-green-background-color"];
+
     $category = get_field("category");
-    $thumbnail = "";
-    $args = array(
-		'posts_per_page' => 12,
-		'post_type'  => 'poi',
-	    'tax_query' => array(
-			array(
-				'taxonomy' => 'type',
-				'field'    => 'term_id',
-				'terms'    => $category,
-			),
-		),
-	
-	);
-
-    $the_query = new WP_Query( $args );
-    if ( $the_query->have_posts() && $the_query->post_count >= 4) { ?>
-        <div class="slider category-slider">
-        <?php
-            $colors = ["has-purple-background-color", "has-teal-background-color", "has-lime-background-color", "has-green-background-color"];
-            $i = 0;
-            while ( $the_query->have_posts() ) {
-                $the_query->the_post();
-                echo '<div class="category-slider__item">';
-                echo '<a href="'.get_the_permalink().'">';
-                echo '<div class="category-slider__item__image">';
-                if (get_the_post_thumbnail("thumbnail")){
-                    the_post_thumbnail();
-                } else {
-                    $photos = get_field("photos", get_the_iD());
-                    if ($photos) {
-                        $thumbnail = $photos[0]["image_url"];
-                        echo "<img src='$thumbnail' alt='".$photos[0]["image_alt"]."'>";
-
-                    } else {
-                        echo "<img src='/wp-content/uploads/2021/05/requestAVisitorGuide-150x150.jpg' alt='The Willamette Valley'>";
-                    }		
-                }
-                echo '</div>';
-                echo '<div class="category-slider__item__title '.$colors[$i].'">';
-                $wordwrap = wordwrap(get_the_title(), 60, "\n");
-                $wordwrapsplit = explode("\n", $wordwrap);
-                $wordwrap = $wordwrapsplit[0];
-                if (count($wordwrapsplit) > 1){
-                    $wordwrap = $wordwrap. "...";
-                }
-                echo '<p>'.$wordwrap.'</p>';
-                echo '</div></a></div>';
-                $i++;
-                if ($i > count($colors) - 1){
-                    $i = 0;
-                }
+    //replaced by the sql below.
+    // $args = array(
+	// 	'posts_per_page' => 16,
+	// 	'post_type'  => 'poi',
+	//     'tax_query' => array(
+	// 		array(
+	// 			'taxonomy' => 'type',
+	// 			'field'    => 'term_id',
+	// 			'terms'    => $category,
+	// 		),
+	// 	),
+	// );
+    $taxonomy_name = 'type';
+    $termchildren = get_term_children( $category, $taxonomy_name );
+    $terms = "$category, ". implode (", ", $termchildren);
+    global $wpdb;
+    $sql = "SELECT wp_posts.ID FROM wp_posts LEFT JOIN wp_term_relationships ON (wp_posts.ID = wp_term_relationships.object_id) WHERE ( wp_term_relationships.term_taxonomy_id IN ($terms) ) AND wp_posts.post_type = 'poi' AND wp_posts.ID IN (SELECT max(wp_posts.ID) FROM wp_posts GROUP BY wp_posts.post_title)  AND (wp_posts.post_status = 'publish' OR wp_posts.post_status = 'acf-disabled' OR wp_posts.post_status = 'dp-rewrite-republish' OR wp_posts.post_status = 'private') GROUP BY wp_posts.ID ORDER BY wp_posts.post_date DESC LIMIT 0, 16";
+    $pageposts = $wpdb->get_results($sql);
+    if ($pageposts):
+        global $post;
+        echo '<div class="slider category-slider">';
+        $i = 0;
+        foreach ($pageposts as $the_post):
+            $postobject = get_post($the_post);
+            
+            $links = get_field("links", $postobject);
+            if ($links) {
+                $link = $links[0]["url"];
+            } else {
+                $link = "#";
             }
+            echo '<div class="category-slider__item">';
+            echo '<a href="'.$link.'">';
+            echo '<div class="category-slider__item__image">';
+            $photos = get_field("photos", $postobject);
+            if ($photos) {
+                $thumbnail = $photos[0]["image_url"];
+                echo "<img src='$thumbnail' alt='".$photos[0]["image_alt"]."'>";
+            } else {
+                echo "<img src='/wp-content/uploads/2021/05/requestAVisitorGuide-150x150.jpg' alt='The Willamette Valley'>";
+            }		
+            echo '</div>';
+            echo '<div class="category-slider__item__title '.$colors[$i].'">';
+            $wordwrap = wordwrap(get_the_title($postobject->ID), 60, "\n");
+            $wordwrapsplit = explode("\n", $wordwrap);
+            $wordwrap = $wordwrapsplit[0];
+            if (count($wordwrapsplit) > 1){
+                $wordwrap = $wordwrap. "...";
+            }
+            echo '<p>'.$wordwrap.'</p>';
+            echo '</div></a></div>';
+            $i++;
+            if ($i > count($colors) - 1){
+                $i = 0;
+            }
+        endforeach;
         echo '</div>';
-        }
+    endif;
     wp_reset_postdata();
+
     ?>
 </div>
     
