@@ -76,6 +76,7 @@ $slick-loader-path: "~slick-carousel/slick/";
 			margin: 0px auto;
 			height: 200px;
 			width: 207px;
+			min-width: 80%;
 			@include screen-px(600){
 				height:170px;
 				width: 170px;
