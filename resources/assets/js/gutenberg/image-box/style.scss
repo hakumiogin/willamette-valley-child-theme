@@ -1,83 +1,10 @@
 /* eslint-disable */
-
-.wp-block-willamette-blocks-image-box__content {
-	.wp-block-column > h1, .wp-block-column > h2, .wp-block-column > h3, .wp-block-column > h4 {
-		color: $white;
-	}
-	h1, h2, h3, h4 {
-		a {
-			color: $white !important;
-			text-decoration: none !important;
-			width: 100%;
-		}
-	}
-}
-
-.wp-block-columns {
-	align-items: flex-start;
-	margin-bottom: 60px;
+.wp-block-columns.narrow-gutter{
 	justify-content: center;
-	
-	&.narrow-gutter{
-		justify-content: center;
-		.wp-block-column {
-			margin: 0;
-		}
-		@include screen-px(600) {
-			.wp-block-column { margin: .5em 1em; }
-		}
-		.wp-block-willamette-blocks-image-box {
-			margin: 0 0 10px;
-		}
+	.wp-block-willamette-blocks-image-box {
+		margin: 0px 5px 10px;
 	}
-	&.four-image-bottom, &.four-image-top {
-		margin: 0px;
-		padding: 0px;
-		align-items: center;
-	}
-	.wp-block-willamette-blocks-image-box  ~ p {
-		padding: 0 20px 20px;
-	}
-
-	.wp-block-column {
-		margin: .5em 1em;
-		align-self: flex-start;
-		@include screen-px(782){
-			& > .wp-image-block {
-				margin: 32px calc(25% - 25vw);
-			}
-		}
-		.wp-block-image {
-			padding: 0px 20px;
-			@include screen-px (800){
-				padding: 0px 10px;
-				width: 100%;
-			}
-		}
-		.is-style-no-overhang, .is-style-overhang-left, .is-style-overhang-middle, .is-style-overhang-right {
-			.wp-block-willamette-blocks-image-box__image{
-				background-size: cover !important;
-				background-position: center center !important;
-			}
-			@include screen-px (782){
-				width: 100%;
-			}
-		}
-		.wp-block-willamette-blocks-image-box.is-style-overhang-middle  {
-			.wp-block-willamette-blocks-image-box__content {
-				margin: 0 auto -22px;
-				position: relative;
-				top: -32px;
-				& > * {
-					min-height: auto;
-				}
-			}
-		}
-	
-	}
-
 }
-
 .wp-block-willamette-blocks-image-box__image {
 	width: 100%;
 	background-size: cover;
@@ -113,10 +40,7 @@
 }
 .is-style-overhang-left {
 	.wp-block-willamette-blocks-image-box__content {
-		align-self: flex-start;
-		@include screen-px(782) {
-			align-self: flex-end;
-		}
+		align-self: flex-end;
 	}
 }
 .is-style-overhang-right {
@@ -132,7 +56,7 @@
 			text-align: center;
 		}
 	}
-	@include screen-px(782) {
+	@include screen-px(782){
 		.wp-block-willamette-blocks-image-box__image {
 			justify-content: center;
 			.wp-block-willamette-blocks-image-box__content{
@@ -151,6 +75,18 @@
 	}
 }
 
+.is-style-full-width-center-narrow-acorn {
+	.wp-block-willamette-blocks-image-box__image {
+		justify-content: center;
+		min-height: 400px;
+		.wp-block-willamette-blocks-image-box__content {
+			max-width: 800px;
+			.wp-block-group {
+				padding: 0px;
+			}
+		}
+	}
+}
 .wp-block-columns.five-column-three {
 	flex-wrap: wrap;
 	.wp-block-column {
@@ -178,7 +114,33 @@
 		}
 	}
 }
+.wp-block-column {
+	margin: 8px !important;
+	@include screen-px(782){
+		& > .wp-image-block {
+			margin: 32px calc(25% - 25vw);
+		}
+	}
+	.is-style-no-overhang, .is-style-overhang-left, .is-style-overhang-middle, .is-style-overhang-right {
+		.wp-block-willamette-blocks-image-box__image{
+			background-size: cover !important;
+			background-position: center center !important;
+		}
+		@include screen-px (782){
+			width: 100%;
+		}
+	}
+	.wp-block-willamette-blocks-image-box.is-style-overhang-middle  {
+		.wp-block-willamette-blocks-image-box__content {
+			bottom: -6px;
+			top: unset;
+			& > * {
+				min-height: auto;
+			}
+		}
+	}
 
+}
 @include screen-px (600){
 	.is-style-no-overhang{
 		.wp-block-willamette-blocks-image-box__content {
@@ -197,6 +159,30 @@
 	}
 }
 
+.wp-block-columns {
+	align-items: flex-start;
+	margin-bottom: 60px;
+	justify-content: center;
+	.wp-block-column .wp-block-image {
+		padding: 0px 20px;
+		@include screen-px (800){
+			padding: 0px 10px;
+			width: 100%;
+		}
+	}
+	&.four-image-bottom, &.four-image-top {
+		margin: 0px;
+		padding: 0px;
+		align-items: center;
+	}
+	.wp-block-willamette-blocks-image-box  ~ p {
+		padding: 20px 20px;
+	}
+	.wp-block-column {
+		margin: .5em 1em;
+		align-self: flex-start;
+	}
+}
 .wp-block-willamette-blocks-image-box.alignfull{
 	.wp-block-willamette-blocks-image-box__image {
 		background-position: center top;
@@ -229,7 +215,7 @@
 	img {
 		max-width: 100%;
 		height: auto;
-		width: 100%;
+		width: auto;
 	}
 	p {
 		max-width: 650px;
@@ -283,31 +269,22 @@
 		padding: 30px;
 	}
 	&.is-style-full-width-center-narrow-acorn {
-		.wp-block-willamette-blocks-image-box__image {
-			justify-content: center;
-			min-height: 400px;
-		}
 		.wp-block-willamette-blocks-image-box__content {
-			position: absolute;
-			top: 20px;
 			width: 1000px;
 			max-width: 100%;
 			img {
-				@include screen-px(782) {
+				@include screen-px(782){
 					height: auto;
 					min-height: 400px;
 					width: auto;
 					object-fit: cover;
 				}
 			}
-			.wp-block-group {
-				padding: 0;
-			}
 		}
 		&.is-style-acorn::after {
 			bottom: 70px;
 			right: calc((100% - 1080px) / 2);
-			@include screen-px(1090) {
+			@include screen-px(1090){
 				display: none;
 			}
 		}
