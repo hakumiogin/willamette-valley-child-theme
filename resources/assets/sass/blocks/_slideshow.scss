@@ -61,35 +61,60 @@ $slick-loader-path: "~slick-carousel/slick/";
 			width:100%;
 		}
 		a:hover, a:focus {
+			transition: .5s all;
 			.category-slider__item__title{
 				opacity: .8;
 			}
 		}
+		position: relative;
 		display: flex !important;
 		flex-direction: column;
 		flex-grow: 1;
 		align-items: center;
+		&__date {
+			position: absolute;
+			right: 20px;
+			top: 0px;
+			height: 30px;
+			color: $white;
+			padding: 5px 10px;
+			font-family: $alt-header-font;
+			font-weight: 700;
+			font-size: 1.25em;
+			&.has-teal-background-color {
+				background-color: $transparent-teal;
+			}	
+			&.has-green-background-color {
+				background-color: $transparent-green;
+			}	
+			&.has-lime-background-color {
+				background-color: $transparent-lime;
+			}	
+			&.has-purple-background-color {
+				background-color: $very-transparent-purple;
+			}	
+		}
 		&__image {
 			overflow: hidden;
 			display: flex;
 			justify-content: center;
-			margin: 0px auto;
+			margin: 5px auto 0px;
 			height: 200px;
 			width: 207px;
 			min-width: 80%;
 			@include screen-px(600){
 				height:170px;
 				width: 170px;
-
 			}
 			img {
 				height: 100%;
-				width: auto;
+				width: 100%;
 				object-fit: cover;
 				object-position: center center;
-				@include screen-px(650){
+				@include screen-px(700){
 					min-width: 100%;
 					height: auto;
+					width: 100%;
 				}
 			}
 		}

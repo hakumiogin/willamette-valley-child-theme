@@ -49,8 +49,16 @@
             }
             echo '<div class="category-slider__item">';
             echo '<a href="'.$link.'">';
+
+            $date = get_field("start_date", $postobject);
+            if ($date){
+                $dateTime = DateTime::createFromFormat('m/d/Y', $date);
+                $formatted_date = $dateTime->format('F j');
+                echo '<div class="category-slider__item__date '.$colors[$i].'">'.$formatted_date.'</div>';
+            }
             echo '<div class="category-slider__item__image">';
             $photos = get_field("photos", $postobject);
+
             if ($photos) {
                 $thumbnail = $photos[0]["image_url"];
                 echo "<img src='$thumbnail' alt='".$photos[0]["image_alt"]."'>";

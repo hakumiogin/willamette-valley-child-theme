@@ -75,10 +75,10 @@ these mixins throughout your scss as needed
 @import "components/hero";
 @import "components/footer";
 @import "components/inputs";
-@import "components/slideshow";
 
 // uncomment to help debug screen bleeding
 // @include debug-screen-bleeding;
 
+@import "blocks/slideshow";
 @import "blocks/category-slider.scss";
 @import "blocks/block-styles.scss";

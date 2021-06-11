@@ -21,10 +21,18 @@
 	height: auto;
 	& > figure > img {
 		object-fit: cover;
-		object-position: center left;
+		object-position: center center;
 		min-height: 400px;
 		width: auto;
 	}
+	&.pattern-bg.wp-block-group > *{
+		max-width: 1200px;
+		margin: 0px auto;
+	}
+}
+figure.alignfull img {
+	object-fit: cover;
+	object-position: center center;
 }
 
 .alignwide {
