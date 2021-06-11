@@ -15,10 +15,11 @@
 	background-position: center center;
 	transition: .8s box-shadow;
 }
+
 .is-style-overhang-middle {
-	
 	.wp-block-willamette-blocks-image-box__image {
 		min-height: 260px;
+		background-position: center top;
 	}
 	.wp-block-willamette-blocks-image-box__content {
 		width: 85%;
@@ -124,7 +125,7 @@
 	.is-style-no-overhang, .is-style-overhang-left, .is-style-overhang-middle, .is-style-overhang-right {
 		.wp-block-willamette-blocks-image-box__image{
 			background-size: cover !important;
-			background-position: center center !important;
+			background-position: center top !important;
 		}
 		@include screen-px (782){
 			width: 100%;
