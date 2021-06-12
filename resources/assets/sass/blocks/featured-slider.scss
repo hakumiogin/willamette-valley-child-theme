@@ -1,9 +1,37 @@
+.slick-prev, .slick-next {
+	top: 38%;
+}
+.featured-slider {
+	width: calc(100% - 150px);
+	margin: 0px auto;
+	@include screen-px(900){
+		width: calc(100% - 70px);
+	}
+}
+.featured-slider__item {
+	@include screen-px(900){
+		.wp-block-columns {
+			.wp-block-column {
+				padding: 0px 10%;
+				@include screen-px (600){
+					padding: 0px 5%;
+				}
+			}
+			flex-direction: column;
+			height: auto;
+			.wp-block-image {
+				float: none;
+			}
+		}
+	}
+}
 .post-content {
 	h1, h2, h3, h4, h5, h6 {
 		font-family: $alt-header-font;
 		color: $teal;
 		font-size: 1.6em;
 		padding: 0px 0px 10px 0px;
+		line-height: 1.1;
 	}
 	p {
 		padding: 10px 0px;
