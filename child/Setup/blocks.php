@@ -63,6 +63,16 @@ function willamette_acf_block_register() {
 			'icon'				=> 'admin-comments',
 			'keywords'			=> array( 'category', 'slider' ),
 		));
+        acf_register_block(array(
+			'name'				=> 'featured-slider',
+			'title'				=> __('Madden Featured Slider'),
+			'description'		=> __('Madden Featured Slider.'),
+			'render_callback'	=> 'willamette_acf_block_render_callback',
+			'category'			=> 'madden',
+			'icon'				=> 'admin-comments',
+			'keywords'			=> array( 'featured', 'slider' ),
+		));
+
 	}
 }
 ?>
