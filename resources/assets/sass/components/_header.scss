@@ -26,9 +26,9 @@
 			flex: 0 0 auto;
 		}
 		@include screen-px (600) {
-			margin-top: 60px;
+			margin-top: 50px;
 			img {
-				width: 200px;
+				width: 240px;
 			}
 		}
 		& img {
@@ -236,7 +236,7 @@
 #menuToggle {
    display: none;
    position: absolute;
-   top: 140px;
+   top: 4px;
    right: 40px;
    
    z-index: 1;
@@ -280,7 +280,7 @@
    display: block;
    width: 48px;
    height: 2px;
-   margin-bottom: 9px;
+   margin-bottom: 11px;
    position: relative;
    
    background: $purple;
@@ -347,7 +347,7 @@
    max-height: 110vh;
    -webkit-overflow-scrolling: touch;
    height: auto;
-   right: -55px;
+   right: -40px;
    margin: -150px 0px 0 0px;
    padding: 100px 20px 100px;
    background: $white;
