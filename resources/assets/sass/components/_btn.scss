@@ -65,7 +65,7 @@
 	.has-purple-background-color {
 		box-shadow: 6px 6px $lime;
 		&:hover {
-			box-shadow: 0px 0px $teal;
+			box-shadow: 6px 6px $teal;
 			background-color: $lime;
 			transition: .4s all;
 		}
@@ -76,12 +76,13 @@
 			color: $teal;
 		}
 		&:hover {
-			box-shadow: 0px 0px $teal;
-			background-color: $purple;
+			box-shadow: 6px 6px $lime;
+			background-color: $teal;
 			transition: .4s all;
+			color: $white !important;
 		}
 	}
-	box-shadow: 6px 6px $purple;
+	box-shadow: 6px 6px $teal;
 }
 
 // PENDING dupe css from above - could be a mix-in
