@@ -73,24 +73,31 @@ export let layout = () => {
 			}
 		}
 
-		//hover effects
-		//js is the only way, because every block is a different color and that color is only grabbale as an h2 style.
-		let hoverLinks = document.querySelectorAll(".wp-block-willamette-blocks-image-box__content > h2 > a")
-		if (hoverLinks){
-			hoverLinks.forEach((el) => {
+		let imageBoxLinks = document.querySelectorAll(".wp-block-willamette-blocks-image-box__content > h2 > a")
+		if (imageBoxLinks){
+			imageBoxLinks.forEach((el) => {
+				//move the link from the h2 to the parent
+				let link = el.href
+				let imageBox = el.parentElement.parentElement.parentElement;
+				let newLink = document.createElement("a")
+				let parent = imageBox.parentElement
+				parent.replaceChild(newLink, imageBox)
+				newLink.appendChild(imageBox)
+				newLink.href = link
+
+				//add the hover effect
 				let color = window.getComputedStyle(el.parentElement).getPropertyValue("background-color")
 				color = color.replace(/[^,]+(?=\))/, '0.5') //replace color opacity with 50%
-				console.log(color)
-				let imageTarget = el.parentElement.parentElement.parentElement
-				el.addEventListener("mouseover", () => {
-					imageTarget.style.boxShadow = color + " 0 0 0 10000px inset"
+				newLink.addEventListener("mouseover", () => {
+					imageBox.style.boxShadow = color + " 0 0 0 10000px inset"
 				})
-				el.addEventListener("mouseout", () => {
-					imageTarget.style.boxShadow = "none"
+				newLink.addEventListener("mouseout", () => {
+					imageBox.style.boxShadow = "none"
 				})
 
 			})
 		}
+
 		// layout.js:63 rgba(106, 59, 93, 0.9)
 		// layout.js:63 rgba(180, 188, 51, 0.85)
 		// layout.js:63 rgba(104, 129, 59, 0.9)
