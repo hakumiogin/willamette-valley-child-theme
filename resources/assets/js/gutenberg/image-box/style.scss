@@ -158,6 +158,9 @@
 	}
 	.is-style-overhang-left, .is-style-overhang-right, .is-style-no-overhang {
 		.wp-block-willamette-blocks-image-box__image{
+			.wp-block-willamette-blocks-image-box__content h2{
+				min-height: 96px;
+			}
 			margin: 0px auto;
 			@include screen-px (600){
 				max-width: 90%;
@@ -166,10 +169,13 @@
 			}
 		}
 	}
-	.is-style-overhang-middle {
-		@include screen-px(600){
-			margin: 0px !important;
+	@include screen-px(600){
+		&:not(:first-child){
+			.is-style-overhang-middle {
+				margin: 40px 0px 0px 0px !important;
+			}
 		}
+		
 	}
 
 }
@@ -211,7 +217,7 @@
 	.wp-block-willamette-blocks-image-box  ~ p {
 		padding: 20px 20px;
 		@include screen-px (600){
-			padding: 30px 10% 40px;
+			padding: 30px 10% 0px 10%;
 		}
 	}
 	.wp-block-column {
@@ -277,29 +283,31 @@
 	.wp-block-group {
 		padding: 20px 5px;
 	}
-	.has-purple-background-color {
-		background-color: $very-transparent-purple;
-	}
-	.has-teal-background-color {
-		background-color: $transparent-teal;
-	}
-	.has-lime-background-color {
-		background-color: $transparent-lime;
-	}
-	.has-green-background-color {
-		background-color: $transparent-green;
-	}
-	.has-orange-background-color {
-		background-color: $transparent-orange;
-	}
-	.has-blue-background-color {
-		background-color: $transparent-blue;
-	}
-	.has-dark-blue-background-color {
-		background-color: $transparent-dark-blue;
-	}
-	.has-grey-background-color {
-		background-color: $transparent-grey;
+	.wp-block-willamette-blocks-image-box__content {
+		& > .has-purple-background-color {
+			background-color: $very-transparent-purple;
+		}
+		& > .has-teal-background-color {
+			background-color: $transparent-teal;
+		}
+		& > .has-lime-background-color {
+			background-color: $transparent-lime;
+		}
+		& > .has-green-background-color {
+			background-color: $transparent-green;
+		}
+		& > .has-orange-background-color {
+			background-color: $transparent-orange;
+		}
+		& > .has-blue-background-color {
+			background-color: $transparent-blue;
+		}
+		& > .has-dark-blue-background-color {
+			background-color: $transparent-dark-blue;
+		}
+		& > .has-grey-background-color {
+			background-color: $transparent-grey;
+		}
 	}
 	
 	.wp-block-columns {
