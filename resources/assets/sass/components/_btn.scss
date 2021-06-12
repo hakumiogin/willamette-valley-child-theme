@@ -3,37 +3,82 @@
 	margin: 0px auto;
 }
 .is-style-Two-Tone {
+	position: relative;
+	z-index: 1;
+	width: 100%;
 	a {
+		position: absolute;
+		display: inline-block;
 		border-radius: 0px;
 		padding: 15px 25px 15px;
 		text-transform: uppercase;
 		letter-spacing: 5px;
 		font-size: 1em;
+		&::after {
+			content: "";
+			position: absolute;
+			height: 100%;
+			width:100%;
+			top: 8px;
+			left: 8px;
+			z-index: -1;
+		}
+		&:hover, &:focus {
+			transition: .2s all;
+			background-color: transparent !important;
+			&::after {
+				transition: .3s cubic-bezier(.56,.01,.34,1.01),
+					.3s left cubic-bezier(.56,.01,.34,1.01),
+					.3s height ease,
+					.3s width ease;
+				top: 4px;
+				left: 4px;
+				height: calc(100% - 7px);
+				width: calc(100% - 7px);
+			}
+		}
+	
 	}
 	a:link, a:visited{
 		color: $white;
 	}
-	position: relative;
 	.has-purple-background-color {
-		box-shadow: 6px 6px $lime;
-		&:hover {
-			box-shadow: 6px 6px $teal;
+		position: relative;
+		border: 2px solid $purple;
+		&::after {
 			background-color: $lime;
-			transition: .4s all;
 		}
 	}
 	.has-lime-background-color {
-		box-shadow: 6px 6px $teal;
-		&:link, &:visited {
-			color: $teal;
-		}
+		position: relative;
+		border: 2px solid $lime;
 		&:hover {
-			box-shadow: 6px 6px $lime;
-			background-color: $teal;
-			transition: .4s all;
 			color: $white !important;
 		}
+		&::after {
+			background-color: $purple;
+		}
 	}
+	// .has-purple-background-color {
+	// 	box-shadow: 6px 6px $lime;
+	// 	&:hover {
+	// 		box-shadow: 6px 6px $teal;
+	// 		background-color: $lime;
+	// 		transition: .4s all;
+	// 	}
+	// }
+	// .has-lime-background-color {
+	// 	box-shadow: 6px 6px $teal;
+	// 	&:link, &:visited {
+	// 		color: $teal;
+	// 	}
+	// 	&:hover {
+	// 		box-shadow: 6px 6px $lime;
+	// 		background-color: $teal;
+	// 		transition: .4s all;
+	// 		color: $white !important;
+	// 	}
+	// }
 }
 
 // PENDING dupe css from above - could be a mix-in
@@ -44,7 +89,7 @@
 	letter-spacing: 5px;
 	font-size: 1em;
 	box-shadow: 6px 6px $lime;
-    background-color: rgba(106, 59, 93, 0.9);
+    background-color: $transparent-purple;
 	color: $white;
 	border: 0;
 	
