@@ -28,7 +28,7 @@ const attributes = {
     },
     isSelected: {
         type: "string",
-    },
+    }
 };
 
 registerBlockType("willamette-blocks/image-box", {
@@ -76,53 +76,5 @@ registerBlockType("willamette-blocks/image-box", {
     edit,
 
     deprecated: [
-        {
-            attributes: {
-                color: {
-                    type: "string",
-                    default: "purple"
-                },
-                id: {
-                    type: "number"
-                },
-                alt: {
-                    type: "string",
-                    source: "attribute",
-                    selector: "img",
-                    attribute: "alt",
-                    default: ""
-                },
-                url: {
-                    type: "string",
-                    source: "attribute",
-                    selector: "img",
-                    attribute: "src"
-                },
-                isSelected: {
-                    type: "string",
-                }
-            },
-            supports: {
-                reusable: false,
-                html: false,
-                align: true
-            },        
-            save: (props) => {
-                return (
-                    <div>
-                        {props.attributes.url && (
-                            <img
-                                src={props.attributes.url}
-                                alt={props.attributes.alt}
-                                className={props.attributes.id ? `wp-image-${props.attributes.id}` : null}
-                            />
-                        )}
-                        <div className="wp-block-willamette-blocks-image-box__content">
-                            <InnerBlocks.Content />
-                        </div>
-                    </div>
-                )
-            },
-        }
     ]
 });
