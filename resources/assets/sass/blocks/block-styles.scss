@@ -210,12 +210,17 @@ a img.aligncenter {
 
 
 .pattern-bg {
-	background: url(#{$IMAGES-PATH}/light-pattern.png);
+	background-image: url(#{$IMAGES-PATH}/light-pattern.png);
+	background-color: $purple;
 	background-size: 50%;
 	padding-top: 50px;
 	padding-bottom: 60px;
 	margin-top: -50px;
 	margin-bottom: 0px;
+	@include screen-px (600){
+		background-image: unset !important;
+		background-color: $light-tan !important;
+	}
 }
 p {
 	font-family: $body-font;
