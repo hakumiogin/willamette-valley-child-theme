@@ -2,7 +2,7 @@
 .wp-block-columns.narrow-gutter{
 	justify-content: center;
 	.wp-block-willamette-blocks-image-box {
-		margin: 0px 5px 10px;
+		margin: 0px 5px 10px 0px;
 	}
 }
 .wp-block-willamette-blocks-image-box__image {
@@ -20,6 +20,9 @@
 	.wp-block-willamette-blocks-image-box__image {
 		min-height: 260px;
 		background-position: center top;
+		@include screen-px (900){
+			background-position: center center !important;
+		}
 	}
 	.wp-block-willamette-blocks-image-box__content {
 		width: 85%;
@@ -55,6 +58,10 @@
 		.wp-block-willamette-blocks-image-box__content {
 			width: calc(100% + 20px);
 			text-align: center;
+			@include screen-px(600){
+				width: 120% !important;
+				align-self: center;
+			}
 		}
 	}
 	@include screen-px(782){
@@ -118,14 +125,23 @@
 .wp-block-column {
 	margin: 8px !important;
 	@include screen-px(782){
-		& > .wp-image-block {
-			margin: 32px calc(25% - 25vw);
+		& > .wp-block-image {
+			@include screen-px (600){
+				padding: 0px !important;
+				img {
+					object-fit: cover;
+					min-height: 200px;
+				}
+			}
 		}
+	}
+	@include screen-px(600){
+		margin: 0px !important;
 	}
 	.is-style-no-overhang, .is-style-overhang-left, .is-style-overhang-middle, .is-style-overhang-right {
 		.wp-block-willamette-blocks-image-box__image{
 			background-size: cover !important;
-			background-position: center top !important;
+			background-position: center center !important;
 		}
 		@include screen-px (782){
 			width: 100%;
@@ -138,6 +154,21 @@
 			& > * {
 				min-height: auto;
 			}
+		}
+	}
+	.is-style-overhang-left, .is-style-overhang-right, .is-style-no-overhang {
+		.wp-block-willamette-blocks-image-box__image{
+			margin: 0px auto;
+			@include screen-px (600){
+				max-width: 90%;
+				margin: 20px auto !important;
+				align-self: center;
+			}
+		}
+	}
+	.is-style-overhang-middle {
+		@include screen-px(600){
+			margin: 0px !important;
 		}
 	}
 
@@ -175,9 +206,13 @@
 		margin: 0px;
 		padding: 0px;
 		align-items: center;
+
 	}
 	.wp-block-willamette-blocks-image-box  ~ p {
 		padding: 20px 20px;
+		@include screen-px (600){
+			padding: 30px 10% 40px;
+		}
 	}
 	.wp-block-column {
 		margin: .5em 1em;
@@ -219,6 +254,7 @@
 		width: auto;
 	}
 	p {
+		font-size: 1.08em;
 		max-width: 650px;
 		line-height: 1.4;
 		color: $white;
@@ -300,4 +336,13 @@
 
 .is-style-full-width-center .wp-block-willamette-blocks-image-box__content .wp-block-columns {
 	margin-bottom: 0px;
+}
+
+.wp-block-willamette-blocks-image-box > a {
+	text-decoration: none;
+}
+.wp-block-column[style="flex-basis:33.33%"], .wp-block-column[style="flex-basis:66.66%"] {
+	@include screen-px(600){
+		padding: 0px 30px;
+	}
 }
