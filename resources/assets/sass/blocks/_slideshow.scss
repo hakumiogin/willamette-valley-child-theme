@@ -6,17 +6,6 @@ $slick-loader-path: "~slick-carousel/slick/";
 //@import "slick-carousel/slick/slick-theme.css";
 
 
-.category-slider-parent {
-	width: calc(100% - 150px);
-	margin: 0px auto;
-	height: 283px;
-	& * {
-		height: 100%;
-	}
-	@include screen-px(600){
-		height:250px;
-	}
-}
 .slick-dots {
 	display: none !important;
 }
@@ -30,115 +19,25 @@ $slick-loader-path: "~slick-carousel/slick/";
     cursor: pointer;
     color: transparent;
     top: 50%;
-    transform: translate(0, -50%);
+	transform-origin: center;
     padding: 0;
 	border: none;
     outline: none;
 	&:hover {
 		opacity: .8;
-		transform: scale(1.17) translateY(-21px);
+		transform: scale(1.17);
 		transition: .4s all;
 	}
 }
 .slick-prev {
 	width: 18px;
-	height: 45px;
+	height: 45px !important;
     left: -35px;
 	background: transparent url("data:image/svg+xml, %3Csvg width='18' height='44' viewBox='0 0 18 44' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M-1.09278e-06 22L18 43.6506L18 0.349366L-1.09278e-06 22Z' fill='%23B4BC33'/%3E%3C/svg%3E%0A") no-repeat;}
 .slick-next {
 	width: 18px;
-	height: 49px;
+	height: 49px !important;
 	right: -35px;
 	background: transparent url("data:image/svg+xml,%0A%3Csvg width='18' height='47' viewBox='0 0 18 47' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18 23.5L-2.54165e-07 46.4497L1.75216e-06 0.550327L18 23.5Z' fill='%23B4BC33'/%3E%3C/svg%3E") no-repeat;
 }
 
-.category-slider {
-	&__item {
-		a:hover, a:link, a:visited, a:focus {
-			text-decoration: none;
-			width:100%;
-		}
-		a:hover, a:focus {
-			transition: .5s all;
-			.category-slider__item__image img{
-				transform: scale(1.1);
-				transition: .5s all ease;
-			}
-			.category-slider__item__title{
-				opacity: .8;
-			}
-		}
-		position: relative;
-		display: flex !important;
-		flex-direction: column;
-		flex-grow: 1;
-		align-items: center;
-		&__date {
-			z-index: 1000;
-			position: absolute;
-			right: 20px;
-			top: 0px;
-			height: 30px;
-			color: $white;
-			padding: 5px 10px;
-			font-family: $alt-header-font;
-			font-weight: 700;
-			font-size: 1.25em;
-			&.has-teal-background-color {
-				background-color: $transparent-teal;
-			}	
-			&.has-green-background-color {
-				background-color: $transparent-green;
-			}	
-			&.has-lime-background-color {
-				background-color: $transparent-lime;
-			}	
-			&.has-purple-background-color {
-				background-color: $very-transparent-purple;
-			}	
-		}
-		&__image {
-			overflow: hidden;
-			display: flex;
-			justify-content: center;
-			margin: 5px auto 0px;
-			height: 200px;
-			width: 207px;
-			min-width: 80%;
-			@include screen-px(600){
-				height:170px;
-				width: 170px;
-			}
-			img {
-				height: 100%;
-				width: 100%;
-				object-fit: cover;
-				object-position: center center;
-				@include screen-px(700){
-					min-width: 100%;
-					height: auto;
-					width: 100%;
-				}
-			}
-		}
-		.category-slider__item__title {
-			margin: 0px auto;
-			padding: 10px 14px 10px;
-			z-index: 100000;
-			text-align: center;
-			max-width: 90%;
-			min-width: 210px;
-			@include screen-px (600){
-				padding: 10px 5px;
-			}
-			p {
-				font-family: $alt-header-font;
-				font-weight:1000;
-				font-size: 1.19em;
-				line-height: 1.1;
-				color: $white;
-				text-decoration: none;
-			}
-		}
-	}
-}
