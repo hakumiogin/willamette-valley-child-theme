@@ -62,6 +62,10 @@ $slick-loader-path: "~slick-carousel/slick/";
 		}
 		a:hover, a:focus {
 			transition: .5s all;
+			.category-slider__item__image img{
+				transform: scale(1.1);
+				transition: .5s all ease;
+			}
 			.category-slider__item__title{
 				opacity: .8;
 			}
@@ -72,6 +76,7 @@ $slick-loader-path: "~slick-carousel/slick/";
 		flex-grow: 1;
 		align-items: center;
 		&__date {
+			z-index: 1000;
 			position: absolute;
 			right: 20px;
 			top: 0px;
