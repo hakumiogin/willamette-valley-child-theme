@@ -40,5 +40,14 @@ export function slideshow(){
 			// instead of a settings object
 			]
 		})
+		$('.featured-slider').slick({
+			accessibility: false,
+			arrows: true,
+			dots: false,
+			infinite: true,
+			speed: 300,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+		})
 	})
 }
