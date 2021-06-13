@@ -403,8 +403,10 @@
    line-height: 1.2;
    text-align: left;
 	position: relative;
+	width: 88%;
  }
  #menu li{
+	position: relative;
    border-bottom: 1px solid $lime;
    .sub-menu {
 	   margin-left: 30px;
@@ -421,27 +423,23 @@
  }
  .toggle-icon {
 	 position: absolute;
-	 right: 0px;
-	 top: 60%;
+	 right: 10px;
+	 padding: 12px;
+	 top: 50px;
 	 transform: translateY(-50%);
 	 background: url(#{$IMAGES-PATH}plus.svg);
 	 background-size: cover;
 	 height: 20px;
 	 width: 20px;
 	 background-repeat: no-repeat;
+	 cursor: pointer;
  }
  .toggle-icon:not(.toggle-icon__plus) {
 	 background: url(#{$IMAGES-PATH}minus.svg) no-repeat;
-	float: right;
 	position: absolute;
 	background-size: 100% auto;
-	right: 0px;
-	top: 60%;
-	transform: translateY(-50%);
-	height: 20px;
-	width: 20px;
 	margin-top: 7px;
-    margin-right: -3px;
+	right: 12px;
 	transition: transform .6s ease;
 }
 

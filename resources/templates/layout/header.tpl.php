@@ -59,7 +59,7 @@
 		<?php wp_nav_menu( array( 
 			'theme_location' => 'header-menu',
 			'container_class' => 'mobile-menu',
-			'link_after' => '<div class="toggle-icon toggle-icon__plus"></div>'
+			'after' => '<div class="toggle-icon toggle-icon__plus"></div>'
 		) ); ?>
     </nav>
   </div>

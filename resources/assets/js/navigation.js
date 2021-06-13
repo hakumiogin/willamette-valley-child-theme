@@ -38,14 +38,15 @@ export let navigationInit = () => {
 			document.getElementById("willamette-body").classList.toggle("no-scroll")
 		}
 		//mobile hamburger menu +/- toggle dropdowns
-		let els = document.querySelectorAll(".mobile-menu > .menu > li > a ")
-		els.forEach((el) => {
+		let mobileMenuExpandIcon = document.querySelectorAll(".mobile-menu > .menu > li > div")
+		mobileMenuExpandIcon.forEach((el) => {
 			el.onclick = (e) => {
 				e.preventDefault()
 				el.classList.toggle("expand")
+				el.classList.toggle("toggle-icon__plus")
 				for (let i = 0; i < el.children.length; i++) {
-					if (el.children[i].classList.contains("toggle-icon")){
-						el.children[i].classList.toggle("toggle-icon__plus")
+					if (el.classList.contains("toggle-icon")){
+						el.classList.toggle("toggle-icon__plus")
 					}
 				}
 			}
