@@ -35,7 +35,6 @@ export let layout = () => {
 					}
 				}
 			}
-			console.log(alignedfullobject)
 			if (alignedfullobject.length > 0){
 				console.log("lenth is greater than zero")
 				let timer
