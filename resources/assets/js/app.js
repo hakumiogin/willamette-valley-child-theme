@@ -4,11 +4,11 @@ import { navigationInit } from "./navigation"
 import { layout } from "./layout"
 import $ from "jquery"
 import { slideshow } from './slideshow'
-//import { scrollEditor } from './scrollEditor'
+import { anchorOffset } from './anchorOffset'
 
 $(document).ready(() => {
 	navigationInit()
-	//AOS.init()
+	// AOS.init()
 	layout()
 	slideshow()
 	if (window.location.hash.length > 0) {
@@ -16,4 +16,6 @@ $(document).ready(() => {
 			window.scrollTo(0, $(window.location.hash).offset().top)
 		}, 100)
 	}
+	anchorOffset(window.document, window.history, window.location)
 })
+
