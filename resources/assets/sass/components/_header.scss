@@ -273,6 +273,9 @@
    @include screen-sm {
 	   top: 20px;
    }
+   @include screen-md {
+	   top: 80px;
+   }
    a {
 	text-decoration: none;
 	color: $teal !important;
