@@ -1,4 +1,7 @@
-export let scrollEditor = (document, history, location) => {
+// this script moves the anchor link position up by 60 pixels
+
+
+export let anchorOffset = (document, history, location) => {
 	var HISTORY_SUPPORT = !!(history && history.pushState);
 	
 	var anchorScrolls = {
@@ -77,4 +80,3 @@ export let scrollEditor = (document, history, location) => {
 		'DOMContentLoaded', anchorScrolls.init.bind(anchorScrolls)
 	);
 }
-  
