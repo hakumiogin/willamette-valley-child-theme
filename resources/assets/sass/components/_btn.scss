@@ -3,6 +3,7 @@
 	margin: 0px auto;
 }
 .is-style-Two-Tone {
+	min-height: 53px;
 	position: relative;
 	z-index: 1;
 	width: 100%;
@@ -24,6 +25,7 @@
 			z-index: -1;
 		}
 		&:hover, &:focus {
+			min-height: 53px;
 			transition: .2s all;
 			background-color: transparent !important;
 			&::after {
@@ -59,26 +61,6 @@
 			background-color: $purple;
 		}
 	}
-	// .has-purple-background-color {
-	// 	box-shadow: 6px 6px $lime;
-	// 	&:hover {
-	// 		box-shadow: 6px 6px $teal;
-	// 		background-color: $lime;
-	// 		transition: .4s all;
-	// 	}
-	// }
-	// .has-lime-background-color {
-	// 	box-shadow: 6px 6px $teal;
-	// 	&:link, &:visited {
-	// 		color: $teal;
-	// 	}
-	// 	&:hover {
-	// 		box-shadow: 6px 6px $lime;
-	// 		background-color: $teal;
-	// 		transition: .4s all;
-	// 		color: $white !important;
-	// 	}
-	// }
 }
 
 // PENDING dupe css from above - could be a mix-in
