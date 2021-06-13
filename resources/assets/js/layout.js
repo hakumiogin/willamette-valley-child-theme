@@ -113,6 +113,7 @@ export let layout = () => {
 				if (sliderTitle.nodeName == "H1" || sliderTitle.nodeName == "H2" || sliderTitle.nodeName == "H3" || sliderTitle.nodeName == "H4" || sliderTitle.nodeName == "H5"){
 					if (el.innerHTML.trim() == ""){
 						sliderTitle.style.display = "none"
+						el.style.display = "none"
 						console.log("displaying none")
 					}
 				}
