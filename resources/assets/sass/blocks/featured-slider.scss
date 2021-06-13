@@ -1,12 +1,12 @@
-.slick-prev, .slick-next {
-	top: 165px;
-}
 .featured-slider {
 	width: calc(100% - 150px);
 	margin: 0px auto;
 	@include screen-px(900){
 		width: calc(100% - 70px);
 	}
+	.slick-prev, .slick-next {
+		top: 165px;
+	}	
 }
 .featured-slider__item {
 	.wp-block-image img {
