@@ -1,5 +1,4 @@
 .hero {
-	background-position:top right;
 	background-size: 100% auto;
 	background-repeat: no-repeat;
 	z-index: -100;
@@ -7,6 +6,7 @@
 	position: relative;
 }
 .page .hero, .single-post .hero {
+	background-position:top center;
 	margin-top: -88px;
 	height: 400px;
 	@include screen-px(800){
