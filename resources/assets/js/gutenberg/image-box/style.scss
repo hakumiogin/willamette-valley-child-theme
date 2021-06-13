@@ -165,13 +165,17 @@
 ////////// shared styles
 
 .is-style-overhang-left, .is-style-overhang-right {
+	.wp-block-willamette-blocks-image-box__image {
+		.wp-block-willamette-blocks-image-box__content {
+			width: calc(100% + 20px);
+		}	
+	}
 	@include screen-px(600){
 		.wp-block-willamette-blocks-image-box__image {
 			justify-content: center;
 			align-self: center;
 			.wp-block-willamette-blocks-image-box__content {
 				align-self: center;
-				width: 100%;
 			}
 		}
 	}
@@ -181,7 +185,6 @@
 	.wp-block-willamette-blocks-image-box__image {
 		height: 300px;
 		.wp-block-willamette-blocks-image-box__content {
-			width: calc(100% + 20px);
 			text-align: center;
 			@include screen-px(600){
 				width: 120% !important;
