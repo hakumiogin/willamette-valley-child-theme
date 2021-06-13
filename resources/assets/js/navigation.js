@@ -1,27 +1,15 @@
-import { docReady, getWidth } from "./utilities"
+import { docReady } from "./utilities"
 
 export let navigationInit = () => {
 	docReady(() => {
-		if (getWidth() > 1024){
-			document.querySelectorAll(".nav-bar ul.menu > li").forEach((el) => {
-				let width = el.clientWidth
-				el.style.width = (width + 12).toString() + "px"
-			});
-		}
-		//set the main navigation links width so bolding on hover doesn't cause elements to adjust
-		// next, we recalculate widths on window resize so the text doesn't overflow
-		//Is this overkill? Yes.
-		//debouncing the event so its not called more than once every 200ms
-		
-		// window.addEventListener('resize', debounce(() => {
-		// 	els = document.querySelectorAll(".nav-bar ul.menu > li").forEach((el) => {
-		// 		console.log(el.clientHeight)
-		// 		if (el.offsetHeight > 50){ //50 is the height when it takes up 2 lines
-		// 			el.style.width = "auto";
-		// 		}
-		// 	});
-		// }, 200, false), false)
+		// adds data attributes to be used in pseudo elements in the main menu css
+		// to prevent the bold on hover from causing layout shift
+		// by using invisible pseudo elements to set the size of the item
+		document.querySelectorAll(".nav-bar ul.menu > li > a").forEach((el) => {
+			el.dataset.text = el.innerHTML.replace("&amp;", "&")
+		})
 
+		
 		let menuLinks = document.querySelectorAll(".nav-bar .menu a")
 		menuLinks.forEach ((el) => {
 			el.addEventListener("click", (e) => {
