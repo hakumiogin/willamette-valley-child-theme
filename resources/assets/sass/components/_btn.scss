@@ -29,10 +29,10 @@
 			transition: .2s all;
 			background-color: transparent !important;
 			&::after {
-				transition: .3s cubic-bezier(.56,.01,.34,1.01),
-					.3s left cubic-bezier(.56,.01,.34,1.01),
-					.3s height ease,
-					.3s width ease;
+				transition: .4s cubic-bezier(.56,.01,.34,1.01),
+					.4s left cubic-bezier(.56,.01,.34,1.01),
+					.4s height ease-out,
+					.4s width ease-out;
 				top: 4px;
 				left: 4px;
 				height: calc(100% - 7px);

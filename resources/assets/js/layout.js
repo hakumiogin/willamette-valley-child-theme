@@ -126,7 +126,9 @@ export let layout = () => {
 			let scrollToTopBtn = document.querySelector(".back-to-top__button")
 			let scrollTotal = rootElement.scrollHeight - rootElement.clientHeight
 			if ((rootElement.scrollTop / scrollTotal ) > 0.60 ) {
-				scrollToTopBtn.classList.add("showBtn")
+				if (getWidth() > 800){
+					scrollToTopBtn.classList.add("showBtn")
+				}
 			} else {
 				scrollToTopBtn.classList.remove("showBtn")
 			}
