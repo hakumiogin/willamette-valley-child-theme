@@ -10,6 +10,7 @@
         );
     }
     $show = get_field("show");
+    if (!$show) $show = "or";
     $args = array(
         'posts_per_page' => 16,
         'post_type'  => 'post',
