@@ -31,7 +31,8 @@ add_action('after_setup_theme', __NAMESPACE__.'\load_textdomain');
 function setup_supports() {
     add_theme_support( 'post-thumbnails' );
     set_post_thumbnail_size( 229, 205, true );
-    add_image_size( 'small-thumb', 150, 150 );
+    add_image_size( 'big-thumbnail', 250, 250, true );
+    add_image_size( 'small-thumb', 150, 150, true );
     add_image_size( 'two-thirds', 720, 9999 );
     add_image_size( 'full-width', 1200, 9999 );
     add_image_size( 'hero', 1600, 9999);
