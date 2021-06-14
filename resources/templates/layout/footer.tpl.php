@@ -7,7 +7,7 @@
 	}
 	?>
 </div>
-    </div><!-- .content-area end of single.tpl -->
+    </div>
 </div>
 <footer class="footer">
 	<div class="footer__container">
@@ -48,5 +48,5 @@
 			</div>
 		</div>
 	</div>
-</footer>
+</footer> <!-- footer.tpl -->
 <?php wp_footer(); ?>
