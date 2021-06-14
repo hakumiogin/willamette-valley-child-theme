@@ -32,20 +32,26 @@
     }
     $termstring = implode(", ", $terms);
     global $wpdb;
-    $sql = "SELECT max(wp_posts.ID) FROM wp_posts LEFT JOIN wp_term_relationships ON (wp_posts.ID = wp_term_relationships.object_id) WHERE ( wp_term_relationships.term_taxonomy_id IN ($termstring) ) AND wp_posts.post_type = 'poi' AND (wp_posts.post_status = 'publish' OR wp_posts.post_status = 'acf-disabled' OR wp_posts.post_status = 'dp-rewrite-republish' OR wp_posts.post_status = 'private') GROUP BY wp_posts.post_title, wp_posts.post_date ORDER BY wp_posts.post_date DESC LIMIT 0, 16";
+    $sql = "SELECT max(wp_posts.ID) AS ID FROM wp_posts LEFT JOIN wp_term_relationships ON (wp_posts.ID = wp_term_relationships.object_id) WHERE ( wp_term_relationships.term_taxonomy_id IN ($termstring) ) AND wp_posts.post_type = 'poi' AND (wp_posts.post_status = 'publish' OR wp_posts.post_status = 'acf-disabled' OR wp_posts.post_status = 'dp-rewrite-republish' OR wp_posts.post_status = 'private') GROUP BY wp_posts.post_title, wp_posts.post_date ORDER BY wp_posts.post_date DESC LIMIT 0, 16";
     $pageposts = $wpdb->get_results($sql);
     if ($pageposts):
-        //print_r($pageposts);
-        global $post;
+        $posts = [];
+        foreach($pageposts as $the_post){
+            $date = get_field("start_date", $the_post->ID);
+            if ($date){
+                $dateTime = DateTime::createFromFormat('m/d/Y', $date);
+                $timestamp = $dateTime->format('U');
+            }
+            $posts[]  = [$the_post->ID, $timestamp];
+        }
+        function sort_times($array, $array2){
+            return $array[1] > $array2[1];
+        }
+        usort($posts, "sort_times");
         echo '<div class="slider category-slider">';
         $i = 0;
-        foreach ($pageposts as $the_post):
-            //     [0] => stdClass Object
-            //         (
-            //             [max(wp_posts.ID)] => 137272
-            //         )
-            // WHAT?!?!?
-            $post_id = $the_post->{"max(wp_posts.ID)"};
+        foreach ($posts as $the_post):
+            $post_id = $the_post[0];
 
             $postobject = get_post($post_id);
             $links = get_field("links", $postobject);
