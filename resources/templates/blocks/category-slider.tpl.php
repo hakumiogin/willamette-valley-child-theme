@@ -25,7 +25,6 @@
           )
     );
     $the_query = new WP_Query( $args );
-    echo $the_query->request;
     if ( $the_query->have_posts() && $the_query->post_count >= 4) { ?>
         <div class="slider category-slider">
         <?php
