@@ -360,6 +360,18 @@
 		margin: 0px 5px 10px 0px;
 	}
 }
+.wp-block-columns.narrow-columns .wp-block-column{
+	@include screen-px(600) {
+		padding-bottom: 30px;
+	}
+	& > .wp-block-image {
+		@include screen-px (600){
+			img {
+				min-height: auto;
+			}
+		}
+	}
+}
 
 
 
