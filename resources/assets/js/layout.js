@@ -119,5 +119,22 @@ export let layout = () => {
 				}
 			})
 		}
+
+		let showBackToTopButton = () => {
+			// showback to top button on scroll
+			let rootElement = document.documentElement
+			let scrollToTopBtn = document.querySelector(".back-to-top__button")
+			let scrollTotal = rootElement.scrollHeight - rootElement.clientHeight
+			if ((rootElement.scrollTop / scrollTotal ) > 0.60 ) {
+				scrollToTopBtn.classList.add("showBtn")
+			} else {
+				scrollToTopBtn.classList.remove("showBtn")
+			}
+		}
+		document.addEventListener("scroll", showBackToTopButton)
+		let scrollToTopBtn = document.querySelector(".back-to-top__button")
+		scrollToTopBtn.addEventListener("click", () => {
+			window.scrollTo(0,0)
+		})
 	})
 }
