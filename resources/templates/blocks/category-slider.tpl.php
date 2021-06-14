@@ -1,6 +1,15 @@
 <div class="category-slider-parent">
     <?php 
     $categories = get_field("category");
+    $category_query = [];
+    foreach($categories as $category){
+        $category_query[] = array(
+            'taxonomy' => 'category',
+            'field' => 'term_id',
+            'terms' => $category,
+        );
+    }
+    $show = get_field("show");
     $args = array(
         'posts_per_page' => 16,
         'post_type'  => 'post',
@@ -11,14 +20,12 @@
             ),
         ),
         'tax_query' => array(
-            array(
-            'taxonomy' => 'category',
-            'field' => 'term_id',
-            'terms' => $categories,
-             )
+            'relation' => $show,
+            $category_query
           )
     );
     $the_query = new WP_Query( $args );
+    echo $the_query->request;
     if ( $the_query->have_posts() && $the_query->post_count >= 4) { ?>
         <div class="slider category-slider">
         <?php
