@@ -25,7 +25,7 @@
           )
     );
     $the_query = new WP_Query( $args );
-    if ( $the_query->have_posts() && $the_query->post_count >= 4) { ?>
+    if ( $the_query->have_posts()) { ?>
         <div class="slider category-slider">
         <?php
         $colors = ["has-purple-background-color", "has-teal-background-color", "has-lime-background-color", "has-green-background-color"];
