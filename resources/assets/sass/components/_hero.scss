@@ -34,8 +34,8 @@
 	}
 }
 .home .hero {
-	background-image: url(#{$IMAGES-PATH}home_hero.jpg);
-	background-position:top center;
+	background-image: url(#{$IMAGES-PATH}big_hero.jpg);
+	background-position:top left;
 	background-repeat: no-repeat;
 	margin-top: -185px;
 	height: 120vh;
@@ -45,31 +45,31 @@
 	@include screen-px(1474){
 		background-size: auto 120%;
 		margin-top: -270px;
+		background-position: top left;
+	}
+	@include screen-px (1200){
+		background-position: top left 25%;
 	}
 	@include screen-px(1000){
 		margin-top: -200px;
 		height: 100vh;
 		background-size: auto 120%;
-		background-position: top right 20%;
-	}
-	@include screen-md {
-		// background-size: auto 150%;
-		background-position: top left 50%;
-		background-size: cover;
+		background-position: top left 20%;
 	}
 	@include screen-sm{
-		background-position: top left 60%;
+		background-position: top center;
 		background-size: cover;
 	}
 	img {
 		position: absolute;
-		top: 55%;
-		left: 10%;
+		top: 45%;
+		left: 0%;
 		transform: translateY(-50%);
 		height: 250px;
 		@include screen-px(1250){
 			height: 200px;
 			top: 50%;
+			left: 20%;
 		}
 		filter: drop-shadow( 3px 2px 6px rgba($teal, .3));
 		@include screen-px(1000){
