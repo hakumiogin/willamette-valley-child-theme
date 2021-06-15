@@ -60,9 +60,10 @@ if (isset($_GET["date"])){
     </div>
         <div class="archive-page">
         <?php
-        if ($category){
+        if ($category && $date){
             $args = array(
                 'posts_per_page' => 12,
+                'post_status' => 'published',
                 'post_type'  => 'post',
                 'orderby' => 'date',
                 'order'   => $date,
@@ -74,13 +75,35 @@ if (isset($_GET["date"])){
                     ),
                 )
             );    
-        } else {
+        } else if ($category) {
             $args = array(
                 'posts_per_page' => 12,
+                'post_status' => 'published',
+                'post_type'  => 'post',
+                'orderby' => 'date',
+                'tax_query' => array (
+                    array (
+                        'taxonomy' => 'category',
+                        'field' => 'slug',
+                        'terms' => $category,
+                    ),
+                )
+            );    
+        } else if ($date){
+            $args = array(
+                'posts_per_page' => 12,
+                'post_status' => 'published',
                 'post_type'  => 'post',
                 'orderby' => 'date',
                 'order'   => $date,
-            );    
+            );
+        } else {
+            $args = array(
+                'posts_per_page' => 12,
+                'post_status' => 'published',
+                'post_type'  => 'post',
+                'orderby' => 'date',
+            );
         }
         $the_query = new WP_Query( $args );
         $colors = ["has-purple-background-color", "has-teal-background-color", "has-lime-background-color", "has-green-background-color"];
