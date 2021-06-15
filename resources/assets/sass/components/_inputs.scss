@@ -12,3 +12,27 @@
 		}
 	}
 }
+.page-search {
+	display: flex;
+	justify-content: flex-end;
+	margin: 0px 10px 50px;
+	input {
+		display: inline-block;
+	}
+	input[type="text"]{
+		border: none;
+		outline: none;
+		padding: 8px 10px;
+		background-color: $very-light-grey;
+		color: $grey;
+		width: 250px;
+		margin-left: 10px;
+		&::placeholder {
+			text-transform: uppercase;
+			letter-spacing: 2px;
+		}
+	}
+	input[type="image"]{
+		transform: translateY(10px);
+	}
+}
