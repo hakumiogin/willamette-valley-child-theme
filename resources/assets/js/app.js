@@ -5,6 +5,7 @@ import { layout } from "./layout"
 import $ from "jquery"
 import { slideshow } from './slideshow'
 import { anchorOffset } from './anchorOffset'
+import { dropdown } from './dropdown'
 
 $(document).ready(() => {
 	navigationInit()
@@ -17,5 +18,6 @@ $(document).ready(() => {
 		}, 100)
 	}
 	anchorOffset(window.document, window.history, window.location)
+	dropdown()
 })
 

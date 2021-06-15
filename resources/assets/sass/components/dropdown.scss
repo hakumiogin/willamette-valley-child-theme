@@ -1,0 +1,93 @@
+.dropdowns {
+	display: flex;
+	justify-content: flex-end;
+}
+.dropdown {
+	position: relative;
+	float: right;
+	margin: 15px 10px;
+	.dropdown__button {
+		position: relative;
+		background-color: $teal;
+		padding: 5px 40px 5px 10px;
+		color: $white;
+		text-decoration: none;
+		text-transform: uppercase;
+		letter-spacing: 3px;
+		min-width: 136px;
+		width: fit-content;
+		display: block;
+		&:hover {
+			background-color: $dark-teal;
+		}
+		&__triangle {
+			position: absolute;
+			right: 10px;
+			top: 50%;
+			transform: translateY(-50%);
+			display: inline-block;
+			width: 0; 
+			height: 0; 
+			border-left: 10px solid transparent;
+			border-right: 10px solid transparent;	
+			border-top: 8px solid $lime;
+		  }
+	}
+	.dropdown__content {
+		z-index: 10;
+		position: absolute;
+		top: 29px;
+		visibility: hidden;
+		pointer-events: none;
+		opacity: 0%;
+		height: 0px;
+		width: fit-content;
+		min-width: 136px;
+		transition: .4s all;
+		transform: scaleY(.8);
+		a {
+			&:first-child {
+				border-top: 1px solid $white;
+				padding-top: 10px;
+			}	
+			width: 100%;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			text-decoration: none;
+			background-color: $transparent-teal;
+			&:link, &:visited {
+				color: $white;
+			}
+			&:hover, &:focus {
+				background-color: $teal;
+				color: $white;
+			}
+			display: block;
+			padding: 5px 10px;
+		}
+	}
+	.show {
+		transform: scaleY(1);
+		visibility: visible;
+		opacity: 100%;
+		pointer-events: all;
+		height: fit-content;
+		transition: .4s all;
+	}
+}
+.hiddenDropdown {
+	visibility: hidden;
+	pointer-events: none;
+	opacity: 0%;
+	height: 0px;
+	width: 0px;
+	margin: 0px;
+}
+.showDropdown {
+	visibility: visible;
+	opacity: 100%;
+	pointer-events: all;
+	height: fit-content;
+	width: fit-content;
+	margin: 15px 10px;
+}
