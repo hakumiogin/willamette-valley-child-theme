@@ -44,9 +44,6 @@
             } else {$timestamp = 0;}
             $posts[]  = [$the_post->ID, $timestamp];
         }
-        function sort_times($array, $array2){
-            return $array[1] > $array2[1];
-        }
         usort($posts, "sort_times");
         echo '<div class="slider category-slider">';
         $i = 0;
