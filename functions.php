@@ -148,3 +148,6 @@ function webp_is_displayable($result, $path) {
 }
 add_filter('file_is_displayable_image', 'webp_is_displayable', 10, 2);
 
+function sort_times($array, $array2){
+  return $array[1] > $array2[1];
+}
