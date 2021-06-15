@@ -41,7 +41,7 @@
             if ($date){
                 $dateTime = DateTime::createFromFormat('m/d/Y', $date);
                 $timestamp = $dateTime->format('U');
-            }
+            } else {$timestamp = 0;}
             $posts[]  = [$the_post->ID, $timestamp];
         }
         function sort_times($array, $array2){
