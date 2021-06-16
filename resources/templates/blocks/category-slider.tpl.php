@@ -37,7 +37,7 @@
             echo '<a href="'.get_the_permalink().'">';
             echo '<div class="category-slider__item__image">';
             if (has_post_thumbnail()){
-                the_post_thumbnail("thumbnail");
+                the_post_thumbnail("big-thumbnail");
             } else {
                 echo "<img src='/wp-content/uploads/2021/05/requestAVisitorGuide-150x150.jpg' alt='The Willamette Valley'>";
             }
