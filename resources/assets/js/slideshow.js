@@ -5,6 +5,7 @@ export function slideshow(){
 	$(document).ready( () => {
 		$('.slider').slick({
 			accessibility: false,
+			lazyLoad: 'ondemand',
 			arrows: true,
 			dots: false,
 			infinite: true,
@@ -41,6 +42,7 @@ export function slideshow(){
 			]
 		})
 		$('.featured-slider').slick({
+			lazyLoad: 'ondemand',
 			accessibility: false,
 			arrows: true,
 			dots: false,
