@@ -151,3 +151,14 @@ add_filter('file_is_displayable_image', 'webp_is_displayable', 10, 2);
 function sort_times($array, $array2){
   return $array[1] > $array2[1];
 }
+
+$role = get_role('editor');
+$role->add_cap('manage_options');
+
+function filter_search_post_types($query) {
+	if ($query->is_search) {
+		$query->set('post_type', array('post', 'page'));
+	}
+	return $query;
+}
+add_filter('pre_get_posts', 'filter_search_post_types');
