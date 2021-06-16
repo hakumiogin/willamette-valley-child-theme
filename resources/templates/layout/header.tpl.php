@@ -10,7 +10,7 @@
 			</div>
 			<div class="nav-bar__right">
 				<div class="nav-bar__guide">
-					<a class="nav-bar__btn btn btn--purple" href="/order-travel-guide">Request a Visitor's Guide</a>
+					<a class="nav-bar__btn btn btn--purple" href="/order-travel-guide">Request a Visitors Guide</a>
 					<a class="nav-bar__guide--news" href="/articles">Articles</a>
 					<div class="nav-bar__guide--search">
 						<?php get_search_form(); ?>
