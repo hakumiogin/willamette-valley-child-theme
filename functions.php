@@ -156,7 +156,7 @@ $role = get_role('editor');
 $role->add_cap('manage_options');
 
 function filter_search_post_types($query) {
-	if ($query->is_search) {
+	if ($query->is_search && !is_admin()) {
 		$query->set('post_type', array('post', 'page'));
 	}
 	return $query;
