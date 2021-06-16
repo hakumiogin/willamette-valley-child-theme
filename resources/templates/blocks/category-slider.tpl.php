@@ -12,14 +12,14 @@
     $show = get_field("show");
     if (!$show) $show = "or";
     $args = array(
-        'posts_per_page' => 16,
+        'posts_per_page' => 60,
         'post_type'  => 'post',
-        'meta_query' => array(
-            array(
-            'key' => '_thumbnail_id',
-            'compare' => 'EXISTS'
-            ),
-        ),
+        // 'meta_query' => array(
+        //     array(
+        //     'key' => '_thumbnail_id',
+        //     'compare' => 'EXISTS'
+        //     ),
+        // ),
         'tax_query' => array(
             'relation' => $show,
             $category_query
@@ -36,7 +36,11 @@
             echo '<div class="category-slider__item">';
             echo '<a href="'.get_the_permalink().'">';
             echo '<div class="category-slider__item__image">';
-            the_post_thumbnail("thumbnail");
+            if (has_post_thumbnail()){
+                the_post_thumbnail("thumbnail");
+            } else {
+                echo "<img src='/wp-content/uploads/2021/05/requestAVisitorGuide-150x150.jpg' alt='The Willamette Valley'>";
+            }
             echo '</div>';
             echo '<div class="category-slider__item__title '.$colors[$i].'">';
             $wordwrap = wordwrap(get_the_title(), 60, "\n");
