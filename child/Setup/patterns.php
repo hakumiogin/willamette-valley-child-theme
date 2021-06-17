@@ -1,50 +1,178 @@
 <?php
-// namespace Madden\Theme\Setup;
-// use function Madden\Theme\App\config;
+namespace Madden\Theme\Setup;
+use function Madden\Theme\App\config;
 
-// register_block_pattern(
-//     'willamette/left-image-text-pattern',
-//     array(
-//         'title'       => __( 'Image and Text', config('textdomain') ),
-//         'description' => _x( 'Image and Text.', 'Block pattern description', config('textdomain') ),
-//         'content'     => '<!-- wp:columns --><div class="wp-block-columns"><!-- wp:column {"width":"66.66%"} --><div class="wp-block-column" style="flex-basis:66.66%"><!-- wp:image {"id":134746,"sizeSlug":"large","linkDestination":"none"} --><figure class="wp-block-image size-large"><img src="../wp-content/themes/mm-WillametteValley-child-theme/resources/assets/images/exampletwothirds.jpeg" alt="" class="wp-image-134746"/></figure><!-- /wp:image --></div><!-- /wp:column --><!-- wp:column {"width":"33.33%"} --><div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:heading {"level":3} --><h3>Itenerary</h3><!-- /wp:heading --><!-- wp:paragraph --><p>Paragraph text is nice and cool and here it is being a good paragraph of text for me to style. Let me wow you with my bewildering sense of paragraph text that I a putting on display here for us all to enjoy.</p><!-- /wp:paragraph --></div><!-- /wp:column --></div><!-- /wp:columns -->',
-// 		'category'    => 'madden',
-// 		)
-// ); 
-// register_block_pattern(
-//     'willamette/right-image-text-pattern',
-//     array(
-//         'title'       => __( 'Image and Text', config('textdomain') ),
-//         'description' => _x( 'Image and Text.', 'Block pattern description', config('textdomain') ),
-//         'content'     => '<!-- wp:columns --><div class="wp-block-columns"><!-- wp:column {"width":"33.33%"} --><div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:heading {"level":3} --><h3>Itenerary</h3><!-- /wp:heading --><!-- wp:paragraph --><p>Paragraph text is nice and cool and here it is being a good paragraph of text for me to style. Let me wow you with my bewildering sense of paragraph text that I a putting on display here for us all to enjoy.</p><!-- /wp:paragraph --></div><!-- /wp:column --><!-- wp:column {"width":"66.66%"} --><div class="wp-block-column" style="flex-basis:66.66%"><!-- wp:image {"id":134753,"sizeSlug":"large","linkDestination":"none"} --><figure class="wp-block-image size-large"><img src="../wp-content/themes/mm-WillametteValley-child-theme/resources/assets/images/exampletwothirds.jpeg" alt="" class="wp-image-134753"/></figure><!-- /wp:image --></div><!-- /wp:column --></div><!-- /wp:columns -->',
-// 		'category'    => 'madden',
-// 		)
 
-// 	);
+
+
+register_block_pattern(
+    'willamette/meet-our-staff',
+    array(
+        'title'       => __( 'Meet Our Staff', config('textdomain') ),
+        'description' => _x( 'Meet Our Staff.', 'Block pattern description', config('textdomain') ),
+        'content'     => '<!-- wp:columns --><div class="wp-block-columns"><!-- wp:column {"width":"33.33%"} --><div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:image {"align":"right","id":135847,"width":250,"height":375,"sizeSlug":"large","linkDestination":"none"} --><div class="wp-block-image"><figure class="alignright size-large is-resized"><img src="https://master-7rqtwti-uyz4sq2cgrby4.us-3.platformsh.site/wp-content/uploads/2021/06/1945-dawnielle-tehama1.jpg" alt="Dawnielle Tehama, Executive Director, Willamette Valley Visitors Association" class="wp-image-135847" width="250" height="375"/></figure></div><!-- /wp:image --></div><!-- /wp:column --><!-- wp:column {"width":"66.66%"} --><div class="wp-block-column" style="flex-basis:66.66%"><!-- wp:heading {"level":3} --><h3>Dawnielle Tehama</h3><!-- /wp:heading --><!-- wp:paragraph --><p>Executive Director</p><!-- /wp:paragraph --><!-- wp:paragraph --><p><a href="mailto:dawnielle@oregonwinecountry.org">dawnielle@oregonwinecountry.org</a></p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Dawnielle Tehama brings a wealth of experience to her role as WVVA’s executive director. She has worked with public lands groups; state and county parks; national parks and monuments and federal agencies. Her branding, strategy, creative development, and media background allow her to promote the Willamette Valley\'s beauty and bounty in an ethically responsible and sustainable way. She is also the proud mother of two teenage daughters.</p><!-- /wp:paragraph --></div><!-- /wp:column --></div><!-- /wp:columns -->',
+		'category'    => 'madden',
+		)
+);
+register_block_pattern(
+    'willamette/otis-category-slider',
+    array(
+        'title'       => __( 'Otis Category Slider', config('textdomain') ),
+        'description' => _x( 'Otis Category Slider.', 'Block pattern description', config('textdomain') ),
+        'content'     => '<!-- wp:acf/otis-slider {"id":"block_60c3afec5dd0a","name":"acf/otis-slider","data":{"category":["5"],"_category":"field_60c2579930994"},"align":"","mode":"edit"} /-->',
+		'category'    => 'madden',
+		)
+);
+register_block_pattern(
+    'willamette/two-by-two-image-column',
+    array(
+        'title'       => __( 'Two by two image column', config('textdomain') ),
+        'description' => _x( 'Two by two image column.', 'Block pattern description', config('textdomain') ),
+        'content'     => '<!-- wp:columns {"className":"four-image-bottom"} --><div class="wp-block-columns four-image-bottom"><!-- wp:column --><div class="wp-block-column"><!-- wp:willamette-blocks/image-box {"id":137576,"url":"http://localhost/wp-content/uploads/2021/06/2042-cycling_gravel_jhamilton_2-2400x16001-1.jpg","className":"is-style-overhang-left"} --><div class="wp-block-willamette-blocks-image-box is-style-overhang-left"><div style="background:url(http://localhost/wp-content/uploads/2021/06/2042-cycling_gravel_jhamilton_2-2400x16001-1.jpg);" class="wp-block-willamette-blocks-image-box__image"><div class="wp-block-willamette-blocks-image-box__content"><!-- wp:heading {"textAlign":"center","backgroundColor":"lime","textColor":"white"} --><h2 class="has-text-align-center has-white-color has-lime-background-color has-text-color has-background">asdfasdfasdf</h2><!-- /wp:heading --></div></div></div><!-- /wp:willamette-blocks/image-box --></div><!-- /wp:column --><!-- wp:column --><div class="wp-block-column"><!-- wp:willamette-blocks/image-box {"id":137549,"url":"http://localhost/wp-content/uploads/2021/06/wvsb-3-by-william-abbott-2400x1600-2000.webp","className":"is-style-overhang-right"} --><div class="wp-block-willamette-blocks-image-box is-style-overhang-right"><div style="background:url(http://localhost/wp-content/uploads/2021/06/wvsb-3-by-william-abbott-2400x1600-2000.webp);" class="wp-block-willamette-blocks-image-box__image"><div class="wp-block-willamette-blocks-image-box__content"><!-- wp:heading {"textAlign":"center","backgroundColor":"orange","textColor":"white"} --><h2 class="has-text-align-center has-white-color has-orange-background-color has-text-color has-background">asdfaskdfkjahsdfkjha</h2><!-- /wp:heading --></div></div></div><!-- /wp:willamette-blocks/image-box --></div><!-- /wp:column --></div><!-- /wp:columns --><!-- wp:columns {"className":"four-image-bottom"} --><div class="wp-block-columns four-image-bottom"><!-- wp:column --><div class="wp-block-column"><!-- wp:willamette-blocks/image-box {"id":137549,"url":"http://localhost/wp-content/uploads/2021/06/wvsb-3-by-william-abbott-2400x1600-2000.webp","className":"is-style-overhang-left"} --><div class="wp-block-willamette-blocks-image-box is-style-overhang-left"><div style="background:url(http://localhost/wp-content/uploads/2021/06/wvsb-3-by-william-abbott-2400x1600-2000.webp);" class="wp-block-willamette-blocks-image-box__image"><div class="wp-block-willamette-blocks-image-box__content"><!-- wp:heading {"textAlign":"center","backgroundColor":"dark-blue","textColor":"white"} --><h2 class="has-text-align-center has-white-color has-dark-blue-background-color has-text-color has-background">asdfasdfasdf</h2><!-- /wp:heading --></div></div></div><!-- /wp:willamette-blocks/image-box --></div><!-- /wp:column --><!-- wp:column --><div class="wp-block-column"><!-- wp:willamette-blocks/image-box {"id":137945,"url":"http://localhost/wp-content/uploads/2021/06/pedal-for-pinot-at-sweet-cheeks-winery-by-david-loveall-380x2501-1.jpg","className":"is-style-overhang-right"} --><div class="wp-block-willamette-blocks-image-box is-style-overhang-right"><div style="background:url(http://localhost/wp-content/uploads/2021/06/pedal-for-pinot-at-sweet-cheeks-winery-by-david-loveall-380x2501-1.jpg);" class="wp-block-willamette-blocks-image-box__image"><div class="wp-block-willamette-blocks-image-box__content"><!-- wp:heading {"textAlign":"center","backgroundColor":"teal","textColor":"white"} --><h2 class="has-text-align-center has-white-color has-teal-background-color has-text-color has-background">asdfaskdfkjahsdfkjha</h2><!-- /wp:heading --></div></div></div><!-- /wp:willamette-blocks/image-box --></div><!-- /wp:column --></div><!-- /wp:columns -->',
+		'category'    => 'madden',
+		)
+); 
+register_block_pattern(
+    'willamette/image-left-no-button',
+    array(
+        'title'       => __( 'image left no button', config('textdomain') ),
+        'description' => _x( 'image left no button.', 'Block pattern description', config('textdomain') ),
+        'content'     => '<!-- wp:columns --><div class="wp-block-columns"><!-- wp:column {"width":"66.66%"} --><div class="wp-block-column" style="flex-basis:66.66%"><!-- wp:image {"id":134657,"sizeSlug":"large","linkDestination":"none"} --><figure class="wp-block-image size-large"><img src="https://master-7rqtwti-uyz4sq2cgrby4.us-3.platformsh.site/wp-content/uploads/2021/05/tastingRooms_tastingRooms.jpg" alt="a chalk drawn sign reads, &quot;Order Here,&quot; in front of a counter full of wine" class="wp-image-134657"/></figure><!-- /wp:image --></div><!-- /wp:column --><!-- wp:column {"width":"33.33%"} --><div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:heading --><h2>reserve a spot</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a sem ac magna interdum interdum. Ut consequat sapien ut elit pharetra vestibulum. Sed sagittis accumsan dui ut tempor. Cras ullamcorper luctus Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a sem ac magna interdum interdum. Ut consequat sapien ut elit pharetra vestibulum. Sed sagittis accumsan dui ut tempor. Cras ullamcorper luctus</p><!-- /wp:paragraph --></div><!-- /wp:column --></div><!-- /wp:columns -->',
+		'category'    => 'madden',
+		)
+); 
+register_block_pattern(
+    'willamette/image-right-no-button',
+    array(
+        'title'       => __( 'Image Right no button', config('textdomain') ),
+        'description' => _x( 'Image Right no button.', 'Block pattern description', config('textdomain') ),
+        'content'     => '<!-- wp:columns --><div class="wp-block-columns"><!-- wp:column {"width":"33.33%"} --><div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:heading --><h2>Heading</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a sem ac magna interdum interdum. Ut consequat sapien ut elit pharetra vestibulum. Sed sagittis accumsan dui ut tempor. Cras ullamcorper luctus Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a sem ac magna interdum interdum. Ut consequat sapien ut elit pharetra vestibulum. Sed sagittis accumsan dui ut tempor. Cras ullamcorper luctus</p><!-- /wp:paragraph --></div><!-- /wp:column --><!-- wp:column {"width":"66.66%"} --><div class="wp-block-column" style="flex-basis:66.66%"><!-- wp:image {"id":134657,"sizeSlug":"large","linkDestination":"none"} --><figure class="wp-block-image size-large"><img src="https://master-7rqtwti-uyz4sq2cgrby4.us-3.platformsh.site/wp-content/uploads/2021/05/tastingRooms_tastingRooms.jpg" alt="a chalk drawn sign reads, &quot;Order Here,&quot; in front of a counter full of wine" class="wp-image-134657"/></figure><!-- /wp:image --></div><!-- /wp:column --></div><!-- /wp:columns --><!-- wp:paragraph --><p></p><!-- /wp:paragraph -->',
+		'category'    => 'madden',
+		)
+); 
+register_block_pattern(
+    'willamette/image-without-acorn',
+    array(
+        'title'       => __( 'Image without Acorn', config('textdomain') ),
+        'description' => _x( 'Image without Acorn.', 'Block pattern description', config('textdomain') ),
+        'content'     => '<!-- wp:image {"align":"full","id":134709,"sizeSlug":"large","linkDestination":"none"} --><figure class="wp-block-image alignfull size-large"><img src="https://master-7rqtwti-uyz4sq2cgrby4.us-3.platformsh.site/wp-content/uploads/2021/05/attractions_coveredBridges_hero-1024x303.jpg" alt="A white covered bridge hangs above a river" class="wp-image-134709"/></figure><!-- /wp:image -->',
+		'category'    => 'madden',
+		)
+); 
+register_block_pattern(
+    'willamette/recommended-reads',
+    array(
+        'title'       => __( 'Recommended Reads', config('textdomain') ),
+        'description' => _x( 'Recommended Reads.', 'Block pattern description', config('textdomain') ),
+        'content'     => '<!-- wp:heading {"textAlign":"center","level":3} --><h3 class="has-text-align-center">Explore the Possibilities</h3><!-- /wp:heading --><!-- wp:acf/category-slider {"id":"block_60b7dca56e98c","name":"acf/category-slider","data":{"category":["14"],"_category":"field_60b67e4eee739"},"align":"","mode":"edit"} /-->',
+		'category'    => 'madden',
+		)
+); 
+register_block_pattern(
+    'willamette/four-pattern-column',
+    array(
+        'title'       => __( 'Four Pattern Column', config('textdomain') ),
+        'description' => _x( 'Four Pattern Column.', 'Block pattern description', config('textdomain') ),
+        'content'     => '<!-- wp:columns {"className":"narrow-gutter"} --><div class="wp-block-columns narrow-gutter"><!-- wp:column --><div class="wp-block-column"><!-- wp:willamette-blocks/image-box {"id":136986,"url":"http://localhost/wp-content/uploads/2021/06/willamette-74.webp","className":"is-style-overhang-middle"} --><div class="wp-block-willamette-blocks-image-box is-style-overhang-middle"><div style="background:url(http://localhost/wp-content/uploads/2021/06/willamette-74.webp);" class="wp-block-willamette-blocks-image-box__image"><div class="wp-block-willamette-blocks-image-box__content"><!-- wp:heading {"textAlign":"center","backgroundColor":"teal","textColor":"white"} --><h2 class="has-text-align-center has-white-color has-teal-background-color has-text-color has-background">Text here</h2><!-- /wp:heading --></div></div></div><!-- /wp:willamette-blocks/image-box --></div><!-- /wp:column --><!-- wp:column --><div class="wp-block-column"><!-- wp:willamette-blocks/image-box {"id":136986,"url":"http://localhost/wp-content/uploads/2021/06/willamette-74.webp","className":"is-style-overhang-middle"} --><div class="wp-block-willamette-blocks-image-box is-style-overhang-middle"><div style="background:url(http://localhost/wp-content/uploads/2021/06/willamette-74.webp);" class="wp-block-willamette-blocks-image-box__image"><div class="wp-block-willamette-blocks-image-box__content"><!-- wp:heading {"textAlign":"center","backgroundColor":"purple","textColor":"white"} --><h2 class="has-text-align-center has-white-color has-purple-background-color has-text-color has-background">Text here</h2><!-- /wp:heading --></div></div></div><!-- /wp:willamette-blocks/image-box --></div><!-- /wp:column --><!-- wp:column --><div class="wp-block-column"><!-- wp:willamette-blocks/image-box {"id":136986,"url":"http://localhost/wp-content/uploads/2021/06/willamette-74.webp","className":"is-style-overhang-middle"} --><div class="wp-block-willamette-blocks-image-box is-style-overhang-middle"><div style="background:url(http://localhost/wp-content/uploads/2021/06/willamette-74.webp);" class="wp-block-willamette-blocks-image-box__image"><div class="wp-block-willamette-blocks-image-box__content"><!-- wp:heading {"textAlign":"center","backgroundColor":"lime","textColor":"white"} --><h2 class="has-text-align-center has-white-color has-lime-background-color has-text-color has-background">Text here</h2><!-- /wp:heading --></div></div></div><!-- /wp:willamette-blocks/image-box --></div><!-- /wp:column --><!-- wp:column --><div class="wp-block-column"><!-- wp:willamette-blocks/image-box {"id":136986,"url":"http://localhost/wp-content/uploads/2021/06/willamette-74.webp","className":"is-style-overhang-middle"} --><div class="wp-block-willamette-blocks-image-box is-style-overhang-middle"><div style="background:url(http://localhost/wp-content/uploads/2021/06/willamette-74.webp);" class="wp-block-willamette-blocks-image-box__image"><div class="wp-block-willamette-blocks-image-box__content"><!-- wp:heading {"textAlign":"center","backgroundColor":"green","textColor":"white"} --><h2 class="has-text-align-center has-white-color has-green-background-color has-text-color has-background">Text Here</h2><!-- /wp:heading --></div></div></div><!-- /wp:willamette-blocks/image-box --></div><!-- /wp:column --></div><!-- /wp:columns -->',
+		'category'    => 'madden',
+		)
+); 
+register_block_pattern(
+    'willamette/five-columns',
+    array(
+        'title'       => __( 'Five Columns', config('textdomain') ),
+        'description' => _x( 'Five Columns.', 'Block pattern description', config('textdomain') ),
+        'content'     => '<!-- wp:columns {"className":"five-column-three"} --><div class="wp-block-columns five-column-three"><!-- wp:column --><div class="wp-block-column"><!-- wp:willamette-blocks/image-box {"id":137945,"url":"http://localhost/wp-content/uploads/2021/06/pedal-for-pinot-at-sweet-cheeks-winery-by-david-loveall-380x2501-1.jpg","className":"is-style-overhang-left"} --><div class="wp-block-willamette-blocks-image-box is-style-overhang-left"><div style="background:url(http://localhost/wp-content/uploads/2021/06/pedal-for-pinot-at-sweet-cheeks-winery-by-david-loveall-380x2501-1.jpg);" class="wp-block-willamette-blocks-image-box__image"><div class="wp-block-willamette-blocks-image-box__content"><!-- wp:heading {"textAlign":"center","backgroundColor":"purple","textColor":"white"} --><h2 class="has-text-align-center has-white-color has-purple-background-color has-text-color has-background">covered bridges</h2><!-- /wp:heading --></div></div></div><!-- /wp:willamette-blocks/image-box --></div><!-- /wp:column --><!-- wp:column --><div class="wp-block-column"><!-- wp:willamette-blocks/image-box {"id":137945,"url":"http://localhost/wp-content/uploads/2021/06/pedal-for-pinot-at-sweet-cheeks-winery-by-david-loveall-380x2501-1.jpg","className":"is-style-no-overhang"} --><div class="wp-block-willamette-blocks-image-box is-style-no-overhang"><div style="background:url(http://localhost/wp-content/uploads/2021/06/pedal-for-pinot-at-sweet-cheeks-winery-by-david-loveall-380x2501-1.jpg);" class="wp-block-willamette-blocks-image-box__image"><div class="wp-block-willamette-blocks-image-box__content"><!-- wp:heading {"textAlign":"center","backgroundColor":"orange","textColor":"white"} --><h2 class="has-text-align-center has-white-color has-orange-background-color has-text-color has-background">covered bridges</h2><!-- /wp:heading --></div></div></div><!-- /wp:willamette-blocks/image-box --></div><!-- /wp:column --><!-- wp:column --><div class="wp-block-column"><!-- wp:willamette-blocks/image-box {"id":137945,"url":"http://localhost/wp-content/uploads/2021/06/pedal-for-pinot-at-sweet-cheeks-winery-by-david-loveall-380x2501-1.jpg","className":"is-style-overhang-right"} --><div class="wp-block-willamette-blocks-image-box is-style-overhang-right"><div style="background:url(http://localhost/wp-content/uploads/2021/06/pedal-for-pinot-at-sweet-cheeks-winery-by-david-loveall-380x2501-1.jpg);" class="wp-block-willamette-blocks-image-box__image"><div class="wp-block-willamette-blocks-image-box__content"><!-- wp:heading {"textAlign":"center","backgroundColor":"teal","textColor":"white"} --><h2 class="has-text-align-center has-white-color has-teal-background-color has-text-color has-background">covered bridges</h2><!-- /wp:heading --></div></div></div><!-- /wp:willamette-blocks/image-box --></div><!-- /wp:column --><!-- wp:column --><div class="wp-block-column"><!-- wp:willamette-blocks/image-box {"id":137945,"url":"http://localhost/wp-content/uploads/2021/06/pedal-for-pinot-at-sweet-cheeks-winery-by-david-loveall-380x2501-1.jpg","className":"is-style-overhang-left"} --><div class="wp-block-willamette-blocks-image-box is-style-overhang-left"><div style="background:url(http://localhost/wp-content/uploads/2021/06/pedal-for-pinot-at-sweet-cheeks-winery-by-david-loveall-380x2501-1.jpg);" class="wp-block-willamette-blocks-image-box__image"><div class="wp-block-willamette-blocks-image-box__content"><!-- wp:heading {"textAlign":"center","backgroundColor":"lime","textColor":"white"} --><h2 class="has-text-align-center has-white-color has-lime-background-color has-text-color has-background">covered bridges</h2><!-- /wp:heading --></div></div></div><!-- /wp:willamette-blocks/image-box --></div><!-- /wp:column --><!-- wp:column --><div class="wp-block-column"><!-- wp:willamette-blocks/image-box {"id":137945,"url":"http://localhost/wp-content/uploads/2021/06/pedal-for-pinot-at-sweet-cheeks-winery-by-david-loveall-380x2501-1.jpg","className":"is-style-overhang-right"} --><div class="wp-block-willamette-blocks-image-box is-style-overhang-right"><div style="background:url(http://localhost/wp-content/uploads/2021/06/pedal-for-pinot-at-sweet-cheeks-winery-by-david-loveall-380x2501-1.jpg);" class="wp-block-willamette-blocks-image-box__image"><div class="wp-block-willamette-blocks-image-box__content"><!-- wp:heading {"textAlign":"center","backgroundColor":"dark-blue","textColor":"white"} --><h2 class="has-text-align-center has-white-color has-dark-blue-background-color has-text-color has-background">covered bridges</h2><!-- /wp:heading --></div></div></div><!-- /wp:willamette-blocks/image-box --></div><!-- /wp:column --></div><!-- /wp:columns -->',
+		'category'    => 'madden',
+		)
+); 
+register_block_pattern(
+    'willamette/image-right',
+    array(
+        'title'       => __( 'Image Right', config('textdomain') ),
+        'description' => _x( 'Image Right.', 'Block pattern description', config('textdomain') ),
+        'content'     => '<!-- wp:columns --><div class="wp-block-columns"><!-- wp:column {"width":"33.33%"} --><div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:heading --><h2>tasting rooms</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a sem ac magna interdum interdum. Ut consequat sapien ut elit pharetra vestibulum. Sed sagittis accumsan dui ut tempor. Cras ullamcorper luctus</p><!-- /wp:paragraph --><!-- wp:buttons --><div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"purple","textColor":"white","className":"is-style-Two-Tone"} --><div class="wp-block-button is-style-Two-Tone"><a class="wp-block-button__link has-white-color has-purple-background-color has-text-color has-background">Button Copy</a></div><!-- /wp:button --></div><!-- /wp:buttons --></div><!-- /wp:column --><!-- wp:column {"width":"66.66%"} --><div class="wp-block-column" style="flex-basis:66.66%"><!-- wp:image {"id":135235,"sizeSlug":"large","linkDestination":"none"} --><figure class="wp-block-image size-large"><img src="https://master-7rqtwti-uyz4sq2cgrby4.us-3.platformsh.site/wp-content/uploads/2021/06/Rectangle-88-1024x492.jpg" alt="" class="wp-image-135235"/></figure><!-- /wp:image --></div><!-- /wp:column --></div><!-- /wp:columns -->',
+		'category'    => 'madden',
+		)
+); 
+register_block_pattern(
+    'willamette/image-left',
+    array(
+        'title'       => __( 'Image Left', config('textdomain') ),
+        'description' => _x( 'Image Left.', 'Block pattern description', config('textdomain') ),
+        'content'     => '<!-- wp:columns --><div class="wp-block-columns"><!-- wp:column {"width":"66.66%"} --><div class="wp-block-column" style="flex-basis:66.66%"><!-- wp:image {"id":135235,"sizeSlug":"large","linkDestination":"none"} --><figure class="wp-block-image size-large"><img src="https://master-7rqtwti-uyz4sq2cgrby4.us-3.platformsh.site/wp-content/uploads/2021/06/Rectangle-88-1024x492.jpg" alt="" class="wp-image-135235"/></figure><!-- /wp:image --></div><!-- /wp:column --><!-- wp:column {"width":"33.33%"} --><div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:heading --><h2>tasting rooms</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a sem ac magna interdum interdum. Ut consequat sapien ut elit pharetra vestibulum. Sed sagittis accumsan dui ut tempor. Cras ullamcorper luctus</p><!-- /wp:paragraph --><!-- wp:buttons --><div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"purple","textColor":"white","className":"is-style-Two-Tone"} --><div class="wp-block-button is-style-Two-Tone"><a class="wp-block-button__link has-white-color has-purple-background-color has-text-color has-background">Button Copy</a></div><!-- /wp:button --></div><!-- /wp:buttons --></div><!-- /wp:column --></div><!-- /wp:columns -->',
+		'category'    => 'madden',
+		)
+); 
+register_block_pattern(
+    'willamette/three-circular-icons',
+    array(
+        'title'       => __( 'three circular icons', config('textdomain') ),
+        'description' => _x( 'three circular icons.', 'Block pattern description', config('textdomain') ),
+        'content'     => '<!-- wp:heading {"textAlign":"center","level":3} --><h3 class="has-text-align-center">Choose your own adventure</h3><!-- /wp:heading --><!-- wp:columns {"className":"narrow-columns plain-links"} --><div class="wp-block-columns narrow-columns plain-links"><!-- wp:column {"className":"narrow-columns"} --><div class="wp-block-column narrow-columns"><!-- wp:image {"id":135202,"sizeSlug":"large","linkDestination":"none"} --><figure class="wp-block-image size-large"><img src="https://master-7rqtwti-uyz4sq2cgrby4.us-3.platformsh.site/wp-content/uploads/2021/06/narrowcolumnsicon.png" alt="" class="wp-image-135202"/></figure><!-- /wp:image --><!-- wp:paragraph {"align":"center"} --><p class="has-text-align-center"><a href="#">Hiking</a></p><!-- /wp:paragraph --></div><!-- /wp:column --><!-- wp:column --><div class="wp-block-column"><!-- wp:image {"id":135202,"sizeSlug":"large","linkDestination":"none"} --><figure class="wp-block-image size-large"><img src="https://master-7rqtwti-uyz4sq2cgrby4.us-3.platformsh.site/wp-content/uploads/2021/06/narrowcolumnsicon.png" alt="" class="wp-image-135202"/></figure><!-- /wp:image --><!-- wp:paragraph {"align":"center"} --><p class="has-text-align-center"><a href="#">Biking</a></p><!-- /wp:paragraph --></div><!-- /wp:column --><!-- wp:column --><div class="wp-block-column"><!-- wp:image {"id":135202,"sizeSlug":"large","linkDestination":"none"} --><figure class="wp-block-image size-large"><img src="https://master-7rqtwti-uyz4sq2cgrby4.us-3.platformsh.site/wp-content/uploads/2021/06/narrowcolumnsicon.png" alt="" class="wp-image-135202"/></figure><!-- /wp:image --><!-- wp:paragraph {"align":"center"} --><p class="has-text-align-center"><a href="#">Waterways</a></p><!-- /wp:paragraph --></div><!-- /wp:column --></div><!-- /wp:columns --><!-- wp:paragraph --><p></p><!-- /wp:paragraph -->',
+		'category'    => 'madden',
+		)
+); 
+register_block_pattern(
+    'willamette/on-patterned-tan',
+    array(
+        'title'       => __( 'On Patterned Tan', config('textdomain') ),
+        'description' => _x( 'On Patterned Tan.', 'Block pattern description', config('textdomain') ),
+        'content'     => '<!-- wp:group {"align":"full","backgroundColor":"tan","className":"pattern-bg"} --><div class="wp-block-group alignfull pattern-bg has-tan-background-color has-background"><div class="wp-block-group__inner-container"><!-- wp:group {"className":"notfullwidth"} --><div class="wp-block-group notfullwidth"><div class="wp-block-group__inner-container"><!-- wp:heading --><h2>outdoors &amp; recreation</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a sem ac magna interdum interdum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a sem ac magna interdum interdum.</p><!-- /wp:paragraph --></div></div><!-- /wp:group --></div></div><!-- /wp:group --><!-- wp:paragraph --><p></p><!-- /wp:paragraph -->',
+		'category'    => 'madden',
+		)
+); 
+register_block_pattern(
+    'willamette/three-image-column',
+    array(
+        'title'       => __( 'Three Image Column', config('textdomain') ),
+        'description' => _x( 'Three Image Column.', 'Block pattern description', config('textdomain') ),
+        'content'     => '<!-- wp:columns --><div class="wp-block-columns"><!-- wp:column --><div class="wp-block-column"><!-- wp:willamette-blocks/image-box {"id":137381,"url":"http://localhost/wp-content/uploads/2021/05/eugene-king-estate-autumn-glory-by-rachell-coe-2004-800.webp","className":"is-style-overhang-left"} --><div class="wp-block-willamette-blocks-image-box is-style-overhang-left"><div style="background:url(http://localhost/wp-content/uploads/2021/05/eugene-king-estate-autumn-glory-by-rachell-coe-2004-800.webp);" class="wp-block-willamette-blocks-image-box__image"><div class="wp-block-willamette-blocks-image-box__content"><!-- wp:heading {"backgroundColor":"purple","textColor":"white"} --><h2 class="has-white-color has-purple-background-color has-text-color has-background">Wine Tour 1</h2><!-- /wp:heading --></div></div></div><!-- /wp:willamette-blocks/image-box --></div><!-- /wp:column --><!-- wp:column --><div class="wp-block-column"><!-- wp:willamette-blocks/image-box {"id":137381,"url":"http://localhost/wp-content/uploads/2021/05/eugene-king-estate-autumn-glory-by-rachell-coe-2004-800.webp","className":"is-style-no-overhang"} --><div class="wp-block-willamette-blocks-image-box is-style-no-overhang"><div style="background:url(http://localhost/wp-content/uploads/2021/05/eugene-king-estate-autumn-glory-by-rachell-coe-2004-800.webp);" class="wp-block-willamette-blocks-image-box__image"><div class="wp-block-willamette-blocks-image-box__content"><!-- wp:heading {"textAlign":"center","backgroundColor":"orange","textColor":"white"} --><h2 class="has-text-align-center has-white-color has-orange-background-color has-text-color has-background">Wine Tour 2</h2><!-- /wp:heading --></div></div></div><!-- /wp:willamette-blocks/image-box --></div><!-- /wp:column --><!-- wp:column --><div class="wp-block-column"><!-- wp:willamette-blocks/image-box {"id":137381,"url":"http://localhost/wp-content/uploads/2021/05/eugene-king-estate-autumn-glory-by-rachell-coe-2004-800.webp","className":"is-style-overhang-right"} --><div class="wp-block-willamette-blocks-image-box is-style-overhang-right"><div style="background:url(http://localhost/wp-content/uploads/2021/05/eugene-king-estate-autumn-glory-by-rachell-coe-2004-800.webp);" class="wp-block-willamette-blocks-image-box__image"><div class="wp-block-willamette-blocks-image-box__content"><!-- wp:heading {"textAlign":"center","backgroundColor":"teal","textColor":"white"} --><h2 class="has-text-align-center has-white-color has-teal-background-color has-text-color has-background">Wine Tour 3</h2><!-- /wp:heading --></div></div></div><!-- /wp:willamette-blocks/image-box --></div><!-- /wp:column --></div><!-- /wp:columns -->',
+		'category'    => 'madden',
+		)
+); 
+register_block_pattern(
+    'willamette/image-with-acorn',
+    array(
+        'title'       => __( 'Image with Acorn', config('textdomain') ),
+        'description' => _x( 'Image with Acorn.', 'Block pattern description', config('textdomain') ),
+        'content'     => '<!-- wp:image {"align":"full","id":135223,"sizeSlug":"large","linkDestination":"none","className":"is-style-acorn"} --><figure class="wp-block-image alignfull size-large is-style-acorn"><img src="https://master-7rqtwti-uyz4sq2cgrby4.us-3.platformsh.site/wp-content/uploads/2021/06/Rectangle-11-1-1024x326.jpg" alt="" class="wp-image-135223"/></figure><!-- /wp:image -->',
+		'category'    => 'madden',
+		)
+); 
+register_block_pattern(
+    'willamette/image-with-leaf',
+    array(
+        'title'       => __( 'Image with Leaf', config('textdomain') ),
+        'description' => _x( 'Image with Leaf.', 'Block pattern description', config('textdomain') ),
+        'content'     => '<!-- wp:image {"align":"full","id":135221,"sizeSlug":"large","linkDestination":"none","className":"is-style-leaf"} --><figure class="wp-block-image alignfull size-large is-style-leaf"><img src="https://master-7rqtwti-uyz4sq2cgrby4.us-3.platformsh.site/wp-content/uploads/2021/06/Rectangle-11-1024x327.jpg" alt="" class="wp-image-135221"/></figure><!-- /wp:image --><!-- wp:paragraph --><p></p><!-- /wp:paragraph -->',
+		'category'    => 'madden',
+		)
+); 
+register_block_pattern(
+    'willamette/image-on-transparent-box',
+    array(
+        'title'       => __( 'Image on Transparent Box', config('textdomain') ),
+        'description' => _x( 'Image on Transparent Box.', 'Block pattern description', config('textdomain') ),
+        'content'     => '<!-- wp:willamette-blocks/image-box {"id":135219,"align":"full","className":"is-style-overhang-middle"} --><div class="wp-block-willamette-blocks-image-box alignfull is-style-overhang-middle"></div><!-- /wp:willamette-blocks/image-box -->',
+		'category'    => 'madden',
+		)
+); 
+register_block_pattern(
+    'willamette/header-title',
+    array(
+        'title'       => __( 'Header title', config('textdomain') ),
+        'description' => _x( 'Header title.', 'Block pattern description', config('textdomain') ),
+        'content'     => '<!-- wp:heading {"textAlign":"center","level":3} --><h3 class="has-text-align-center">experiences</h3><!-- /wp:heading --><!-- wp:paragraph --><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a sem ac magna interdum interdum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a sem ac magna interdum interdum.</p><!-- /wp:paragraph -->',
+		'category'    => 'madden',
+		)
+); 
 // register_block_pattern(
-//     'willamette/fullwidth-image',
+//     'willamette/four-columns',
 //     array(
-//         'title'       => __( 'Full width image', config('textdomain') ),
-//         'description' => _x( 'Full width image.', 'Block pattern description', config('textdomain') ),
-//         'content'     => '<!-- wp:image {"align":"full","id":134754,"sizeSlug":"large","linkDestination":"none"} --><figure class="wp-block-image alignfull size-large"><img src="../wp-content/themes/mm-WillametteValley-child-theme/resources/assets/images/fullwidth.jpg" alt="" class="wp-image-134754"/></figure><!-- /wp:image -->',
+//         'title'       => __( 'Four Columns', config('textdomain') ),
+//         'description' => _x( 'Four Columns.', 'Block pattern description', config('textdomain') ),
+//         'content'     => '<!-- wp:columns --><div class="wp-block-columns"><!-- wp:column --><div class="wp-block-column"><!-- wp:willamette-blocks/image-box {"id":137381,"url":"http://localhost/wp-content/uploads/2021/05/eugene-king-estate-autumn-glory-by-rachell-coe-2004-800.webp","className":"is-style-overhang middle"} --><div class="wp-block-willamette-blocks-image-box is-style-overhang middle"><div style="background:url(http://localhost/wp-content/uploads/2021/05/eugene-king-estate-autumn-glory-by-rachell-coe-2004-800.webp);" class="wp-block-willamette-blocks-image-box__image"><div class="wp-block-willamette-blocks-image-box__content"><!-- wp:heading {"textAlign":"center","level":4,"backgroundColor":"teal","textColor":"white"} --><h4 class="has-text-align-center has-white-color has-teal-background-color has-text-color has-background">wine tours</h4><!-- /wp:heading --></div></div></div><!-- /wp:willamette-blocks/image-box --></div><!-- /wp:column --><!-- wp:column --><div class="wp-block-column"><!-- wp:willamette-blocks/image-box {"id":137381,"url":"http://localhost/wp-content/uploads/2021/05/eugene-king-estate-autumn-glory-by-rachell-coe-2004-800.webp","className":"is-style-overhang middle"} --><div class="wp-block-willamette-blocks-image-box is-style-overhang middle"><div style="background:url(http://localhost/wp-content/uploads/2021/05/eugene-king-estate-autumn-glory-by-rachell-coe-2004-800.webp);" class="wp-block-willamette-blocks-image-box__image"><div class="wp-block-willamette-blocks-image-box__content"><!-- wp:heading {"textAlign":"center","level":4,"backgroundColor":"purple","textColor":"white"} --><h4 class="has-text-align-center has-white-color has-purple-background-color has-text-color has-background">wine trails</h4><!-- /wp:heading --></div></div></div><!-- /wp:willamette-blocks/image-box --></div><!-- /wp:column --><!-- wp:column --><div class="wp-block-column"><!-- wp:willamette-blocks/image-box {"id":137381,"url":"http://localhost/wp-content/uploads/2021/05/eugene-king-estate-autumn-glory-by-rachell-coe-2004-800.webp","className":"is-style-overhang middle"} --><div class="wp-block-willamette-blocks-image-box is-style-overhang middle"><div style="background:url(http://localhost/wp-content/uploads/2021/05/eugene-king-estate-autumn-glory-by-rachell-coe-2004-800.webp);" class="wp-block-willamette-blocks-image-box__image"><div class="wp-block-willamette-blocks-image-box__content"><!-- wp:heading {"textAlign":"center","level":4,"backgroundColor":"lime","textColor":"white"} --><h4 class="has-text-align-center has-white-color has-lime-background-color has-text-color has-background">wine events</h4><!-- /wp:heading --></div></div></div><!-- /wp:willamette-blocks/image-box --></div><!-- /wp:column --><!-- wp:column --><div class="wp-block-column"><!-- wp:willamette-blocks/image-box {"id":137381,"url":"http://localhost/wp-content/uploads/2021/05/eugene-king-estate-autumn-glory-by-rachell-coe-2004-800.webp","className":"is-style-overhang middle"} --><div class="wp-block-willamette-blocks-image-box is-style-overhang middle"><div style="background:url(http://localhost/wp-content/uploads/2021/05/eugene-king-estate-autumn-glory-by-rachell-coe-2004-800.webp);" class="wp-block-willamette-blocks-image-box__image"><div class="wp-block-willamette-blocks-image-box__content"><!-- wp:heading {"textAlign":"center","level":4,"backgroundColor":"green","textColor":"white"} --><h4 class="has-text-align-center has-white-color has-green-background-color has-text-color has-background">wine cycling</h4><!-- /wp:heading --></div></div></div><!-- /wp:willamette-blocks/image-box --></div><!-- /wp:column --></div><!-- /wp:columns --><!-- wp:paragraph --><p></p><!-- /wp:paragraph -->',
 // 		'category'    => 'madden',
 // 		)
 // ); 
-// register_block_pattern(
-//     'willamette/three-icons',
-//     array(
-//         'title'       => __( 'Three icons', config('textdomain') ),
-//         'description' => _x( 'Three icons.', 'Block pattern description', config('textdomain') ),
-//         'content'     => '<!-- wp:columns {"className":"narrow-columns plain-links"} --><div class="wp-block-columns narrow-columns"><!-- wp:column --><div class="wp-block-column"><!-- wp:image {"id":134761,"sizeSlug":"large","linkDestination":"none"} --><figure class="wp-block-image size-large"><img src="wp-content/uploads/2021/06/narrowcolumnsicon.png" alt="" class="wp-image-134761"/></figure><!-- /wp:image --><!-- wp:paragraph {"align":"center"} --><p class="has-text-align-center"><a href="#">Outdoors and Recreation</a></p><!-- /wp:paragraph --></div><!-- /wp:column --><!-- wp:column --><div class="wp-block-column"><!-- wp:image {"id":134760,"sizeSlug":"large","linkDestination":"none"} --><figure class="wp-block-image size-large"><img src="../wp-content/themes/mm-WillametteValley-child-theme/resources/assets/images/narrowcolumnsicon.png" alt="" class="wp-image-134760"/></figure><!-- /wp:image --><!-- wp:paragraph {"align":"center"} --><p class="has-text-align-center"><a href="#">Outdoors and Recreation</a></p><!-- /wp:paragraph --></div><!-- /wp:column --><!-- wp:column --><div class="wp-block-column"><!-- wp:image {"id":134762,"sizeSlug":"large","linkDestination":"none"} --><figure class="wp-block-image size-large"><img src="../wp-content/themes/mm-WillametteValley-child-theme/resources/assets/images/narrowcolumnsicon.png" alt="" class="wp-image-134762"/></figure><!-- /wp:image --><!-- wp:paragraph {"align":"center"} --><p class="has-text-align-center"><a href="#">Outdoors and Recreation</a></p><!-- /wp:paragraph --></div><!-- /wp:column --></div><!-- /wp:columns -->',
-// 		'category'    => 'madden',
-// 		)
-// ); 
-// register_block_pattern(
-//     'willamette/pattern-bg',
-//     array(
-//         'title'       => __( 'Pattern Background', config('textdomain') ),
-//         'description' => _x( 'Pattern Background.', 'Block pattern description', config('textdomain') ),
-//         'content'     => '<!-- wp:group {"align":"full","className":"pattern-bg"} --><div class="wp-block-group alignfull pattern-bg"><div class="wp-block-group__inner-container"><!-- wp:group {"className":"notfullwidth"} --><div class="wp-block-group notfullwidth"><div class="wp-block-group__inner-container"><!-- wp:heading {"textAlign":"center","level":3} --><h3 class="has-text-align-center">Recommended Reads</h3><!-- /wp:heading --></div></div><!-- /wp:group --></div></div><!-- /wp:group -->',
-// 		'category'    => 'madden',
-// 		)
-// );
