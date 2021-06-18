@@ -73,7 +73,7 @@
                 $thumbnail = $photos[0]["image_url"];
                 echo "<img src='$thumbnail' alt='".$photos[0]["image_alt"]."'>";
             } else {
-                echo "<img src='/wp-content/uploads/2021/05/requestAVisitorGuide-150x150.jpg' alt='The Willamette Valley'>";
+                echo "<img src='".get_stylesheet_directory_uri()."/resources/assets/images/events-thumbnail.png' alt='The Willamette Valley'>";
             }		
             echo '</div>';
             echo '<div class="category-slider__item__title '.$colors[$i].'">';

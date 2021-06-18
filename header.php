@@ -20,15 +20,18 @@ use function Madden\Theme\Child\template;
  * @see resources/templates/layout/head.tpl.php
  */
 
-$featured_image = get_the_post_thumbnail_url(get_the_id(),"full");
 $hero = "";
-if ($featured_image !== false){
-	$hero = $featured_image;
+if (has_post_thumbnail()){
+	$hero = get_the_post_thumbnail_url(get_the_id(),"full");
 } else if (is_front_page()){
 	$hero = "/wp-content/themes/mm-willametteValley-child-theme/public/images/home_hero.jpg";
+} else if (get_post_type() == "post"){
+	$hero = "/wp-content/themes/mm-willametteValley-child-theme/public/images/articles-hero.jpg";
+} else if (get_post_type() == "poi"){
+	$hero = "/wp-content/themes/mm-willametteValley-child-theme/public/images/events-hero.jpg";
 } else {
 	//default hero
-	$hero = "/wp-content/themes/mm-willametteValley-child-theme/public/images/home_hero.jpg";
+	$hero = "/wp-content/themes/mm-willametteValley-child-theme/public/images/events-hero.jpg";
 }
 $color = get_field("color");
 $title_color = "rgba(106, 59, 93, .54)";
