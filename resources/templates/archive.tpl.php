@@ -63,7 +63,7 @@ if (isset($_GET["date"])){
         if ($category && $date){
             $args = array(
                 'posts_per_page' => 12,
-                'post_status' => 'published',
+                'post_status' => 'publish',
                 'post_type'  => 'post',
                 'orderby' => 'date',
                 'order'   => $date,
@@ -78,7 +78,7 @@ if (isset($_GET["date"])){
         } else if ($category) {
             $args = array(
                 'posts_per_page' => 12,
-                'post_status' => 'published',
+                'post_status' => 'publish',
                 'post_type'  => 'post',
                 'orderby' => 'date',
                 'tax_query' => array (
@@ -92,7 +92,7 @@ if (isset($_GET["date"])){
         } else if ($date){
             $args = array(
                 'posts_per_page' => 12,
-                'post_status' => 'published',
+                'post_status' => 'publish',
                 'post_type'  => 'post',
                 'orderby' => 'date',
                 'order'   => $date,
@@ -100,7 +100,7 @@ if (isset($_GET["date"])){
         } else {
             $args = array(
                 'posts_per_page' => 12,
-                'post_status' => 'published',
+                'post_status' => 'publish',
                 'post_type'  => 'post',
                 'orderby' => 'date',
             );
@@ -119,7 +119,7 @@ if (isset($_GET["date"])){
                             if (has_post_thumbnail()){
                                 the_post_thumbnail("big-thumbnail");
                             } else {
-                                echo "<img src='/wp-content/uploads/2021/05/requestAVisitorGuide-150x150.jpg' alt='The Willamette Valley'>";
+                                echo "<img src='".get_stylesheet_directory_uri()."/resources/assets/images/articles-thumbnail.png' alt='The Willamette Valley'>";
                             }
                             ?>
                         </div>
