@@ -152,8 +152,15 @@ function sort_times($array, $array2){
   return $array[1] > $array2[1];
 }
 
-$role = get_role('editor');
-$role->add_cap('manage_options');
+
+/* make gravity forms available to Editor role */
+function add_editor_cap(){
+  $role = get_role( 'editor' );
+  $role->add_cap('manage_options');
+  $role->add_cap( 'gform_full_access' );
+}
+add_action( 'admin_init', 'add_editor_cap' );
+
 
 function filter_search_post_types($query) {
 	if ($query->is_search && !is_admin()) {
