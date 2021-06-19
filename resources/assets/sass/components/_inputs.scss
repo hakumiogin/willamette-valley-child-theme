@@ -3,12 +3,17 @@
 		width: 800px !important;
 		margin: 0px auto;
 
-		input[type="text"], input[type="email"] {
+		input[type="text"], input[type="email"], input[type="tel"], select {
 			background-color: $light-grey;
 			border: none;
 		}
+		
 		textarea {
 			font-family: $body-font;
+		}
+
+		.sweepsCheckbox label {
+			padding-left: 1.0rem;
 		}
 	}
 }
