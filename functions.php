@@ -169,3 +169,17 @@ function filter_search_post_types($query) {
 	return $query;
 }
 add_filter('pre_get_posts', 'filter_search_post_types');
+
+/* limit sweeps form country dropdown to us/canada only */
+function sweeps_limit_countries( $form ) {
+
+  add_filter( 'gform_countries', function( $countries ) {
+    return array( 'United States', 'Canada' );
+  });
+
+  return $form;
+}
+add_filter( 'gform_pre_render_4', 'sweeps_limit_countries' );
+add_filter( 'gform_pre_validation_4', 'sweeps_limit_countries' );
+add_filter( 'gform_pre_submission_filter_4', 'sweeps_limit_countries' );
+add_filter( 'gform_admin_pre_render_4', 'sweeps_limit_countries' );
