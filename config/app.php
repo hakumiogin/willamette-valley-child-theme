@@ -79,7 +79,7 @@ return [
 
         // ASSETS
         'Http/assets.php',
-        'Http/ajax.php',
+        'Http/assets/ajax.php',
         'Http/assets/admin.php',
         'Http/assets/stylesheets.php',
         'Http/assets/scripts.php',
