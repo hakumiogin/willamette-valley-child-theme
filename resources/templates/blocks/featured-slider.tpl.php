@@ -23,10 +23,16 @@
 						<?php
 						$blocks = parse_blocks($post["post"]->post_content);
 						if ($blocks){
-							echo render_block($blocks[0]);
+							if ($blocks[0]['blockName'] == "core/paragraph" || $blocks[0]['blockName'] == "core/heading"){
+								echo render_block($blocks[0]);
+							}
 							if (count($blocks) > 2){
-								echo render_block($blocks[1]);
-								echo render_block($blocks[2]);
+								if ($blocks[1]['blockName'] == "core/paragraph" || $blocks[1]['blockName'] == "core/heading"){
+									echo render_block($blocks[1]);
+								}
+								if ($blocks[2]['blockName'] == "core/paragraph" || $blocks[2]['blockName'] == "core/heading"){
+									echo render_block($blocks[2]);
+								}
 							}
 
 						}
