@@ -12,12 +12,40 @@ if (isset($_GET['category'])){
     $category = "";
 }
 $show_date = false;
+$args = array(
+    'posts_per_page' => 12,
+    'post_status' => 'publish',
+    'orderby' => 'date',
+);
 if (isset($_GET["date"])){
-    $date = $_GET["date"];
+    $args["order"] = $_GET["date"];
     $show_date = true;
-} else {
-    $date = "ASC";
 }
+if (isset($_GET["post_type"])){
+    $args["post_type"] = $_GET["post_type"];
+}
+if (isset($_GET["s"])){
+    $args["s"] = $_GET["s"];
+}
+if (isset($_GET["category"])){
+    $categories = explode(",", $_GET["category"]);
+    $args['tax_query'] = array (
+        array (
+            'taxonomy' => 'category',
+            'field' => 'slug',
+            'terms' => $categories,
+        ),
+    );
+}
+if (isset($_GET["paged"])){
+    $args['paged'] = $_GET["paged"];
+} else {
+    $args['paged'] = 1;
+}
+$the_query = new WP_Query( $args );
+
+$colors = ["has-purple-background-color", "has-teal-background-color", "has-lime-background-color", "has-green-background-color"];
+
 ?>
 <div class="main-container">
     <div id="primary" class="content-area">
@@ -42,71 +70,24 @@ if (isset($_GET["date"])){
             </div>
         </div>
         <div class="dropdown <?= $show_date ? "" : "hiddenDropdown"; ?> dateDropdown">
-            <a id="dropdownlink" href="#" class="dropdown__button"><?= isset($_GET["date"]) ? ($date == "DESC" ? "oldest" : "newest") : "date" ?><span class="dropdown__button__triangle"></span></a>
+            <a id="dropdownlink" href="#" class="dropdown__button"><?= isset($_GET["date"]) ? ($date == "ASC" ? "oldest" : "newest") : "date" ?><span class="dropdown__button__triangle"></span></a>
             <div id="dropdown__links" class="dropdown__content">
-                <a class="dropdown__links__oldest" href="articles/?date=ASC<?= $category ? "&category=".$category : "" ?>">Newest</a>
-                <a class="dropdown__links__newest" href="articles/?date=DESC<?= $category ? "&category=".$category : "" ?>">Oldest</a>
+                <a class="dropdown__links__oldest" href="articles/?date=DESC<?= $category ? "&category=".$category : "" ?>">Newest</a>
+                <a class="dropdown__links__newest" href="articles/?date=ASC<?= $category ? "&category=".$category : "" ?>">Oldest</a>
             </div>
         </div>
     </div> 
     <div class="page-search">
-        <form role="search" method="get" id="searchForm" class="searchform" action="<?= home_url( '/' ) ?>" >
+        <form role="search" method="get" id="innerSearchForm" class="searchform" action="<?= home_url( '/articles' ) ?>" >
             <label aria-label="submit">
                <input type="image" src="<?= get_stylesheet_directory_uri()."/resources/assets/images/mag_glass.svg" ?>" border="0" alt="Submit" />
             </label>
             <label aria-label="search">
-                <input type="text" name="s" id="searchInput" placeholder="search" /></label>
+                <input type="text" name="s" id="InnersearchInput" placeholder="search" /></label>
         </form>
     </div>
         <div class="archive-page">
         <?php
-        if ($category && $date){
-            $args = array(
-                'posts_per_page' => 12,
-                'post_status' => 'publish',
-                'post_type'  => 'post',
-                'orderby' => 'date',
-                'order'   => $date,
-                'tax_query' => array (
-                    array (
-                        'taxonomy' => 'category',
-                        'field' => 'slug',
-                        'terms' => $category,
-                    ),
-                )
-            );    
-        } else if ($category) {
-            $args = array(
-                'posts_per_page' => 12,
-                'post_status' => 'publish',
-                'post_type'  => 'post',
-                'orderby' => 'date',
-                'tax_query' => array (
-                    array (
-                        'taxonomy' => 'category',
-                        'field' => 'slug',
-                        'terms' => $category,
-                    ),
-                )
-            );    
-        } else if ($date){
-            $args = array(
-                'posts_per_page' => 12,
-                'post_status' => 'publish',
-                'post_type'  => 'post',
-                'orderby' => 'date',
-                'order'   => $date,
-            );
-        } else {
-            $args = array(
-                'posts_per_page' => 12,
-                'post_status' => 'publish',
-                'post_type'  => 'post',
-                'orderby' => 'date',
-            );
-        }
-        $the_query = new WP_Query( $args );
-        $colors = ["has-purple-background-color", "has-teal-background-color", "has-lime-background-color", "has-green-background-color"];
         $i = 0;
         if ( $the_query->have_posts()) {
             while ( $the_query->have_posts() ) {

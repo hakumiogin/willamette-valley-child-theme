@@ -18,16 +18,18 @@ if (isset($_GET["date"])){
 } else {
     $date = "ASC";
 }
+global $wp_query;
 ?>
 <div class="main-container">
     <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-
-        <div class="archive-page">
         <?php
         $colors = ["has-purple-background-color", "has-teal-background-color", "has-lime-background-color", "has-green-background-color"];
         $i = 0;
-        if (have_posts()) {
+        if (have_posts()) { ?>
+            <h2>Your search for "<?= htmlspecialchars($_GET['s']) ?>" returned <?= $wp_query->found_posts ?> Results</h2>
+            <div class="archive-page">
+            <?php
             while (have_posts() ) {
                 the_post();
                  ?>
@@ -53,6 +55,8 @@ if (isset($_GET["date"])){
                     $i = 0;
                 }
             }
+        } else {
+            echo "<h2>Your search for ".htmlspecialchars($_GET['s'])." returned 0 Results</h2>";
         }
         wp_reset_postdata(); ?>
         <div class="navigation"><p><?php posts_nav_link(); ?></p></div>
