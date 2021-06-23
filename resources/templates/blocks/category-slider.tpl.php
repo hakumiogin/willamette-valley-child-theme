@@ -22,8 +22,14 @@
         // ),
         'tax_query' => array(
             'relation' => $show,
-            $category_query
-          )
+            $category_query,
+            array (
+                'operator' => 'NOT IN',
+                'taxonomy' => 'category',
+                'field' => 'term_taxonomy_id',
+                'terms' => array ( 254 )
+            ),
+        )
     );
     $the_query = new WP_Query( $args );
     if ( $the_query->have_posts()) { ?>
