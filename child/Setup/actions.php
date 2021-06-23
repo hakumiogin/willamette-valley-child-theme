@@ -27,3 +27,16 @@ function add_ajax_url_to_js(){
 	echo '</script>';
 }
 add_action("theme/after-body", __NAMESPACE__."\add_ajax_url_to_js");
+
+add_action( 'wp', __NAMESPACE__.'\add_redirect' );
+function add_redirect()
+{
+	if( '/' == substr($_SERVER['REQUEST_URI'], -1)){
+		$trimmed_uri = preg_replace('#/#', '', trim( $_SERVER['REQUEST_URI'] ) ) ;
+		$post = get_page_by_path( $trimmed_uri, OBJECT, 'POST' );
+		if( $post ){
+			$url = get_permalink( $post->ID );
+		    wp_redirect( $url );
+		}
+	}
+}
