@@ -12,7 +12,7 @@
     $show = get_field("show");
     if (!$show) $show = "or";
     $args = array(
-        'posts_per_page' => 60,
+        'posts_per_page' => 100,
         'post_type'  => 'post',
         // 'meta_query' => array(
         //     array(

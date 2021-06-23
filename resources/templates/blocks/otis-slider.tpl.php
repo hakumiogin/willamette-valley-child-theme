@@ -37,7 +37,7 @@
     }
     $termstring = implode(", ", $terms);
     global $wpdb;
-    $sql = "SELECT max(wp_posts.ID) AS ID FROM wp_posts LEFT JOIN wp_term_relationships ON (wp_posts.ID = wp_term_relationships.object_id) WHERE ( wp_term_relationships.term_taxonomy_id IN ($termstring) ) AND wp_posts.post_type = 'poi' AND (wp_posts.post_status = 'publish' OR wp_posts.post_status = 'acf-disabled' OR wp_posts.post_status = 'dp-rewrite-republish' OR wp_posts.post_status = 'private') GROUP BY wp_posts.post_title, wp_posts.post_date $orderby DESC LIMIT 0, 60";
+    $sql = "SELECT max(wp_posts.ID) AS ID FROM wp_posts LEFT JOIN wp_term_relationships ON (wp_posts.ID = wp_term_relationships.object_id) WHERE ( wp_term_relationships.term_taxonomy_id IN ($termstring) ) AND wp_posts.post_type = 'poi' AND (wp_posts.post_status = 'publish' OR wp_posts.post_status = 'acf-disabled' OR wp_posts.post_status = 'dp-rewrite-republish' OR wp_posts.post_status = 'private') GROUP BY wp_posts.post_title, wp_posts.post_date $orderby DESC LIMIT 0, 100";
     $pageposts = $wpdb->get_results($sql);
     if ($pageposts):
         $posts = [];
@@ -62,15 +62,21 @@
             } else {
                 $link = "#";
             }
-            echo '<div class="category-slider__item">';
-            echo '<a href="'.$link.'">';
-
             $date = get_field("start_date", $postobject);
             if ($date){
                 $dateTime = DateTime::createFromFormat('m/d/Y', $date);
-                $formatted_date = $dateTime->format('F j');
+                if (new DateTime() > $dateTime){
+                    continue;
+                }
+                $formatted_date = $dateTime->format('F j Y');
+                echo '<div class="category-slider__item">';
+                echo '<a href="'.$link.'">';    
                 echo '<div class="category-slider__item__date '.$colors[$i].'">'.$formatted_date.'</div>';
+            } else {
+                echo '<div class="category-slider__item">';
+                echo '<a href="'.$link.'">';    
             }
+
             echo '<div class="category-slider__item__image">';
             $photos = get_field("photos", $postobject);
 
