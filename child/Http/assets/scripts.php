@@ -24,6 +24,9 @@ function register_scripts(){
   $scripts = [
     config('textdomain') => 'js/app.js',
   ];
+  if (is_page(138016)){
+    $scripts[config('textdomain')."infinitescroll"] = 'js/infiniteScroll.js';
+  }
   // stop scripts 
 
   // enqueue assets

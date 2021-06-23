@@ -4,6 +4,9 @@
 		"~/js/app.js",
 		"~/scss/app.scss"
 	],
+	"infiniteScroll": [
+		"~/js/infiniteScroll.js"
+	],
     "wp-admin" : [
 		"~/js/wp-admin.js",
 		"~/scss/wp-admin.scss"

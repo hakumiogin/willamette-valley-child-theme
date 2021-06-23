@@ -19,4 +19,11 @@ function add_back_to_top_button(){
 }
 add_action("theme/after-body", __NAMESPACE__."\add_back_to_top_button");
 
-
+function add_ajax_url_to_js(){
+	echo '<script type="text/javascript">';
+	echo 'var ajaxurl = "'.admin_url('admin-ajax.php')."\"\n";
+	$nonce = wp_create_nonce("getPosts_nonce");
+	echo 'var nonce = "'.$nonce.'"\n';
+	echo '</script>';
+}
+add_action("theme/after-body", __NAMESPACE__."\add_ajax_url_to_js");

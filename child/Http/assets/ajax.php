@@ -1,5 +1,15 @@
 <?php
 
+
+
+add_action( 'wp_ajax_nopriv_getPosts', 'getPosts' );
+add_action( 'wp_ajax_getPosts', 'getPosts' );
+
+function getPosts($notAjax = false) {
+    return "posts";
+}
+
+
 add_action( 'wp_ajax_nopriv_getBlogs', 'getBlogs' );
 add_action( 'wp_ajax_getBlogs', 'getBlogs' );
 
