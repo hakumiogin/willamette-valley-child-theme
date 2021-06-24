@@ -8,10 +8,12 @@
 		height: auto;
 	}
 	align-items: center;
-
-}
-.wp-block-column {
-	padding: 0;
+	.wp-block-column {
+		padding: 0;
+		figure.wp-block-image {
+			margin-bottom: 0px;
+		}
+	}
 }
 
 .alignfull {
@@ -34,6 +36,21 @@ figure.alignfull img {
 	object-fit: cover;
 	object-position: center center;
 }
+
+.wp-block-image.alignfull {
+	overflow: hidden;
+	height: 400px;
+	object-fit: cover;
+	width: auto;
+	margin-top: 70px;
+	margin-bottom: 70px;
+		img {
+			height: 130%;
+			width: 100%;
+			max-width: 200%;
+		}
+}
+
 
 .alignwide {
 	margin: 32px calc(25% - 25vw);

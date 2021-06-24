@@ -302,20 +302,6 @@
 	}
 }
 
-.wp-block-image.alignfull {
-	overflow: hidden;
-	height: 400px;
-	object-fit: cover;
-	width: auto;
-	margin-top: 50px;
-	margin-bottom: 50px;
-		img {
-			height: 130%;
-			width: 100%;
-			max-width: 200%;
-		}
-}
-
 .is-style-overhang-middle.alignfull {
 	height: auto;
 	.wp-block-willamette-blocks-image-box__image {
