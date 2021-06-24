@@ -85,7 +85,8 @@
                 echo "<img src='$thumbnail' alt='".$photos[0]["image_alt"]."'>";
             } else {
                 echo "<img src='".get_stylesheet_directory_uri()."/resources/assets/images/events-thumbnail.png' alt='The Willamette Valley'>";
-            }		
+            }
+            echo '<div class="category-slider__item__external-warning"></div>';
             echo '</div>';
             echo '<div class="category-slider__item__title '.$colors[$i].'">';
             $wordwrap = wordwrap(get_the_title($postobject->ID), 80, "\n");
