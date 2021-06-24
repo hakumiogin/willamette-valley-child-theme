@@ -70,11 +70,11 @@
                 }
                 $formatted_date = $dateTime->format('F j Y');
                 echo '<div class="category-slider__item">';
-                echo '<a href="'.$link.'">';    
+                echo '<a href="'.$link.'" target="_blank">';    
                 echo '<div class="category-slider__item__date '.$colors[$i].'">'.$formatted_date.'</div>';
             } else {
                 echo '<div class="category-slider__item">';
-                echo '<a href="'.$link.'">';    
+                echo '<a href="'.$link.'" target="_blank">';    
             }
 
             echo '<div class="category-slider__item__image">';
