@@ -148,7 +148,6 @@ div.aligncenter {
 	font-size: 2.5em;
 	margin-bottom: 20px;
 	line-height: 1.1;
-	margin-top: 20px;
 }
 .wp-block-group__inner-container > h1, .wp-block-group__inner-container > h2, .wp-block-group__inner-container > h3, .wp-block-group__inner-container > h4 {
 	font-family: $alt-header-font;
@@ -224,4 +223,7 @@ h1.is-style-Highlighted, h2.is-style-Highlighted, h3.is-style-Highlighted, h4.is
 
 .wp-block-image img {
 	height: auto;
+}
+.wp-block-columns .wp-block-column[style~="flex-basis:33.33%"] {
+	align-self: center;
 }
