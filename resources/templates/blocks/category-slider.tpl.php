@@ -2,6 +2,9 @@
     <?php 
     $categories = get_field("category");
     $category_query = [];
+    $show = get_field("show");
+    if (!$show) $show = "or";
+    $category_query['relation'] = $show;
     foreach($categories as $category){
         $category_query[] = array(
             'taxonomy' => 'category',
@@ -9,8 +12,6 @@
             'terms' => $category,
         );
     }
-    $show = get_field("show");
-    if (!$show) $show = "or";
     $args = array(
         'posts_per_page' => 100,
         'post_type'  => 'post',
@@ -21,7 +22,6 @@
         //     ),
         // ),
         'tax_query' => array(
-            'relation' => $show,
             $category_query,
             array (
                 'operator' => 'NOT IN',
