@@ -77,12 +77,14 @@ export let layout = () => {
 			imageBoxLinks.forEach((el) => {
 				//move the link from the h2 to the parent
 				let link = el.href
+				let linkTarget = el.target
 				let imageBox = el.parentElement.parentElement.parentElement;
 				let newLink = document.createElement("a")
 				let parent = imageBox.parentElement
 				parent.replaceChild(newLink, imageBox)
 				newLink.appendChild(imageBox)
 				newLink.href = link
+				newLink.target = linkTarget
 
 				//add the hover effect
 				let color = window.getComputedStyle(el.parentElement).getPropertyValue("background-color")
