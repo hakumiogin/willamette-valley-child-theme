@@ -18,7 +18,7 @@ get_header();
                 foreach( $contributors as $contributor ){
                     $contributor_list[] = "<span>" . $contributor->name . "</span>";
                 }
-                echo "<div class='contributors'>By " . implode( "," , $contributor_list ) . "</div>";
+                echo "<div class='contributors'>By " . implode( ", " , $contributor_list ) . "</div>";
             }
         }
             /*
