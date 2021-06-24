@@ -26,13 +26,22 @@ function add_custom_taxonomies() {
  
     $args = array(
         'labels'            => $labels,
-        'hierarchical'      => false,
         'public'            => true,
         'show_ui'           => true,
         'show_admin_column' => true,
         'query_var'         => true,
-        'rewrite'           => array( 'slug' => 'contributor' ),
+        'rewrite'           => array( 
+        	'slug' => 'contributor',
+
+        ),
+		'capabilities'      => array(
+			'assign_terms' => 'manage_options',
+			//'edit_terms'   => 'admin',
+			//'manage_terms' => 'admin',
+		),
         'show_in_rest'      => true,
+        'meta_box_cb'                => 'post_categories_meta_box',
+        'hierarchical' => true        
     );
  
  
@@ -63,6 +72,7 @@ function remove_cat_tag_description(){
         $('#tag-name').parent().find('label').html('Contributor Name');
         $('#tag-name').parent().find('p').html('');
         $('#tag-slug').parent().hide();
+        $('.term-parent-wrap').hide();
     });
     </script>
     <?php
