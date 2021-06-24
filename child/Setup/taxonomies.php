@@ -53,6 +53,7 @@ add_action( 'admin_footer-edit-tags.php', 'Madden\Theme\Child\Setup\remove_cat_t
 
 function remove_cat_tag_description(){
     global $current_screen;
+    echo "------ppppppp".$current_screen->id ;
     switch ( $current_screen->id ) 
     {
         case 'edit-category':
@@ -63,18 +64,20 @@ function remove_cat_tag_description(){
             // WE ARE AT /wp-admin/edit-tags.php?taxonomy=post_tag
             // OR AT /wp-admin/edit-tags.php?action=edit&taxonomy=post_tag&tag_ID=3&post_type=post
             break;
+        case 'edit-contributor': ?>
+		    <script type="text/javascript">
+		    jQuery(document).ready( function($) {
+		        $('#tag-description').parent().find('label').html('Bio');
+		        $('#tag-description').parent().find('p').html('');
+		        $('#tag-name').parent().find('label').html('Contributor Name');
+		        $('#tag-name').parent().find('p').html('');
+		        $('#tag-slug').parent().hide();
+		        $('.term-parent-wrap').hide();
+		    });
+		    </script>
+
+<?php
+        	break;
     }
-    ?>
-    <script type="text/javascript">
-    jQuery(document).ready( function($) {
-        $('#tag-description').parent().find('label').html('Bio');
-        $('#tag-description').parent().find('p').html('');
-        $('#tag-name').parent().find('label').html('Contributor Name');
-        $('#tag-name').parent().find('p').html('');
-        $('#tag-slug').parent().hide();
-        $('.term-parent-wrap').hide();
-    });
-    </script>
-    <?php
 }
 ?>
