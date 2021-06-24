@@ -1,0 +1,381 @@
+
+{
+  "header": {
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20210624.081952.484.0.001.json",
+    "dumpEventTime": "2021-06-24T08:19:52Z",
+    "dumpEventTimeStamp": "1624547992161",
+    "processId": 484,
+    "cwd": "/mnt/c/wamp64/www/valley.test/web/wp-content/themes/mm-willametteValley-child-theme",
+    "commandLine": [
+      "/home/tripgrass/.nvm/versions/node/v12.1.0/bin/node",
+      "/mnt/c/wamp64/www/valley.test/web/wp-content/themes/mm-willametteValley-child-theme/node_modules/webpack/bin/webpack.js",
+      "--config",
+      "./build/webpack.config.js",
+      "--watch"
+    ],
+    "nodejsVersion": "v12.1.0",
+    "glibcVersionRuntime": "2.31",
+    "glibcVersionCompiler": "2.17",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "linux",
+    "componentVersions": {
+      "node": "12.1.0",
+      "v8": "7.4.288.21-node.16",
+      "uv": "1.28.0",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "72",
+      "nghttp2": "1.38.0",
+      "napi": "4",
+      "llhttp": "1.1.1",
+      "http_parser": "2.8.0",
+      "openssl": "1.1.1b",
+      "cldr": "35.1",
+      "icu": "64.2",
+      "tz": "2019a",
+      "unicode": "12.1"
+    },
+    "release": {
+      "name": "node",
+      "headersUrl": "https://nodejs.org/download/release/v12.1.0/node-v12.1.0-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v12.1.0/node-v12.1.0.tar.gz"
+    },
+    "osName": "Linux",
+    "osRelease": "4.4.0-19041-Microsoft",
+    "osVersion": "#488-Microsoft Mon Sep 01 13:43:00 PST 2020",
+    "osMachine": "x86_64",
+    "host": "DESKTOP-N6UNVS5"
+  },
+  "javascriptStack": {
+    "message": "No stack.",
+    "stack": [
+      "Unavailable."
+    ]
+  },
+  "nativeStack": [
+    {
+      "pc": "0x0000000000aa766d",
+      "symbol": "report::TriggerNodeReport(v8::Isolate*, node::Environment*, char const*, char const*, std::string const&, v8::Local<v8::String>) [webpack]"
+    },
+    {
+      "pc": "0x000000000098c903",
+      "symbol": "node::OnFatalError(char const*, char const*) [webpack]"
+    },
+    {
+      "pc": "0x0000000000b050de",
+      "symbol": "v8::Utils::ReportOOMFailure(v8::internal::Isolate*, char const*, bool) [webpack]"
+    },
+    {
+      "pc": "0x0000000000b05459",
+      "symbol": "v8::internal::V8::FatalProcessOutOfMemory(v8::internal::Isolate*, char const*, bool) [webpack]"
+    },
+    {
+      "pc": "0x0000000000f10515",
+      "symbol": " [webpack]"
+    },
+    {
+      "pc": "0x0000000000f1ae7b",
+      "symbol": "v8::internal::Heap::PerformGarbageCollection(v8::internal::GarbageCollector, v8::GCCallbackFlags) [webpack]"
+    },
+    {
+      "pc": "0x0000000000f1bb97",
+      "symbol": "v8::internal::Heap::CollectGarbage(v8::internal::AllocationSpace, v8::internal::GarbageCollectionReason, v8::GCCallbackFlags) [webpack]"
+    },
+    {
+      "pc": "0x0000000000f1e635",
+      "symbol": "v8::internal::Heap::AllocateRawWithRetryOrFail(int, v8::internal::AllocationType, v8::internal::AllocationAlignment) [webpack]"
+    },
+    {
+      "pc": "0x0000000000ee9660",
+      "symbol": "v8::internal::Factory::NewFillerObject(int, bool, v8::internal::AllocationSpace) [webpack]"
+    },
+    {
+      "pc": "0x00000000011bb46e",
+      "symbol": "v8::internal::Runtime_AllocateInNewSpace(int, unsigned long*, v8::internal::Isolate*) [webpack]"
+    },
+    {
+      "pc": "0x0000000001a80fe2",
+      "symbol": " [webpack]"
+    }
+  ],
+  "javascriptHeap": {
+    "totalMemory": 2148700160,
+    "totalCommittedMemory": 2146602208,
+    "usedMemory": 2136816024,
+    "availableMemory": 51649216,
+    "memoryLimit": 2197815296,
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": 524288,
+        "committedMemory": 32024,
+        "capacity": 523976,
+        "used": 31712,
+        "available": 492264
+      },
+      "new_space": {
+        "memorySize": 2097152,
+        "committedMemory": 1216032,
+        "capacity": 1047952,
+        "used": 166856,
+        "available": 881096
+      },
+      "old_space": {
+        "memorySize": 2131353600,
+        "committedMemory": 2131142112,
+        "capacity": 2123683744,
+        "used": 2123570976,
+        "available": 112768
+      },
+      "code_space": {
+        "memorySize": 1736704,
+        "committedMemory": 1612256,
+        "capacity": 1432320,
+        "used": 1432320,
+        "available": 0
+      },
+      "map_space": {
+        "memorySize": 4198400,
+        "committedMemory": 3809768,
+        "capacity": 2926800,
+        "used": 2926800,
+        "available": 0
+      },
+      "large_object_space": {
+        "memorySize": 8167424,
+        "committedMemory": 8167424,
+        "capacity": 8136800,
+        "used": 8136800,
+        "available": 0
+      },
+      "code_large_object_space": {
+        "memorySize": 622592,
+        "committedMemory": 622592,
+        "capacity": 550560,
+        "used": 550560,
+        "available": 0
+      },
+      "new_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 1047952,
+        "used": 0,
+        "available": 1047952
+      }
+    }
+  },
+  "resourceUsage": {
+    "userCpuSeconds": 132.609,
+    "kernelCpuSeconds": 129.922,
+    "cpuConsumptionPercent": 184.881,
+    "maxRss": 2926718976,
+    "pageFaults": {
+      "IORequired": 0,
+      "IONotRequired": 2142197
+    },
+    "fsActivity": {
+      "reads": 0,
+      "writes": 0
+    }
+  },
+  "uvthreadResourceUsage": {
+    "userCpuSeconds": 53.8281,
+    "kernelCpuSeconds": 40.8125,
+    "cpuConsumptionPercent": 66.6483,
+    "fsActivity": {
+      "reads": 0,
+      "writes": 0
+    }
+  },
+  "libuv": [
+  ],
+  "environmentVariables": {
+    "LESSOPEN": "| /usr/bin/lesspipe %s",
+    "npm_package_scripts_watch_parent": "(cd web/wp-content/themes/mm-parent-tonik-theme/ && yarn install && yarn dev);",
+    "npm_package_dependencies_react_native": "0.63.4",
+    "USER": "tripgrass",
+    "npm_config_version_commit_hooks": "true",
+    "npm_config_user_agent": "yarn/1.22.10 npm/? node/v12.1.0 linux x64",
+    "npm_package_devDependencies_reakit_utils": "^0.15.1",
+    "npm_package_devDependencies_eslint_plugin_standard": "^4.0.1",
+    "npm_package_dependencies_node_sass": "^4.14.1",
+    "npm_package_dependencies__wordpress_components": "^13",
+    "npm_package_dependencies__babel_preset_react": "^7.13.13",
+    "npm_config_bin_links": "true",
+    "npm_package_dependencies__wordpress_server_side_render": "^1.20.8",
+    "npm_config_wrap_output": "",
+    "npm_node_execpath": "/home/tripgrass/.nvm/versions/node/v12.1.0/bin/node",
+    "npm_config_init_version": "1.0.0",
+    "npm_package_devDependencies_eslint_plugin_node": "^11.1.0",
+    "SHLVL": "1",
+    "npm_package_dependencies_clean_webpack_plugin": "^0.1.16",
+    "MOTD_SHOWN": "update-motd",
+    "HOME": "/home/tripgrass",
+    "OLDPWD": "/home/tripgrass/www/valley.test",
+    "npm_package_scripts_reinstall": "rm node_modules -rf; yarn install",
+    "npm_package_devDependencies__wordpress_is_shallow_equal": "^3.1.3",
+    "npm_package_dependencies_postcss_loader": "^3.0.0",
+    "NVM_BIN": "/home/tripgrass/.nvm/versions/node/v12.1.0/bin",
+    "npm_package_devDependencies__babel_plugin_syntax_dynamic_import": "^7.0.0",
+    "npm_package_scripts_wp_scripts_start": "wp-scripts start --config ./build/webpack.config.js",
+    "NVM_INC": "/home/tripgrass/.nvm/versions/node/v12.1.0/include/node",
+    "npm_package_engines_node": ">=10.0.0",
+    "npm_config_init_license": "MIT",
+    "YARN_WRAP_OUTPUT": "false",
+    "npm_package_engineStrict": "true",
+    "npm_config_version_tag_prefix": "v",
+    "npm_package_devDependencies__babel_plugin_transform_react_jsx": "^7.14.3",
+    "npm_package_devDependencies_stylelint_config_standard": "^20.0.0",
+    "npm_package_scripts_postinstall": "(yarn build:parent) && (yarn build:child);",
+    "npm_package_devDependencies_stylelint_scss": "^3.18.0",
+    "npm_package_dependencies_isdev": "^1.0.1",
+    "npm_package_dependencies_dotenv": "^5.0.1",
+    "npm_package_dependencies_copy_webpack_plugin": "^4.0.1",
+    "WSL_DISTRO_NAME": "Ubuntu",
+    "npm_package_description": "### Child theme boilerplate for Tonik Starter Theme based themes. Makes easy to customize and overwrite parent theme components and provides the same set of tools for child theme development.",
+    "npm_package_devDependencies_typescript": "^4.2.3",
+    "NVM_DIR": "/home/tripgrass/.nvm",
+    "npm_package_readmeFilename": "README.md",
+    "npm_package_dependencies__wordpress_blocks": "^7.0.6",
+    "LOGNAME": "tripgrass",
+    "npm_package_scripts_build_child": "(cd web/wp-content/themes/mm-willametteValley-child-theme/ && yarn install --production && yarn prod);",
+    "npm_package_devDependencies_eslint_plugin_import": "^2.22.0",
+    "npm_package_scripts_prod": "yarn run build",
+    "NAME": "DESKTOP-N6UNVS5",
+    "_": "/usr/bin/yarn",
+    "npm_package_devDependencies_eslint_config_standard": "^14.1.1",
+    "npm_package_devDependencies_autoprefixer": "^6.7.7",
+    "npm_package_dependencies_sass_loader": "^6.0.3",
+    "npm_package_scripts_wp_scripts_build": "wp-scripts build --config ./build/webpack.config.js",
+    "npm_package_private": "true",
+    "npm_config_registry": "https://registry.yarnpkg.com",
+    "npm_package_dependencies_imagemin_webpack_plugin": "^2.4.2",
+    "TERM": "xterm-256color",
+    "npm_package_devDependencies_stylelint": "^13.7.2",
+    "npm_package_devDependencies_browser_sync": "^2.26.8",
+    "npm_package_devDependencies__babel_core": "^7.14.0",
+    "npm_config_ignore_scripts": "",
+    "npm_package_scripts_webpack_production": "cross-env NODE_ENV=production webpack --config build/webpack.config.js",
+    "npm_package_scripts_start": "yarn run wp-scripts-start",
+    "npm_package_dependencies__glidejs_glide": "^3.4.1",
+    "npm_package_dependencies_css_loader": "^4.2.2",
+    "PATH": "/tmp/yarn--1624547846200-0.1445485410159506:/mnt/c/wamp64/www/valley.test/web/wp-content/themes/mm-willametteValley-child-theme/node_modules/.bin:/home/tripgrass/.config/yarn/link/node_modules/.bin:/home/tripgrass/.nvm/versions/node/v12.1.0/libexec/lib/node_modules/npm/bin/node-gyp-bin:/home/tripgrass/.nvm/versions/node/v12.1.0/lib/node_modules/npm/bin/node-gyp-bin:/home/tripgrass/.nvm/versions/node/v12.1.0/bin/node_modules/npm/bin/node-gyp-bin:/tmp/yarn--1624547844871-0.6477206877225954:/mnt/c/wamp64/www/valley.test/web/wp-content/themes/mm-willametteValley-child-theme/node_modules/.bin:/home/tripgrass/.config/yarn/link/node_modules/.bin:/home/tripgrass/.nvm/versions/node/v12.1.0/libexec/lib/node_modules/npm/bin/node-gyp-bin:/home/tripgrass/.nvm/versions/node/v12.1.0/lib/node_modules/npm/bin/node-gyp-bin:/home/tripgrass/.nvm/versions/node/v12.1.0/bin/node_modules/npm/bin/node-gyp-bin:/tmp/yarn--1624547842454-0.9289840487097254:/mnt/c/wamp64/www/valley.test/node_modules/.bin:/home/tripgrass/.config/yarn/link/node_modules/.bin:/home/tripgrass/.yarn/bin:/home/tripgrass/.nvm/versions/node/v12.1.0/libexec/lib/node_modules/npm/bin/node-gyp-bin:/home/tripgrass/.nvm/versions/node/v12.1.0/lib/node_modules/npm/bin/node-gyp-bin:/home/tripgrass/.nvm/versions/node/v12.1.0/bin/node_modules/npm/bin/node-gyp-bin:/home/tripgrass/.nvm/versions/node/v12.1.0/bin:/home/tripgrass/.platformsh/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Program Files/WindowsApps/CanonicalGroupLimited.UbuntuonWindows_2004.2021.222.0_x64__79rhkp1fndgsc:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/Program Files/Git/cmd:/mnt/c/wamp64/bin/php/php7.4.8:/mnt/c/ProgramData/ComposerSetup/bin:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/PuTTY/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/Theme Kit/:/mnt/c/Program Files/TortoiseSVN/bin:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/HashiCorp/Vagrant/bin:/mnt/c/Users/tripgrass/.windows-build-tools/python27/:/mnt/c/Users/tripgrass/AppData/Roaming/npm/node_modules/npm/node_modules/npm-lifecycle/node-gyp-bin:/mnt/c/Users/tripgrass/AppData/Roaming/npm/node_modules/windows-build-tools/node_modules/.bin:/mnt/c/Users/tripgrass/AppData/Roaming/npm/node_modules/.bin:/mnt/c/Users/tripgrass/bin:/mnt/c/Program Files/Git/mingw64/bin:/mnt/c/Program Files/Git/usr/local/bin:/mnt/c/Program Files/Git/usr/bin:/mnt/c/wamp64/bin/php/php5.6.25:/mnt/c/Users/tripgrass/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/tripgrass/AppData/Roaming/Composer/vendor/bin:/mnt/c/Users/tripgrass/AppData/Roaming/npm:/mnt/c/Program Files/Git/usr/bin/vendor_perl:/mnt/c/Program Files/Git/usr/bin/core_perl:/mnt/c/Users/tripgrass/AppData/Local/Microsoft/WindowsApps:/snap/bin",
+    "NODE": "/home/tripgrass/.nvm/versions/node/v12.1.0/bin/node",
+    "npm_package_name": "",
+    "npm_package_scripts_watch_child": "(cd web/wp-content/themes/mm-willametteValley-child-theme/ && yarn install && yarn start);",
+    "npm_package_devDependencies_webpack_merge": "^5.1.3",
+    "npm_package_devDependencies__wordpress_stylelint_config": "^19.0.3",
+    "LANG": "C.UTF-8",
+    "npm_package_devDependencies_webpack": "^4.44.2",
+    "npm_package_devDependencies_eslint": "^7.10.0",
+    "npm_package_dependencies_react_dom": "16.13.1",
+    "LS_COLORS": "rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:",
+    "npm_lifecycle_script": "wp-scripts start --config ./build/webpack.config.js",
+    "npm_config_version_git_message": "v%s",
+    "npm_package_devDependencies__babel_plugin_proposal_object_rest_spread": "^7.0.0",
+    "SHELL": "/bin/bash",
+    "npm_lifecycle_event": "wp-scripts-start",
+    "npm_package_dependencies_slick_carousel": "^1.8.1",
+    "npm_package_dependencies_jquery": "^3.6.0",
+    "npm_package_version": "",
+    "npm_package_dependencies_webpack_cli": "^4.5.0",
+    "npm_config_argv": "{\"remain\":[],\"cooked\":[\"run\",\"watch:child\"],\"original\":[\"run\",\"watch:child\"]}",
+    "npm_package_scripts_build": "yarn run wp-scripts-build",
+    "LESSCLOSE": "/usr/bin/lesspipe %s %s",
+    "npm_package_dependencies_aos": "^2.3.4",
+    "npm_package_dependencies_compression_webpack_plugin": "^6.0.2",
+    "npm_config_version_git_tag": "true",
+    "npm_config_version_git_sign": "",
+    "npm_package_license": "MIT",
+    "npm_config_strict_ssl": "true",
+    "npm_package_devDependencies_eslint_plugin_react": "^7.22.0",
+    "npm_package_devDependencies__wordpress_babel_plugin_import_jsx_pragma": "^3.0.4",
+    "npm_package_scripts_reinstall_child": "(cd web/wp-content/themes/mm-willametteValley-child-theme/ && yarn reinstall);",
+    "npm_package_scripts_build_parent": "(cd web/wp-content/themes/mm-parent-tonik-theme/ && yarn install && yarn prod);",
+    "npm_package_devDependencies_core_js": "^3.11.1",
+    "PWD": "/home/tripgrass/www/valley.test/web/wp-content/themes/mm-willametteValley-child-theme",
+    "npm_execpath": "/usr/lib/node_modules/yarn/bin/yarn.js",
+    "npm_package_devDependencies__wp_g2_create_styles": "0.0.154",
+    "npm_package_scripts_webpack_development": "cross-env NODE_ENV=development webpack --watch --config build/webpack.config.js",
+    "NVM_CD_FLAGS": "",
+    "XDG_DATA_DIRS": "/usr/local/share:/usr/share:/var/lib/snapd/desktop",
+    "npm_package_engines_npm": ">=6.0.0",
+    "npm_package_author_name": "Madden Media",
+    "npm_package_devDependencies__wordpress_data": "4.26",
+    "npm_package_dependencies_react_with_direction": "^1.3.1",
+    "npm_package_dependencies_eslint_loader": "^4.0.2",
+    "npm_config_save_prefix": "^",
+    "npm_config_ignore_optional": "",
+    "npm_package_devDependencies_cross_env": "^5.0.1",
+    "npm_package_dependencies__wordpress_scripts": "^15",
+    "npm_package_devDependencies_mini_css_extract_plugin": "^1.6.0",
+    "npm_package_devDependencies_stylelint_webpack_plugin": "^2.1.1",
+    "npm_package_devDependencies_browser_sync_webpack_plugin": "^2.3.0",
+    "npm_package_devDependencies_babel_eslint": "^10.1.0",
+    "HOSTTYPE": "x86_64",
+    "npm_package_devDependencies_eslint_plugin_promise": "^4.2.1",
+    "npm_package_dependencies_react_sortable_hoc": "^2.0.0",
+    "npm_package_dependencies_babel_loader": "^8.1.0",
+    "INIT_CWD": "/mnt/c/wamp64/www/valley.test",
+    "WSLENV": "",
+    "npm_package_dependencies_react": "16.13.1",
+    "npm_package_dependencies__babel_preset_env": "^7.14.0"
+  },
+  "userLimits": {
+    "core_file_size_blocks": {
+      "soft": 0,
+      "hard": "unlimited"
+    },
+    "data_seg_size_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "file_size_blocks": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "max_locked_memory_bytes": {
+      "soft": 65536,
+      "hard": 65536
+    },
+    "max_memory_size_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "open_files": {
+      "soft": 65536,
+      "hard": 65536
+    },
+    "stack_size_bytes": {
+      "soft": 8388608,
+      "hard": 8388608
+    },
+    "cpu_time_seconds": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "max_user_processes": {
+      "soft": 7823,
+      "hard": 7823
+    },
+    "virtual_memory_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    }
+  },
+  "sharedObjects": [
+    "linux-vdso.so.1",
+    "/lib/x86_64-linux-gnu/libdl.so.2",
+    "/lib/x86_64-linux-gnu/librt.so.1",
+    "/lib/x86_64-linux-gnu/libstdc++.so.6",
+    "/lib/x86_64-linux-gnu/libm.so.6",
+    "/lib/x86_64-linux-gnu/libgcc_s.so.1",
+    "/lib/x86_64-linux-gnu/libpthread.so.0",
+    "/lib/x86_64-linux-gnu/libc.so.6",
+    "/lib64/ld-linux-x86-64.so.2",
+    "/mnt/c/wamp64/www/valley.test/web/wp-content/themes/mm-willametteValley-child-theme/node_modules/node-sass/vendor/linux-x64-72/binding.node"
+  ]
+}
