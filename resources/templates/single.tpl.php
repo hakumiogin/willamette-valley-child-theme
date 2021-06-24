@@ -11,6 +11,15 @@ get_header();
         while ( have_posts() ) : the_post();
         if ($is_post){
             echo "<h1>".get_the_title()."</h1>";
+            $contributors = get_the_terms( $post , 'contributor');
+            $contributor_html = "";
+            if( is_array($contributors) ){
+                $contributor_list = [];
+                foreach( $contributors as $contributor ){
+                    $contributor_list[] = "<span>" . $contributor->name . "</span>";
+                }
+                echo "<div class='contributors'>By " . implode( "," , $contributor_list ) . "</div>";
+            }
         }
             /*
              * Include the post format-specific template for the content. If you want to
