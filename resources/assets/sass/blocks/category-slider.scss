@@ -41,6 +41,8 @@
 			font-family: $alt-header-font;
 			font-weight: 700;
 			font-size: 1.25em;
+		}
+		&__date, &__external-warning {
 			&.has-teal-background-color {
 				background-color: $transparent-teal;
 			}	
@@ -53,6 +55,19 @@
 			&.has-purple-background-color {
 				background-color: $very-transparent-purple;
 			}	
+		}
+		&__external-warning{
+			position: absolute;
+			height: 13px;
+			bottom: 84px;
+			color: $white;
+			font-family: $alt-header-font;
+			z-index:1;
+			padding: 4px 10px;
+			right: 26px;
+			background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAqklEQVRIie2Quw0CMRBEx4gWOJFcP1RyEpSLA3KukEdiEDL+7Nkmgsls7cybXemvLQJOwEpBb7PVGUlyEeAuaS6VcM65J6A2k9rgo0FNwAG45jboAgAT4IPNDwVEzW/AcRggFW7yWwC58CGAUrhJJUB3eAlgDW860ZbmrYBL+PbAlDW3AsL/uRbeBbAq5d+1hln1dcA+eq+S5p4zhYyX4g2WeKAhfOnw/6IeM2CpfvHVCrkAAAAASUVORK5CYII=")
+				transparent no-repeat right 5px center;
+			background-size: 15px;
 		}
 		&__image {
 			overflow: hidden;
@@ -76,6 +91,13 @@
 					height: auto;
 					width: 100%;
 				}
+			}
+			&::after {
+				content: '';
+				position: absolute;
+				background: linear-gradient(0deg, rgba(0,0,0,0.45) 0%, transparent 40%);
+				height: 200px;
+				width: 211px;
 			}
 		}
 		.category-slider__item__title {
