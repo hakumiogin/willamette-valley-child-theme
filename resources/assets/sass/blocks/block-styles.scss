@@ -64,36 +64,24 @@ div.aligncenter {
 .alignright {
     float:right;
     margin: 5px 0 20px 20px;
+	@include screen-px(600){
+		float: none !important;
+		margin: 0px auto !important;
+	}
 }
 
 .alignleft {
     float: left;
     margin: 5px 20px 20px 0;
-}
-
-a img.alignright {
-    float: right;
-    margin: 5px 0 20px 20px;
-}
-
-a img.alignnone {
-    margin: 5px 20px 20px 0;
-}
-
-a img.alignleft {
-    float: left;
-    margin: 5px 20px 20px 0;
-}
-
-a img.aligncenter {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+	@include screen-px(600){
+		float: none !important;
+		margin: 0px auto !important;
+	}
 }
 
 .wp-caption {
-    background: #fff;
-    border: 1px solid #f0f0f0;
+    color: $dark-gray;
+	font-size: 90%;
     max-width: 96%; /* Image does not overflow the content area */
     padding: 5px 3px 10px;
     text-align: center;
