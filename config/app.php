@@ -100,6 +100,7 @@ return [
 		'Setup/styles.php',
 		'Setup/patterns.php',
         'Setup/variations.php',
+        'Setup/taxonomies.php',
 
         // FILTERS 
         // 'Setup/filters.php',
