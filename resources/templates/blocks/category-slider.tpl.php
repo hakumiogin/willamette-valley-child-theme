@@ -1,5 +1,21 @@
 <div class="category-slider-parent">
     <?php 
+    $current_month = (int)date('m');
+    $current_seasons = array();
+    $all_seasons = array('summer', 'winter', 'spring', 'fall');
+    if ($current_month <= 2 || $current_month >= 11){
+        $current_seasons[] = 'winter';
+    }
+    if ($current_month >= 2 && $current_month <= 5){
+        $current_seasons[] = 'spring';
+    }
+    if ($current_month >= 5 && $current_month <= 8){
+        $current_seasons[] = 'summer';
+    }
+    if ($current_month >= 8 && $current_month <= 11){
+        $current_seasons[] = 'fall';
+    }
+    $excluded_seasons = array_diff($all_seasons, $current_seasons);
     $categories = get_field("category");
     $category_query = [];
     $show = get_field("show");
@@ -29,6 +45,12 @@
                 'field' => 'term_taxonomy_id',
                 'terms' => array ( 254 )
             ),
+            array  (
+                'taxonomy' => 'category',
+                'field' => 'slug',
+                'terms' => $excluded_seasons,
+                'operator' => 'NOT IN'
+            )
         )
     );
     $the_query = new WP_Query( $args );
