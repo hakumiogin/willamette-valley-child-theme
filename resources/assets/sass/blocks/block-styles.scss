@@ -1,23 +1,57 @@
 .wp-block-columns {
-	margin: 15px 0px;
-
+	align-items: flex-start;
+	margin-bottom: 70px;
+	margin-top: 70px;
+	justify-content: center;
+	align-items: center;
+	.wp-block-column .wp-block-image {
+		padding: 0px 20px;
+		@include screen-px (800){
+			padding: 0px 10px;
+			width: 100%;
+		}
+	}
+	.wp-block-willamette-blocks-image-box  ~ p {
+		padding: 20px 20px;
+		@include screen-px (600){
+			padding: 30px 10% 0px 10%;
+		}
+	}
+	.wp-block-column {
+		padding: 0;
+		figure.wp-block-image {
+			margin-bottom: 0px;
+		}
+		align-self: flex-start;
+		margin: 8px !important;
+		@include screen-px(782){
+			& > .wp-block-image {
+				@include screen-px (600){
+					padding: 0px !important;
+					img {
+						object-fit: cover;
+						min-height: 200px;
+					}
+				}
+			}
+		}
+		@include screen-px(600){
+			margin: 0px !important;
+		}
+	}
 	&.tall-margins { margin: 4.0rem 0; }
 	&.narrow-gutter { margin:0; }
 
 	img {
 		height: auto;
 	}
-	align-items: center;
-	.wp-block-column {
-		padding: 0;
-		figure.wp-block-image {
-			margin-bottom: 0px;
-		}
-	}
 }
 
 .alignfull {
-	margin: 50px calc(50% - 50vw);
+	margin-top: 70px;
+	margin-bottom: 70px;
+	margin-left: calc(50% - 50vw);
+	margin-right: calc(50% - 50vw);
 	max-width: 100vw;
 	width: 100vw;
 	height: auto;
@@ -42,15 +76,20 @@ figure.alignfull img {
 	height: 400px;
 	object-fit: cover;
 	width: auto;
-	margin-top: 70px;
-	margin-bottom: 70px;
 		img {
 			height: 130%;
 			width: 100%;
 			max-width: 200%;
 		}
 }
-
+.page .wp-block-image.alignfull {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+.page .wp-block-group.alignfull {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
 
 .alignwide {
 	margin: 32px calc(25% - 25vw);
@@ -172,7 +211,7 @@ div.aligncenter {
 	font-weight: 800;
 	font-size: 2.2em;
 	margin-bottom: 40px;
-	margin-top: 45px;
+	margin-top: 60px;
 }
 .site-main > p {
 	width: 800px;
@@ -217,10 +256,8 @@ div.aligncenter {
 	background-image: url(#{$IMAGES-PATH}/light-pattern.png);
 	background-color: $purple;
 	background-size: 50%;
-	padding-top: 50px;
-	padding-bottom: 60px;
-	margin-top: -50px;
 	margin-bottom: 0px;
+	margin-top: 0px;
 	@include screen-px (600){
 		background-image: unset !important;
 		background-color: $light-tan !important;
