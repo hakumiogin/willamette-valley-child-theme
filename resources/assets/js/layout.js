@@ -110,7 +110,7 @@ export let layout = () => {
 				}
 			})
 		}
-
+		let clickToScroll = false
 		let showBackToTopButton = () => {
 			// showback to top button on scroll
 			let rootElement = document.documentElement
@@ -120,7 +120,7 @@ export let layout = () => {
 				if (getWidth() > 800){
 					scrollToTopBtn.classList.add("showBtn")
 				}
-			} else {
+			} else if (!clickToScroll){
 				scrollToTopBtn.classList.remove("showBtn")
 			}
 		}
@@ -129,5 +129,21 @@ export let layout = () => {
 		scrollToTopBtn.addEventListener("click", () => {
 			window.scrollTo(0,0)
 		})
+		let anchorLinks = document.querySelectorAll('a[href*="#"]')
+		anchorLinks.forEach((el) => {
+			console.log("yassss")
+			el.addEventListener("click", () => {
+				clickToScroll = true
+				window.setTimeout(() => {
+					let scrollToTopBtn = document.querySelector(".back-to-top__button")
+					scrollToTopBtn.classList.add("showBtn")
+					console.log("timeout")
+				}, 500)
+				window.setTimeout(() => {
+					clickToScroll = false
+				}, 1500)
+			})
+		})
+
 	})
 }
