@@ -44,7 +44,7 @@
         foreach($pageposts as $the_post){
             $date = get_field("start_date", $the_post->ID);
             if ($date){
-                $dateTime = DateTime::createFromFormat('m/d/Y', $date);
+                $dateTime = DateTime::createFromFormat('d/m/Y', $date);
                 $timestamp = $dateTime->format('U');
             } else {$timestamp = 0;}
             $posts[]  = [$the_post->ID, $timestamp];
@@ -64,7 +64,7 @@
             }
             $date = get_field("start_date", $postobject);
             if ($date){
-                $dateTime = DateTime::createFromFormat('m/d/Y', $date);
+                $dateTime = DateTime::createFromFormat('d/m/Y', $date);
                 if (new DateTime() > $dateTime){
                     continue;
                 }
