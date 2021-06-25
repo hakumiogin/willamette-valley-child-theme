@@ -147,6 +147,13 @@
 			}
 		}
 	}
+	.wp-block-columns {
+		@include screen-px(600){
+			margin-top: 0px;
+			margin-bottom: 0px;
+			padding: 15px 0px 15px;
+		}	
+	}
 }
 
 .is-style-full-width-center {
@@ -253,7 +260,7 @@
 		}
 		&[style="flex-basis:33.33%"], &[style="flex-basis:66.66%"] {
 			@include screen-px(600){
-				padding: 0px 30px;
+				padding: 10px 30px;
 			}
 		}	
 	}
@@ -276,6 +283,11 @@
 	}
 }
 .is-style-full-width-center-narrow-acorn.alignfull {
+	.wp-block-willamette-blocks-image-box__image {
+		@include screen-px(600){
+			background-size: auto 100%;
+		}	
+	}
 	margin-top: 0px;
 	margin-bottom: 0px;
 }
@@ -291,9 +303,25 @@
 			.wp-block-group {
 				min-height: 300px;
 				padding: 0px;
+				@include screen-px(600){
+					.wp-block-columns {
+						margin: 0px;
+					}
+				}
 			}
 		}
 	}
+	@include screen-px(600){
+		.wp-block-willamette-blocks-image-box__image {
+			.wp-block-willamette-blocks-image-box__content {
+				display: flex;
+				justify-content: center;
+				margin: 65px 0px;
+				width: 100%;
+			}
+		}
+	}
+	
 }
 
 
