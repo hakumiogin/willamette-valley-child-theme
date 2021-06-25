@@ -6,7 +6,7 @@ import $ from "jquery"
 import { slideshow } from './slideshow'
 import { anchorOffset } from './anchorOffset'
 import { dropdown } from './dropdown'
-
+import { cookieStart } from './cookie-consent'
 $(document).ready(() => {
 	navigationInit()
 	// AOS.init()
@@ -14,5 +14,5 @@ $(document).ready(() => {
 	slideshow()
 	anchorOffset(window.document, window.history, window.location)
 	dropdown()
+	cookieStart()
 })
-
