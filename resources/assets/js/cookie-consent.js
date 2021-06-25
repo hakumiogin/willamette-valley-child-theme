@@ -20,6 +20,6 @@ export let cookieStart = () => {
 				checked: false
 			}
 		],
-		expiration: 7,
+		expiration: -1,
 	});	
 }
