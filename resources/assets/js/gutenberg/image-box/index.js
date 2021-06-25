@@ -61,7 +61,7 @@ registerBlockType("willamette-blocks/image-box", {
             <div>
                 {attributes.url && (
                     <div
-                        style={{background: 'url('+ attributes.url + ');'}}
+                        style={{backgroundImage: 'url('+ attributes.url + ');'}}
                         className="wp-block-willamette-blocks-image-box__image"
                     >
                         <div className="wp-block-willamette-blocks-image-box__content">
@@ -76,5 +76,32 @@ registerBlockType("willamette-blocks/image-box", {
     edit,
 
     deprecated: [
+        {
+            supports: {
+                reusable: false,
+                html: false,
+                align: true
+            },
+        attributes,
+            save: ({ attributes }) => {
+                // const style = {
+                //     background: "url("+ url + ")",
+                // }
+                return (
+                    <div>
+                        {attributes.url && (
+                            <div
+                                style={{background: 'url('+ attributes.url + ');'}}
+                                className="wp-block-willamette-blocks-image-box__image"
+                            >
+                                <div className="wp-block-willamette-blocks-image-box__content">
+                                    <InnerBlocks.Content />
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                );
+            },
+        }
     ]
 });
