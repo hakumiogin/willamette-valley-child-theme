@@ -100,12 +100,13 @@
 				position: absolute;
 				background: linear-gradient(0deg, rgba(0,0,0,0.45) 0%, transparent 40%);
 				height: 200px;
-				width: 207;
+				width: 207px;
 				min-width: 80%;
 			}
 			@include screen-px(600){
 				&::after {
 					height: 170px;
+					width: 170px;
 				}
 			}
 
@@ -121,10 +122,10 @@
 			display: flex;
 			justify-content: center;
 
-			min-width: 210px;
+			min-width: 200px;
 			font-size: 90%;
 			@include screen-px (600){
-				padding: 10px 5px;
+				padding: 10px 10px;
 			}
 			p {
 				height: auto;
