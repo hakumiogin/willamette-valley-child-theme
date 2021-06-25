@@ -205,16 +205,6 @@
 
 ///////// inside block column styles
 .wp-block-columns {
-	align-items: flex-start;
-	margin-bottom: 60px;
-	justify-content: center;
-	.wp-block-column .wp-block-image {
-		padding: 0px 20px;
-		@include screen-px (800){
-			padding: 0px 10px;
-			width: 100%;
-		}
-	}
 	.wp-block-willamette-blocks-image-box  ~ p {
 		padding: 20px 20px;
 		@include screen-px (600){
@@ -222,22 +212,6 @@
 		}
 	}
 	.wp-block-column {
-		align-self: flex-start;
-		margin: 8px !important;
-		@include screen-px(782){
-			& > .wp-block-image {
-				@include screen-px (600){
-					padding: 0px !important;
-					img {
-						object-fit: cover;
-						min-height: 200px;
-					}
-				}
-			}
-		}
-		@include screen-px(600){
-			margin: 0px !important;
-		}
 		.is-style-no-overhang, .is-style-overhang-left, .is-style-overhang-middle, .is-style-overhang-right {
 			.wp-block-willamette-blocks-image-box__image{
 				background-size: cover !important;
@@ -301,9 +275,15 @@
 		}
 	}
 }
+.is-style-full-width-center-narrow-acorn.alignfull {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
 
 .is-style-overhang-middle.alignfull {
 	height: auto;
+	margin-top: 0px;
+	margin-bottom: 0px;
 	.wp-block-willamette-blocks-image-box__image {
 		justify-content: flex-start;
 		.wp-block-willamette-blocks-image-box__content {
@@ -336,13 +316,14 @@
 	}
 }
 .wp-block-columns.four-image-bottom, .wp-block-columns.four-image-top {
-	margin: 0px;
+	margin: 60px 0px;
 	padding: 0px;
 	align-items: center;
 }
 
 .wp-block-columns.narrow-gutter{
 	justify-content: center;
+	margin: 60px 0px;
 	.wp-block-willamette-blocks-image-box {
 		margin: 0px 5px 10px 0px;
 	}

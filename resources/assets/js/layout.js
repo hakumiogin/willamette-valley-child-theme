@@ -2,15 +2,15 @@ import { docReady, getWidth, isElementInViewport } from "./utilities"
 
 export let layout = () => {
 	docReady(() => {
-		//adjust background position for patterned backgrounds
-		let patternedBackgrounds = document.querySelectorAll(".pattern-bg")
-		if (patternedBackgrounds) {
-			patternedBackgrounds.forEach((el) => {
-				if (el.nextSibling.nextElementSibling){
-					el.nextSibling.nextElementSibling.style.marginTop = "-25px"
-				}
-			})
-		}
+		// //adjust background position for patterned backgrounds
+		// let patternedBackgrounds = document.querySelectorAll(".pattern-bg")
+		// if (patternedBackgrounds) {
+		// 	patternedBackgrounds.forEach((el) => {
+		// 		if (el.nextSibling.nextElementSibling){
+		// 			el.nextSibling.nextElementSibling.style.marginTop = "-25px"
+		// 		}
+		// 	})
+		// }
 		
 		//parallaxing
 		if (window.pageYOffset < 100){
