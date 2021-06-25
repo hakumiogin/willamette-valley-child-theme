@@ -17,26 +17,20 @@ export let layout = () => {
 			let alignedfull = document.querySelectorAll('.alignfull > img')
 			let alignedfullobject = []
 			if (alignedfull) {
-				console.log("alingedfull")
 				for (let i = 0; i < alignedfull.length; i++) {
-					console.log("foreach")
 					alignedfullobject.push({ ref: alignedfull[i], scroll: 0, startingPosition: -1})
 				}
 			}
 			let alginedfullBackgrounds = document.querySelectorAll(".alignfull > .wp-block-willamette-blocks-image-box__image")
 			if (alginedfullBackgrounds){
-				console.log("alginedfullbg")
 				for (let i = 0; i < alginedfullBackgrounds.length; i++) {
-					console.log("foreach")
 					alignedfullobject.push({ ref: alginedfullBackgrounds[i], scroll: 0, startingPosition: -1})
 					if (window.pageYOffset > alginedfullBackgrounds[i].offsetTop + alginedfullBackgrounds[i].offsetHeight){
 						alginedfullBackgrounds[i].style.backgroundPositionY = "bottom"
-						console.log("offset > than stuff")
 					}
 				}
 			}
 			if (alignedfullobject.length > 0){
-				console.log("lenth is greater than zero")
 				let timer
 				window.addEventListener('scroll', function(){
 					if (timer){
@@ -47,7 +41,6 @@ export let layout = () => {
 							let hero = document.querySelector('.hero')
 							alignedfullobject.unshift({ref: hero, scroll: 0, startingPosition: -1})
 
-							let i = 0
 							alignedfullobject.forEach((image) => {
 								if (isElementInViewport(image.ref)){
 									if (image.startingPosition === -1){
@@ -55,16 +48,12 @@ export let layout = () => {
 									}
 									let scrolled = window.pageYOffset - image.startingPosition
 									if (image.ref.nodeName == "IMG"){
-										console.log("img")
 										image.ref.style.objectPosition = "0px " + (- scrolled*.08).toString() + "px";
-										console.log("moved" + i.toString())	
 									}
 									if (image.ref.nodeName == "DIV"){
-										console.log("div")
 										image.ref.style.backgroundPositionY = (- scrolled*.08).toString() + "px"
 									}
 								}
-								i++
 							})
 						}	
 					}, 5)
