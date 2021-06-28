@@ -10,7 +10,10 @@
   }
   
   #js-cookie-consent-box.slide-up {
-	height: 50px;
+	height: 75px;
+	@include screen-px(850){
+		height: 150px;
+	  }
   }
   
   #js-cookie-consent-box.slide-down {
@@ -38,19 +41,29 @@
   .js-cookie-consent-main-text-box {
 	position: absolute;
 	left: 145px;
-	bottom: 17px;
+	bottom: 38px;
+	transform: translateY(50%);
 	z-index: 1;
 	display: flex;
 	justify-content: space-between;
 	color: $white;
 	padding: 20px 20px 5px 20px;
 	font-size: 14px;
+	width: calc(100% - 336px);
+	@include screen-px(850){
+		width: 90%;
+		margin: 0px auto;
+		padding: 0px 10px;
+		position: relative;
+		left: unset;
+		bottom: unset;
+	}
+	a:link, a:visited {
+		color: #fff;
+	}
+
   }
-  
-  .js-cookie-consent-main-text-box .title {
-	font-size: 1.1em;
-  }
-  
+    
   .js-cookie-consent-main-text-box .cookie-consent-learn-more {
 	color: $white;
 	text-decoration: underline;
@@ -67,7 +80,7 @@
 	color: $white;
 	padding: 0 20px 20px 20px;
 	font-size: 12px;
-	height: calc(100% - 330px);
+	height:66px;
 	-ms-overflow-style: none;
 	scrollbar-width: none;
   }
@@ -99,8 +112,11 @@
 	left: 0;
 	right: 0;
 	width: 100%;
-	height: 75px;
+	height: 66px;
 	background-color: $teal;
+	@include screen-px(850){
+		height: 150px;
+	}
   }
   
   .cookie-consent-button {
@@ -115,7 +131,7 @@
   
   .cookie-consent-button.accept {
 	position: absolute;
-	bottom: 15px;
+	bottom: 14px;
 	left: 15px;
 	background-color: $lime;
 	color: #fff;
@@ -223,5 +239,8 @@
   
 	#js-cookie-consent-box.slide-up {
 	  height: 66px;
+	  @include screen-px(850){
+		  height: 150px;
+	  }
 	}
-  }
+}
