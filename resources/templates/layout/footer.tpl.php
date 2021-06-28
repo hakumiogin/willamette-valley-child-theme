@@ -9,8 +9,8 @@
 		<!-- /wp:heading --></div>
 		<!-- /wp:column -->
 		
-		<!-- wp:column {"width":"65%"} -->
-		<div class="wp-block-column" style="flex-basis:65%"><!-- wp:paragraph -->
+		<!-- wp:column {"width":"47%"} -->
+		<div class="wp-block-column" style="flex-basis:47%"><!-- wp:paragraph -->
 		<p>Your adventure begins with the official Willamette Valley Travel Guide. Request your complimentary printed guide or download a digital guide today.</p>
 		<!-- /wp:paragraph -->
 		
