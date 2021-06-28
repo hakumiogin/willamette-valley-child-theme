@@ -59,7 +59,9 @@
 			background-color: $transparent-grey;
 		}
 	}
-	
+	.wp-block-group .wp-block-columns {
+		margin: 25px auto;
+	}
 	.wp-block-columns {
 		padding: 30px;
 	}
