@@ -3,7 +3,7 @@ import cookieConsent from 'js-cookie-consent'
 export let cookieStart = () => {
 	cookieConsent({
 		cookieName: 'cookiesGDPR',
-		message: 'By clicking "Accept All," you agree to the use of cookies on your device to enhance your site experience. To learn more about how we use cookies, please see our privacy policy.',
+		message: 'By clicking "Accept All," you agree to the use of cookies on your device to enhance your site experience. To learn more about how we use cookies, please see our <a href="/privacy-policy/">privacy policy</a>.',
 		options: [
 			{
 				title: 'Marketing personalisation / retargeting cookies',
