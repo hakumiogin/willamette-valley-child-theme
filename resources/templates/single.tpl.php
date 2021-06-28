@@ -11,7 +11,7 @@ get_header();
         while ( have_posts() ) : the_post();
         if ($is_post){
             echo "<h1>".get_the_title()."</h1>";
-            $contributors = get_the_terms( $post , 'contributor');
+            $contributors = get_the_terms(get_the_ID(), 'contributor');
             $contributor_html = "";
             if( is_array($contributors) ){
                 $contributor_list = [];
@@ -33,7 +33,7 @@ get_header();
         ?>
         </main><!-- .site-main single.tpl.php -->  
 
-</div>
+    </div>
 
 <?php 
     get_footer();
