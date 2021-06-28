@@ -1,10 +1,9 @@
-<div class="category-slider-parent  ">
-    
-    <?php 
+<?php 
 
     $colors = ["has-purple-background-color", "has-teal-background-color", "has-lime-background-color", "has-green-background-color"];
 
     $categories = get_field("category");
+    print_r($categories);
     //replaced by the sql below.
     // $args = array(
 	// 	'posts_per_page' => 16,
@@ -19,21 +18,27 @@
 	// );
     $taxonomy_name = 'type';
     $terms = [];
-    foreach ($categories as $category){
-        $termchildren = get_term_children( $category, $taxonomy_name );
-        if (!in_array($category, $terms)){
-            $terms[] = $category;
-        }
-        foreach ($termchildren as $child){
-            if (!in_array($child, $terms)){
-                $terms[] = $child;
+    if( is_array($categories) ){
+
+        foreach ($categories as $category){
+            $term = get_term_by('ID', $category, 'type');
+            print_r($term);
+            $termchildren = get_term_children( $category, $taxonomy_name );
+            if (!in_array($category, $terms)){
+                $terms[] = $category;
+            }
+            foreach ($termchildren as $child){
+                if (!in_array($child, $terms)){
+                    $terms[] = $child;
+                }
             }
         }
-    }
-    if (in_array("Events", $terms)){
-        $orerby = "ORDER BY wp_posts.post_date";
-    } else {
-        $orderby = "ORDER BY RAND()";
+        print_r($terms);
+        if (in_array("Events", $terms)){
+            $orderby = "ORDER BY wp_posts.post_date";
+        } else {
+            $orderby = "ORDER BY RAND()";
+        }
     }
     $termstring = implode(", ", $terms);
     global $wpdb;
@@ -48,7 +53,35 @@
                 $timestamp = $dateTime->format('U');
             } else {$timestamp = 0;}
             $posts[]  = [$the_post->ID, $timestamp];
-        }
+        } ?>
+    <div class="dropdowns">
+        <div class="dropdown">
+            <a id="dropdownlink" href="#" class="dropdown__button">Filters<span class="dropdown__button__triangle"></span></a>
+            <div id="dropdown__links" class="dropdown__content">
+                <a class="regions-toggle" href="#">Region</a>
+                <a class="date-toggle" href="#">Date</a>
+            </div>
+        </div>
+        <div class="dropdown <?= $regions ? "" : "hiddenDropdown"; ?> regionsDropdown">
+            <a id="dropdownlink" href="#" class="dropdown__button"><?= $regions ? $regions : "regions" ?><span class="dropdown__button__triangle"></span></a>
+            <div id="dropdown__links" class="dropdown__content">
+                <a class="north-valley" href="articles/?category=north-valley<?= $date ? "&date=".$date : "" ?>">North Valley</a>
+                <a class="mid-valley" href="articles/?category=mid-valley<?= $date ? "&date=".$date : "" ?>">Mid Valley</a>
+                <a class="south-valley" href="articles/?category=south-valley<?= $date ? "&date=".$date : "" ?>">South Valley</a>
+                <a class="west-cascades" href="articles/?category=west-cascades<?= $date ? "&date=".$date : "" ?>">West Cascades</a>
+            </div>
+        </div>
+        <div class="dropdown <?= $show_date ? "" : "hiddenDropdown"; ?> dateDropdown">
+            <a id="dropdownlink" href="#" class="dropdown__button"><?= isset($_GET["date"]) ? ($date == "ASC" ? "oldest" : "newest") : "date" ?><span class="dropdown__button__triangle"></span></a>
+            <div id="dropdown__links" class="dropdown__content">
+                <a class="dropdown__links__oldest" href="articles/?date=DESC<?= $category ? "&category=".$category : "" ?>">Newest</a>
+                <a class="dropdown__links__newest" href="articles/?date=ASC<?= $category ? "&category=".$category : "" ?>">Oldest</a>
+            </div>
+        </div>
+    </div> 
+    <div class="category-slider-parent  ">
+
+<?php
         usort($posts, "sort_times");
         echo '<div class="slider category-slider">';
         $i = 0;
@@ -105,7 +138,6 @@
         echo '</div>';
     endif;
     wp_reset_postdata();
-
     ?>
 </div>
     

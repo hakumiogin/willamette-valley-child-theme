@@ -7,6 +7,9 @@
 	"infiniteScroll": [
 		"~/js/infiniteScroll.js"
 	],
+	"ajax": [
+		"~/js/ajax.js"
+	],
     "wp-admin" : [
 		"~/js/wp-admin.js",
 		"~/scss/wp-admin.scss"
