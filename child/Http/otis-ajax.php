@@ -3,6 +3,7 @@ namespace Madden\Theme\Child\Setup;
 use WP_Query;
 
 use function Madden\Theme\Child\config;
+use function Madden\Theme\Child\card_colors;
 
 function get_otis_posts(){
 	$categories = get_field("category");
@@ -37,14 +38,24 @@ function get_otis_posts(){
     global $wpdb;
     $sql = "SELECT max(wp_posts.ID) AS ID FROM wp_posts LEFT JOIN wp_term_relationships ON (wp_posts.ID = wp_term_relationships.object_id) WHERE " . $in_terms . " wp_posts.post_type = 'poi' AND (wp_posts.post_status = 'publish' OR wp_posts.post_status = 'acf-disabled' OR wp_posts.post_status = 'dp-rewrite-republish' OR wp_posts.post_status = 'private') GROUP BY wp_posts.post_title, wp_posts.post_date $orderby DESC LIMIT 0, 100";
     $pageposts = $wpdb->get_results($sql);
-    return $pageposts;
+    $posts = [];
+    foreach($pageposts as $the_post){
+        $date = get_field("start_date", $the_post->ID);
+        if ($date){
+            $dateTime = \DateTime::createFromFormat('d/m/Y', $date);
+            $timestamp = $dateTime->format('U');
+        } else {$timestamp = 0;}
+        $posts[]  = [$the_post->ID, $timestamp];
+        usort($posts, "sort_times");
+    }    
+    return $posts;
 }
-function build_otis_slider( $posts, $colors ){
+function build_otis_slider( $posts ){
+	$colors = card_colors();
 	$output = '<div class="slider category-slider">';
     $i = 0;
     foreach ($posts as $the_post):
         $post_id = $the_post[0];
-
         $postobject = get_post($post_id);
         $links = get_field("links", $postobject);
         if ($links) {
