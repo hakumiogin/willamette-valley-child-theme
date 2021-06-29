@@ -37,6 +37,7 @@ function add_redirect()
 			$trimmed_uri = preg_replace('#/#', '', trim( $_SERVER['REQUEST_URI'] ) ) ;
 			$post = get_page_by_path( $trimmed_uri, OBJECT, 'POST' );
 			if( $post ){
+			error_log("with slash::".$_SERVER['REQUEST_URI']);
 				$url = get_permalink( $post->ID );
 			    wp_redirect( $url );
 			}
@@ -44,6 +45,7 @@ function add_redirect()
 		else{
 			$post = get_page_by_path( $_SERVER['REQUEST_URI'] , OBJECT, 'POST' );
 			if( $post ){
+			error_log("no trailing::".$_SERVER['REQUEST_URI']);
 				$url = get_permalink( $post->ID );
 			    wp_redirect( $url );
 			}			
