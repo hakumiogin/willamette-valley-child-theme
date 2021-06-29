@@ -75,7 +75,7 @@ return [
         'helpers.php',
 
         // AJAXES
-        // 'Http/ajaxes.php',
+        'Http/otis-ajax.php',
 
         // ASSETS
         'Http/assets.php',

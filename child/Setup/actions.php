@@ -202,7 +202,8 @@ function my_ajax_pagination() {
 		'keyword' => $keyword
 	);
 	 error_log(json_encode($param));
-	$news = get_all_news( $param );
+	//$news = get_all_news( $param );
+	 $news = get_otis_posts();
 	$result = json_decode(json_encode($news), true);
 	$response['posts'] = $result;
 	echo json_encode( $response );
