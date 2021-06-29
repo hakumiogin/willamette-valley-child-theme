@@ -5,6 +5,7 @@ namespace Madden\Theme\Child;
 use Tonik\Gin\Asset\Asset;
 use Tonik\Gin\Foundation\Theme;
 use Tonik\Gin\Template\Template;
+use function Madden\Theme\Child\config;
 
 /**
  * Gets theme instance.
@@ -122,4 +123,18 @@ function asset_pack( $asset, $key = null )
     $pack = include( $asset_path );
     return $key ? $pack[$key] : $pack;
   }
+}
+
+/**
+ * card_colors
+ *
+ * Returns array of pre-configured colors 
+ *
+ * @return array
+ */
+function card_colors()
+{
+    $config = config();
+ // print_r( $config );
+  return ["has-purple-background-color", "has-teal-background-color", "has-lime-background-color", "has-green-background-color"];
 }
