@@ -2,20 +2,8 @@
 
     use function Madden\Theme\Child\Setup\get_otis_posts;
     use function Madden\Theme\Child\Setup\build_otis_slider;
-
-    $colors = ["has-purple-background-color", "has-teal-background-color", "has-lime-background-color", "has-green-background-color"];
-
     $pageposts = get_otis_posts();
-    if ($pageposts):
-        $posts = [];
-        foreach($pageposts as $the_post){
-            $date = get_field("start_date", $the_post->ID);
-            if ($date){
-                $dateTime = DateTime::createFromFormat('d/m/Y', $date);
-                $timestamp = $dateTime->format('U');
-            } else {$timestamp = 0;}
-            $posts[]  = [$the_post->ID, $timestamp];
-        } ?>
+    if ($pageposts): ?>
     <div class="dropdowns">
         <div class="dropdown">
             <a id="dropdownlink" href="#" class="dropdown__button">Filters<span class="dropdown__button__triangle"></span></a>
@@ -44,8 +32,8 @@
     <div class="category-slider-parent  ">
 
 <?php
-        usort($posts, "sort_times");
-        echo build_otis_slider( $posts, $colors );
+//print_r($pageposts);
+        echo build_otis_slider( $pageposts );
     endif;
     ?>
 </div>
