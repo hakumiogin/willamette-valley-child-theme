@@ -2,8 +2,8 @@
 .pattern-bg {
 	background: url(#{$IMAGES-PATH}/light-pattern.png);
 	background-size: 50%;
-	padding-top: 50px;
-	padding-bottom: 50px;
+	padding-top: 30px;
+	padding-bottom: 30px;
 }
 .is-style-Highlighted {
 	background: $purple !important;
@@ -24,10 +24,14 @@ p {
 		position: absolute;
 		top: 0;
 		width: 200px;
-		bottom: -6px;
+		bottom: 0px;
 		left: 14%;
 		background-size: 200px 200px;
-		background-position: left 0px bottom -40px;
+		background-position: left 0px bottom -46px;
+		@include screen-px(600){
+			background-size: 100px 100px;
+			background-position: left 0px bottom -23px;
+		}
 	}
 }
 .is-style-acorn{

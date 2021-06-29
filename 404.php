@@ -68,7 +68,7 @@ $requestURI = ( substr( $_SERVER["REQUEST_URI"], -1, 1 ) == "/" ) ? $_SERVER["RE
 if ( isset( $redirects[$requestURI] ) ) {
 	// send them off
 	header( "HTTP/1.1 301 Moved Permanently" );
-	header( "Location: /relaunched?url=".urlencode( $_SERVER["REQUEST_URI"] ) );
+	header( "Location: /relaunched/?url=".urlencode( $_SERVER["REQUEST_URI"] ) );
 	exit;
 }
 

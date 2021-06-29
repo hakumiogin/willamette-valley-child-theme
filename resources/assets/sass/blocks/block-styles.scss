@@ -92,6 +92,9 @@ figure.alignfull img {
 	margin-top: 0px;
 	margin-bottom: 0px;
 }
+.single-post .content-area{
+	margin-bottom: 60px;
+}
 
 .alignwide {
 	margin: 32px calc(25% - 25vw);
@@ -222,8 +225,8 @@ div.aligncenter {
 	width: 800px;
 	margin: 20px auto;
 	max-width: 90%;
-	line-height: 1.3;
-	font-size: 1.03em;
+	line-height: 1.2;
+	font-size: 1em;
 	@include screen-px(600){
 		padding: 0px 10px;
 	}

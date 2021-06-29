@@ -12,7 +12,7 @@
   #js-cookie-consent-box.slide-up {
 	height: 75px;
 	@include screen-px(850){
-		height: 150px;
+		height: 180px;
 	  }
   }
   
@@ -51,9 +51,9 @@
 	font-size: 14px;
 	width: calc(100% - 336px);
 	@include screen-px(850){
-		width: 90%;
+		width: 100%;
 		margin: 0px auto;
-		padding: 0px 10px;
+		padding: 0px 15px;
 		position: relative;
 		left: unset;
 		bottom: unset;
@@ -78,7 +78,7 @@
   
   .js-cookie-consent-toogle-box {
 	color: $white;
-	padding: 0 20px 20px 20px;
+	padding: 40px 20px 20px 20px;
 	font-size: 12px;
 	height:66px;
 	-ms-overflow-style: none;
@@ -115,7 +115,7 @@
 	height: 66px;
 	background-color: $teal;
 	@include screen-px(850){
-		height: 150px;
+		height: 213px;
 	}
   }
   
@@ -240,7 +240,7 @@
 	#js-cookie-consent-box.slide-up {
 	  height: 66px;
 	  @include screen-px(850){
-		  height: 150px;
+		  height: 213px;
 	  }
 	}
 }
