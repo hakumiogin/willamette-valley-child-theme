@@ -61,6 +61,13 @@ $redirects = [
 	"/stories/featured-stories/block-15-in-corvallis/" => "/relaunched/",
 	"/ornament/" => "/relaunched/",
 	"/holiday-gift-guide/" => "/relaunched/",
+	"/articles/stop-and-stare-in-mcminnville-galleries-and-public-art-on-display/" => "/relaunched/",
+	"/articles/wine/wine-trails/st-josefs-winery-in-mt-hood-territory/" => "/relaunched/",
+	"/articles/wine/wine-trails/stories/featured-stories/block-15-in-corvallis/" => "/relaunched/",
+	"/articles/wine/wine-trails/stories/featured-stories/great-beer-and-cozy-vibes-in-albany-oregon/" => "/relaunched/",
+	"/articles/wine/wine-trails/stories/featured-stories/salem-craft-brews-at-gilgamesh/" => "/relaunched/",
+	"/articles/wine/wine-trails/stories/featured-stories/sip-artisan-cider-in-eugene-oregon/" => "/relaunched/",
+	"/trails-begin-to-open-in-the-willamette-valley/" => "/relaunched/",
 ];
 
 // did we find a redirect?
