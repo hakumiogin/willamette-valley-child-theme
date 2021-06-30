@@ -53,3 +53,9 @@ p {
 h2.has-background {
 	color: $white !important;
 }
+.wp-admin {
+	.wp-block-columns.narrow-gutter{
+		justify-content: center;
+		margin: 0px auto;
+	}	
+}
