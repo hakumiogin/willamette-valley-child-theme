@@ -32,20 +32,27 @@ add_action("theme/after-body", __NAMESPACE__."\add_ajax_url_to_js");
 add_filter( '404_template',  __NAMESPACE__.'\redirect_posts' );
 function redirect_posts( $template )
 {
+  error_log('404 template');
 	if( (!is_home() && !is_front_page()) ){
 		$trimmed_uri = preg_replace('#/#', '', trim( $_SERVER['REQUEST_URI'] ) ) ;
 		$trimmed_uri = preg_replace('#-#', ' ', $trimmed_uri ) ;
 		$post = get_page_by_title( $trimmed_uri, OBJECT, 'POST' );
+		error_log("42 start::".$_SERVER['REQUEST_URI']);
 		if( $post ){
 			$url = get_permalink( $post->ID );
+				error_log("44 pagenmae::".$_SERVER['REQUEST_URI']);
 		    wp_redirect( $url , 301);
 		    exit;
 		}
 		else{
+		error_log("49 no name::".$_SERVER['REQUEST_URI']);
+
 			if( '/' == substr($_SERVER['REQUEST_URI'], -1)){
 				$trimmed_uri = preg_replace('#/#', '', trim( $_SERVER['REQUEST_URI'] ) ) ;
 				$post = get_page_by_path( $trimmed_uri, OBJECT, 'POST' );
+				error_log("55 with slash::".$_SERVER['REQUEST_URI'] );
 				if( $post ){
+				error_log("57 with slash and post::".$_SERVER['REQUEST_URI']);
 					$url = get_permalink( $post->ID );
 				   wp_redirect( $url , 301);
 				   exit;
@@ -53,7 +60,9 @@ function redirect_posts( $template )
 			}
 			else{
 				$post = get_page_by_path( $_SERVER['REQUEST_URI'] , OBJECT, 'POST' );
+				error_log("65 no trailing::".$_SERVER['REQUEST_URI']);
 				if( $post ){
+				error_log("67 no trailing::".$_SERVER['REQUEST_URI']);
 					$url = get_permalink( $post->ID );
 				   wp_redirect( $url , 301);
 				   exit;
