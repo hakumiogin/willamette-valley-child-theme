@@ -1,3 +1,5 @@
+
+/*
 jQuery(document).ready(function($) {
 	function buildBlogSummary($post){
 		var description = $post.post_content,
@@ -124,3 +126,4 @@ loadMore();
 
 	}
 })
+*/
