@@ -29,29 +29,41 @@ function add_ajax_url_to_js(){
 }
 add_action("theme/after-body", __NAMESPACE__."\add_ajax_url_to_js");
 
-add_action( 'wp', __NAMESPACE__.'\add_redirect' );
-function add_redirect()
+add_filter( '404_template',  __NAMESPACE__.'\redirect_posts' );
+function redirect_posts( $template )
 {
 	if( (!is_home() && !is_front_page()) ){
-		if( '/' == substr($_SERVER['REQUEST_URI'], -1)){
-			$trimmed_uri = preg_replace('#/#', '', trim( $_SERVER['REQUEST_URI'] ) ) ;
-			$post = get_page_by_path( $trimmed_uri, OBJECT, 'POST' );
-			if( $post ){
-			error_log("with slash::".$_SERVER['REQUEST_URI']);
-				$url = get_permalink( $post->ID );
-			    wp_redirect( $url );
-			}
+		$trimmed_uri = preg_replace('#/#', '', trim( $_SERVER['REQUEST_URI'] ) ) ;
+		$trimmed_uri = preg_replace('#-#', ' ', $trimmed_uri ) ;
+		$post = get_page_by_title( $trimmed_uri, OBJECT, 'POST' );
+		if( $post ){
+			$url = get_permalink( $post->ID );
+		    wp_redirect( $url , 301);
+		    exit;
 		}
 		else{
-			$post = get_page_by_path( $_SERVER['REQUEST_URI'] , OBJECT, 'POST' );
-			if( $post ){
-			error_log("no trailing::".$_SERVER['REQUEST_URI']);
-				$url = get_permalink( $post->ID );
-			    wp_redirect( $url );
-			}			
+			if( '/' == substr($_SERVER['REQUEST_URI'], -1)){
+				$trimmed_uri = preg_replace('#/#', '', trim( $_SERVER['REQUEST_URI'] ) ) ;
+				$post = get_page_by_path( $trimmed_uri, OBJECT, 'POST' );
+				if( $post ){
+					$url = get_permalink( $post->ID );
+				   wp_redirect( $url , 301);
+				   exit;
+				}
+			}
+			else{
+				$post = get_page_by_path( $_SERVER['REQUEST_URI'] , OBJECT, 'POST' );
+				if( $post ){
+					$url = get_permalink( $post->ID );
+				   wp_redirect( $url , 301);
+				   exit;
+				}			
+			}
 		}
+		return $template;
 	}
 }
+
 
 
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\ajax_blog_enqueue' );
