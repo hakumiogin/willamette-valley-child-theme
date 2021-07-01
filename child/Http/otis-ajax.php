@@ -7,7 +7,6 @@ use function Madden\Theme\Child\card_colors;
 
 function get_otis_posts(){
 	$categories = get_field("category");
-//    print_r($categories);
     $taxonomy_name = 'type';
     $terms = [];
     if( is_array($categories) ){
@@ -31,7 +30,7 @@ function get_otis_posts(){
         }
     }
     $in_terms = "";
-    if(is_array( $terms ) && count($terms) > 1 ){
+    if(is_array( $terms ) && count($terms) > 0 ){
 	    $termstring = implode(", ", $terms);
     	$in_terms = "( wp_term_relationships.term_taxonomy_id IN ( " . $termstring . " ) ) AND ";
     }
