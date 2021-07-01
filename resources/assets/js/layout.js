@@ -48,7 +48,7 @@ export let layout = () => {
 									}
 									let scrolled = window.pageYOffset - image.startingPosition
 									if (image.ref.nodeName == "IMG"){
-										image.ref.style.objectPosition = "0px " + (- scrolled*.08).toString() + "px";
+										image.ref.style.objectPosition = "center " + (- scrolled*.08).toString() + "px";
 									}
 									if (image.ref.nodeName == "DIV"){
 										image.ref.style.backgroundPositionY = (- scrolled*.08).toString() + "px"
