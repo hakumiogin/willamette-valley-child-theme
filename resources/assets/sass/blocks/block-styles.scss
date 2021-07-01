@@ -2,6 +2,10 @@
 	align-items: flex-start;
 	margin-bottom: 70px;
 	margin-top: 70px;
+	@include screen-px(600){
+		margin-top: 30px;
+		margin-bottom: 30px;
+	}
 	justify-content: center;
 	.wp-block-column .wp-block-image {
 		padding: 0px 20px;
@@ -82,6 +86,10 @@ figure.alignfull img {
 		}
 	@include screen-px(600){
 		height: 300px;
+		overflow: visible;
+		img {
+			height: 100%;
+		}
 	}
 }
 .page .wp-block-image.alignfull {
@@ -212,6 +220,9 @@ div.aligncenter {
 	font-size: 2.5em;
 	margin-bottom: 20px;
 	line-height: 1.1;
+	@include screen-px(600){
+		font-size: 2em;
+	}
 }
 .wp-block-group__inner-container > h1, .wp-block-group__inner-container > h2, .wp-block-group__inner-container > h3, .wp-block-group__inner-container > h4 {
 	font-family: $alt-header-font;
@@ -270,7 +281,7 @@ div.aligncenter {
 	margin-bottom: 0px;
 	margin-top: 0px;
 	@include screen-px (600){
-		background-image: unset !important;
+		background-size: 150% !important;
 		background-color: $light-tan !important;
 	}
 }
@@ -291,4 +302,7 @@ h1.is-style-Highlighted, h2.is-style-Highlighted, h3.is-style-Highlighted, h4.is
 }
 .wp-block-columns .wp-block-column[style~="flex-basis:33.33%"] {
 	align-self: center;
+}
+.site-main .blocks-gallery-grid {
+	padding-left: 0px;
 }
