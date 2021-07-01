@@ -132,17 +132,19 @@ export let layout = () => {
 		let anchorLinks = document.querySelectorAll('a[href*="#"]')
 		anchorLinks.forEach((el) => {
 			console.log("yassss")
-			el.addEventListener("click", () => {
-				clickToScroll = true
-				window.setTimeout(() => {
-					let scrollToTopBtn = document.querySelector(".back-to-top__button")
-					scrollToTopBtn.classList.add("showBtn")
-					console.log("timeout")
-				}, 500)
-				window.setTimeout(() => {
-					clickToScroll = false
-				}, 1500)
-			})
+			if (/^#/.test(el.href)) { // .test() returns a boolean
+				el.addEventListener("click", () => {
+					clickToScroll = true
+					window.setTimeout(() => {
+						let scrollToTopBtn = document.querySelector(".back-to-top__button")
+						scrollToTopBtn.classList.add("showBtn")
+						console.log("timeout")
+					}, 500)
+					window.setTimeout(() => {
+						clickToScroll = false
+					}, 1500)
+				})
+			}
 		})
 
 	})
