@@ -220,6 +220,12 @@
 			padding: 30px 10% 0px 10%;
 		}
 	}
+	.is-style-overhang-left ~ p, .is-style-no-overhang ~ p, .is-style-overhang-right ~ p {
+		padding: 20px 20px;
+		@include screen-px (600){
+			padding: 0px 10% 20px 10%;
+		}
+	}
 	.wp-block-column {
 		.is-style-no-overhang, .is-style-overhang-left, .is-style-overhang-middle, .is-style-overhang-right {
 			.wp-block-willamette-blocks-image-box__image{
@@ -264,10 +270,15 @@
 			@include screen-px(600){
 				padding: 10px 30px;
 			}
-		}	
+		}
 	}
 }
+.site-main > .wp-block-columns, .pattern-bg .wp-block-group__inner-container > .wp-block-columns {
+	.wp-block-column[style="flex-basis:66.66%"] {
+		order: -1;
+	}
 
+}
 
 
 ////////// alignfull specific styles
@@ -289,6 +300,7 @@
 	.wp-block-willamette-blocks-image-box__image {
 		@include screen-px(600){
 			background-size: auto 100%;
+			min-height: 460px;
 		}	
 	}
 	margin-top: 0px;
