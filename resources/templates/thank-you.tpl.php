@@ -3,7 +3,7 @@
 	* If this is a valid email form submission, show a thank you page.
 	* If not, redirect to the homepage.
 	*/
-if( true === $_GET['signup'] ) {
+if( "true" === $_GET['signup'] ) {
 	get_header(); 
 	?>
 	<div class="main-container">
