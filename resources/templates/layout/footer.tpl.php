@@ -44,7 +44,7 @@
 			
 			<!-- wp:buttons -->
 			<div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"purple","className":"is-style-Two-Tone"} -->
-			<div class="wp-block-button is-style-Two-Tone"><a class="wp-block-button__link has-purple-background-color has-background">Get a Guide</a></div>
+			<div class="wp-block-button is-style-Two-Tone"><a class="wp-block-button__link has-purple-background-color has-background"  href="https://newsitedev-ama7zea-uyz4sq2cgrby4.us-3.platformsh.site/order-travel-guide/">Get a Guide</a></div>
 			<!-- /wp:button --></div>
 			<!-- /wp:buttons --></div>
 			<!-- /wp:column --></div>
