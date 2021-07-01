@@ -351,6 +351,9 @@
 		@include screen-px(959){
 			.wp-block-willamette-blocks-image-box {
 				padding:20px;
+				@include screen-px(600){
+					padding: 0px;
+				}
 			}
 			.wp-block-willamette-blocks-image-box__content {
 				width: 100%;
