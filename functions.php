@@ -98,30 +98,6 @@ function allow_webp_uploads( $mimes ) {
 }
 add_filter( 'upload_mimes', '\allow_webp_uploads' );
 
-function wordwrap_parse($content, $number_of_characters){
-  $wordwrap = wordwrap($content, $number_of_characters, "\n");
-  $wordwrapsplit = explode("\n", $wordwrap);
-  $wordwrap = $wordwrapsplit[0];
-  if (count($wordwrapsplit) > 1){
-      $wordwrap = $wordwrap. "...";
-  }
-}
-function textWrap($text, $number_of_characters) {
-  $new_text = '';
-  $text_1 = explode('>',$text);
-  $sizeof = sizeof($text_1);
-  for ($i=0; $i<$sizeof; ++$i) {
-      $text_2 = explode('<',$text_1[$i]);
-      if (!empty($text_2[0])) {
-          $new_text .= preg_replace('#([^\n\r .]{25})#i', '\\1  ', $text_2[0]);
-      }
-      if (!empty($text_2[1])) {
-          $new_text .= '<' . $text_2[1] . '>';   
-      }
-  }
-  return $new_text;
-}
-
 //enable upload for webp image files.
 function webp_upload_mimes($existing_mimes) {
   $existing_mimes['webp'] = 'image/webp';
