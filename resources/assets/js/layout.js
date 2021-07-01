@@ -130,7 +130,7 @@ export let layout = () => {
 		})
 		let anchorLinks = document.querySelectorAll('a[href*="#"]')
 		anchorLinks.forEach((el) => {
-			if (/^#/.test(el.href)) { // .test() returns a boolean
+			if (!/^#/.test(el.href) && getWidth() > 800) {
 				el.addEventListener("click", () => {
 					clickToScroll = true
 					window.setTimeout(() => {
