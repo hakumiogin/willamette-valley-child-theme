@@ -40,4 +40,7 @@ p {
 
 #main:last-child {
     margin-bottom: 80px;
+	@include screen-px(600){
+		margin-bottom: 0px;
+	}
 }

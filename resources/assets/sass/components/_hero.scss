@@ -18,6 +18,9 @@ body:not(.home) .hero{
 		margin-top: -88px;
 		background-size: cover;
 	}
+	@include screen-px(600){
+		margin-bottom: 30px;
+	}
 	&__container {
 		height: 100%;
 		position: relative;
