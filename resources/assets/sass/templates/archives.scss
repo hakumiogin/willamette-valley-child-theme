@@ -109,6 +109,9 @@
 			text-align: center;
 			min-width: 210px;
 			font-size: 90%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 			@include screen-px (600){
 				padding: 10px 10px;
 			}
