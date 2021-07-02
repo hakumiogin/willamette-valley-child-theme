@@ -397,4 +397,10 @@
 	bottom: 10px;
 	right: 8px;
 	top:unset;
+	@include screen-px(594){
+		right: 33px;
+	}
+	@include screen-px(475){
+		right: 24px;
+	}
 }
