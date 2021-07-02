@@ -1,4 +1,4 @@
-export let dropdown = () => {
+export let otisDropdown = () => {
 	let dropdownToggles = document.getElementsByClassName("dropdown__button")
 	let i;
 	for (i = 0; i < dropdownToggles.length; i++) {
@@ -8,7 +8,6 @@ export let dropdown = () => {
 		})
 	}
 	window.addEventListener("click", (e) => {
-		console.log('click');
 		if (!e.target.matches('.dropdown__button')) {
 			let dropdowns = document.getElementsByClassName("dropdown__content");
 			let i;
