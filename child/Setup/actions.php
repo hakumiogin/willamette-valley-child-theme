@@ -86,12 +86,13 @@ add_action( 'wp_ajax_ajax_pagination',  __NAMESPACE__ . '\otis_ajax_pagination' 
 function otis_ajax_pagination() {
 	$params = $_REQUEST['params'];
 	$posts_per_page = 10;
+	 error_log("params". print_r( $params, true));
 	if( array_key_exists('posts_per_page',$params) ){
 		$posts_per_page = $params['posts_per_page'];
 	}
-	$category_id = "";
-	if( array_key_exists('category_id', $params)){
-		$category_id = $params['category_id'];
+	$categories = "";
+	if( array_key_exists('categories', $params)){
+		$categories = $params['categories'];
 	}
 	$date = "";
 	if( array_key_exists('date', $params)){
@@ -109,14 +110,14 @@ function otis_ajax_pagination() {
 		'post_types' => $post_types, 
 		'posts_per_page' => $posts_per_page, 
 		'paged' => $params['paged'], 
-		'category_id' => $category_id,
+		'categories' => $categories,
 		'date' => $date,
 		'keyword' => $keyword
 	);
 	 error_log(json_encode($param));
-	 $news = get_otis_posts();
-	$result = json_decode(json_encode($news), true);
-	$response['posts'] = $result;
+	 $posts = get_otis_posts( $categories );
+	 $slider = build_otis_slider( $posts );
+		$response['posts'] = $slider ;
 	echo json_encode( $response );
 	exit;
 }	

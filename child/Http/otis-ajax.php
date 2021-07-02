@@ -4,9 +4,51 @@ use WP_Query;
 
 use function Madden\Theme\Child\config;
 use function Madden\Theme\Child\card_colors;
-
-function get_otis_posts(){
-	$categories = get_field("category");
+function get_cities_from_region( $region ){
+	$regions = [
+		'north-valley' => [
+			'McMinnville',
+			'Newberg',
+			'Wilsonville',
+			'Dundee',
+			'Dundee Hills',
+			'Amity', 
+			'Dayton',
+			'St. Paul', 
+			'Carlton' 
+		],
+		'mid-valley' => [
+			'Salem',
+			'Albany',
+			'Corvallis', 
+			'Philomath',
+			'Independence', 
+			'Rickreall',
+			'Keizer',
+			'Brooks',
+			'Alsea'
+		],
+		'south-valley' => [
+			'Eugene', 
+			'Creswell',
+			'Springfield', 
+			'Cottage Grove' 
+		],
+		'west-cascades' => [
+			'Silverton',
+			'Wesfir',
+			'Oakridge',
+			'Lebanon',
+			'Detroit',
+			'Mill City', 
+			'Sweet Home',
+			'Vida',
+			'Lowell'
+		]
+	];
+	return $regions[$region];
+}
+function get_otis_posts( $categories = null ){
     $taxonomy_name = 'type';
     $terms = [];
     if( is_array($categories) ){
@@ -26,7 +68,7 @@ function get_otis_posts(){
         if (in_array("Events", $terms)){
             $orderby = "ORDER BY wp_posts.post_date";
         } else {
-            $orderby = "ORDER BY RAND()";
+            //$orderby = "ORDER BY RAND()";
         }
     }
     $in_terms = "";
@@ -36,6 +78,7 @@ function get_otis_posts(){
     }
     global $wpdb;
     $sql = "SELECT max(wp_posts.ID) AS ID FROM wp_posts LEFT JOIN wp_term_relationships ON (wp_posts.ID = wp_term_relationships.object_id) WHERE " . $in_terms . " wp_posts.post_type = 'poi' AND (wp_posts.post_status = 'publish' OR wp_posts.post_status = 'acf-disabled' OR wp_posts.post_status = 'dp-rewrite-republish' OR wp_posts.post_status = 'private') GROUP BY wp_posts.post_title, wp_posts.post_date $orderby DESC LIMIT 0, 100";
+    error_log($sql);
     $pageposts = $wpdb->get_results($sql);
     $posts = [];
     foreach($pageposts as $the_post){
