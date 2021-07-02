@@ -50,11 +50,12 @@ p {
 		margin: 0px auto;
 		p {
 			max-width: 100%;
+			margin: 0px auto;
 		}
 	}
 	.wp-block-image {
 		figcaption {
-			color: $dark-gray;
+			color: $mid-grey;
 			font-size: 90%;
 			text-align: center;
 			padding: 0px 15px;
@@ -66,5 +67,10 @@ p {
 	}
 	figure.alignleft {
 		max-width: 400px;
+		padding: 10px 20px 10px 0px;
+	}
+	figure.alignright {
+		max-width: 400px;
+		padding: 10px 0px 10px 20px;
 	}
 }
