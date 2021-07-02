@@ -9,23 +9,18 @@ get_header();
         <?php
         // Start the loop.
         while ( have_posts() ) : the_post();
-        if ($is_post){
-            echo "<h1>".get_the_title()."</h1>";
-            $contributors = get_the_terms(get_the_ID(), 'contributor');
-            $contributor_html = "";
-            if( is_array($contributors) ){
-                $contributor_list = [];
-                foreach( $contributors as $contributor ){
-                    $contributor_list[] = "<span>" . $contributor->name . "</span>";
+            if ($is_post){
+                echo "<h1>".get_the_title()."</h1>";
+                $contributors = get_the_terms(get_the_ID(), 'contributor');
+                $contributor_html = "";
+                if( is_array($contributors) ){
+                    $contributor_list = [];
+                    foreach( $contributors as $contributor ){
+                        $contributor_list[] = "<span>" . $contributor->name . "</span>";
+                    }
+                    echo "<div class='contributors'>By " . implode( ", " , $contributor_list ) . "</div>";
                 }
-                echo "<div class='contributors'>By " . implode( ", " , $contributor_list ) . "</div>";
             }
-        }
-            /*
-             * Include the post format-specific template for the content. If you want to
-             * use this in a child theme, then include a file called called content-___.php
-             * (where ___ is the post format) and that will be used instead.
-             */
             the_content();
         // End the loop.
         endwhile;

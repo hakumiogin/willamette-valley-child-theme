@@ -40,7 +40,7 @@ global $wp_query;
                             if (has_post_thumbnail()){
                                 the_post_thumbnail("big-thumbnail");
                             } else {
-                                echo "<img src='/wp-content/uploads/2021/05/requestAVisitorGuide-150x150.jpg' alt='The Willamette Valley'>";
+                                echo "<img src='".get_stylesheet_directory_uri()."/resources/assets/images/articles-thumbnail.png' alt='The Willamette Valley'>";
                             }
                             ?>
                         </div>
