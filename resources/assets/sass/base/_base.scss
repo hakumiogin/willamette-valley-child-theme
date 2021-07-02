@@ -45,6 +45,13 @@ p {
 	}
 }
 .single-post {
+	.site-main {
+		width: 800px;
+		margin: 0px auto;
+		p {
+			max-width: 100%;
+		}
+	}
 	.wp-block-image {
 		figcaption {
 			color: $dark-gray;
@@ -56,5 +63,8 @@ p {
 			width: 800px;
 			max-width: 100%;
 		}
+	}
+	figure.alignleft {
+		max-width: 400px;
 	}
 }
