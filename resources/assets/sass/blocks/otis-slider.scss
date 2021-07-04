@@ -1,0 +1,23 @@
+.otis-block{
+	.otis-slider{
+		.slider{
+			line-height:1;
+		}
+	}
+	.otisDropdowns{
+		.dropdown__content{
+			.dropdown_select{
+				color:$white;
+				&:hover{
+					background-color:$dark-teal;
+				}
+				&.active{
+					background-color:$dark-teal;
+					transform: scale(1.1);
+					margin-top:4px;
+					margin-bottom:4px;
+				}
+			}
+		}
+	}
+}
