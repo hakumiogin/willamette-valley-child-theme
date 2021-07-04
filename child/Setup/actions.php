@@ -32,27 +32,20 @@ add_action("theme/after-body", __NAMESPACE__."\add_ajax_url_to_js");
 add_filter( '404_template',  __NAMESPACE__.'\redirect_posts' );
 function redirect_posts( $template )
 {
-  error_log('404 template');
 	if( (!is_home() && !is_front_page()) ){
 		$trimmed_uri = preg_replace('#/#', '', trim( $_SERVER['REQUEST_URI'] ) ) ;
 		$trimmed_uri = preg_replace('#-#', ' ', $trimmed_uri ) ;
 		$post = get_page_by_title( $trimmed_uri, OBJECT, 'POST' );
-		error_log("42 start::".$_SERVER['REQUEST_URI']);
 		if( $post ){
 			$url = get_permalink( $post->ID );
-				error_log("44 pagenmae::".$_SERVER['REQUEST_URI']);
 		    wp_redirect( $url , 301);
 		    exit;
 		}
 		else{
-		error_log("49 no name::".$_SERVER['REQUEST_URI']);
-
 			if( '/' == substr($_SERVER['REQUEST_URI'], -1)){
 				$trimmed_uri = preg_replace('#/#', '', trim( $_SERVER['REQUEST_URI'] ) ) ;
 				$post = get_page_by_path( $trimmed_uri, OBJECT, 'POST' );
-				error_log("55 with slash::".$_SERVER['REQUEST_URI'] );
 				if( $post ){
-				error_log("57 with slash and post::".$_SERVER['REQUEST_URI']);
 					$url = get_permalink( $post->ID );
 				   wp_redirect( $url , 301);
 				   exit;
@@ -60,9 +53,7 @@ function redirect_posts( $template )
 			}
 			else{
 				$post = get_page_by_path( $_SERVER['REQUEST_URI'] , OBJECT, 'POST' );
-				error_log("65 no trailing::".$_SERVER['REQUEST_URI']);
 				if( $post ){
-				error_log("67 no trailing::".$_SERVER['REQUEST_URI']);
 					$url = get_permalink( $post->ID );
 				   wp_redirect( $url , 301);
 				   exit;
@@ -85,11 +76,7 @@ add_action( 'wp_ajax_nopriv_ajax_pagination', __NAMESPACE__ . '\otis_ajax_pagina
 add_action( 'wp_ajax_ajax_pagination',  __NAMESPACE__ . '\otis_ajax_pagination' );
 function otis_ajax_pagination() {
 	$params = $_REQUEST['params'];
-	$posts_per_page = 10;
-	 error_log("params". print_r( $params, true));
-	if( array_key_exists('posts_per_page',$params) ){
-		$posts_per_page = $params['posts_per_page'];
-	}
+	$posts_per_page = -1;
 	$categories = "";
 	if( array_key_exists('categories', $params)){
 		$categories = $params['categories'];
@@ -98,26 +85,19 @@ function otis_ajax_pagination() {
 	if( array_key_exists('date', $params)){
 		$date = $params['date'];
 	}
-	$keyword = "";
-	if( array_key_exists('keyword', $params)){
-		$keyword = $params['keyword'];
-	}
-	$post_types = "post";
-	if( array_key_exists('post_types', $params)){
-		$post_types = $params['post_types'][0];
+	$regions = "";
+	if( array_key_exists('regions', $params)){
+		$regions = $params['regions'];
 	}
 	$param = array(
 		'post_types' => $post_types, 
 		'posts_per_page' => $posts_per_page, 
-		'paged' => $params['paged'], 
 		'categories' => $categories,
 		'date' => $date,
-		'keyword' => $keyword
+		'regions' => $regions
 	);
-	 error_log(json_encode($param));
-	 $posts = get_otis_posts( $categories );
-	 $slider = build_otis_slider( $posts );
-		$response['posts'] = $slider ;
-	echo json_encode( $response );
+	 $posts = get_otis_posts( $categories , $regions );
+	 $results = build_otis_slider( $posts );
+	echo json_encode( $results );
 	exit;
 }	

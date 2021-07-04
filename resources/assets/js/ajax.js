@@ -1,7 +1,7 @@
 import $ from "jquery"
 
 $(document).ready(function($) {
-	function loadMore( $el, $categories, $date, $keyword, post_types ='poi' ){
+	function loadMore( $el, $categories, $date, $keyword, post_types ='poi', regions = null ){
 		/* global ajax_pagination  */
 		console.log('categories',$categories);
 		$.ajax({
@@ -17,7 +17,8 @@ $(document).ready(function($) {
 					'post_types' : post_types,
 					'categories': $categories,
 					'date' : $date,
-					'keyword' : $keyword
+					'keyword' : $keyword,
+					'regions' : regions
 				}
 			},
 			fail: function(result){
@@ -25,7 +26,7 @@ $(document).ready(function($) {
 			},
 			success: function( result ) {
 				console.log('secuuces',result);
-				$el.html(result.posts);
+				$el.html(result.output);
 				$el.find('.slider').slick({
 					accessibility: false,
 					lazyLoad: 'ondemand',
@@ -64,7 +65,10 @@ $(document).ready(function($) {
 					// instead of a settings object
 					]
 				})
-
+				if( !result.has_events ){
+					console.log('date', $el.closest('.otis-block') );
+					$el.closest('.otis-block').find('.date-toggle').remove();
+				}
 				window.ajaxPage++;
 			}
 		})		
@@ -80,9 +84,23 @@ $(document).ready(function($) {
 		if( $target.hasClass('dropdown_select') ){
 			console.log( $target );
 			$target.toggleClass('active');
-			alert(1);			
 		}
 	})
+	$('#otisSubmit').on('click', function(e){
+		var categories = [];
+		var slider = $(e.target).closest('.otis-block').find('.otis-slider');
+		$('.categoryDropdown .dropdown_select.active').each(function(k,v){
+			categories.push( $(v).data('term_id') );
+		})
+		var regions = [];
+		$('.regionsDropdown .dropdown_select.active').each(function(k,v){
+			regions.push( $(v).data('region') );
+		})
+		var dateSort = "";
+
+		loadMore( slider,  categories,'','','',regions, dateSort);	
+
+	})	
 	if('undefined' != typeof window.blogModules){
 		var categories = [];
 		$.each( $('.blog-controls .option'), function(a,b){

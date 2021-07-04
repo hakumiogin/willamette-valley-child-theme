@@ -48,13 +48,33 @@ function get_cities_from_region( $region ){
 	];
 	return $regions[$region];
 }
-function get_otis_posts( $categories = null ){
+function get_otis_posts( $categories = null , $regions = null, $dateSort = null ){
     $taxonomy_name = 'type';
     $terms = [];
+    $city_meta = [];
+    $city_WHERE = "";
+    if( is_array($regions) ){
+    	$city_WHERE .= " ( ";
+        foreach ($regions as $region){
+        	$cities = get_cities_from_region( $region );
+        	if(is_array($cities)){
+        		foreach($cities as $city){
+        			// city is saved by otis as a poi and is related to another poi by its post_id
+        			$city_post = get_page_by_title( $city, OBJECT, 'poi' );
+        			if(property_exists($city_post, 'ID')){
+	        			$city_meta[] = "( `meta_key` = 'city' AND meta_value = " . $city_post->ID . ")";
+        			}
+        		}
+        	}
+        }
+        $city_WHERE .= implode( " OR ", $city_meta) . " )";
+    }
+    if( $city_WHERE ){
+    	$city_WHERE .= " AND ";
+    }
     if( is_array($categories) ){
         foreach ($categories as $category){
             $term = get_term_by('ID', $category, 'type');
-            //print_r($term);
             $termchildren = get_term_children( $category, $taxonomy_name );
             if (!in_array($category, $terms)){
                 $terms[] = $category;
@@ -77,25 +97,29 @@ function get_otis_posts( $categories = null ){
     	$in_terms = "( wp_term_relationships.term_taxonomy_id IN ( " . $termstring . " ) ) AND ";
     }
     global $wpdb;
-    $sql = "SELECT max(wp_posts.ID) AS ID FROM wp_posts LEFT JOIN wp_term_relationships ON (wp_posts.ID = wp_term_relationships.object_id) WHERE " . $in_terms . " wp_posts.post_type = 'poi' AND (wp_posts.post_status = 'publish' OR wp_posts.post_status = 'acf-disabled' OR wp_posts.post_status = 'dp-rewrite-republish' OR wp_posts.post_status = 'private') GROUP BY wp_posts.post_title, wp_posts.post_date $orderby DESC LIMIT 0, 100";
+    $sql = "SELECT max(wp_posts.ID) AS ID FROM wp_posts LEFT JOIN wp_postmeta c 
+        ON (wp_posts.ID = c.post_id) LEFT JOIN wp_term_relationships ON (wp_posts.ID = wp_term_relationships.object_id) WHERE " . $city_WHERE . $in_terms . " wp_posts.post_type = 'poi' AND (wp_posts.post_status = 'publish' OR wp_posts.post_status = 'acf-disabled' OR wp_posts.post_status = 'dp-rewrite-republish' OR wp_posts.post_status = 'private') GROUP BY wp_posts.post_title, wp_posts.post_date $orderby DESC LIMIT 0, 100";
     error_log($sql);
     $pageposts = $wpdb->get_results($sql);
     $posts = [];
-    foreach($pageposts as $the_post){
-        $date = get_field("start_date", $the_post->ID);
-        if ($date){
-            $dateTime = \DateTime::createFromFormat('d/m/Y', $date);
-            $timestamp = $dateTime->format('U');
-        } else {$timestamp = 0;}
-        $posts[]  = [$the_post->ID, $timestamp];
-        usort($posts, "sort_times");
-    }    
+    if(1 == 1){
+	    foreach($pageposts as $the_post){
+	        $date = get_field("start_date", $the_post->ID);
+	        if ($date){
+	            $dateTime = \DateTime::createFromFormat('d/m/Y', $date);
+	            $timestamp = $dateTime->format('U');
+	        } else {$timestamp = 0;}
+	        $posts[]  = [$the_post->ID, $timestamp];
+	        usort($posts, "sort_times");
+	    }    	
+    }
     return $posts;
 }
 function build_otis_slider( $posts ){
 	$colors = card_colors();
 	$output = '<div class="slider category-slider">';
     $i = 0;
+    $has_events = 0;
     foreach ($posts as $the_post):
         $post_id = $the_post[0];
         $postobject = get_post($post_id);
@@ -107,6 +131,7 @@ function build_otis_slider( $posts ){
         }
         $date = get_field("start_date", $postobject);
         if ($date){
+        	$has_events = 1;
             $dateTime = \DateTime::createFromFormat('d/m/Y', $date);
             if (new \DateTime() > $dateTime){
                 continue;
@@ -147,7 +172,11 @@ function build_otis_slider( $posts ){
     endforeach;
     $output .= '</div>';
 	wp_reset_postdata();
-	return $output;
+	$result = [
+		'output' => $output,
+		'has_events' => $has_events
+	];
+	return $result;
 }
 
 ?>
