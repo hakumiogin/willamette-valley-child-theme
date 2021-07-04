@@ -81,9 +81,9 @@ function otis_ajax_pagination() {
 	if( array_key_exists('categories', $params)){
 		$categories = $params['categories'];
 	}
-	$date = "";
-	if( array_key_exists('date', $params)){
-		$date = $params['date'];
+	$dateSort = "";
+	if( array_key_exists('dateSort', $params)){
+		$dateSort = $params['dateSort'];
 	}
 	$regions = "";
 	if( array_key_exists('regions', $params)){
@@ -96,7 +96,7 @@ function otis_ajax_pagination() {
 		'date' => $date,
 		'regions' => $regions
 	);
-	 $posts = get_otis_posts( $categories , $regions );
+	 $posts = get_otis_posts( $categories , $regions, $dateSort );
 	 $results = build_otis_slider( $posts );
 	echo json_encode( $results );
 	exit;

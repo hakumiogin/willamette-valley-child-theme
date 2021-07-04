@@ -60,8 +60,8 @@
             <div class="dropdown <?= $show_date ? "" : "hiddenDropdown"; ?> dateDropdown otisDropdown">
                 <a id="dropdownlink" href="#" class="dropdown__button"><?= isset($_GET["date"]) ? ($date == "ASC" ? "oldest" : "newest") : "date" ?><span class="dropdown__button__triangle"></span></a>
                 <div id="dropdown__links" class="dropdown__content">
-                    <a class="dropdown__links__oldest dropdown_select" >Newest</a>
-                    <a class="dropdown__links__newest dropdown_select">Oldest</a>
+                    <a class="dropdown__links__oldest dropdown_select date-select" >Newest</a>
+                    <a class="dropdown__links__newest dropdown_select date-select">Oldest</a>
                 </div>
             </div>
             <div class="dropdown">

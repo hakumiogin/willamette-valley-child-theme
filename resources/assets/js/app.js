@@ -10,6 +10,7 @@ import { cookieStart } from './cookie-consent'
 $(document).ready(() => {
 	navigationInit()
 	// AOS.init()
+	
 	layout()
 	slideshow()
 	anchorOffset(window.document, window.history, window.location)
