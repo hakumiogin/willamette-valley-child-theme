@@ -1,7 +1,7 @@
 import $ from "jquery"
 
 $(document).ready(function($) {
-	function loadMore( $el, $categories, $date, $keyword, post_types ='poi', regions = null ){
+	function loadMore( $el, $categories, $dateSort, $keyword, post_types ='poi', regions = null ){
 		/* global ajax_pagination  */
 		console.log('categories',$categories);
 		$.ajax({
@@ -16,7 +16,7 @@ $(document).ready(function($) {
 					'paged': '1',
 					'post_types' : post_types,
 					'categories': $categories,
-					'date' : $date,
+					'dateSort' : $dateSort,
 					'keyword' : $keyword,
 					'regions' : regions
 				}
@@ -27,129 +27,88 @@ $(document).ready(function($) {
 			success: function( result ) {
 				console.log('secuuces',result);
 				$el.html(result.output);
-				$el.find('.slider').slick({
-					accessibility: false,
-					lazyLoad: 'ondemand',
-					arrows: true,
-					dots: false,
-					infinite: false,
-					speed: 300,
-					slidesToShow: 4,
-					slidesToScroll: 4,
-					responsive: [
-						{
-							breakpoint: 1150,
-							settings: {
-								slidesToShow: 3,
-								slidesToScroll: 3,
-								infinite: true,
-								dots: true
+				if( result.post_count > 0 ){
+					$el.find('.slider').slick({
+						accessibility: false,
+						lazyLoad: 'ondemand',
+						arrows: true,
+						dots: false,
+						infinite: false,
+						speed: 300,
+						slidesToShow: 4,
+						slidesToScroll: 4,
+						responsive: [
+							{
+								breakpoint: 1150,
+								settings: {
+									slidesToShow: 3,
+									slidesToScroll: 3,
+									infinite: true,
+									dots: true
+								}
+							},
+							{
+								breakpoint: 890,
+								settings: {
+									slidesToShow: 2,
+									slidesToScroll: 2
+								}
+							},
+							{
+								breakpoint: 646,
+								settings: {
+									slidesToShow: 1,
+									slidesToScroll: 1
+								}
 							}
-						},
-						{
-							breakpoint: 890,
-							settings: {
-								slidesToShow: 2,
-								slidesToScroll: 2
-							}
-						},
-						{
-							breakpoint: 646,
-							settings: {
-								slidesToShow: 1,
-								slidesToScroll: 1
-							}
-						}
-					// You can unslick at a given breakpoint now by adding:
-					// settings: "unslick"
-					// instead of a settings object
-					]
-				})
-				if( !result.has_events ){
-					console.log('date', $el.closest('.otis-block') );
-					$el.closest('.otis-block').find('.date-toggle').remove();
+						// You can unslick at a given breakpoint now by adding:
+						// settings: "unslick"
+						// instead of a settings object
+						]
+					})
+					if( !result.has_events ){
+						console.log('date', $el.closest('.otis-block') );
+						$el.closest('.otis-block').find('.date-toggle').remove();
+					}
+					window.ajaxPage++;
 				}
-				window.ajaxPage++;
 			}
 		})		
 	}
 	console.log( "slider::", $('.otis-slider') );
 	$('.otis-slider').each(function(k,v){
 		var catsArray =  $(v).data('categories');
-		console.log( "on each::", $(v) + "---" + catsArray);
 		loadMore( $(v),  catsArray);	
 	})
 	$('.otisDropdowns .otisDropdown').on('click', function(e){
 		var $target = $(e.target);
 		if( $target.hasClass('dropdown_select') ){
 			console.log( $target );
+			if( $target.hasClass('date-select') ){
+				$('.date-select').removeClass('active');
+			}
 			$target.toggleClass('active');
 		}
 	})
 	$('#otisSubmit').on('click', function(e){
 		var categories = [];
 		var slider = $(e.target).closest('.otis-block').find('.otis-slider');
+		// possible categories are limited to the block's selected categories 
 		$('.categoryDropdown .dropdown_select.active').each(function(k,v){
 			categories.push( $(v).data('term_id') );
 		})
+		if( categories.length < 1){
+			var original_categories = $(e.target).closest('.otis-block').find('.otis-slider').data('categories');
+			for ( var i = 0; i < original_categories.length; i++) {
+				categories.push( original_categories[i] );
+			}
+		}
 		var regions = [];
 		$('.regionsDropdown .dropdown_select.active').each(function(k,v){
 			regions.push( $(v).data('region') );
 		})
-		var dateSort = "";
-
-		loadMore( slider,  categories,'','','',regions, dateSort);	
+		var dateSort = $('.dateDropdown .dropdown_select.active').html();
+		loadMore( slider,  categories, dateSort,'','',regions);	
 
 	})	
-	if('undefined' != typeof window.blogModules){
-		var categories = [];
-		$.each( $('.blog-controls .option'), function(a,b){
-			categories.push( $(b).data('term_id') );
-		})
-		var post_types = ['poi'];
-		$.each(window.blogModules, function(a,b){
-			loadMore(b,categories, null, null, post_types);
-		})
-		$('.blog-controls .date-select').click(function(e){
-			e.preventDefault();
-			var date = $(e.target).data('date_stamp');
-			var id = "archive-list";
-			window.ajaxPage = 1;
-			$('.blog-container').html('');
-			loadMore(id, null, date, "", "");
-		})
-		$('.blog-controls .select').click(function(e){
-			e.preventDefault();
-			$('.option').removeClass('active');
-			$(e.target).addClass('active');
-			var category = $(e.target).data('term_id'),
-				parent = $(e.target).parent(),
-				id = "archive-list";
-			var date = "";
-			var keyword = "";
-			if( $(e.target).data('parent_id') > 0 ){
-				var parent_id = $(e.target).data('parent_id');
-				$('[data-term_id=' + parent_id + ']').addClass('active');
-			}
-			if( parent.hasClass('parent') ){
-				$('.child-option').not('[data-parent_id=' + category + ']').hide();
-				$('.child-option[data-parent_id=' + category + ']').show();
-			}
-			$('.blog-container').html('');
-			window.ajaxPage = 1;
-			loadMore(id, category, date, keyword, post_types);
-		})
-		$('a#blog_search').click(function(e){
-			e.stopPropagation();
-			e.preventDefault();
-			$('.blog-container').html('');
-			var id = $(e.target).data('id');
-			var category = $('#' + id).find('#blog_category').find(":selected").data('term_id');
-			var date = $('#' + id).find('#blog_date').find(":selected").data('date_stamp');
-			var keyword = $('#' + id).find('#blog_keyword').val();
-			window.ajaxPage = 1;
-			loadMore(id, category, date, keyword);
-		})
-
-	}
 })

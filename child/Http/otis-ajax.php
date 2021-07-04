@@ -49,6 +49,7 @@ function get_cities_from_region( $region ){
 	return $regions[$region];
 }
 function get_otis_posts( $categories = null , $regions = null, $dateSort = null ){
+	error_log('datesort::' . $dateSort);
     $taxonomy_name = 'type';
     $terms = [];
     $city_meta = [];
@@ -85,11 +86,6 @@ function get_otis_posts( $categories = null , $regions = null, $dateSort = null 
                 }
             }
         }
-        if (in_array("Events", $terms)){
-            $orderby = "ORDER BY wp_posts.post_date";
-        } else {
-            //$orderby = "ORDER BY RAND()";
-        }
     }
     $in_terms = "";
     if(is_array( $terms ) && count($terms) > 0 ){
@@ -98,7 +94,7 @@ function get_otis_posts( $categories = null , $regions = null, $dateSort = null 
     }
     global $wpdb;
     $sql = "SELECT max(wp_posts.ID) AS ID FROM wp_posts LEFT JOIN wp_postmeta c 
-        ON (wp_posts.ID = c.post_id) LEFT JOIN wp_term_relationships ON (wp_posts.ID = wp_term_relationships.object_id) WHERE " . $city_WHERE . $in_terms . " wp_posts.post_type = 'poi' AND (wp_posts.post_status = 'publish' OR wp_posts.post_status = 'acf-disabled' OR wp_posts.post_status = 'dp-rewrite-republish' OR wp_posts.post_status = 'private') GROUP BY wp_posts.post_title, wp_posts.post_date $orderby DESC LIMIT 0, 100";
+        ON (wp_posts.ID = c.post_id) LEFT JOIN wp_term_relationships ON (wp_posts.ID = wp_term_relationships.object_id) WHERE " . $city_WHERE . $in_terms . " wp_posts.post_type = 'poi' AND (wp_posts.post_status = 'publish' OR wp_posts.post_status = 'acf-disabled' OR wp_posts.post_status = 'dp-rewrite-republish' OR wp_posts.post_status = 'private') GROUP BY wp_posts.post_title, wp_posts.post_date $orderby LIMIT 0, 100";
     error_log($sql);
     $pageposts = $wpdb->get_results($sql);
     $posts = [];
@@ -109,8 +105,13 @@ function get_otis_posts( $categories = null , $regions = null, $dateSort = null 
 	            $dateTime = \DateTime::createFromFormat('d/m/Y', $date);
 	            $timestamp = $dateTime->format('U');
 	        } else {$timestamp = 0;}
-	        $posts[]  = [$the_post->ID, $timestamp];
-	        usort($posts, "sort_times");
+		    $posts[]  = [$the_post->ID, $timestamp];		    	
+		    if( "Oldest" == $dateSort ){
+		        usort($posts, "sort_times_reverse");
+		    }
+		    else{
+		        usort($posts, "sort_times");
+		    }
 	    }    	
     }
     return $posts;
@@ -120,61 +121,67 @@ function build_otis_slider( $posts ){
 	$output = '<div class="slider category-slider">';
     $i = 0;
     $has_events = 0;
-    foreach ($posts as $the_post):
-        $post_id = $the_post[0];
-        $postobject = get_post($post_id);
-        $links = get_field("links", $postobject);
-        if ($links) {
-            $link = $links[0]["url"];
-        } else {
-            $link = "#";
-        }
-        $date = get_field("start_date", $postobject);
-        if ($date){
-        	$has_events = 1;
-            $dateTime = \DateTime::createFromFormat('d/m/Y', $date);
-            if (new \DateTime() > $dateTime){
-                continue;
-            }
-            $formatted_date = $dateTime->format('F j Y');
-            $output .= '<div class="category-slider__item">';
-            $output .= '<a href="'.$link.'" target="_blank">';    
-            $output .= '<div class="category-slider__item__date '.$colors[$i].'">'.$formatted_date.'</div>';
-        } else {
-            $output .= '<div class="category-slider__item">';
-            $output .= '<a href="'.$link.'" target="_blank">';    
-        }
+    if( is_array( $posts ) &&  count($posts)> 0 ){
+	    foreach ($posts as $the_post):
+	        $post_id = $the_post[0];
+	        $postobject = get_post($post_id);
+	        $links = get_field("links", $postobject);
+	        if ($links) {
+	            $link = $links[0]["url"];
+	        } else {
+	            $link = "#";
+	        }
+	        $date = get_field("start_date", $postobject);
+	        if ($date){
+	        	$has_events = 1;
+	            $dateTime = \DateTime::createFromFormat('d/m/Y', $date);
+	            if (new \DateTime() > $dateTime){
+	                continue;
+	            }
+	            $formatted_date = $dateTime->format('F j Y');
+	            $output .= '<div class="category-slider__item">';
+	            $output .= '<a href="'.$link.'" target="_blank">';    
+	            $output .= '<div class="category-slider__item__date '.$colors[$i].'">'.$formatted_date.'</div>';
+	        } else {
+	            $output .= '<div class="category-slider__item">';
+	            $output .= '<a href="'.$link.'" target="_blank">';    
+	        }
 
-        $output .= '<div class="category-slider__item__image">';
-        $photos = get_field("photos", $postobject);
+	        $output .= '<div class="category-slider__item__image">';
+	        $photos = get_field("photos", $postobject);
 
-        if ($photos) {
-            $thumbnail = $photos[0]["image_url"];
-            $output .= "<img src='$thumbnail' alt='".$photos[0]["image_alt"]."'>";
-        } else {
-            $output .= "<img src='".get_stylesheet_directory_uri()."/resources/assets/images/events-thumbnail.png' alt='The Willamette Valley'>";
-        }
-        $output .= '<div class="category-slider__item__external-warning"></div>';
-        $output .= '</div>';
-        $output .= '<div class="category-slider__item__title '.$colors[$i].'">';
-        $wordwrap = wordwrap(get_the_title($postobject->ID), 80, "\n");
-        $wordwrapsplit = explode("\n", $wordwrap);
-        $wordwrap = $wordwrapsplit[0];
-        if (count($wordwrapsplit) > 1){
-            $wordwrap = $wordwrap. "...";
-        }
-        $output .= '<p>'.$wordwrap.'</p>';
-        $output .= '</div></a></div>';
-        $i++;
-        if ($i > count($colors) - 1){
-            $i = 0;
-        }
-    endforeach;
+	        if ($photos) {
+	            $thumbnail = $photos[0]["image_url"];
+	            $output .= "<img src='$thumbnail' alt='".$photos[0]["image_alt"]."'>";
+	        } else {
+	            $output .= "<img src='".get_stylesheet_directory_uri()."/resources/assets/images/events-thumbnail.png' alt='The Willamette Valley'>";
+	        }
+	        $output .= '<div class="category-slider__item__external-warning"></div>';
+	        $output .= '</div>';
+	        $output .= '<div class="category-slider__item__title '.$colors[$i].'">';
+	        $wordwrap = wordwrap(get_the_title($postobject->ID), 80, "\n");
+	        $wordwrapsplit = explode("\n", $wordwrap);
+	        $wordwrap = $wordwrapsplit[0];
+	        if (count($wordwrapsplit) > 1){
+	            $wordwrap = $wordwrap. "...";
+	        }
+	        $output .= '<p>'.$wordwrap.'</p>';
+	        $output .= '</div></a></div>';
+	        $i++;
+	        if ($i > count($colors) - 1){
+	            $i = 0;
+	        }
+	    endforeach;
+	}
+	else{
+		$output .= "<h2>Sorry, we couldn't find any experiences for those filters</h2>";
+	}
     $output .= '</div>';
 	wp_reset_postdata();
 	$result = [
 		'output' => $output,
-		'has_events' => $has_events
+		'has_events' => $has_events,
+		'post_count' => count($posts)
 	];
 	return $result;
 }
