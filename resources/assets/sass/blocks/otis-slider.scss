@@ -1,3 +1,4 @@
+
 .otis-block{
 	.otis-slider{
 		.slider{
@@ -10,7 +11,7 @@
 		&.loading{
 			&:before{
 				transition: opacity 0.5s;			
-				content:'x';
+				content:' ';
 				background: url(#{$IMAGES-PATH}loading.gif) no-repeat center ;
 				background-size:50px 50px;	
 				width:100%;

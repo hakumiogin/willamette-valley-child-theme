@@ -3,7 +3,6 @@ import $ from "jquery"
 $(document).ready(function($) {
 	function loadMore( $el, $categories, $dateSort, $keyword, post_types ='poi', regions = null ){
 		/* global ajax_pagination  */
-		console.log('categories',$categories);
 		$el.addClass('loading').html('');
 		$.ajax({
 			url: ajax_pagination.ajaxurl,
@@ -26,7 +25,6 @@ $(document).ready(function($) {
 				console.log('fail', result);
 			},
 			success: function( result ) {
-				console.log('secuuces',result);
 				$el.html(result.output);
 				setTimeout(function() { 
 					$el.removeClass('loading');
@@ -78,7 +76,6 @@ $(document).ready(function($) {
 			}
 		})		
 	}
-	console.log( "slider::", $('.otis-slider') );
 	$('.otis-slider').each(function(k,v){
 		var catsArray =  $(v).data('categories');
 		loadMore( $(v),  catsArray);	
@@ -86,14 +83,14 @@ $(document).ready(function($) {
 	$('.otisDropdowns .otisDropdown').on('click', function(e){
 		var $target = $(e.target);
 		if( $target.hasClass('dropdown_select') ){
-			console.log( $target );
 			if( $target.hasClass('date-select') ){
 				$('.date-select').removeClass('active');
 			}
 			$target.toggleClass('active');
 		}
 	})
-	$('#otisSubmit').on('click', function(e){
+	$('.otisSubmit').on('click', function(e){
+		e.preventDefault();
 		var categories = [];
 		var slider = $(e.target).closest('.otis-block').find('.otis-slider');
 		// possible categories are limited to the block's selected categories 

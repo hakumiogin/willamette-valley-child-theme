@@ -2,13 +2,14 @@ export let dropdown = () => {
 	let dropdownToggles = document.getElementsByClassName("dropdown__button")
 	let i;
 	for (i = 0; i < dropdownToggles.length; i++) {
-		dropdownToggles[i].addEventListener ("click", (e) => {
-			e.preventDefault()
-			e.target.nextElementSibling.classList.toggle("show");
-		})
+		if( !dropdownToggles[i].classList.contains('otisSubmit') ){
+			dropdownToggles[i].addEventListener ("click", (e) => {
+				e.preventDefault()
+				e.target.nextElementSibling.classList.toggle("show");
+			})
+		}
 	}
 	window.addEventListener("click", (e) => {
-		console.log('click');
 		if (!e.target.matches('.dropdown__button')) {
 			let dropdowns = document.getElementsByClassName("dropdown__content");
 			let i;
@@ -22,17 +23,16 @@ export let dropdown = () => {
 	})
 	let filters = ["regions", "category", "date", "activity"]
 	filters.forEach((filter) => {
-		let item = document.querySelector("."+filter+"-toggle")
-		if (item){
-			item.addEventListener("click", (e) => {
-				e.preventDefault()
-				showFilter(filter)
-				console.log("show filter")
-			})
-		}
+		let items = document.querySelectorAll("."+filter+"-toggle")
+		items.forEach((item) => {
+			if (item){
+				item.classList.add('testing');
+				item.addEventListener("click", (e) => {
+					e.preventDefault()
+					let dropdown = e.target.closest('.dropdowns').querySelector("."+filter+"Dropdown")
+					dropdown.classList.toggle("showDropdown")
+				})
+			}
+		})
 	})
-}
-let showFilter = (el) => {
-	let dropdown = document.querySelector("."+el+"Dropdown")
-	dropdown.classList.toggle("showDropdown")
 }

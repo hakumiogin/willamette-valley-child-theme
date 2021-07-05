@@ -10,10 +10,10 @@
             <div class="dropdown">
                 <a id="dropdownlink" href="#" class="dropdown__button">Filters<span class="dropdown__button__triangle"></span></a>
                 <div id="dropdown__links" class="dropdown__content">
-                    <a class="regions-toggle" href="#">Region</a>
-                    <a class="date-toggle" href="#">Date</a>
+                    <a class="regions-toggle" >Region</a>
+                    <a class="date-toggle" >Date</a>
                     <?php if( count( $categories) > 1 ) : ?>
-                        <a class="category-toggle" href="#">Category</a>
+                        <a class="category-toggle" >Category</a>
                     <?php endif; ?>
                 </div>
             </div>
@@ -65,7 +65,7 @@
                 </div>
             </div>
             <div class="dropdown">
-                <a id="otisSubmit" href="#" class="dropdown__button">Submit</a>
+                <a href="#" class="dropdown__button otisSubmit">Submit</a>
             </div>
         </div> 
         <div class="category-slider-parent otis-slider loading" data-categories="<?php echo json_encode($categories); ?>">
