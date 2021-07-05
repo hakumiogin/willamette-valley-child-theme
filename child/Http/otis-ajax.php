@@ -61,8 +61,11 @@ function get_otis_posts( $categories = null , $regions = null, $dateSort = null 
         		foreach($cities as $city){
         			// city is saved by otis as a poi and is related to another poi by its post_id
         			$city_post = get_page_by_title( $city, OBJECT, 'poi' );
-        			if(property_exists($city_post, 'ID')){
+        			if( is_object( $city_post )  && property_exists($city_post, 'ID')){
 	        			$city_meta[] = "( `meta_key` = 'city' AND meta_value = " . $city_post->ID . ")";
+        			}
+        			else{
+        				error_log( $city );
         			}
         		}
         	}
