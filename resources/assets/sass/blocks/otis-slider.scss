@@ -3,12 +3,26 @@
 	.otis-slider{
 		.slider{
 			line-height:1;
+			.error{
+				height:100%;
+				width:100%;
+				position:relative;
+				p{
+					position: absolute;
+					font-size:2em;
+					text-align:center;
+					top: 35%;
+					left: 50%;
+					transform: translateX(-50%);				
+				}
+			}
 		}
 		&:before{
 			opacity:0;
 			transition: opacity 0.5s;			
 		}
 		&.loading{
+			background-color: $very-light-grey;
 			&:before{
 				transition: opacity 0.5s;			
 				content:' ';
