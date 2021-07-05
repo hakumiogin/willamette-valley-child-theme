@@ -173,7 +173,7 @@ function build_otis_slider( $posts ){
 	    endforeach;
 	}
 	else{
-		$output .= "<h2>Sorry, we couldn't find any experiences for those filters</h2>";
+		$output .= "<div class='error pattern-bg'><p>Sorry...we couldn't find anything that matches those filters.</p></div>";
 	}
     $output .= '</div>';
 	wp_reset_postdata();
