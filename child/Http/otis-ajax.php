@@ -49,7 +49,6 @@ function get_cities_from_region( $region ){
 	return $regions[$region];
 }
 function get_otis_posts( $categories = null , $regions = null, $dateSort = null ){
-	error_log('datesort::' . $dateSort);
     $taxonomy_name = 'type';
     $terms = [];
     $city_meta = [];

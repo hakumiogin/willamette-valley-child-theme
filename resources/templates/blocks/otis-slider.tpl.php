@@ -42,6 +42,7 @@
                 <div class="dropdown <?= $category ? "" : "hiddenDropdown"; ?> categoryDropdown otisDropdown">
                     <a id="dropdownlink" href="#" class="dropdown__button"><?= $category ? $category : "category" ?><span class="dropdown__button__triangle"></span></a>
                     <div id="dropdown__links" class="dropdown__content">
+                        <a class="dropdown_select" data-term_id="all">All</a>
                         <?php foreach( $terms as $term ) : ?>
                             <a class="dropdown_select" data-term_id="<?php echo $term->term_id; ?>"><?php echo $term->name; ?></a>
                         <?php endforeach; ?>
@@ -51,6 +52,7 @@
             <div class="dropdown <?= $regions ? "" : "hiddenDropdown"; ?> regionsDropdown otisDropdown">
                 <a id="dropdownlink" href="#" class="dropdown__button"><?= $regions ? $regions : "regions" ?><span class="dropdown__button__triangle"></span></a>
                 <div id="dropdown__links" class="dropdown__content">
+                    <a class="dropdown_select"  data-region="all">All</a>
                     <a class="north-valley dropdown_select"  data-region="north-valley">North Valley</a>
                     <a class="mid-valley dropdown_select" data-region="mid-valley">Mid Valley</a>
                     <a class="south-valley dropdown_select" data-region="south-valley" >South Valley</a>

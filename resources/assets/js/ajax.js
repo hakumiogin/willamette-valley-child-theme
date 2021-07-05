@@ -83,10 +83,9 @@ $(document).ready(function($) {
 	$('.otisDropdowns .otisDropdown').on('click', function(e){
 		var $target = $(e.target);
 		if( $target.hasClass('dropdown_select') ){
-			if( $target.hasClass('date-select') ){
-				$('.date-select').removeClass('active');
-			}
+			$(e.target).closest('.dropdown').find('.dropdown_select').removeClass('active');
 			$target.toggleClass('active');
+			$(e.target).closest('.dropdown').find('.dropdown__button').html( $target.html() + '<span class="dropdown__button__triangle"></span>' );
 		}
 	})
 	$('.otisSubmit').on('click', function(e){
