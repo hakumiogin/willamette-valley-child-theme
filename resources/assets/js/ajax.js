@@ -4,6 +4,7 @@ $(document).ready(function($) {
 	function loadMore( $el, $categories, $dateSort, $keyword, post_types ='poi', regions = null ){
 		/* global ajax_pagination  */
 		console.log('categories',$categories);
+		$el.addClass('loading').html('');
 		$.ajax({
 			url: ajax_pagination.ajaxurl,
 			type: 'post',
@@ -27,6 +28,9 @@ $(document).ready(function($) {
 			success: function( result ) {
 				console.log('secuuces',result);
 				$el.html(result.output);
+				setTimeout(function() { 
+					$el.removeClass('loading');
+				}, 100);
 				if( result.post_count > 0 ){
 					$el.find('.slider').slick({
 						accessibility: false,
@@ -67,7 +71,6 @@ $(document).ready(function($) {
 						]
 					})
 					if( !result.has_events ){
-						console.log('date', $el.closest('.otis-block') );
 						$el.closest('.otis-block').find('.date-toggle').remove();
 					}
 					window.ajaxPage++;
@@ -108,7 +111,6 @@ $(document).ready(function($) {
 			regions.push( $(v).data('region') );
 		})
 		var dateSort = $('.dateDropdown .dropdown_select.active').html();
-		loadMore( slider,  categories, dateSort,'','',regions);	
-
+		loadMore( slider,  categories, dateSort,'','',regions);
 	})	
 })

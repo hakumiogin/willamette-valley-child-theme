@@ -68,7 +68,7 @@
                 <a id="otisSubmit" href="#" class="dropdown__button">Submit</a>
             </div>
         </div> 
-        <div class="category-slider-parent otis-slider" data-categories="<?php echo json_encode($categories); ?>">
+        <div class="category-slider-parent otis-slider loading" data-categories="<?php echo json_encode($categories); ?>">
         </div>
     </div>
 <?php endif; ?>
