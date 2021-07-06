@@ -71,10 +71,6 @@
                     <a class="dropdown__links__newest dropdown_select date-select">Oldest</a>
                 </div>
             </div>
-            <!--
-            <div class="dropdown">
-                <a href="#" class="dropdown__button otisSubmit">Refresh</a>
-            </div>--->
         </div> 
         <div class="category-slider-parent otis-slider loading" data-categories="<?php echo json_encode($categories); ?>">
         </div>
