@@ -54,6 +54,7 @@ function get_otis_posts( $categories = null , $regions = null, $dateSort = null 
     $city_meta = [];
     $city_WHERE = "";
     if( is_array($regions) ){
+    	error_log(print_r($regions,true));
     	$city_WHERE .= " ( ";
         foreach ($regions as $region){
         	$cities = get_cities_from_region( $region );

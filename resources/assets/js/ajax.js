@@ -107,7 +107,9 @@ $(document).ready(function($) {
 		}
 		var regions = [];
 		$('.regionsDropdown .dropdown_select.active').each(function(k,v){
-			regions.push( $(v).data('region') );
+			if( 'all' != $(v).data('region') ){
+				regions.push( $(v).data('region') );
+			}
 		})
 		var dateSort = $('.dateDropdown .dropdown_select.active').html();
 		loadMore( slider,  categories, dateSort,'','',regions);
