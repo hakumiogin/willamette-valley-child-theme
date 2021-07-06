@@ -92,9 +92,10 @@ $(document).ready(function($) {
 	function submitOtis(e){
 		e.preventDefault();
 		var categories = [];
-		var slider = $(e.target).closest('.otis-block').find('.otis-slider');
+		var $block = $(e.target).closest('.otis-block'),
+			slider = $block.find('.otis-slider');
 		// possible categories are limited to the block's selected categories 
-		$('.categoryDropdown .dropdown_select.active').each(function(k,v){
+		$block.find('.categoryDropdown .dropdown_select.active').each(function(k,v){
 			if( 'all' != $(v).data('term_id') ){
 				categories.push( $(v).data('term_id') );
 			}
@@ -106,13 +107,13 @@ $(document).ready(function($) {
 			}
 		}
 		var regions = [];
-		$('.regionsDropdown .dropdown_select.active').each(function(k,v){
+		$block.find('.regionsDropdown .dropdown_select.active').each(function(k,v){
 			if( 'all' != $(v).data('region') ){
 				regions.push( $(v).data('region') );
 			}
 		})
 		console.log(1);
-		var dateSort = $('.dateDropdown .dropdown_select.active').html();
+		var dateSort = $block.find('.dateDropdown .dropdown_select.active').html();
 		loadMore( slider,  categories, dateSort,'','',regions);
 
 	}
