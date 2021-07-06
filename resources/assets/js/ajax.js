@@ -111,6 +111,7 @@ $(document).ready(function($) {
 				regions.push( $(v).data('region') );
 			}
 		})
+		console.log(1);
 		var dateSort = $('.dateDropdown .dropdown_select.active').html();
 		loadMore( slider,  categories, dateSort,'','',regions);
 
