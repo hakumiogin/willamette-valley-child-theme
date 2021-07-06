@@ -49,6 +49,11 @@
 					transform: scale(1.1);
 					margin-top:4px;
 					margin-bottom:4px;
+					@include screen-sm{
+						transform: unset;
+						margin-top:unset;
+						margin-bottom:unset;
+					}
 				}
 			}
 		}

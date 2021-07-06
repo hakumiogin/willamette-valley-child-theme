@@ -10,11 +10,11 @@
             <div class="dropdown">
                 <a id="dropdownlink" href="#" class="dropdown__button">Filters<span class="dropdown__button__triangle"></span></a>
                 <div id="dropdown__links" class="dropdown__content">
-                    <a class="regions-toggle" >Region</a>
-                    <a class="date-toggle" >Date</a>
                     <?php if( count( $categories) > 1 ) : ?>
                         <a class="category-toggle" >Category</a>
                     <?php endif; ?>
+                    <a class="regions-toggle" >Region</a>
+                    <a class="date-toggle" >Date</a>
                 </div>
             </div>
             <?php if( count( $categories )> 1 ) : ?>
