@@ -86,15 +86,18 @@ $(document).ready(function($) {
 			$(e.target).closest('.dropdown').find('.dropdown_select').removeClass('active');
 			$target.toggleClass('active');
 			$(e.target).closest('.dropdown').find('.dropdown__button').html( $target.html() + '<span class="dropdown__button__triangle"></span>' );
+			submitOtis(e);
 		}
 	})
-	$('.otisSubmit').on('click', function(e){
+	function submitOtis(e){
 		e.preventDefault();
 		var categories = [];
 		var slider = $(e.target).closest('.otis-block').find('.otis-slider');
 		// possible categories are limited to the block's selected categories 
 		$('.categoryDropdown .dropdown_select.active').each(function(k,v){
-			categories.push( $(v).data('term_id') );
+			if( 'all' != $(v).data('term_id') ){
+				categories.push( $(v).data('term_id') );
+			}
 		})
 		if( categories.length < 1){
 			var original_categories = $(e.target).closest('.otis-block').find('.otis-slider').data('categories');
@@ -108,5 +111,9 @@ $(document).ready(function($) {
 		})
 		var dateSort = $('.dateDropdown .dropdown_select.active').html();
 		loadMore( slider,  categories, dateSort,'','',regions);
+
+	}
+	$('.otisSubmit').on('click', function(e){
+		submitOtis(e);
 	})	
 })
