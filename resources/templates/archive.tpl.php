@@ -20,6 +20,9 @@ $args = array(
 if (isset($_GET["date"])){
     $args["order"] = $_GET["date"];
     $show_date = true;
+    $date = $_GET["date"];
+} else {
+    $date = "ASC";
 }
 if (isset($_GET["post_type"])){
     $args["post_type"] = $_GET["post_type"];
@@ -72,7 +75,13 @@ $colors = ["has-purple-background-color", "has-teal-background-color", "has-lime
         <div class="dropdown <?= $show_date ? "" : "hiddenDropdown"; ?> dateDropdown">
             <a id="dropdownlink" href="#" class="dropdown__button"><?= isset($_GET["date"]) ? ($date == "ASC" ? "oldest" : "newest") : "date" ?><span class="dropdown__button__triangle"></span></a>
             <div id="dropdown__links" class="dropdown__content">
-                <a class="dropdown__links__oldest" href="articles/?date=DESC<?= $category ? "&category=".$category : "" ?>">Newest</a>
+                <a class="dropdown__links__oldest" href="<?=
+                    esc_url( add_query_arg(
+                        array(
+                            'category' => $category,
+                            'date' => 'DESC'
+                        ), "articles/"
+                    )) ?>">Newest</a>
                 <a class="dropdown__links__newest" href="articles/?date=ASC<?= $category ? "&category=".$category : "" ?>">Oldest</a>
             </div>
         </div>
