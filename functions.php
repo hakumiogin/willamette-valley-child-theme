@@ -162,3 +162,42 @@ add_filter( 'gform_pre_render_4', 'sweeps_limit_countries' );
 add_filter( 'gform_pre_validation_4', 'sweeps_limit_countries' );
 add_filter( 'gform_pre_submission_filter_4', 'sweeps_limit_countries' );
 add_filter( 'gform_admin_pre_render_4', 'sweeps_limit_countries' );
+
+/**
+ * Disable REST API endpoints for non-logged in users. Danke https://stackoverflow.com/a/62430375
+ *
+ * @param array $endpoints      The original endpoints
+ * @return array $endpoints     The updated endpoints
+ */
+function disable_rest_endpoints ( $endpoints ) {
+
+  $endpoints_to_remove = array(
+      '/wp/v2/media',
+      '/wp/v2/types',
+      '/wp/v2/statuses',
+      '/wp/v2/taxonomies',
+      '/wp/v2/tags',
+      '/wp/v2/users',
+      '/wp/v2/comments',
+      '/wp/v2/settings',
+      '/wp/v2/themes',
+      '/wp/v2/blocks',
+      '/wp/v2/oembed',
+      '/wp/v2/block-renderer',
+      '/wp/v2/search',
+      '/wp/v2/categories'
+  );
+
+  if ( ! is_user_logged_in() ) {
+      foreach ( $endpoints_to_remove as $rem_endpoint ) {
+          // $base_endpoint = "/wp/v2/{$rem_endpoint}";
+          foreach ( $endpoints as $maybe_endpoint => $object ) {
+              if ( stripos( $maybe_endpoint, $rem_endpoint ) !== false ) {
+                  unset( $endpoints[ $maybe_endpoint ] );
+              }
+          }
+      }
+  }
+  return $endpoints;
+}
+add_filter( 'rest_endpoints', 'disable_rest_endpoints' );
