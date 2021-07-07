@@ -14,7 +14,7 @@
 					<a class="nav-bar__guide--news" href="/articles">Articles</a>
 					<div class="nav-bar__guide--search">
 						<?php get_search_form(); ?>
-						<a href="" id="searchToggle"><img class="" src="<?= $image_url ?>/mag_glass.svg"></a>
+						<a href="" id="searchToggle"><img class="" src="<?= $image_url ?>/mag_glass.svg" alt="search"></a>
 					</div>
 				</div>
 				<div class="nav-bar__search">
