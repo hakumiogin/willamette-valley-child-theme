@@ -54,7 +54,7 @@
     -->
     <nav id="menu">
 		<a href="<?= home_url() ?>">
-			<img class="mobile-nav__logo" src="<?= $image_url ?>/logo@1.png" srcset="<?= $image_url ?>/logo@2.png">
+			<img class="mobile-nav__logo" src="<?= $image_url ?>/logo@1.png" srcset="<?= $image_url ?>/logo@2.png" alt="Willamette Valley">
 		</a>
 		<?php wp_nav_menu( array( 
 			'theme_location' => 'header-menu',
