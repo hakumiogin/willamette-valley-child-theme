@@ -22,21 +22,26 @@
                     <?php 
                         $term = get_term_by('ID', $categoryi, 'type');
                         // check if is event
-
-                        $termchildren = get_term_children( $categoryi, $taxonomy_name );
-                        if (!array_key_exists($categoryi, $terms)){
-                            if( property_exists( $term, 'term_id') && $term->term_id ){
-                        //print_r($term);
-                                $terms[$categoryi] = $term;
-                            } 
-                        }
-                        foreach ($termchildren as $child){
-                            if (!in_array($child, $terms)){
-                                if( array_key_exists( 'term_id', $child) && $child['term_id'] ){
-                                    $terms[] = $child;
+                        $termchildren = get_term_children( $categoryi, 'type' );
+                        if( count($termchildren) > 0){
+                            foreach ($termchildren as $child_id){
+                                if (!in_array($child_id, $terms)){
+                                    $child = get_term_by('ID', $child_id, 'type');
+                                  if( property_exists(  $child, 'term_id') && $child->term_id ){
+                                        $terms[$child->term_id] = $child;
+                                    }
                                 }
                             }
                         }
+                        else{
+                            // dont show category as filter option if it is a parent? 
+                            if (!array_key_exists($categoryi, $terms)){
+                                if( property_exists( $term, 'term_id') && $term->term_id ){
+                                    $terms[$categoryi] = $term;
+                                } 
+                            }
+                        }
+
                     ?>
                 <?php endforeach;  ?>
                 <div class="dropdown <?= $category ? "" : "hiddenDropdown"; ?> categoryDropdown otisDropdown">
@@ -65,9 +70,6 @@
                     <a class="dropdown__links__oldest dropdown_select date-select" >Newest</a>
                     <a class="dropdown__links__newest dropdown_select date-select">Oldest</a>
                 </div>
-            </div>
-            <div class="dropdown">
-                <a href="#" class="dropdown__button otisSubmit">Refresh</a>
             </div>
         </div> 
         <div class="category-slider-parent otis-slider loading" data-categories="<?php echo json_encode($categories); ?>">
