@@ -13,58 +13,61 @@ export let layout = () => {
 		// }
 		
 		//parallaxing
-		if (window.pageYOffset < 100){
-			let alignedfull = document.querySelectorAll('.alignfull > img')
-			let alignedfullobject = []
-			if (alignedfull) {
-				for (let i = 0; i < alignedfull.length; i++) {
-					alignedfullobject.push({ ref: alignedfull[i], scroll: 0, startingPosition: -1})
-				}
-			}
-			let alginedfullBackgrounds = document.querySelectorAll(".alignfull > .wp-block-willamette-blocks-image-box__image")
-			if (alginedfullBackgrounds){
-				for (let i = 0; i < alginedfullBackgrounds.length; i++) {
-					alignedfullobject.push({ ref: alginedfullBackgrounds[i], scroll: 0, startingPosition: -1})
-					if (window.pageYOffset > alginedfullBackgrounds[i].offsetTop + alginedfullBackgrounds[i].offsetHeight){
-						alginedfullBackgrounds[i].style.backgroundPositionY = "bottom"
-					}
-				}
-			}
-			if (alignedfullobject.length > 0){
-				let timer
-				window.addEventListener('scroll', function(){
-					if (timer){
-						window.clearTimeout (timer)
-					}
-					timer = window.setTimeout(() => {
-						if (getWidth() > 900){
-							let hero = document.querySelector('.hero')
-							alignedfullobject.unshift({ref: hero, scroll: 0, startingPosition: -1})
-
-							alignedfullobject.forEach((image) => {
-								if (isElementInViewport(image.ref)){
-									if (image.startingPosition === -1){
-										image.startingPosition = window.pageYOffset
-									}
-									let scrolled = window.pageYOffset - image.startingPosition
-									if (image.ref.nodeName == "IMG"){
-										image.ref.style.objectPosition = "center " + (- scrolled*.08).toString() + "px";
-									}
-									if (image.ref.nodeName == "DIV"){
-										image.ref.style.backgroundPositionY = (- scrolled*.08).toString() + "px"
-									}
-								}
-							})
-						}	
-					}, 5)
-				})
+		let alignedfull = document.querySelectorAll('.alignfull > img')
+		let alignedfullobject = []
+		if (alignedfull) {
+			for (let i = 0; i < alignedfull.length; i++) {
+				alignedfullobject.push({ ref: alignedfull[i], scroll: 0, startingPosition: -1 })
 			}
 		}
+		let alginedfullBackgrounds = document.querySelectorAll(".alignfull > .wp-block-willamette-blocks-image-box__image")
+		if (alginedfullBackgrounds){
+			for (let i = 0; i < alginedfullBackgrounds.length; i++) {
+				alignedfullobject.push({ ref: alginedfullBackgrounds[i], scroll: 0, startingPosition: -1 })
+				if (document.documentElement.scrollTop > 1){
+					let hooker = "l"
+					hooker
+				}
+	
+			}
+		}
+		if (alignedfullobject.length > 0){
+			let timer
+			window.addEventListener('scroll', function(){
+				if (timer){
+					window.clearTimeout (timer)
+				}
+				timer = window.setTimeout(() => {
+					if (getWidth() > 900){
+						let hero = document.querySelector('.hero')
+						alignedfullobject.unshift({ref: hero, scroll: 0, startingPosition: -1})
 
+						alignedfullobject.forEach((image) => {
+							if (isElementInViewport(image.ref)){
+								if (image.startingPosition === -1){
+									image.startingPosition = window.pageYOffset
+								}
+								let scrolled = window.pageYOffset - image.startingPosition
+								if (image.ref.nodeName == "IMG"){
+									image.ref.style.objectPosition = "center " + (- scrolled*.08).toString() + "px";
+								}
+								if (image.ref.nodeName == "DIV"){
+									image.ref.style.backgroundPositionY = (- scrolled*.08).toString() + "px"
+								}
+							}
+						})
+					}	
+				}, 5)
+			})
+		}
+		window.dispatchEvent(new CustomEvent('scroll'))
+
+
+		
+		//move the link from the h2 to the parent
 		let imageBoxLinks = document.querySelectorAll(".wp-block-willamette-blocks-image-box__content > h2 > a")
 		if (imageBoxLinks){
 			imageBoxLinks.forEach((el) => {
-				//move the link from the h2 to the parent
 				let link = el.href
 				let linkTarget = el.target
 				let imageBox = el.parentElement.parentElement.parentElement;
