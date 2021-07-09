@@ -8,7 +8,7 @@
     <div class="otis-block">
         <div class="dropdowns otisDropdowns">
             <div class="dropdown">
-                <a id="dropdownlink" href="#" class="dropdown__button">Filters<span class="dropdown__button__triangle"></span></a>
+                <a id="dropdownlink" href class="dropdown__button dropdown__button__triangle">Filters</a>
                 <div id="dropdown__links" class="dropdown__content">
                     <?php if( count( $categories) > 1 ) : ?>
                         <a class="category-toggle" >Category</a>
@@ -45,7 +45,7 @@
                     ?>
                 <?php endforeach;  ?>
                 <div class="dropdown <?= $category ? "" : "hiddenDropdown"; ?> categoryDropdown otisDropdown">
-                    <a id="dropdownlink" href="#" class="dropdown__button"><?= $category ? $category : "category" ?><span class="dropdown__button__triangle"></span></a>
+                    <a id="dropdownlink" href class="dropdown__button dropdown__button__triangle"><?= $category ? $category : "category" ?></a>
                     <div id="dropdown__links" class="dropdown__content">
                         <a class="dropdown_select" data-term_id="all">All</a>
                         <?php foreach( $terms as $term ) : ?>
@@ -55,7 +55,7 @@
                 </div>
             <?php endif; ?>
             <div class="dropdown <?= $regions ? "" : "hiddenDropdown"; ?> regionsDropdown otisDropdown">
-                <a id="dropdownlink" href="#" class="dropdown__button"><?= $regions ? $regions : "regions" ?><span class="dropdown__button__triangle"></span></a>
+                <a id="dropdownlink" href class="dropdown__button dropdown__button__triangle"><?= $regions ? $regions : "regions" ?></a>
                 <div id="dropdown__links" class="dropdown__content">
                     <a class="dropdown_select"  data-region="all">All</a>
                     <a class="north-valley dropdown_select"  data-region="north-valley">North Valley</a>
@@ -65,7 +65,7 @@
                 </div>
             </div>
             <div class="dropdown <?= $show_date ? "" : "hiddenDropdown"; ?> dateDropdown otisDropdown">
-                <a id="dropdownlink" href="#" class="dropdown__button"><?= isset($_GET["date"]) ? ($date == "ASC" ? "oldest" : "newest") : "date" ?><span class="dropdown__button__triangle"></span></a>
+                <a id="dropdownlink" href class="dropdown__button dropdown__button__triangle"><?= isset($_GET["date"]) ? ($date == "ASC" ? "oldest" : "newest") : "date" ?></a>
                 <div id="dropdown__links" class="dropdown__content">
                     <a class="dropdown__links__oldest dropdown_select date-select" >Newest</a>
                     <a class="dropdown__links__newest dropdown_select date-select">Oldest</a>
