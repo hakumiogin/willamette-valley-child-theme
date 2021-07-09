@@ -57,14 +57,14 @@ $colors = ["has-purple-background-color", "has-teal-background-color", "has-lime
 
     <div class="dropdowns">
         <div class="dropdown">
-            <a id="dropdownlink" href="#" class="dropdown__button">Filters<span class="dropdown__button__triangle"></span></a>
+            <a id="dropdownlink" href class="dropdown__button dropdown__button__triangle">Filters</a>
             <div id="dropdown__links" class="dropdown__content">
-                <a class="regions-toggle" href="#">Region</a>
-                <a class="date-toggle" href="#">Date</a>
+                <a class="regions-toggle" href>Region</a>
+                <a class="date-toggle" href>Date</a>
             </div>
         </div>
         <div class="dropdown <?= $regions ? "" : "hiddenDropdown"; ?> regionsDropdown">
-            <a id="dropdownlink" href="#" class="dropdown__button"><?= $regions ? $regions : "regions" ?><span class="dropdown__button__triangle"></span></a>
+            <a id="dropdownlink" href class="dropdown__button dropdown__button__triangle"><?= $regions ? $regions : "regions" ?></a>
             <div id="dropdown__links" class="dropdown__content">
                 <a class="north-valley" href="articles/?category=north-valley<?= $date ? "&date=".$date : "" ?>">North Valley</a>
                 <a class="mid-valley" href="articles/?category=mid-valley<?= $date ? "&date=".$date : "" ?>">Mid Valley</a>
@@ -73,21 +73,15 @@ $colors = ["has-purple-background-color", "has-teal-background-color", "has-lime
             </div>
         </div>
         <div class="dropdown <?= $show_date ? "" : "hiddenDropdown"; ?> dateDropdown">
-            <a id="dropdownlink" href="#" class="dropdown__button"><?= isset($_GET["date"]) ? ($date == "ASC" ? "oldest" : "newest") : "date" ?><span class="dropdown__button__triangle"></span></a>
+            <a id="dropdownlink" href class="dropdown__button dropdown__button__triangle"><?= isset($_GET["date"]) ? ($date == "ASC" ? "oldest" : "newest") : "date" ?></a>
             <div id="dropdown__links" class="dropdown__content">
-                <a class="dropdown__links__oldest" href="<?=
-                    esc_url( add_query_arg(
-                        array(
-                            'category' => $category,
-                            'date' => 'DESC'
-                        ), "articles/"
-                    )) ?>">Newest</a>
+                <a class="dropdown__links__oldest" href="articles/?date=DESC<?= $category ? "&category=".$category : "" ?>">Newest</a>
                 <a class="dropdown__links__newest" href="articles/?date=ASC<?= $category ? "&category=".$category : "" ?>">Oldest</a>
             </div>
         </div>
     </div> 
     <div class="page-search">
-        <form role="search" method="get" id="innerSearchForm" class="searchform" action="<?= home_url( '/articles' ) ?>" >
+        <form role="search" method="get" id="innerSearchForm" class="searchform" action="<?= home_url( '' ) ?>" >
             <label aria-label="submit">
                <input type="image" src="<?= get_stylesheet_directory_uri()."/resources/assets/images/mag_glass.svg" ?>" border="0" alt="Submit" />
             </label>
