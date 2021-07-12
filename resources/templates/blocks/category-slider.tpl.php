@@ -1,7 +1,6 @@
 <div class="category-slider-parent">
     <?php 
     $current_month = (int)date('m');
-    echo ($current_month);
     $current_seasons = array();
     $all_seasons = array('summer', 'winter', 'spring', 'fall');
     if ($current_month <= 2 || $current_month >= 11){
@@ -40,40 +39,23 @@
         // ),
         'tax_query' => array(
             $category_query,
-            array (
-                'operator' => 'NOT IN',
-                'taxonomy' => 'category',
-                'field' => 'term_taxonomy_id',
-                'terms' => array ( 254 )
-            ),
             array  (
                 'relation' => 'or',
-                array (
-                    array(
-                        'taxonomy' => 'category',
-                        'field' => 'slug',
-                        'terms' => $excluded_seasons,
-                        'operator' => 'NOT IN'
-                    ),
-                    array(
-                        'taxonmy' => 'category',
-                        'field' => 'slug',
-                        'terms' => $current_seasons,
-                        'operator' => 'IN'
-                    ),
-                    array(
-                        'taxonmy' => 'category',
-                        'field' => 'slug',
-                        'terms' => $all_seasons,
-                        'operator' => 'NOT IN'
-                    )
+                array(
+                    'taxonomy' => 'category',
+                    'field' => 'slug',
+                    'terms' => $current_seasons,
+                    'operator' => 'IN'
+                ),
+                array(
+                    'taxonomy' => 'category',
+                    'field' => 'slug',
+                    'terms' => $all_seasons,
+                    'operator' => 'NOT IN'
                 )
             )
         )
     );
-    echo "<pre>";
-    print_r($args);
-    echo "</pre>";
     $the_query = new WP_Query( $args );
     if ( $the_query->have_posts()) { ?>
         <div class="slider category-slider">
