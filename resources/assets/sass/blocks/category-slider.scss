@@ -143,3 +143,9 @@
 		}
 	}
 }
+.single-post .category-slider-parent {
+	@media screen and (min-width:1000px) {
+		width: auto;
+		margin: 32px calc(25% - 25vw);
+	}
+}
