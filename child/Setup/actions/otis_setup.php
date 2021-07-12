@@ -11,7 +11,7 @@ add_filter( 'wp_otis_rest_auth', function ( $params ) {
 add_filter(
 	'wp_otis_listings',
 	function ( $params ) {
-		$params['type'] = 'Bed & Breakfasts|Boutique Hotels|Events|Farm & Ranch Stays|Hostels|Campgrounds|Glamping & Treehouses|RV Parks|Vacation Rentals|Hotels & Motels|Resorts|Wine & Wineries';
+		$params['type'] = 'Bed & Breakfasts|Boutique Hotels|Events|Farm & Ranch Stays|Hostels|Campgrounds|Glamping & Treehouses|RV Parks|Vacation Rentals|Hotels & Motels|Resorts|Wine & Wineries|Shopping|Tour Companies|Farmers Markets|Restaurants';
 		$params['region'] = 'Willamette Valley';
 		return $params;
 	}
