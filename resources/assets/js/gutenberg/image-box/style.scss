@@ -409,8 +409,7 @@
 		right: 24px;
 	}
 }
-.wp-block-willamette-blocks-image-box.alignfull{
-	.no-parallax div{
-		background-size: cover !important;
-	}
+
+.wp-block-willamette-blocks-image-box.alignfull.no-parallax .wp-block-willamette-blocks-image-box__image{
+	background-size: cover !important;
 }
