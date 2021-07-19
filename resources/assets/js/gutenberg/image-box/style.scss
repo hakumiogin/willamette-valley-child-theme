@@ -409,3 +409,8 @@
 		right: 24px;
 	}
 }
+.wp-block-willamette-blocks-image-box.alignfull{
+	.no-parallax{
+		background-size: cover !important;
+	}
+}
