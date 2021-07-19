@@ -6,7 +6,7 @@
 			<!-- wp:columns {"className":"tall-margins"} -->
 			<div class="wp-block-columns" style="margin-top:0px;"><!-- wp:column {"width":"66.66%"} -->
 			<div class="wp-block-column" style="flex-basis:66.66%"><!-- wp:image {"id":136364,"sizeSlug":"large","linkDestination":"none"} -->
-			<figure class="wp-block-image size-large"><img src="https://newsitedev-ama7zea-uyz4sq2cgrby4.us-3.platformsh.site/wp-content/uploads/2021/06/Willamette-Valley-Magazine-Mock-crop-1024x537.jpg" alt="Willamette Valley visitor guide on a wood table" class="wp-image-136364"/></figure>
+			<figure class="wp-block-image size-large"><img src="<?php echo site_url(); ?>/wp-content/uploads/2021/06/Willamette-Valley-Magazine-Mock-crop-1024x537.jpg" alt="Willamette Valley visitor guide on a wood table" class="wp-image-136364"/></figure>
 			<!-- /wp:image --></div>
 			<!-- /wp:column -->
 
@@ -21,7 +21,7 @@
 
 			<!-- wp:buttons -->
 			<div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"purple","textColor":"white","className":"is-style-Two-Tone"} -->
-			<div class="wp-block-button is-style-Two-Tone"><a class="wp-block-button__link has-white-color has-purple-background-color has-text-color has-background" href="https://newsitedev-ama7zea-uyz4sq2cgrby4.us-3.platformsh.site/order-travel-guide/">Get a Guide</a></div>
+			<div class="wp-block-button is-style-Two-Tone"><a class="wp-block-button__link has-white-color has-purple-background-color has-text-color has-background" href="<?php echo site_url(); ?>/order-travel-guide/">Get a Guide</a></div>
 			<!-- /wp:button --></div>
 			<!-- /wp:buttons --></div>
 			<!-- /wp:column --></div>
@@ -29,7 +29,7 @@
 		</template>
 		<template class="request-guide__desktop">
 			<!-- wp:willamette-blocks/image-box {"id":140408,"url":"https://newsitedev-ama7zea-uyz4sq2cgrby4.us-3.platformsh.site/wp-content/uploads/2021/06/Rectangle-13-5-scaled.jpg","className":"is-style-full-width-center"} -->
-			<div class="wp-block-willamette-blocks-image-box is-style-full-width-center"><div style="background-image:url(https://newsitedev-ama7zea-uyz4sq2cgrby4.us-3.platformsh.site/wp-content/uploads/2021/06/Rectangle-13-5-scaled.jpg);" class="wp-block-willamette-blocks-image-box__image"><div class="wp-block-willamette-blocks-image-box__content"><!-- wp:group {"backgroundColor":"teal","textColor":"white"} -->
+			<div class="wp-block-willamette-blocks-image-box is-style-full-width-center"><div style="background-image:url(<?php echo site_url(); ?>/wp-content/uploads/2021/06/Rectangle-13-5-scaled.jpg);" class="wp-block-willamette-blocks-image-box__image"><div class="wp-block-willamette-blocks-image-box__content"><!-- wp:group {"backgroundColor":"teal","textColor":"white"} -->
 			<div class="wp-block-group has-white-color has-teal-background-color has-text-color has-background"><div class="wp-block-group__inner-container"><!-- wp:columns -->
 			<div class="wp-block-columns"><!-- wp:column {"width":"20%"} -->
 			<div class="wp-block-column" style="flex-basis:20%"><!-- wp:heading -->
@@ -44,7 +44,7 @@
 			
 			<!-- wp:buttons -->
 			<div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"purple","className":"is-style-Two-Tone"} -->
-			<div class="wp-block-button is-style-Two-Tone"><a class="wp-block-button__link has-purple-background-color has-background"  href="https://newsitedev-ama7zea-uyz4sq2cgrby4.us-3.platformsh.site/order-travel-guide/">Get a Guide</a></div>
+			<div class="wp-block-button is-style-Two-Tone"><a class="wp-block-button__link has-purple-background-color has-background"  href="<?php echo site_url(); ?>/order-travel-guide/">Get a Guide</a></div>
 			<!-- /wp:button --></div>
 			<!-- /wp:buttons --></div>
 			<!-- /wp:column --></div>
