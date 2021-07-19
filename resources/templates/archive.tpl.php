@@ -67,22 +67,22 @@ $colors = ["has-purple-background-color", "has-teal-background-color", "has-lime
             <a id="dropdownlink" href class="dropdown__button dropdown__button__triangle"><?= $regions ? $regions : "regions" ?></a>
             <div id="dropdown__links" class="dropdown__content">
                 <a class="north-valley" href="?<?php
-                    echo http_build_query(array_merge($_GET, array("category"=>"north-valley")));
+                    echo http_build_query(array_merge($_GET, array("category"=>"north-valley", "pg" => 1)));
                     ?>
                 ">North Valley</a>
                 <a class="mid-valley" href="
                     ?<?php
-                        echo http_build_query(array_merge($_GET, array("category"=>"mid-valley")));
+                        echo http_build_query(array_merge($_GET, array("category"=>"mid-valley", "pg" => 1)));
                     ?>
                 ">Mid Valley</a>
                 <a class="south-valley" href="
                     ?<?php
-                        echo http_build_query(array_merge($_GET, array("category"=>"south-valley")));
+                        echo http_build_query(array_merge($_GET, array("category"=>"south-valley", "pg" => 1)));
                     ?>
                 ">South Valley</a>
                 <a class="west-cascades" href="
                     ?<?php
-                        echo http_build_query(array_merge($_GET, array("category"=>"west-cascades")));
+                        echo http_build_query(array_merge($_GET, array("category"=>"west-cascades", "pg" => 1)));
                     ?>
 
                 ">West Cascades</a>
@@ -93,12 +93,12 @@ $colors = ["has-purple-background-color", "has-teal-background-color", "has-lime
             <div id="dropdown__links" class="dropdown__content">
                 <a class="dropdown__links__oldest" href="
                     ?<?php
-                        echo http_build_query(array_merge($_GET, array("date" => "desc" )));
+                        echo http_build_query(array_merge($_GET, array("date" => "desc", "pg" => 1 )));
                     ?>
                 ">Newest</a>
                 <a class="dropdown__links__newest" href="
                     ?<?php
-                        echo http_build_query(array_merge($_GET, array("date" => "asc" )));
+                        echo http_build_query(array_merge($_GET, array("date" => "asc", "pg" => 1 )));
                     ?>
                 ">Oldest</a>
             </div>
