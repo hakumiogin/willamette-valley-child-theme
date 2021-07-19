@@ -101,11 +101,11 @@
 			</ul>
 			<?php gravity_form(3, 0, 0); ?>
 			<div class="social-icons">
-				<a href="https://www.facebook.com/gowillamettevalley" rel="noopener" aria-label="facebook" target="_blank"><img src="<?= get_stylesheet_directory_uri();?>/resources/assets/images/facebook.png" alt="facebook"></a>
-				<a href="http://instagram.com/gowillamettevalley" rel="noopener" aria-label="instagram" target="_blank"><img src="<?= get_stylesheet_directory_uri();?>/resources/assets/images/instagram.png" alt="instagram"></a>
-				<a href="https://www.youtube.com/user/gowillamettevalley/" rel="noopener" aria-label="youtube" target="_blank"><img src="<?= get_stylesheet_directory_uri();?>/resources/assets/images/youtube.png" alt="youtube"></a>
-				<a href="https://twitter.com/gowillamettevalley" rel="noopener" aria-label="twitter" target="_blank"><img src="<?= get_stylesheet_directory_uri();?>/resources/assets/images/twitter.png" alt="twitter"></a>
-				<a href="https://www.pinterest.com/gowillamettevalley/" rel="noopener" aria-label="pinterest" target="_blank"><img src="<?= get_stylesheet_directory_uri();?>/resources/assets/images/pinterest.png" alt="pinterest"></a>
+				<a href="https://www.facebook.com/OregonWineCountry" rel="noopener" aria-label="facebook" target="_blank"><img src="<?= get_stylesheet_directory_uri();?>/resources/assets/images/facebook.png" alt="facebook"></a>
+				<a href="http://instagram.com/oregonwinetrav" rel="noopener" aria-label="instagram" target="_blank"><img src="<?= get_stylesheet_directory_uri();?>/resources/assets/images/instagram.png" alt="instagram"></a>
+				<a href="https://www.youtube.com/user/OregonWineCountry/" rel="noopener" aria-label="youtube" target="_blank"><img src="<?= get_stylesheet_directory_uri();?>/resources/assets/images/youtube.png" alt="youtube"></a>
+				<a href="https://twitter.com/oregonwinetrav" rel="noopener" aria-label="twitter" target="_blank"><img src="<?= get_stylesheet_directory_uri();?>/resources/assets/images/twitter.png" alt="twitter"></a>
+				<a href="https://www.pinterest.com/orwinecountry/" rel="noopener" aria-label="pinterest" target="_blank"><img src="<?= get_stylesheet_directory_uri();?>/resources/assets/images/pinterest.png" alt="pinterest"></a>
 			</div>
 		</div>
 	</div>
