@@ -83,7 +83,7 @@ body:not(.home) .hero{
 	img {
 		position: absolute;
 		top: 45%;
-		left: 5%;
+		left: max( 14%, 90px);
 		transform: translateY(-50%);
 		height: 250px;
 		@include screen-px(1250){
