@@ -126,3 +126,15 @@
 		}
 	}
 }
+.navigation_links {
+	width: 50%;
+	margin: 40px auto;
+	padding: 10px 0px 20px 0px;
+
+	.next_link {
+		float: right;
+	}
+	.previous_link {
+		float: left;
+	}
+}

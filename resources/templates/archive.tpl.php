@@ -40,8 +40,8 @@ if (isset($_GET["category"])){
         ),
     );
 }
-if (isset($_GET["paged"])){
-    $args['paged'] = $_GET["paged"];
+if (isset($_GET["pg"])){
+    $args['paged'] = $_GET["pg"];
 } else {
     $args['paged'] = 1;
 }
@@ -66,17 +66,41 @@ $colors = ["has-purple-background-color", "has-teal-background-color", "has-lime
         <div class="dropdown <?= $regions ? "" : "hiddenDropdown"; ?> regionsDropdown">
             <a id="dropdownlink" href class="dropdown__button dropdown__button__triangle"><?= $regions ? $regions : "regions" ?></a>
             <div id="dropdown__links" class="dropdown__content">
-                <a class="north-valley" href="articles/?category=north-valley<?= $date ? "&date=".$date : "" ?>">North Valley</a>
-                <a class="mid-valley" href="articles/?category=mid-valley<?= $date ? "&date=".$date : "" ?>">Mid Valley</a>
-                <a class="south-valley" href="articles/?category=south-valley<?= $date ? "&date=".$date : "" ?>">South Valley</a>
-                <a class="west-cascades" href="articles/?category=west-cascades<?= $date ? "&date=".$date : "" ?>">West Cascades</a>
+                <a class="north-valley" href="?<?php
+                    echo http_build_query(array_merge($_GET, array("category"=>"north-valley")));
+                    ?>
+                ">North Valley</a>
+                <a class="mid-valley" href="
+                    ?<?php
+                        echo http_build_query(array_merge($_GET, array("category"=>"mid-valley")));
+                    ?>
+                ">Mid Valley</a>
+                <a class="south-valley" href="
+                    ?<?php
+                        echo http_build_query(array_merge($_GET, array("category"=>"south-valley")));
+                    ?>
+                ">South Valley</a>
+                <a class="west-cascades" href="
+                    ?<?php
+                        echo http_build_query(array_merge($_GET, array("category"=>"west-cascades")));
+                    ?>
+
+                ">West Cascades</a>
             </div>
         </div>
         <div class="dropdown <?= $show_date ? "" : "hiddenDropdown"; ?> dateDropdown">
             <a id="dropdownlink" href class="dropdown__button dropdown__button__triangle"><?= isset($_GET["date"]) ? ($date == "ASC" ? "oldest" : "newest") : "date" ?></a>
             <div id="dropdown__links" class="dropdown__content">
-                <a class="dropdown__links__oldest" href="articles/?date=DESC<?= $category ? "&category=".$category : "" ?>">Newest</a>
-                <a class="dropdown__links__newest" href="articles/?date=ASC<?= $category ? "&category=".$category : "" ?>">Oldest</a>
+                <a class="dropdown__links__oldest" href="
+                    ?<?php
+                        echo http_build_query(array_merge($_GET, array("date" => "desc" )));
+                    ?>
+                ">Newest</a>
+                <a class="dropdown__links__newest" href="
+                    ?<?php
+                        echo http_build_query(array_merge($_GET, array("date" => "asc" )));
+                    ?>
+                ">Oldest</a>
             </div>
         </div>
     </div> 
@@ -120,8 +144,21 @@ $colors = ["has-purple-background-color", "has-teal-background-color", "has-lime
             }
         }
         wp_reset_postdata(); ?>
-        <div class="navigation"><p><?php posts_nav_link(); ?></p></div>
     </div>
+    <div class="navigation_links"><p>
+        <?php if($args["paged"] > 1){
+            echo "<a href='?";
+            echo http_build_query(array_merge($_GET, array("pg" => ($args["paged"] - 1 ))));
+            echo "' class='previous_link'>Previous Page</a>";
+        }
+        if ($the_query->max_num_pages > $args["paged"]){
+            echo "<a href='?";
+            echo http_build_query(array_merge($_GET, array("pg" => ($args["paged"] + 1 ))));
+            echo "' class='next_link'>Next Page</a>";
+        }
+        ?>
+    </p></div>
+
     </main><!-- .site-main archive.tpl.php -->  
 </div>
 
