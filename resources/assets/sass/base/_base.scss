@@ -53,6 +53,9 @@ p {
 			max-width: 100%;
 			margin: 0px auto 10px;
 			line-height: 1.4;
+			@include screen-px(600){
+				line-height:1.47;
+			}
 		}
 	}
 	.wp-block-image {
