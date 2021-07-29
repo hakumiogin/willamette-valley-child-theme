@@ -29,8 +29,8 @@ add_action( 'init', __NAMESPACE__.'\register_willamette_menus' );
 
 function register_madden_block_pattern_category(){
 	register_block_pattern_category(
-		'madden',
-		array( 'label' => __( 'Madden', config('textdomain') ) )
+		'wvva',
+		array( 'label' => __( 'Willamette Valley Patterns', config('textdomain') ) )
 	);
 }
 add_action( 'init', __NAMESPACE__.'\register_madden_block_pattern_category' );
