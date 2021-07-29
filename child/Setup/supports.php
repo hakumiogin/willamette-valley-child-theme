@@ -29,6 +29,7 @@ function load_textdomain() {
 add_action('after_setup_theme', __NAMESPACE__.'\load_textdomain');
 
 function setup_supports() {
+    //remove_theme_support('core-block-patterns');
     add_theme_support( 'post-thumbnails' );
     set_post_thumbnail_size( 229, 205, true );
     add_image_size( 'big-thumbnail', 250, 250, true );
@@ -38,7 +39,6 @@ function setup_supports() {
     add_image_size( 'hero', 1600, 9999);
     add_theme_support( 'align-wide' );
     add_theme_support( 'responsive-embeds' );
-    //remove_theme_support('core-block-patterns');
     add_theme_support( 'editor-color-palette', array(
         array(
             'name' => esc_attr__( 'peach', config('textdomain') ),
