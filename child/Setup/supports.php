@@ -29,7 +29,7 @@ function load_textdomain() {
 add_action('after_setup_theme', __NAMESPACE__.'\load_textdomain');
 
 function setup_supports() {
-    //remove_theme_support('core-block-patterns');
+    remove_theme_support('core-block-patterns');
     add_theme_support( 'post-thumbnails' );
     set_post_thumbnail_size( 229, 205, true );
     add_image_size( 'big-thumbnail', 250, 250, true );
