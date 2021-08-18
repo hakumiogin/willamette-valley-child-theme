@@ -130,7 +130,12 @@ function build_otis_slider( $posts ){
 	        $postobject = get_post($post_id);
 	        $links = get_field("links", $postobject);
 	        if ($links) {
-	            $link = $links[0]["url"];
+				$link = $links[0]["url"];
+				foreach($links as $acf_link_field){
+					if($acf_link_field["network_type"] == "website"){
+						$link = $acf_link_field["url"];
+					}
+				}
 	        } else {
 	            $link = "#";
 	        }
