@@ -23,6 +23,10 @@ wp.domReady( () => {
 			name: 'serif',
 			label: 'serif',
 		},
+		{
+			name: 'titlecase',
+			label: 'titlecase',
+		}
 	]);
 	wp.blocks.registerBlockStyle( 'core/image', [ 
 		{
