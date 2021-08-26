@@ -415,11 +415,13 @@
 
 //////////// .page styles
 .single-post {
-	.wp-block-columns.narrow-gutter{
+	.wp-block-columns {
 		margin: 20px calc(max(calc(30% - 30vw), -200px));
-		font-size: 11px;
-		.wp-block-willamette-blocks-image-box__content{
-			text-overflow:initial;
+		&.narrow-gutter .wp-block-willamette-blocks-image-box {
+			h1, h2, h3, h4, h5 {
+				font-size: 18px;
+			}
 		}
+
 	}
 }
