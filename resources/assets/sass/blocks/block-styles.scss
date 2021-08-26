@@ -105,17 +105,11 @@ figure.alignfull img {
 }
 
 .alignwide {
-	margin: 32px calc(25% - 25vw);
+	margin: 32px calc(max(calc(30% - 30vw), -200px));
 	max-width: 100vw;
 	img {
 		max-width: 100%;
 		width: 100%;
-	}
-}
-@media (max-width: 920px) {
-	.alignwide {
-		max-width: 920px;
-		width: 920px;
 	}
 }
 .wp-block-button {
