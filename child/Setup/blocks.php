@@ -72,6 +72,15 @@ function willamette_acf_block_register() {
 			'icon'				=> 'admin-comments',
 			'keywords'			=> array( 'featured', 'slider' ),
 		));
+        acf_register_block(array(
+			'name'				=> 'functional-map',
+			'title'				=> __('Madden Functional Map'),
+			'description'		=> __('Madden Functional Map.'),
+			'render_callback'	=> 'willamette_acf_block_render_callback',
+			'category'			=> 'madden',
+			'icon'				=> 'admin-comments',
+			'keywords'			=> array( 'map' ),
+		));	
 
 	}
 }
