@@ -50,14 +50,12 @@ template('layout/covid-banner', [
 	'btn_text' => 'More Info'
 ]);
 
-$title_tag = "h1";
 if (is_search()) {
 	$page_title = "Search";
 } else if (is_404()){
 	$page_title = "404";
 } else if (get_post_type() === "post"){
 	$page_title = "Articles";
-	$title_tag = "h2";
 } else {
 	$page_title = get_the_title();
 }
@@ -67,5 +65,5 @@ template('layout/header', [
 	'title_color' => $title_color,
 	'hero_overlay' => is_front_page() ?
 		"<img src=".get_stylesheet_directory_uri()."/public/images/adventure_ahead.svg alt='Adventure lies ahead' />"
-		: "<$title_tag class='hero__title' style='background-color: ".$title_color."'>".$page_title."</h1>",
+		: "<h1 class='hero__title' style='background-color: ".$title_color."'>".$page_title."</h1>",
 ]);
