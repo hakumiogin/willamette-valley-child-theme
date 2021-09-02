@@ -32,7 +32,8 @@
 	<div id="mapid"></div>
 </div>
 <?php
-    use function Madden\Theme\Child\Setup\get_otis_posts;
+
+use function Madden\Theme\Child\Setup\get_otis_posts;
 $categories = get_field('map_categories');
     $pageposts = get_otis_posts( $categories );
     $listings = [];
