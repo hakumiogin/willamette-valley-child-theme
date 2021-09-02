@@ -7,31 +7,55 @@
    crossorigin=""></script>
    <style>
    #mapid { height: 380px; }
+   .leaflet-popup-content-wrapper {
+        padding: 2rem;
+   }
+   .leaflet-popup-content-wrapper h3{
+        color: #6a3b5d;
+        text-transform: none;
+        font-size: 2rem;
+        width: 100%;
+        display: block;
+        margin-bottom: 1rem;
+    }
+   .leaflet-popup-content-wrapper a{
+        width: 100%;
+   }
+.leaflet-popup-content-wrapper .leaflet-popup-content {
+}
+
+.leaflet-popup-tip-container {
+}
   </style>
 <div class="functional-map">
-	<h1>Functional Map</h1>
+	<h1><?php echo get_field('map_title'); ?></h1>
 	<div id="mapid"></div>
 </div>
 <?php
-	$long = "-123.105375";
-	$lat = "45.058221";
-    $listings = [
-        [
-            'lat' => -123.105375,
-            'lon' => 45.058221,
-            'popup' => "Björnson Vineyard"
-        ],
-        [
-            'lat' => -123.344503,
-            'lon' => 44.727614,
-            'popup' => "Airlie Winery"
-        ]        
-    ];
+    use function Madden\Theme\Child\Setup\get_otis_posts;
+$categories = get_field('map_categories');
+    $pageposts = get_otis_posts( $categories );
+    $listings = [];
+    foreach ($pageposts as $array ) {
+        $post_id = $array[0];
+        $poi = get_post($post_id);
+        $meta = get_post_meta( $post_id );
+        $popup = "<h3>" . $poi->post_title . "</h3><a href=''>View Website</a>";
+        $long = "-123.105375";
+        $lat = "45.058221";
+        $listings[] = [
+            'lat' => $meta['latitude'][0],
+            'long' => $meta['longitude'][0],
+            'popup' => $popup            
+        ];
+    }
+    $lat = "-123.105375";
+    $long = "45.058221";
 
 ?>
 <script type="text/javascript">
 
-	var mymap = L.map('mapid').setView([<?php echo $lat; ?>, <?php echo $long; ?>], 9);
+	var mymap = L.map('mapid').setView([<?php echo $long; ?>, <?php echo $lat; ?>], 9);
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
@@ -45,7 +69,7 @@ var locations = [
 
 <?php foreach($listings as $listing) : 
     ?>
-  ["<?php echo $listing['popup']; ?>", <?php echo $listing['lon']; ?>, <?php echo $listing['lat']; ?>],
+  ["<?php echo $listing['popup']; ?>", <?php echo $listing['lat']; ?>, <?php echo $listing['long']; ?>],
 //    	var marker = L.marker([<?php echo $listing['lat']; ?>,<?php echo $long; ?>]).addTo(mymap);
   //  	marker.bindPopup("<b> popup </b>").openPopup();
     <?php endforeach; ?>
