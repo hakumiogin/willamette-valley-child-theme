@@ -5,9 +5,11 @@ use WP_Query;
 use function Madden\Theme\Child\config;
 use function Madden\Theme\Child\card_colors;
 function get_cities_from_region( $region ){
+	/*
 	$regions = [
 		'north-valley' => [
 			'McMinnville',
+			'Yamhill',
 			'Newberg',
 			'Wilsonville',
 			'Dundee',
@@ -15,7 +17,8 @@ function get_cities_from_region( $region ){
 			'Amity', 
 			'Dayton',
 			'St. Paul', 
-			'Carlton' 
+			'Carlton',
+			'Dayton' 
 		],
 		'mid-valley' => [
 			'Salem',
@@ -46,7 +49,20 @@ function get_cities_from_region( $region ){
 			'Lowell'
 		]
 	];
-	return $regions[$region];
+	*/
+	$region_names = [
+		'north-valley' => 'north_valley_cities',
+		'south-valley' => 'south_valley_cities',
+		'mid-valley' => 'mid_valley_cities',
+		'west-cascades' => 'west_cascades_cities'
+	];
+
+	$acf_regions = get_field( $region_names[$region], 'option');
+	foreach( $acf_regions as $region_array ){
+		$region_cities[] = $region_array['city_otis_spelling'];
+	}
+//	return $regions[$region];
+	return $region_cities;
 }
 function get_otis_posts( $categories = null , $regions = null, $dateSort = null ){
     $taxonomy_name = 'type';
@@ -54,7 +70,7 @@ function get_otis_posts( $categories = null , $regions = null, $dateSort = null 
     $city_meta = [];
     $city_WHERE = "";
     if( is_array($regions) ){
-    	error_log(print_r($regions,true));
+    	//error_log(print_r($regions,true));
     	$city_WHERE .= " ( ";
         foreach ($regions as $region){
         	$cities = get_cities_from_region( $region );
@@ -66,7 +82,7 @@ function get_otis_posts( $categories = null , $regions = null, $dateSort = null 
 	        			$city_meta[] = "( `meta_key` = 'city' AND meta_value = " . $city_post->ID . ")";
         			}
         			else{
-        				error_log( $city );
+        				//error_log( $city );
         			}
         		}
         	}
@@ -98,7 +114,7 @@ function get_otis_posts( $categories = null , $regions = null, $dateSort = null 
     global $wpdb;
     $sql = "SELECT max(wp_posts.ID) AS ID FROM wp_posts LEFT JOIN wp_postmeta c 
         ON (wp_posts.ID = c.post_id) LEFT JOIN wp_term_relationships ON (wp_posts.ID = wp_term_relationships.object_id) WHERE " . $city_WHERE . $in_terms . " wp_posts.post_type = 'poi' AND (wp_posts.post_status = 'publish' OR wp_posts.post_status = 'acf-disabled' OR wp_posts.post_status = 'dp-rewrite-republish' OR wp_posts.post_status = 'private') GROUP BY wp_posts.post_title, wp_posts.post_date $orderby LIMIT 0, 100";
-    error_log($sql);
+    //error_log($sql);
     $pageposts = $wpdb->get_results($sql);
     $posts = [];
     if(1 == 1){
