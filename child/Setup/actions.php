@@ -101,3 +101,20 @@ function otis_ajax_pagination() {
 	echo json_encode( $results );
 	exit;
 }	
+
+add_action('acf/init',  __NAMESPACE__ . '\acf_add_cities_page');
+function acf_add_cities_page() {
+
+    // Check function exists.
+    if( function_exists('acf_add_options_page') ) {
+
+        // Register options page.
+        $option_page = acf_add_options_page(array(
+            'page_title'    => __('Region Cities'),
+            'menu_title'    => __('Region Cities'),
+            'menu_slug'     => 'region-cities',
+            'capability'    => 'edit_posts',
+            'redirect'      => false
+        ));
+    }
+}
