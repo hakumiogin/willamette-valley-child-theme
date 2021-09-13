@@ -35,7 +35,9 @@
 
 use function Madden\Theme\Child\Setup\get_otis_posts;
 $categories = get_field('map_categories');
+print_r($categories);
     $pageposts = get_otis_posts( $categories );
+    print_r(    $pageposts);
     $listings = [];
     foreach ($pageposts as $array ) {
         $post_id = $array[0];
