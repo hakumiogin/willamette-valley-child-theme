@@ -64,7 +64,7 @@ function get_cities_from_region( $region ){
 //	return $regions[$region];
 	return $region_cities;
 }
-function get_otis_posts( $categories = null , $regions = null, $dateSort = null ){
+function get_otis_posts( $categories = null , $regions = null, $dateSort = null, $limit = 100 ){
     $taxonomy_name = 'type';
     $terms = [];
     $city_meta = [];
@@ -113,7 +113,7 @@ function get_otis_posts( $categories = null , $regions = null, $dateSort = null 
     }
     global $wpdb;
     $sql = "SELECT max(wp_posts.ID) AS ID FROM wp_posts LEFT JOIN wp_postmeta c 
-        ON (wp_posts.ID = c.post_id) LEFT JOIN wp_term_relationships ON (wp_posts.ID = wp_term_relationships.object_id) WHERE " . $city_WHERE . $in_terms . " wp_posts.post_type = 'poi' AND (wp_posts.post_status = 'publish' OR wp_posts.post_status = 'acf-disabled' OR wp_posts.post_status = 'dp-rewrite-republish' OR wp_posts.post_status = 'private') GROUP BY wp_posts.post_title, wp_posts.post_date $orderby LIMIT 0, 100";
+        ON (wp_posts.ID = c.post_id) LEFT JOIN wp_term_relationships ON (wp_posts.ID = wp_term_relationships.object_id) WHERE " . $city_WHERE . $in_terms . " wp_posts.post_type = 'poi' AND (wp_posts.post_status = 'publish' OR wp_posts.post_status = 'acf-disabled' OR wp_posts.post_status = 'dp-rewrite-republish' OR wp_posts.post_status = 'private') GROUP BY wp_posts.post_title, wp_posts.post_date $orderby LIMIT 0, " . $limit;
     //error_log($sql);
     $pageposts = $wpdb->get_results($sql);
     $posts = [];

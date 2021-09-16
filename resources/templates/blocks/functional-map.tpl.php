@@ -32,7 +32,7 @@
 
 use function Madden\Theme\Child\Setup\get_otis_posts;
 $categories = get_field('map_categories');
-    $pageposts = get_otis_posts( $categories );
+    $pageposts = get_otis_posts( $categories, null,null , 500);
     $listings = [];
     $filter_buttons = [];
     $filter_cats_all = [];
@@ -43,8 +43,10 @@ $categories = get_field('map_categories');
         $meta = get_post_meta( $post_id );
         $cats = wp_get_object_terms( $post_id, 'type' );
         foreach( $cats as $cat_array ){
-            $filter_cats[] = $cat_array->term_id;
-            $filter_cats_all[] = $cat_array->term_id;
+            if( in_array($cat_array->term_id, $categories )){
+                $filter_cats[] = $cat_array->term_id;
+                $filter_cats_all[] = $cat_array->term_id;
+            }
         }
         $popup = "<h3>" . $poi->post_title . "</h3><a href=''>View Website</a>";
         $long = "-123.105375";
