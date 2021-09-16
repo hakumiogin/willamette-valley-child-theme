@@ -11,7 +11,6 @@ import { mapJs } from './map'
 $(document).ready(() => {
 	navigationInit()
 	// AOS.init()
-	
 	layout()
 	slideshow()
 	anchorOffset(window.document, window.history, window.location)
