@@ -1,0 +1,128 @@
+.filters.otisFilters {
+	display: inline-block;
+	margin-top:24px;
+	.filter {
+		float:unset;
+		display:block;
+		position: relative;
+		margin: 15px 10px;
+		.filter__button {
+			position: relative;
+			background-color: $teal;
+			padding: 5px 40px 5px 10px;
+			color: $white;
+			text-decoration: none;
+			text-transform: uppercase;
+			letter-spacing: 3px;
+			min-width: 136px;
+			display: block;
+			&:hover {
+				background-color: $dark-teal;
+			}
+			&__trianglevoid::after {
+				content: "";
+				position: absolute;
+				right: 10px;
+				top: 50%;
+				z-index: 1;
+				transform: translateY(-50%);
+				display: inline-block;
+				width: 20px; 
+				height: 8px; 
+				border-left: 10px solid transparent;
+				border-right: 10px solid transparent;	
+				border-top: 8px solid $lime;
+			  }
+		}
+		.filter__content {
+			height: unset;
+			position: relative;
+
+			visibility: hidden;
+			pointer-events: none;
+			opacity: 0%;
+			width: fit-content;
+			min-width: 136px;
+			transition: .4s all;
+			transform: scaleY(.8);
+			a {
+				cursor:pointer;
+				&:first-child {
+					border-top: 1px solid $white;
+					padding-top: 10px;
+				}	
+				width: 100%;
+				text-transform: uppercase;
+				letter-spacing: 2px;
+				text-decoration: none;
+				background-color: $transparent-teal;
+				color:$white;
+				&:link, &:visited {
+					color: $white;
+				}
+				&:hover, &:focus, &.active {
+					background-color: $teal;
+					color: $white;
+				}
+				display: block;
+				padding: 5px 10px;
+			}
+		}
+		.show {
+			transform: scaleY(1);
+			visibility: visible;
+			opacity: 100%;
+			pointer-events: all;
+			height: fit-content;
+			transition: .4s all;
+		}
+	}
+	.hiddenfilter {
+		visibility: hidden;
+		pointer-events: none;
+		opacity: 0%;
+		height: 0px;
+		width: 0px;
+		margin: 0px;
+	}
+	.showfilter {
+		visibility: visible;
+		opacity: 100%;
+		pointer-events: all;
+		height: fit-content;
+		width: fit-content;
+		margin: 15px 10px;
+	}
+}
+@include screen-sm{
+	.filters.otisFilters{
+		display:inline-block;
+		padding-left:10%;
+		padding-right:10%;
+		width:100%;
+		.filter{
+			display:inline-block;
+			width: 100%;
+			margin:10px 0px;
+			&.hiddenfilter{
+				display:none;
+				&.showfilter{
+					display:inline-block;
+				}
+			}
+
+			.filter__button{
+				display:inline-block;
+				width: 100%;
+				padding: 15px;
+			}
+			.filter__content{
+				top:unset;
+				a{
+					background-color: rgba(0, 94, 98, 1);
+					padding:10px;
+				}
+			}
+		}
+	}
+}
