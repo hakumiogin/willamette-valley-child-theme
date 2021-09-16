@@ -136,7 +136,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     zoomOffset: -1,
     accessToken: 'pk.eyJ1IjoidHJpcGdyYXNzIiwiYSI6ImNrdDFxdTB1MDA5ZnEyb3BjMW80MmgweWEifQ.KtHsSQ0DOCXRsy1OA_oUJA'
 }).addTo(mymap);
-
+window.mymap = mymap;
 var locations = [
 
 <?php foreach($listings as $listing) : 
@@ -154,5 +154,5 @@ for (var i = 0; i < locations.length; i++) {
     marker.categories = locations[i][3];
     markers.push(marker);
 }
-
+window.markers = markers;
 </script>

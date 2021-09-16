@@ -5,12 +5,8 @@ export let mapJs = () => {
 		var $target = $(e.target),
 			cat = $target.data('term_id');
 		$target.addClass('active');
-		if( !markers ){
-			var markers = [];
-		}
-		if( !mymap ){
-			var mymap = [];
-		}
+		var markers = window.markers,
+			mymap = window.mymap;
 		if( cat == 'all'){
 			$.each(markers,function(k,v){
 				mymap.addLayer(v);
