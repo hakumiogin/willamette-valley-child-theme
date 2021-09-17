@@ -126,3 +126,28 @@
 		}
 	}
 }
+
+.region-toggle{
+	display:flex;
+	button{
+	    border: none;
+	    outline: none;
+	    padding: 14px 20px;
+	    font-size: 1.5em;
+	    font-family: "Buenard", serif;
+	    color: white;
+	    font-weight: 700;
+	    box-shadow: 1px 1px 7px -2px black;
+	    cursor: pointer;
+	    transition: .4s all;
+	    &#all{
+	    	background:#A2C4D0;
+	    }
+		&#north{
+			background:#533049;
+		}
+		&#south{
+			background:#b4bc33;
+		}
+	}
+}
