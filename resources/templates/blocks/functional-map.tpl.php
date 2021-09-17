@@ -124,7 +124,11 @@ $categories = get_field('map_categories');
 </div>
 
 <div class="functional-map" style="width:75%; display:inline-block;">
-    <h1><?php echo get_field('map_title'); ?></h1>
+    <div class="region-toggle">
+        <button id="all">Willamette</button>
+        <button id="north">North Valley</button>
+        <button id="south">South Valley</button>
+    </div>
     <div id="mapid"></div>
 </div>
 <script type="text/javascript">
@@ -157,4 +161,32 @@ for (var i = 0; i < locations.length; i++) {
     markers.push(marker);
 }
 window.markers = markers;
+var southLatlngs = [
+[44.64952030802673, -123.40158412890625],
+[44.644635176300845, -123.25601528125],
+[44.59184953854572, -123.25464199023438],
+[44.57033052130299, -123.07062099414063],
+[44.48613430594797, -123.0527682109375],
+[44.48417480634835, -123.3054537578125],
+[ 43.78417480634835,-122.3054537578125], 
+[43.78417480634835,-123.3054537578125], 
+[44.501807933192374, -123.40295741992188]
+];
+var southPolygon = L.polygon(southLatlngs, {color: '#b4bc33'});
+southPolygon.addTo(mymap);
+
+var northLatlngs = [
+    [44.76956500021106, -123.40570400195313],
+    [45.71867647895989,-123.31500556210082],
+    [45.71867647895989,-122.31500556210082],
+    [44.77833898265701, -123.16125820117188],
+    [44.771514889289115, -123.04315517382813],
+    [44.711037717470866, -123.04590175585938],
+    [44.585981505553306, -123.07062099414063],
+    [44.594783332883935, -123.22992275195313],
+    [44.661242945594374, -123.22236965136719],
+    [44.66661502916929, -123.39643428759766]
+];
+var northPolygon = L.polygon(northLatlngs, {color: '#533049'});
+northPolygon.addTo(mymap);
 </script>
