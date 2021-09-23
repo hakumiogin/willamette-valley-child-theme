@@ -3,7 +3,7 @@ import $ from "jquery"
 $(document).ready(function($) {
 	function loadMore( $el, $categories, $dateSort, $keyword, post_types ='poi', regions = null ){
 		/* global ajax_pagination  */
-		$el.addClass('loading').html('');
+		$el.addClass('loading').html('');		
 		$.ajax({
 			url: ajax_pagination.ajaxurl,
 			type: 'post',
@@ -112,7 +112,6 @@ $(document).ready(function($) {
 				regions.push( $(v).data('region') );
 			}
 		})
-		console.log(1);
 		var dateSort = $block.find('.dateDropdown .dropdown_select.active').html();
 		loadMore( slider,  categories, dateSort,'','',regions);
 

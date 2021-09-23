@@ -114,7 +114,8 @@ function get_otis_posts( $categories = null , $regions = null, $dateSort = null,
     global $wpdb;
     $sql = "SELECT max(wp_posts.ID) AS ID FROM wp_posts LEFT JOIN wp_postmeta c 
         ON (wp_posts.ID = c.post_id) LEFT JOIN wp_term_relationships ON (wp_posts.ID = wp_term_relationships.object_id) WHERE " . $city_WHERE . $in_terms . " wp_posts.post_type = 'poi' AND (wp_posts.post_status = 'publish' OR wp_posts.post_status = 'acf-disabled' OR wp_posts.post_status = 'dp-rewrite-republish' OR wp_posts.post_status = 'private') GROUP BY wp_posts.post_title, wp_posts.post_date $orderby LIMIT 0, " . $limit;
-    //error_log($sql);
+    error_log($sql);
+    //	    echo $sql;
     $pageposts = $wpdb->get_results($sql);
     $posts = [];
     if(1 == 1){
@@ -135,14 +136,25 @@ function get_otis_posts( $categories = null , $regions = null, $dateSort = null,
     }
     return $posts;
 }
+function is_event($post_id){
+	$types = get_the_terms( $post_id, 'type' );
+	foreach( $types as $type){
+		if("event-type" == $type->slug){
+			return true;
+		}
+	}
+}
 function build_otis_slider( $posts ){
 	$colors = card_colors();
 	$output = '<div class="slider category-slider">';
     $i = 0;
     $has_events = 0;
     if( is_array( $posts ) &&  count($posts)> 0 ){
+
 	    foreach ($posts as $the_post):
 	        $post_id = $the_post[0];
+	        if(is_event($post_id)){
+			}
 	        $postobject = get_post($post_id);
 	        $links = get_field("links", $postobject);
 	        if ($links) {
@@ -159,9 +171,11 @@ function build_otis_slider( $posts ){
 	        if ($date){
 	        	$has_events = 1;
 	            $dateTime = \DateTime::createFromFormat('d/m/Y', $date);
-	            if (new \DateTime() > $dateTime){
-	                continue;
-	            }
+	            if( is_event($post_id)){
+		            if (new \DateTime() > $dateTime){
+		                continue;
+	    	        }
+	    	    }
 	            $formatted_date = $dateTime->format('F j Y');
 	            $output .= '<div class="category-slider__item">';
 	            $output .= '<a href="'.$link.'" target="_blank">';    
@@ -205,7 +219,8 @@ function build_otis_slider( $posts ){
 	$result = [
 		'output' => $output,
 		'has_events' => $has_events,
-		'post_count' => count($posts)
+		'post_count' => count($posts),
+		'posts' => $posts
 	];
 	return $result;
 }
