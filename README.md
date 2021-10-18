@@ -1,5 +1,11 @@
 # Theme for Willamettevalley.org.
 
+This theme is a fully block based theme, built using only a single template file. I had the idea that blocks were meant to be composable (ie, blocks used inside of blocks, allowing for very complicated layouts in the editor), so the entire site is built with that idea in mind. The composable blocks were preconfigured as block patterns. This gives the users a remarkable amount of power, but also had the downside that user generated patterns do not have classes, meaning there is an abudence of SASS and JS that targets very specific html configurations. It's also meant that most new block design proprosals have been possible to make in the editor, without additional styles, generated or otherwise.
+
+Lastly, this site was built as a child theme of the Tonik Starter theme (https://labs.tonik.pl/theme/), which this theme relies on a heavily modified version of to run properly. Lastly, Tonik's templating system is broken (or ill conceived), and some of the templating code is misplaced because of it.
+
+I am resposible for almost all of the code in this repo, though I work with other developers, especially on the backend things.
+
 ## Contents
 
 1	Clone and build the site
